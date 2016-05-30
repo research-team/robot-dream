@@ -27,9 +27,27 @@
     
 
 
+    <!-- http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#hasInfluenceOn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#hasInfluenceOn"/>
+    
+
+
     <!-- http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#hasProperty -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#hasProperty"/>
+    
+
+
+    <!-- http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#isImplementedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#isImplementedIn"/>
+    
+
+
+    <!-- http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#isUsedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#isUsedIn"/>
     
 
 
@@ -48,6 +66,14 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Active">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Life"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Anger -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Anger">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Emotions"/>
     </owl:Class>
     
 
@@ -123,6 +149,14 @@
     
 
 
+    <!-- http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Contempt -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Contempt">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Emotions"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Cortical_column -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Cortical_column">
@@ -150,7 +184,6 @@
     <!-- http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Decision_making -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Decision_making">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Emotions"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Neucortex"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Neuro"/>
     </owl:Class>
@@ -177,6 +210,14 @@
     <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Differentiation">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Neuron"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Distress -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Distress">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Emotions"/>
     </owl:Class>
     
 
@@ -214,6 +255,18 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Emotions">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Biology"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#hasInfluenceOn"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Decision_making"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#hasInfluenceOn"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Story_telling"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -222,6 +275,14 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#External_Representations">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Way2Think"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Fear -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Fear">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Emotions"/>
     </owl:Class>
     
 
@@ -254,6 +315,12 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Homeostatic">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Life"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#hasInfluenceOn"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Instinctive"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -303,9 +370,6 @@
     <!-- http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Instinctive -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Instinctive">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Homeostatic"/>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Reaction"/>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Reflex_arc"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#very_small"/>
     </owl:Class>
     
@@ -316,6 +380,12 @@
     <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Interest">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Curiosity"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Emotions"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#hasInfluenceOn"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Learned"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -324,6 +394,14 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Interneuron">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Neuron"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Joy -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Joy">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Emotions"/>
     </owl:Class>
     
 
@@ -345,10 +423,7 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Brain_wave"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Curiosity"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Hebbian_learning"/>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Interest"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Mirror"/>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Reaction"/>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Self-organizing"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#small"/>
     </owl:Class>
     
@@ -514,6 +589,20 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Prediction">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Cortical_column"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#isUsedIn"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Proaction"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Proaction -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Proaction">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Active"/>
     </owl:Class>
     
 
@@ -538,6 +627,18 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Active"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Life"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Model_of_six"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#isImplementedIn"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Instinctive"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#isImplementedIn"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Learned"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -567,6 +668,18 @@
     <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Reflex_arc">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Differentiation"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Neuron"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#hasInfluenceOn"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Instinctive"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#isUsedIn"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Reaction"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -632,6 +745,24 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Self-organizing">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Life"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#hasInfluenceOn"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Learned"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#isImplementedIn"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Instinctive"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#isImplementedIn"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Learned"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -648,6 +779,14 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Sensor">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Neuron"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Shame -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Shame">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Emotions"/>
     </owl:Class>
     
 
@@ -671,9 +810,16 @@
     <!-- http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Story_telling -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Story_telling">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Emotions"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Psychology"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Symbols"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Surprise -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Surprise">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Emotions"/>
     </owl:Class>
     
 

@@ -22,7 +22,33 @@ data Interaction next = Output Command next
 type Script = Free Interaction
 
 
-class Driver m where
+forward :: Double -> Script ()
+forward d = liftF $ Output (Forward d) ()
+
+backward :: Double -> Script ()
+backward d = liftF $ Output (Backward d) ()
+
+clockwise :: Double -> Script ()
+clockwise d = liftF $ Output (Clockwise d) ()
+
+cclockwise :: Double -> Script ()
+cclockwise d = liftF $ Output (CClockwise d) ()
+
+readInput :: Script Reading
+readInput = liftF (Input id)
+
+
+class Monad m => Driver m where
   initialize :: m ()
   output :: Command -> m ()
   input  :: m Reading
+
+
+run :: Driver m => Script a -> m a
+run (Pure a) = return a
+run (Free (Output cmd next)) = do
+    output cmd
+    run next
+run (Free (Input f)) = do
+    i <- input
+    run $ f i

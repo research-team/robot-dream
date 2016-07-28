@@ -9,5 +9,8 @@ instance Driver IO where
 
   input = do
     l <- getLine
-    let (s1:s2:_) = words l
-    return $ Custom s1 s2 -- FIXME: case by the first string
+    let (s1 : s2 : rest) = words l
+    case s1 of
+        "Barrier" -> return $ Barrier (read s2)
+        "Light"   -> return $ Light (read s2)
+        _         -> return $ Custom s1 (unwords $ s2:rest)

@@ -7,9 +7,9 @@ instance Driver IO where
 
   output = print
 
-  input = do
-    l <- getLine
-    let (s1 : s2 : rest) = words l
+  input val = do
+--    l <- getLine
+    let (s1 : s2 : rest) = words val
     case s1 of
         "Barrier" -> return $ Barrier (read s2)
         "Light"   -> return $ Light (read s2)

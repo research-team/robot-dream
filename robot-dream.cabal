@@ -19,8 +19,10 @@ library
                      , Commands
                      , Rules
                      , Driver.Console
+                     , Driver.Interpreter_v2
   build-depends:       base >= 4.7 && < 5
                      , free
+                     , NXT
   default-language:    Haskell2010
 
 executable robot-dream-exe

@@ -3,6 +3,7 @@ module Commands where
 
 import Control.Monad.Free
 
+import System
 
 data Command = Forward    Double -- move forward d centimeters
              | Backward   Double -- move backward d centimeters
@@ -17,24 +18,24 @@ data Reading = Barrier     Bool          -- whether robot hit some barrier or no
              | Custom      String String -- reading from custom sensor with given description and serialized value
 	    deriving (Eq,Show)
 
-data Interaction next = Output Command next
+data Interaction next = Output Characteristics Command next
                       | Input String (Reading -> next)
                       deriving (Functor)
 
 type Script = Free Interaction
 
 
-forward :: Double -> Script ()
-forward d = liftF $ Output (Forward d) ()
+forward :: Characteristics -> Double -> Script ()
+forward chrs d = liftF $ Output chrs (Forward d) ()
 
-backward :: Double -> Script ()
-backward d = liftF $ Output (Backward d) ()
+backward :: Characteristics -> Double -> Script ()
+backward chrs d = liftF $ Output chrs (Backward d) ()
 
-clockwise :: Double -> Script ()
-clockwise d = liftF $ Output (Clockwise d) ()
+clockwise :: Characteristics -> Double -> Script ()
+clockwise chrs d = liftF $ Output chrs (Clockwise d) ()
 
-cclockwise :: Double -> Script ()
-cclockwise d = liftF $ Output (CClockwise d) ()
+cclockwise :: Characteristics -> Double -> Script ()
+cclockwise chrs d = liftF $ Output chrs (CClockwise d) ()
 
 readInput :: String -> Script Reading
 readInput port = liftF (Input port id)
@@ -42,14 +43,14 @@ readInput port = liftF (Input port id)
 
 class Monad m => Driver m where
   initialize :: m ()
-  output :: Command -> m ()
+  output :: Characteristics -> Command -> m ()
   input  :: String -> m Reading
 
 
 run :: Driver m => Script a -> m a
 run (Pure a) = return a
-run (Free (Output cmd next)) = do
-    output cmd
+run (Free (Output chrs cmd next)) = do
+    output chrs cmd
     run next
 run (Free (Input v f)) = do
     i <- input v

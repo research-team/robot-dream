@@ -20,9 +20,13 @@ library
                      , Rules
                      , Driver.Console
                      , Driver.Interpreter_v2
+                     , System
   build-depends:       base >= 4.7 && < 5
                      , free
                      , NXT
+                     , concurrent-extra
+                     , transformers
+                     , unbounded-delays
   default-language:    Haskell2010
 
 executable robot-dream-exe

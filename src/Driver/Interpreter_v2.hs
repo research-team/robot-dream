@@ -3,8 +3,11 @@ module Driver.Interpreter_v2 where
 import Control.Monad
 import Data.Int
 import Data.Fixed (mod')
+import Control.Concurrent.Thread.Delay (delay)
+import Control.Monad.IO.Class (liftIO)
 
 import Commands as Cmd
+import System
 
 import Robotics.NXT as N
 import Robotics.NXT.MotorControl
@@ -54,44 +57,59 @@ calcMPower dist
   | otherwise      = 100              -- If distance is greater than 3 meters, motor power wil be equal to 100.
 
 -- Calculating motor power for rotating
-calcTPower :: Double -> Int
-calcTPower angle
-  | angle >  pi2 = calcTPower $ mod' angle pi                              -- As each angle can be represented in [2*pi*k+fi] view,
+-- calcTPower :: Double -> Int
+-- calcTPower angle
+--  | angle >  pi2 = calcTPower $ mod' angle pi                              -- As each angle can be represented in [2*pi*k+fi] view,
                                                                            -- so function calculates fi and calls itself with it as argument.
-  | angle == pi  = 50                                                      -- This is a central point of this function, called tpunit.
-  | otherwise    = (min 100) . (+1) . round . (*api) $ fromIntegral tpunit -- Each angle in radians can be represented in [a*pi/b] view, and function uses this fact in rule below:
+--  | angle == pi  = 50                                                      -- This is a central point of this function, called tpunit.
+--  | otherwise    = (min 100) . (+1) . round . (*api) $ fromIntegral tpunit -- Each angle in radians can be represented in [a*pi/b] view, and function uses this fact in rule below:
                                                                            --   f(x) = f(a*pi/b) = (a/b)*f(pi) .
 									   -- As value of motor power lies in [-100,100] interval, so the final view of function is:
 									   --   f(x) = min((a/b)*tpunit,100) .
 									   -- (!) Notice that the result value of function lies in [0,100] interval.
-  where pi2 = 2.0 * pi
-	api = angle / pi
+--  where pi2 = 2.0 * pi
+--	api = angle / pi
 
 -- Turn power unit
-tpunit :: Int
-tpunit = calcTPower pi
+-- tpunit :: Int
+-- tpunit = calcTPower pi
 
 calcPower :: Bool -> Double -> Int
-calcPower True  = calcTPower
-calcPower False = calcMPower
+calcPower True d  = 50 
+calcPower False d = calcMPower d
 
 -- Calculating tacho limit
 calcLimit :: Int -> Int64
-calcLimit = fromIntegral . (*20) . abs -- The multiplier 20 has been choosed randomly, because of characteristics of motor are unknown.
+calcLimit = fromIntegral . (*2) . abs
 
-startMotor :: Bool -> Bool -> Double -> NXT ()
-startMotor turn reverse val = do
+-- Function for calculeting a time that a robot is going to spend to complite a given task
+-- First argument means a kind of task: turning around or move?
+-- Second argument is a value that meaning depends on kind of task: in case of turning it represents an angle to rotate, in case of moving it is a distance to pass.
+-- Third one is a motor power.
+-- Last argument is a characteristics of the robot
+workTime :: Bool -> Double -> Int -> Characteristics -> Int
+workTime True angle power chrs = case chrs of -- TODO: write a concrete realization for case of turning
+  (Vehical r gms gwrs) -> 5
+  (Humanoid s t)       -> 5
+workTime False dist power chrs = case chrs of
+  (Vehical r gms gwrs) -> let rs  = gwrs . gms $ power
+                              div = 2.0*pi*r*rs
+                          in round . (/div) $ dist
+  (Humanoid s t)       -> let mult = dist/s in round . (*mult) $ t
+
+startMotor :: Characteristics -> Bool -> Bool -> Double -> NXT ()
+startMotor chrs turn reverse val = do
     controlledMotorCmd ports power limit [SmoothStart]
-    -- TODO: write a timer or something else what will stop the motor AFTER achieving a goal of task.
+    liftIO . delay . (*1000) . toInteger . (workTime turn val power) $ chrs
     controlledMotorCmd ports power limit [HoldBrake]
   where ports = if turn then [B] else [A]
         power = if reverse
-		then ( -(calcPower turn val))
+		then (-(calcPower turn val))
 		else (calcPower turn val)
         limit = calcLimit power
  
-applyCommand :: Cmd.Command -> NXT ()
-applyCommand (Cmd.Forward d)    = startMotor False False d
-applyCommand (Cmd.Backward d)   = startMotor False True d
-applyCommand (Cmd.Clockwise a)  = startMotor True False a
-applyCommand (Cmd.CClockwise a) = startMotor True True a
+applyCommand :: Characteristics -> Cmd.Command -> NXT ()
+applyCommand chrs (Cmd.Forward d)    = startMotor chrs False False d
+applyCommand chrs (Cmd.Backward d)   = startMotor chrs False True d
+applyCommand chrs (Cmd.Clockwise a)  = startMotor chrs True False a
+applyCommand chrs (Cmd.CClockwise a) = startMotor chrs True True a

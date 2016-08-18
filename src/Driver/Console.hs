@@ -5,7 +5,7 @@ import Commands
 instance Driver IO where
   initialize = return ()
 
-  output = print
+  output chrs = print
 
   input val = do
 --    l <- getLine

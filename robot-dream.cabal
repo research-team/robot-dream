@@ -18,7 +18,9 @@ library
   exposed-modules:     Lib
                      , Commands
                      , Rules
+                     , Driver.Console
   build-depends:       base >= 4.7 && < 5
+                     , free
   default-language:    Haskell2010
 
 executable robot-dream-exe

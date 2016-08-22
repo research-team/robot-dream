@@ -7,7 +7,7 @@ import Control.Concurrent.Thread.Delay (delay)
 import Control.Monad.IO.Class (liftIO)
 
 import Commands as Cmd
-import System
+import Configuration
 
 import Robotics.NXT as N
 import Robotics.NXT.MotorControl
@@ -30,7 +30,8 @@ convertData (InputValue _ _ _ sensor _ raw _ scaled _) = case sensor of
   Switch          -> Just $ Cmd.Barrier (if scaled == 1 then True else False)
   Reflection      -> Just $ Cmd.Light $ fromIntegral raw
   N.Temperature   -> Just $ Cmd.Temperature $ fromIntegral scaled
-  Angle           -> Just $ Cmd.Custom "Rotation" $ show scaled
+  Angle           -> Just $ Cmd.Custom "Rotation" $ show scaled -- TODO: try to understand a metric of data providing by NXT Angle sensor
+                                                                -- and after write a function for converting that metric to radians.
   N.SoundDB       -> Just $ Cmd.Sound $ fromIntegral scaled
   N.SoundDBA      -> Just $ Cmd.Sound $ fromIntegral scaled
   Lowspeed        -> Just $ Cmd.Custom "LowSpeed" $ show scaled
@@ -56,24 +57,6 @@ calcMPower dist
   | dist  <= 300.0 = round $ dist/3.0 -- If distance is less than or equal to 300 centimeters, motor power will be equal to whole part of division of distance by 3.0.
   | otherwise      = 100              -- If distance is greater than 3 meters, motor power wil be equal to 100.
 
--- Calculating motor power for rotating
--- calcTPower :: Double -> Int
--- calcTPower angle
---  | angle >  pi2 = calcTPower $ mod' angle pi                              -- As each angle can be represented in [2*pi*k+fi] view,
-                                                                           -- so function calculates fi and calls itself with it as argument.
---  | angle == pi  = 50                                                      -- This is a central point of this function, called tpunit.
---  | otherwise    = (min 100) . (+1) . round . (*api) $ fromIntegral tpunit -- Each angle in radians can be represented in [a*pi/b] view, and function uses this fact in rule below:
-                                                                           --   f(x) = f(a*pi/b) = (a/b)*f(pi) .
-									   -- As value of motor power lies in [-100,100] interval, so the final view of function is:
-									   --   f(x) = min((a/b)*tpunit,100) .
-									   -- (!) Notice that the result value of function lies in [0,100] interval.
---  where pi2 = 2.0 * pi
---	api = angle / pi
-
--- Turn power unit
--- tpunit :: Int
--- tpunit = calcTPower pi
-
 calcPower :: Bool -> Double -> Int
 calcPower True d  = 50 
 calcPower False d = calcMPower d
@@ -82,20 +65,30 @@ calcPower False d = calcMPower d
 calcLimit :: Int -> Int64
 calcLimit = fromIntegral . (*2) . abs
 
+-- Function for getting equivalnet value of angle if it is greater than or equal to 2pi. Argument is unsigned value.
+getAngle :: Double -> Double
+getAngle angle
+  | angle < 2.0*pi = angle
+  | otherwise      = angle `mod'` (2.0*pi)
+
 -- Function for calculeting a time that a robot is going to spend to complite a given task
 -- First argument means a kind of task: turning around or move?
 -- Second argument is a value that meaning depends on kind of task: in case of turning it represents an angle to rotate, in case of moving it is a distance to pass.
 -- Third one is a motor power.
 -- Last argument is a characteristics of the robot
 workTime :: Bool -> Double -> Int -> Characteristics -> Int
-workTime True angle power chrs = case chrs of -- TODO: write a concrete realization for case of turning
-  (Vehical r gms gwrs) -> 5
-  (Humanoid s t)       -> 5
+workTime True angle power chrs = case chrs of
+  (Vehical wr dbr gms gwrs)  -> let rs  = gwrs . gms $ power
+                                    div = 2.0*pi*wr*rs
+				    fi  = getAngle angle
+			        in round . (/div) $ fi * dbr
+  (Humanoid _ _ lrs)         -> let fi = getAngle angle
+                                in (*2) . round . (/lrs) $ fi
 workTime False dist power chrs = case chrs of
-  (Vehical r gms gwrs) -> let rs  = gwrs . gms $ power
-                              div = 2.0*pi*r*rs
-                          in round . (/div) $ dist
-  (Humanoid s t)       -> let mult = dist/s in round . (*mult) $ t
+  (Vehical wr _ gms gwrs) -> let rs  = gwrs . gms $ power
+                                 div = 2.0*pi*wr*rs*100.0 -- As metric of argument 'dist' is in centimeters, so it has to be divided by 100 to convert metric into meters.
+                             in round . (/div) $ dist
+  (Humanoid sl st _ )     -> let mult = dist/(100.0*sl) in round . (*mult) $ st
 
 startMotor :: Characteristics -> Bool -> Bool -> Double -> NXT ()
 startMotor chrs turn reverse val = do

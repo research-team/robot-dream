@@ -20,7 +20,7 @@ library
                      , Rules
                      , Driver.Console
                      , Driver.Interpreter_v2
-                     , System
+                     , Configuration
   build-depends:       base >= 4.7 && < 5
                      , free
                      , NXT

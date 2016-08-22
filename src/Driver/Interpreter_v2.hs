@@ -1,13 +1,16 @@
 module Driver.Interpreter_v2 where
 
-import Control.Monad
 import Data.Int
 import Data.Fixed (mod')
+import Data.Maybe (fromMaybe)
 import Control.Concurrent.Thread.Delay (delay)
+import Control.Monad
 import Control.Monad.IO.Class (liftIO)
+import Data.IORef (IORef, newIORef, readIORef, writeIORef)
+import System.IO.Unsafe (unsafePerformIO)
 
 import Commands as Cmd
-import System
+import Configuration
 
 import Robotics.NXT as N
 import Robotics.NXT.MotorControl
@@ -16,9 +19,11 @@ import Robotics.NXT.MotorControl
 -- # NXT driver
 
 instance Cmd.Driver NXT where
-  initialize = startMotorControlProgram
-  output     = applyCommand
-  input      = readPort . read 
+  initialize cfg = do
+    liftIO $ writeIORef robotConfigRef cfg
+    startMotorControlProgram
+  output = applyCommand
+  input  = readPort . read
 
 
 -- # Reading and converting data from sensor
@@ -27,7 +32,7 @@ convertData :: InputValue -> Maybe Cmd.Reading
 convertData (InputValue _ _ _ sensor _ raw _ scaled _) = case sensor of
   NoSensor        -> Nothing
   NoOfSensorTypes -> Nothing
-  Switch          -> Just $ Cmd.Barrier (if scaled == 1 then True else False)
+  Switch          -> Just $ Cmd.Barrier (scaled == 1)
   Reflection      -> Just $ Cmd.Light $ fromIntegral raw
   N.Temperature   -> Just $ Cmd.Temperature $ fromIntegral scaled
   Angle           -> Just $ Cmd.Custom "Rotation" $ show scaled
@@ -38,12 +43,8 @@ convertData (InputValue _ _ _ sensor _ raw _ scaled _) = case sensor of
   N.Custom        -> Just $ Cmd.Custom "Custom" $ show scaled
 
 readPort :: InputPort -> NXT Cmd.Reading
-readPort port = liftM conv val
-  where val  = getInputValues port
-        fun  = \x -> case x of
-          Nothing -> error "No data."
-          Just a  -> a
-        conv = fun . convertData
+readPort = liftM conv . getInputValues
+  where conv = fromMaybe (error "No data.") . convertData
 
 
 -- # Converting and applying Commands
@@ -64,9 +65,9 @@ calcMPower dist
 --  | angle == pi  = 50                                                      -- This is a central point of this function, called tpunit.
 --  | otherwise    = (min 100) . (+1) . round . (*api) $ fromIntegral tpunit -- Each angle in radians can be represented in [a*pi/b] view, and function uses this fact in rule below:
                                                                            --   f(x) = f(a*pi/b) = (a/b)*f(pi) .
-									   -- As value of motor power lies in [-100,100] interval, so the final view of function is:
-									   --   f(x) = min((a/b)*tpunit,100) .
-									   -- (!) Notice that the result value of function lies in [0,100] interval.
+                     -- As value of motor power lies in [-100,100] interval, so the final view of function is:
+                     --   f(x) = min((a/b)*tpunit,100) .
+                     -- (!) Notice that the result value of function lies in [0,100] interval.
 --  where pi2 = 2.0 * pi
 --	api = angle / pi
 
@@ -75,7 +76,7 @@ calcMPower dist
 -- tpunit = calcTPower pi
 
 calcPower :: Bool -> Double -> Int
-calcPower True d  = 50 
+calcPower True d  = 50
 calcPower False d = calcMPower d
 
 -- Calculating tacho limit
@@ -87,29 +88,36 @@ calcLimit = fromIntegral . (*2) . abs
 -- Second argument is a value that meaning depends on kind of task: in case of turning it represents an angle to rotate, in case of moving it is a distance to pass.
 -- Third one is a motor power.
 -- Last argument is a characteristics of the robot
-workTime :: Bool -> Double -> Int -> Characteristics -> Int
-workTime True angle power chrs = case chrs of -- TODO: write a concrete realization for case of turning
-  (Vehical r gms gwrs) -> 5
-  (Humanoid s t)       -> 5
-workTime False dist power chrs = case chrs of
-  (Vehical r gms gwrs) -> let rs  = gwrs . gms $ power
-                              div = 2.0*pi*r*rs
+workTime :: Bool -> Double -> Int -> RobotConfig -> Int
+workTime True angle power (Vehical _) = 5 -- TODO: write a concrete realization for case of turning
+workTime True angle power (Humanoid _) = 5 -- TODO: write a concrete realization for case of turning
+workTime False dist power (Vehical (VehicalConfig r gms gwrs)) = let
+                            rs  = gwrs $ gms power
+                            div = 2.0*pi*r*rs
                           in round . (/div) $ dist
-  (Humanoid s t)       -> let mult = dist/s in round . (*mult) $ t
+workTime False dist power (Humanoid (HumanoidConfig s t)) = let mult = dist/s in round . (*mult) $ t
 
-startMotor :: Characteristics -> Bool -> Bool -> Double -> NXT ()
-startMotor chrs turn reverse val = do
+startMotor :: Bool -> Bool -> Double -> NXT ()
+startMotor turn reverse val = do
+    chrs <- getRobotConfig
     controlledMotorCmd ports power limit [SmoothStart]
-    liftIO . delay . (*1000) . toInteger . (workTime turn val power) $ chrs
+    liftIO . delay . (*1000) . toInteger $ workTime turn val power chrs
     controlledMotorCmd ports power limit [HoldBrake]
   where ports = if turn then [B] else [A]
         power = if reverse
-		then (-(calcPower turn val))
-		else (calcPower turn val)
+                 then (-(calcPower turn val))
+                 else calcPower turn val
         limit = calcLimit power
- 
-applyCommand :: Characteristics -> Cmd.Command -> NXT ()
-applyCommand chrs (Cmd.Forward d)    = startMotor chrs False False d
-applyCommand chrs (Cmd.Backward d)   = startMotor chrs False True d
-applyCommand chrs (Cmd.Clockwise a)  = startMotor chrs True False a
-applyCommand chrs (Cmd.CClockwise a) = startMotor chrs True True a
+
+applyCommand :: Cmd.Command -> NXT ()
+applyCommand (Cmd.Forward d)    = startMotor False False d
+applyCommand (Cmd.Backward d)   = startMotor False True d
+applyCommand (Cmd.Clockwise a)  = startMotor True False a
+applyCommand (Cmd.CClockwise a) = startMotor True True a
+
+{-# NOINLINE robotConfigRef #-}
+robotConfigRef :: IORef RobotConfig
+robotConfigRef = unsafePerformIO $ newIORef defaultRobotConfig
+
+getRobotConfig :: NXT RobotConfig
+getRobotConfig = liftIO $ readIORef robotConfigRef

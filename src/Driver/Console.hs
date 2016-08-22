@@ -3,9 +3,9 @@ module Driver.Console where
 import Commands
 
 instance Driver IO where
-  initialize = return ()
+  initialize _ = return ()
 
-  output chrs = print
+  output = print
 
   input val = do
 --    l <- getLine

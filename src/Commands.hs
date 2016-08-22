@@ -3,7 +3,7 @@ module Commands where
 
 import Control.Monad.Free
 
-import System
+import Configuration 
 
 data Command = Forward    Double -- move forward d centimeters
              | Backward   Double -- move backward d centimeters

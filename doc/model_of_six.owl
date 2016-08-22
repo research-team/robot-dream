@@ -236,7 +236,6 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Deliberative"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Hebbian_learning"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Instinctive"/>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Interneuron"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Learned"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Motor"/>
     </owl:Class>
@@ -306,7 +305,13 @@
     <!-- http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Hebbian_learning -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Hebbian_learning">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Neuron"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Learned"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#isImplementedIn"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Neuron"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -341,8 +346,18 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Instinctive"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Learned"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Pattern_matching"/>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Polychronisation"/>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Sensor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#isImplementedIn"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Polychronisation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#isImplementedIn"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Sensor"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -394,6 +409,18 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Interneuron">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Neuron"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#isImplementedIn"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Do"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#isImplementedIn"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Then"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -422,9 +449,13 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Associativity"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Brain_wave"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Curiosity"/>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Hebbian_learning"/>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Mirror"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#small"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#isImplementedIn"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Learned"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -433,7 +464,6 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Life">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Biology"/>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Randomness"/>
     </owl:Class>
     
 
@@ -512,7 +542,12 @@
     <!-- http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Motor -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Motor">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Neuron"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#isImplementedIn"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Do"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -538,7 +573,6 @@
     <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Neuron">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Cell"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Neuro"/>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Randomness"/>
     </owl:Class>
     
 
@@ -580,7 +614,31 @@
     <!-- http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Polychronisation -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Polychronisation">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Neuron"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Neuro"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#hasInfluenceOn"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Circuit"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#hasInfluenceOn"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#If"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#hasInfluenceOn"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Then"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#isImplementedIn"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Neuron"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -617,6 +675,18 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Randomness">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Biology"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#hasInfluenceOn"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Life"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#hasInfluenceOn"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Neuron"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -779,6 +849,12 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Sensor">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Neuron"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#hasInfluenceOn"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#If"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -849,9 +925,13 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Deliberative"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Hebbian_learning"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Imagination"/>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Interneuron"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Planning"/>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Polychronisation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#isImplementedIn"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/max/ontologies/2015/4/model_of_six#Polychronisation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 

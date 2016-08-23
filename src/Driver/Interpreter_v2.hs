@@ -57,24 +57,6 @@ calcMPower dist
   | dist  <= 300.0 = round $ dist/3.0 -- If distance is less than or equal to 300 centimeters, motor power will be equal to whole part of division of distance by 3.0.
   | otherwise      = 100              -- If distance is greater than 3 meters, motor power wil be equal to 100.
 
--- Calculating motor power for rotating
--- calcTPower :: Double -> Int
--- calcTPower angle
---  | angle >  pi2 = calcTPower $ mod' angle pi                              -- As each angle can be represented in [2*pi*k+fi] view,
-                                                                           -- so function calculates fi and calls itself with it as argument.
---  | angle == pi  = 50                                                      -- This is a central point of this function, called tpunit.
---  | otherwise    = (min 100) . (+1) . round . (*api) $ fromIntegral tpunit -- Each angle in radians can be represented in [a*pi/b] view, and function uses this fact in rule below:
-                                                                           --   f(x) = f(a*pi/b) = (a/b)*f(pi) .
-                     -- As value of motor power lies in [-100,100] interval, so the final view of function is:
-                     --   f(x) = min((a/b)*tpunit,100) .
-                     -- (!) Notice that the result value of function lies in [0,100] interval.
---  where pi2 = 2.0 * pi
---	api = angle / pi
-
--- Turn power unit
--- tpunit :: Int
--- tpunit = calcTPower pi
-
 calcPower :: Bool -> Double -> Int
 calcPower True d  = 50
 calcPower False d = calcMPower d
@@ -83,15 +65,25 @@ calcPower False d = calcMPower d
 calcLimit :: Int -> Int64
 calcLimit = fromIntegral . (*2) . abs
 
+-- Function for calculating an equivalent value of angle if it's greater than or equal to 2pi. Argument is unsigned value.
+getAngle :: Double -> Double
+getAngle angle
+  | angle < 2.0*pi = angle
+  | otherwise      = angle `mod'` (2.0*pi)
+
 -- Function for calculeting a time that a robot is going to spend to complite a given task
 -- First argument means a kind of task: turning around or move?
 -- Second argument is a value that meaning depends on kind of task: in case of turning it represents an angle to rotate, in case of moving it is a distance to pass.
 -- Third one is a motor power.
 -- Last argument is a characteristics of the robot
 workTime :: Bool -> Double -> Int -> RobotConfig -> Int
-workTime True angle power (Vehical _) = 5 -- TODO: write a concrete realization for case of turning
-workTime True angle power (Humanoid _) = 5 -- TODO: write a concrete realization for case of turning
-workTime False dist power (Vehical (VehicalConfig r gms gwrs)) = let
+workTime True angle power (Vehical (VehicalConfig wr dbr gms gwrs)) = let
+                            rs  = gwrs $ gms power
+			    div = 2.0*pi*wr*rs
+			    fi  = getAngle angle
+			in round . (\div) . (*dbr) $ fi
+workTime True angle power (Humanoid conf) = let fi = getAngle angle in (*2) . round . (/lrs) $ fi
+workTime False dist power (Vehical (VehicalConfig r _ gms gwrs)) = let
                             rs  = gwrs $ gms power
                             div = 2.0*pi*r*rs
                           in round . (/div) $ dist

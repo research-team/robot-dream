@@ -79,9 +79,9 @@ getAngle angle
 workTime :: Bool -> Double -> Int -> RobotConfig -> Int
 workTime True angle power (Vehical (VehicalConfig wr dbr gms gwrs)) = let
                             rs  = gwrs $ gms power
-			    div = 2.0*pi*wr*rs
-			    fi  = getAngle angle
-			in round . (\div) . (*dbr) $ fi
+                            d = 2.0*pi*wr*rs
+                            fi  = getAngle angle
+                            in round . (/d) . (*dbr) $ fi
 workTime True angle power (Humanoid conf) = let fi = getAngle angle in (*2) . round . (/lrs) $ fi
 workTime False dist power (Vehical (VehicalConfig r _ gms gwrs)) = let
                             rs  = gwrs $ gms power

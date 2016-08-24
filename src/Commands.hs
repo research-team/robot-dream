@@ -41,6 +41,9 @@ cclockwise d = liftF $ Output (CClockwise d) ()
 readInput :: String -> Script Reading
 readInput port = liftF (Input port id)
 
+executeCommand :: Command -> Script ()
+executeCommand c = liftF $ Output c ()
+
 
 class Monad m => Driver m where
   initialize :: RobotConfig -> m ()

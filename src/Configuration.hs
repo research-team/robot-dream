@@ -6,7 +6,7 @@ data RobotConfig = Vehical  VehicalConfig
 
 data VehicalConfig = VehicalConfig {
                      wheelRadius            :: Double
-		   , distBetweenWheels      :: Double 
+                   , distBetweenWheels      :: Double
                    , calcMotorSpeed         :: Power -> MotorSpeed  -- This function calculates motor speed (rotations per second in other words) basing on given power.
                    , calcWheelRotationSpeed :: MotorSpeed -> Double -- This function calculates wheel rotation speed basing on given motor speed.
                    }
@@ -14,10 +14,10 @@ data VehicalConfig = VehicalConfig {
 data HumanoidConfig = HumanoidConfig {
                       stepLength       :: Double
                     , stepTime         :: Double
-		    , legRotationSpeed :: Double
+                    , legRotationSpeed :: Double
                     }
 
 type MotorSpeed = Double
 type Power = Int
 
-defaultRobotConfig = Vehical $ VehicalConfig 0.2 ((*1.8) . fromIntegral) (* 0.25)
+defaultRobotConfig = Vehical $ VehicalConfig 0.2 0.5 ((*1.8) . fromIntegral) (* 0.25)

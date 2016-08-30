@@ -81,13 +81,16 @@ workTime True angle power (Vehical (VehicalConfig wr dbr gms gwrs)) = let
                             rs  = gwrs $ gms power
                             d = 2.0*pi*wr*rs
                             fi  = getAngle angle
-                            in round . (/d) . (*dbr) $ fi
-workTime True angle power (Humanoid conf) = let fi = getAngle angle in (*2) . round . (/lrs) $ fi
+                          in round . (/d) . (*dbr) $ fi
+workTime True angle power (Humanoid conf) = let 
+                            fi  = getAngle angle
+                            lrs = legRotationSpeed conf
+			  in (*2) . round . (/lrs) $ fi
 workTime False dist power (Vehical (VehicalConfig r _ gms gwrs)) = let
                             rs  = gwrs $ gms power
                             div = 2.0*pi*r*rs
                           in round . (/div) $ dist
-workTime False dist power (Humanoid (HumanoidConfig s t)) = let mult = dist/s in round . (*mult) $ t
+workTime False dist power (Humanoid (HumanoidConfig s t _)) = let mult = dist/s in round . (*mult) $ t
 
 startMotor :: Bool -> Bool -> Double -> NXT ()
 startMotor turn reverse val = do

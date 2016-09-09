@@ -2,10 +2,9 @@
 
 ##Problem
 
-There are several cognitive architectures that implement emotion phenomena,
-some of the most notable are listed in section 5. Rather than implementing the
-emotional model in a computational system, we re-implemented the neurobiolog-
-ical basis of emotions using simulation [30]. This was done to create a biologically
+Rather than implementing the
+emotional model in a computational system, we re-implemented the neurobiological 
+basis of emotions using simulation [30]. This was done to create a biologically
 plausible approach and to validate the results of our simulations from neurobio-
 logical perspective. The other way around could not provide proper evidence that
 the result could be regarded as emotional phenomenon. We used the model of
@@ -19,15 +18,14 @@ and computational capacity to run realistic simulations of human brain activity.
 For example, this is computational resources of rather advanced bipedal
 robotic platform AR-601:
 
-– CPU — 4th Gen Intel Core i7-4700EQ 4-Core 3.4GHz processor;
-– System Memory — 1 x204-Pin DDR3L 1333MHz SO-DIMM up to 8 GB;
+* CPU — 4th Gen Intel Core i7-4700EQ 4-Core 3.4GHz processor;
+* System Memory — 1 x204-Pin DDR3L 1333MHz SO-DIMM up to 8 GB;
 
 However the simulation of 1% of human brain required a cluster of 250 K-
 supercomputers (each contains 96 computing nodes, each node contains a 2.0
 GHz 8-core SPARC64 processor and 16 GB of memory) that was done by RIKEN
 institute in 2013 and this simulation was slower than human brain in 1000 times
-[12]. According to the estimates of the Human brain project the computationalcapacity to simulate whole human brain should be 30 exaflop that is not feasible
-at the moment.
+[12]. According to the estimates of the Human brain project the computationalcapacity to simulate whole human brain should be 30 exaflop that is not feasible at the moment.
 
 Therefore realistic simulation even for parts of mammalian brain involved
 into neuromodulation processes leading to emotional reactions cannot be done in

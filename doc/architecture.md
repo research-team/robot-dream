@@ -44,7 +44,7 @@ Overall robotic system life-cycle is divided into two phases: wake (day) and sle
 
 ### Translation
 
-![](HL_Translations.png)
+![High level translations](HL_Translations.png)
 
 ##HLD
 
@@ -53,15 +53,15 @@ Overall robotic system life-cycle is divided into two phases: wake (day) and sle
 ###Components
 
 ####Robot life cycle
-![](HLD_Component_RobotLifeCycle.png)
+![High level design components of robot life cycle](HLD_Component_RobotLifeCycle.png)
 
 ####Sleeping brain
 
-![](HLD_Component_SleepingBrainLifeCycle.png)
+![High level design components of the "sleeping brain"](HLD_Component_SleepingBrainLifeCycle.png)
 
 ###Activity
 
-![](HLD_Activity_Synchronisation.png)
+![High level design activity diagram](HLD_Activity_Synchronisation.png)
 
 ---
 

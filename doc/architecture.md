@@ -5,8 +5,8 @@
 Rather than implementing the
 emotional model in a computational system, we re-implemented the neurobiological 
 basis of emotions using simulation [30]. This was done to create a biologically
-plausible approach and to validate the results of our simulations from neurobio-
-logical perspective. The other way around could not provide proper evidence that
+plausible approach and to validate the results of our simulations from neurobiological 
+perspective. The other way around could not provide proper evidence that
 the result could be regarded as emotional phenomenon. We used the model of
 basic mechanisms of a mammalian brain via neuromodulation and their mapping
 to basic affective states [14, 26, 27, 28, 29]. We used the realistic spiking neural
@@ -23,20 +23,25 @@ robotic platform AR-601:
 
 However the simulation of 1% of human brain required a cluster of 250 K-
 supercomputers (each contains 96 computing nodes, each node contains a 2.0
-GHz 8-core SPARC64 processor and 16 GB of memory) that was done by RIKEN
+GHz 8-core SPARC64 processor and 16 GB of memory) that was done by KEN
 institute in 2013 and this simulation was slower than human brain in 1000 times
-[12]. According to the estimates of the Human brain project the computationalcapacity to simulate whole human brain should be 30 exaflop that is not feasible at the moment.
+[12]. According to the estimates of the Human brain project the computational
+capacity to simulate whole human brain should be 30 exaflop that is not feasible 
+at the moment.
 
 Therefore realistic simulation even for parts of mammalian brain involved
 into neuromodulation processes leading to emotional reactions cannot be done in
 real-time even at scale of rat brain (not mention human brain) on an autonomous
-robotic platform. To combine autonomous control with advanced realistic emo-
-tional appraisal we propose life-cycle separation into “day” and “night” phases.
+robotic platform. To combine autonomous control with advanced realistic emotional 
+appraisal we propose life-cycle separation into “day” and “night” phases.
 
 ## Higlevel overview 
 
 ![High level overview](HL_Life_cycle.png)
-Overall robotic system life-cycle is divided into two parts 
+
+Overall robotic system life-cycle is divided into two parts arousal or day phase 
+
+![](HL_Translations.png)
 
 
 

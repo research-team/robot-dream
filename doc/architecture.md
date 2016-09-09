@@ -1,6 +1,10 @@
 # Robot Dream architecture
 
-## General overview
+## Higlevel overview 
+
+![High level overview](robot-dream.svg)
+
+
 
 ![](dream_diagram.jpg)
 

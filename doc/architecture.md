@@ -1,4 +1,4 @@
-# Robot Dream architecture
+#Robot Dream architecture
 
 ##Problem
 
@@ -35,15 +35,35 @@ real-time even at scale of rat brain (not mention human brain) on an autonomous
 robotic platform. To combine autonomous control with advanced realistic emotional 
 appraisal we propose life-cycle separation into “day” and “night” phases.
 
-## Higlevel overview 
+##Higlevel overview 
+
+###Life cycle
 
 ![High level overview](HL_Life_cycle.png)
+Overall robotic system life-cycle is divided into two phases: wake (day) and sleep (night).
 
-Overall robotic system life-cycle is divided into two parts arousal or day phase 
+### Translation
 
 ![](HL_Translations.png)
 
+##HLD
 
+###Use cases
+
+###Components
+
+####Robot life cycle
+![](HLD_Component_RobotLifeCycle.png)
+
+####Sleeping brain
+
+![](HLD_Component_SleepingBrainLifeCycle.png)
+
+###Activity
+
+![](HLD_Activity_Synchronisation.png)
+
+---
 
 ![](dream_diagram.jpg)
 

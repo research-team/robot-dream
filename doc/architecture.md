@@ -1,8 +1,44 @@
 # Robot Dream architecture
 
+##Problem
+
+There are several cognitive architectures that implement emotion phenomena,
+some of the most notable are listed in section 5. Rather than implementing the
+emotional model in a computational system, we re-implemented the neurobiolog-
+ical basis of emotions using simulation [30]. This was done to create a biologically
+plausible approach and to validate the results of our simulations from neurobio-
+logical perspective. The other way around could not provide proper evidence that
+the result could be regarded as emotional phenomenon. We used the model of
+basic mechanisms of a mammalian brain via neuromodulation and their mapping
+to basic affective states [14, 26, 27, 28, 29]. We used the realistic spiking neural
+networks with neuromodulation reconstructing all brain structures involved into
+the pathways of neuromodulators of the “cube of emotions” by Hugo Lövheim
+[14]. Unfortunately, current robotic systems usually do not have enough memory
+and computational capacity to run realistic simulations of human brain activity.
+
+For example, this is computational resources of rather advanced bipedal
+robotic platform AR-601:
+
+– CPU — 4th Gen Intel Core i7-4700EQ 4-Core 3.4GHz processor;
+– System Memory — 1 x204-Pin DDR3L 1333MHz SO-DIMM up to 8 GB;
+
+However the simulation of 1% of human brain required a cluster of 250 K-
+supercomputers (each contains 96 computing nodes, each node contains a 2.0
+GHz 8-core SPARC64 processor and 16 GB of memory) that was done by RIKEN
+institute in 2013 and this simulation was slower than human brain in 1000 times
+[12]. According to the estimates of the Human brain project the computationalcapacity to simulate whole human brain should be 30 exaflop that is not feasible
+at the moment.
+
+Therefore realistic simulation even for parts of mammalian brain involved
+into neuromodulation processes leading to emotional reactions cannot be done in
+real-time even at scale of rat brain (not mention human brain) on an autonomous
+robotic platform. To combine autonomous control with advanced realistic emo-
+tional appraisal we propose life-cycle separation into “day” and “night” phases.
+
 ## Higlevel overview 
 
-![High level overview](robot-dream.svg)
+![High level overview](HL_Life_cycle.png)
+Overall robotic system life-cycle is divided into two parts 
 
 
 

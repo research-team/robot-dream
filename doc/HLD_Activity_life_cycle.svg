@@ -1,0 +1,616 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:xhtml="http://www.w3.org/1999/xhtml"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="828"
+   height="322"
+   version="1.1"
+   content="&lt;mxfile userAgent=&quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/51.0.2704.79 Chrome/51.0.2704.79 Safari/537.36&quot; version=&quot;5.5.6.2&quot; editor=&quot;www.draw.io&quot; type=&quot;device&quot;&gt;&lt;diagram&gt;7VlNc9o8EP41XDMYJQaOJSXtoZ3plM68fY/CXmw1suWRxVd/fVb2yl9Am0yIMwzlgvRopV09etbWwoDdJ7tPmmfxVxWCHIyG4W7APg5GI++W3eKXRfYlMh16JRBpEZJRDSzEbyBwSOhahJC3DI1S0oisDQYqTSEwLYxrrbZts5WSba8Zj5zHGlgEXB6i/4nQxIR6/rQe+Awiisn1ZOSXA0sePEZarVPyNxixVfEphxPu1qKN5jEP1bYBsTnyqpXChW0r2d2DtNw62sp5DydGq7g1pBTanydQ2Bsu17R1isvsHRcQIjXUVdrEKlIpl/ManRX7BbviEHuxSSQ2PWz+AmP2dLp8bRRC9QpflMrIrvRpHZ3cBkG5WuuArChUw3UEZHVXUYjSBJWA0Xs00SC5EZv26pw0ElV2NU/YIKqO00auG7R9V0tlbnK+gfkuAy0gxTC7VNZE2V1vY2FgkfFiP1tMpDZ5lTRsJ1CJCIjglZDyXkmli0VZyGGywrFZbrR6hMaIH0xgucKRSPMQIzKNMcam0wfcLXG/AW3Ape8J9g95dRMYqZmyfULdbSN1fMLiRtY47DUnMblgARdqbQt43JOAyfWBgI3maY6+rlDFbPx+KnbvvYuUcaHZtoyL1+QrZFxM/aA1t7OcQaZEavLGyt8sUB+gP20foEcnWL37OvYV68ftsVFGUJ9gtZVnHSrxcpBjmeR7e0+4vhTzO4z3mmKH7+zLSTG6djZTzDtB9dlfFeS7xZsvMYpZnvEU25FtLyRAJtJoprlIj79GyknorjnvWu9I1cOnof0KO7v2qRy7SO2XQu+In/Ukfuf8ReqXNoLrlvutK3DfRe6XXNWW0u7Iva+61jl/kdw1oFRy+OGe+Vcu/XHnktOv9C+5Hi5l3pF+XxWxc/4X6ZdX+HUWotBnEPONUHqB1x0DEbrzeWJ1my5z+3XlieAPiVJKBOauQM1EYGRz9kSga+t5dI871vufhBed/23n5u7tc+JIdV2kdN/Vtdd5rDE6pVPVddfe9c9VXTtinpWvdCP7l52NXz86v5a8ZXZit/5Lozzr+n8jNn8C&lt;/diagram&gt;&lt;/mxfile&gt;"
+   id="svg2"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="hld_life_cycle.svg"
+   inkscape:export-filename="/home/max/Projects/robot-dream/doc/HLD_Activity_Synchronisation.png"
+   inkscape:export-xdpi="300"
+   inkscape:export-ydpi="300">
+  <metadata
+     id="metadata138">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1056"
+     id="namedview136"
+     showgrid="false"
+     inkscape:zoom="1.4669929"
+     inkscape:cx="418.47358"
+     inkscape:cy="164"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g22" />
+  <defs
+     id="defs4">
+    <linearGradient
+       x1="0%"
+       y1="0%"
+       x2="0%"
+       y2="100%"
+       id="mx-gradient-dae8fc-1-3399ff-1-s-0">
+      <stop
+         offset="0%"
+         style="stop-color:#dae8fc"
+         id="stop7" />
+      <stop
+         offset="100%"
+         style="stop-color:#3399FF"
+         id="stop9" />
+    </linearGradient>
+    <filter
+       id="dropShadow">
+      <feGaussianBlur
+         in="SourceAlpha"
+         stdDeviation="1.7"
+         result="blur"
+         id="feGaussianBlur12" />
+      <feOffset
+         in="blur"
+         dx="3"
+         dy="3"
+         result="offsetBlur"
+         id="feOffset14" />
+      <feFlood
+         flood-color="#3D4574"
+         flood-opacity="0.4"
+         result="offsetColor"
+         id="feFlood16" />
+      <feComposite
+         in="offsetColor"
+         in2="offsetBlur"
+         operator="in"
+         result="offsetBlur"
+         id="feComposite18" />
+      <feBlend
+         in="SourceGraphic"
+         in2="offsetBlur"
+         id="feBlend20" />
+    </filter>
+  </defs>
+  <g
+     transform="translate(0.5,0.5)"
+     filter="url(#dropShadow)"
+     id="g22">
+    <path
+       d="M 188 31 L 261.63 31"
+       fill="none"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path24" />
+    <path
+       d="M 266.88 31 L 259.88 34.5 L 261.63 31 L 259.88 27.5 Z"
+       fill="#000000"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path26" />
+    <rect
+       x="28"
+       y="1"
+       width="160"
+       height="60"
+       rx="9"
+       ry="9"
+       fill="#000000"
+       stroke="#000000"
+       transform="translate(2,3)"
+       opacity="0.25"
+       id="rect28" />
+    <rect
+       x="28"
+       y="1"
+       width="160"
+       height="60"
+       rx="9"
+       ry="9"
+       fill="url(#mx-gradient-dae8fc-1-3399ff-1-s-0)"
+       stroke="#6c8ebf"
+       pointer-events="none"
+       id="rect30" />
+    <g
+       transform="translate(47.5,24.5)"
+       id="g32">
+      <switch
+         id="switch34">
+        <foreignObject
+           style="overflow:visible;"
+           pointer-events="all"
+           width="120"
+           height="12"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 122px; white-space: nowrap; word-wrap: normal; text-align: center;">
+            <xhtml:div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Robot.saveExperience</xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="60"
+           y="12"
+           fill="#000000"
+           text-anchor="middle"
+           font-size="12px"
+           font-family="Helvetica"
+           id="text36">Robot.saveExperience</text>
+      </switch>
+    </g>
+    <path
+       d="M 428 31 L 501.63 31"
+       fill="none"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path38" />
+    <path
+       d="M 506.88 31 L 499.88 34.5 L 501.63 31 L 499.88 27.5 Z"
+       fill="#000000"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path40" />
+    <rect
+       x="268"
+       y="1"
+       width="160"
+       height="60"
+       rx="9"
+       ry="9"
+       fill="#000000"
+       stroke="#000000"
+       transform="translate(2,3)"
+       opacity="0.25"
+       id="rect42" />
+    <rect
+       x="268"
+       y="1"
+       width="160"
+       height="60"
+       rx="9"
+       ry="9"
+       fill="url(#mx-gradient-dae8fc-1-3399ff-1-s-0)"
+       stroke="#6c8ebf"
+       pointer-events="none"
+       id="rect44" />
+    <g
+       transform="translate(276.5,24.5)"
+       id="g46">
+      <switch
+         id="switch48">
+        <foreignObject
+           style="overflow:visible;"
+           pointer-events="all"
+           width="142"
+           height="12"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 142px; white-space: nowrap; word-wrap: normal; text-align: center;">
+            <xhtml:div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Robot.translateExperience</xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="71"
+           y="12"
+           fill="#000000"
+           text-anchor="middle"
+           font-size="12px"
+           font-family="Helvetica"
+           id="text50">Robot.translateExperience</text>
+      </switch>
+    </g>
+    <path
+       d="M 588 61 L 588 101 L 108 101 L 108 124.63"
+       fill="none"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path52" />
+    <path
+       d="M 108 129.88 L 104.5 122.88 L 108 124.63 L 111.5 122.88 Z"
+       fill="#000000"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path54" />
+    <rect
+       x="508"
+       y="1"
+       width="160"
+       height="60"
+       rx="9"
+       ry="9"
+       fill="#000000"
+       stroke="#000000"
+       transform="translate(2,3)"
+       opacity="0.25"
+       id="rect56" />
+    <rect
+       x="508"
+       y="1"
+       width="160"
+       height="60"
+       rx="9"
+       ry="9"
+       fill="url(#mx-gradient-dae8fc-1-3399ff-1-s-0)"
+       stroke="#6c8ebf"
+       pointer-events="none"
+       id="rect58" />
+    <g
+       transform="translate(516.5,24.5)"
+       id="g60">
+      <switch
+         id="switch62">
+        <foreignObject
+           style="overflow:visible;"
+           pointer-events="all"
+           width="142"
+           height="12"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 144px; white-space: nowrap; word-wrap: normal; text-align: center;">
+            <xhtml:div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Robot.playbackExperience</xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="71"
+           y="12"
+           fill="#000000"
+           text-anchor="middle"
+           font-size="12px"
+           font-family="Helvetica"
+           id="text64">Robot.playbackExperience</text>
+      </switch>
+    </g>
+    <path
+       d="M 238 161 L 311.63 161"
+       fill="none"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path66" />
+    <path
+       d="M 316.88 161 L 309.88 164.5 L 311.63 161 L 309.88 157.5 Z"
+       fill="#000000"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path68" />
+    <rect
+       x="28"
+       y="131"
+       width="210"
+       height="60"
+       rx="9"
+       ry="9"
+       fill="#000000"
+       stroke="#000000"
+       transform="translate(2,3)"
+       opacity="0.25"
+       id="rect70" />
+    <rect
+       x="28"
+       y="131"
+       width="210"
+       height="60"
+       rx="9"
+       ry="9"
+       fill="url(#mx-gradient-dae8fc-1-3399ff-1-s-0)"
+       stroke="#6c8ebf"
+       pointer-events="none"
+       id="rect72" />
+    <g
+       transform="translate(40.5,154.5)"
+       id="g74">
+      <switch
+         id="switch76">
+        <foreignObject
+           style="overflow:visible;"
+           pointer-events="all"
+           width="184"
+           height="12"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 186px; white-space: nowrap; word-wrap: normal; text-align: center;">
+            <xhtml:div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">
+              <xhtml:span>SleepingBrain.translateExperience</xhtml:span>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="92"
+           y="12"
+           font-size="12px"
+           id="text78"
+           style="font-size:12px;font-family:Helvetica;text-anchor:middle;fill:#000000">SleepingBrain.translateExperience</text>
+      </switch>
+    </g>
+    <path
+       d="M 528 161 L 601.63 161"
+       fill="none"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path80" />
+    <path
+       d="M 606.88 161 L 599.88 164.5 L 601.63 161 L 599.88 157.5 Z"
+       fill="#000000"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path82" />
+    <rect
+       x="318"
+       y="131"
+       width="210"
+       height="60"
+       rx="9"
+       ry="9"
+       fill="#000000"
+       stroke="#000000"
+       transform="translate(2,3)"
+       opacity="0.25"
+       id="rect84" />
+    <rect
+       x="318"
+       y="131"
+       width="210"
+       height="60"
+       rx="9"
+       ry="9"
+       fill="url(#mx-gradient-dae8fc-1-3399ff-1-s-0)"
+       stroke="#6c8ebf"
+       pointer-events="none"
+       id="rect86" />
+    <g
+       transform="translate(374.5,154.5)"
+       id="g88">
+      <switch
+         id="switch90">
+        <foreignObject
+           style="overflow:visible;"
+           pointer-events="all"
+           width="96"
+           height="12"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 98px; white-space: nowrap; word-wrap: normal; text-align: center;">
+            <xhtml:div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">
+              <xhtml:span>SleepingBrain.live</xhtml:span>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="48"
+           y="12"
+           font-size="12px"
+           id="text92"
+           style="font-size:12px;font-family:Helvetica;text-anchor:middle;fill:#000000">SleepingBrain.live</text>
+      </switch>
+    </g>
+    <path
+       d="M 713 191 L 713 221 L 621 221 L 621 244.63"
+       fill="none"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path94" />
+    <path
+       d="M 621 249.88 L 617.5 242.88 L 621 244.63 L 624.5 242.88 Z"
+       fill="#000000"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path96" />
+    <rect
+       x="608"
+       y="131"
+       width="210"
+       height="60"
+       rx="9"
+       ry="9"
+       fill="#000000"
+       stroke="#000000"
+       transform="translate(2,3)"
+       opacity="0.25"
+       id="rect98" />
+    <rect
+       x="608"
+       y="131"
+       width="210"
+       height="60"
+       rx="9"
+       ry="9"
+       fill="url(#mx-gradient-dae8fc-1-3399ff-1-s-0)"
+       stroke="#6c8ebf"
+       pointer-events="none"
+       id="rect100" />
+    <g
+       transform="translate(628.5,154.5)"
+       id="g102">
+      <switch
+         id="switch104">
+        <foreignObject
+           style="overflow:visible;"
+           pointer-events="all"
+           width="168"
+           height="12"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 168px; white-space: nowrap; word-wrap: normal; text-align: center;">
+            <xhtml:div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">
+              <xhtml:span>SleepingBrain.reverseTranslate</xhtml:span>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="84"
+           y="12"
+           font-size="12px"
+           id="text106"
+           style="font-size:12px;font-family:Helvetica;text-anchor:middle;fill:#000000">SleepingBrain.reverseTranslate</text>
+      </switch>
+    </g>
+    <path
+       d="M 503 281 L 429.37 281"
+       fill="none"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path108" />
+    <path
+       d="M 424.12 281 L 431.12 277.5 L 429.37 281 L 431.12 284.5 Z"
+       fill="#000000"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path110" />
+    <rect
+       x="503"
+       y="251"
+       width="235"
+       height="60"
+       rx="9"
+       ry="9"
+       fill="#000000"
+       stroke="#000000"
+       transform="translate(2,3)"
+       opacity="0.25"
+       id="rect112" />
+    <rect
+       x="503"
+       y="251"
+       width="235"
+       height="60"
+       rx="9"
+       ry="9"
+       fill="url(#mx-gradient-dae8fc-1-3399ff-1-s-0)"
+       stroke="#6c8ebf"
+       pointer-events="none"
+       id="rect114" />
+    <g
+       transform="translate(536.5,274.5)"
+       id="g116">
+      <switch
+         id="switch118">
+        <foreignObject
+           style="overflow:visible;"
+           pointer-events="all"
+           width="167"
+           height="12"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 169px; white-space: nowrap; word-wrap: normal; text-align: center;">
+            <xhtml:div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">
+              <xhtml:span>Robot.updateBehaviorStrategy </xhtml:span>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="84"
+           y="12"
+           font-size="12px"
+           id="text120"
+           style="font-size:12px;font-family:Helvetica;text-anchor:middle;fill:#000000">Robot.updateBehaviorStrategy</text>
+      </switch>
+    </g>
+    <path
+       d="M 188 281 L 8 281 L 8 31 L 21.63 31"
+       fill="none"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path122" />
+    <path
+       d="M 26.88 31 L 19.88 34.5 L 21.63 31 L 19.88 27.5 Z"
+       fill="#000000"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path124" />
+    <rect
+       x="188"
+       y="251"
+       width="235"
+       height="60"
+       rx="9"
+       ry="9"
+       fill="#000000"
+       stroke="#000000"
+       transform="translate(2,3)"
+       opacity="0.25"
+       id="rect126" />
+    <rect
+       x="188"
+       y="251"
+       width="235"
+       height="60"
+       rx="9"
+       ry="9"
+       fill="url(#mx-gradient-dae8fc-1-3399ff-1-s-0)"
+       stroke="#6c8ebf"
+       pointer-events="none"
+       id="rect128" />
+    <g
+       transform="translate(276.5,274.5)"
+       id="g130">
+      <switch
+         id="switch132">
+        <foreignObject
+           style="overflow:visible;"
+           pointer-events="all"
+           width="57"
+           height="12"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 57px; white-space: nowrap; word-wrap: normal; text-align: center;">
+            <xhtml:div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">
+              <xhtml:span>Robot.live </xhtml:span>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="29"
+           y="12"
+           font-size="12px"
+           id="text134"
+           style="font-size:12px;font-family:Helvetica;text-anchor:middle;fill:#000000">Robot.live</text>
+      </switch>
+    </g>
+  </g>
+</svg>

@@ -15,7 +15,7 @@
    width="432"
    height="786"
    sodipodi:docname="reverse_translation.svg"
-   inkscape:export-filename="/home/max/Downloads/Projects/grants/grants/mem/components.png"
+   inkscape:export-filename="/home/max/Downloads/Projects/robot-dream/doc/translations_processes"
    inkscape:export-xdpi="300"
    inkscape:export-ydpi="300">
   <metadata
@@ -26,7 +26,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -54,7 +54,7 @@
      id="namedview3041"
      showgrid="false"
      inkscape:zoom="4.3427396"
-     inkscape:cx="252.29454"
+     inkscape:cx="217.40873"
      inkscape:cy="709.88161"
      inkscape:window-x="0"
      inkscape:window-y="24"

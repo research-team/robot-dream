@@ -29,13 +29,13 @@ institute in 2013 and this simulation was slower than human brain in 1000 times
 capacity to simulate whole human brain should be 30 exaflop that is not feasible 
 at the moment.
 
-Therefore realistic simulation even for parts of mammalian brain involved
+A realistic simulation even for parts of mammalian brain involved
 into neuromodulation processes leading to emotional reactions cannot be done in
 real-time even at scale of rat brain (not mention human brain) on an autonomous
 robotic platform. To combine autonomous control with advanced realistic emotional 
 appraisal we propose life-cycle separation into “day” and “night” phases.
 
-##Higlevel overview 
+##High level overview 
 
 ###Life cycle
 
@@ -49,6 +49,8 @@ Overall robotic system life-cycle is divided into two phases: wake (day) and sle
 ##HLD
 
 ###Use cases
+
+![Use cases](HLD_Use_cases.png)
 
 ###Components
 

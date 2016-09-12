@@ -42,6 +42,22 @@ appraisal we propose life-cycle separation into “day” and “night” phases
 ![High level overview](HL_Life_cycle.png)
 Overall robotic system life-cycle is divided into two phases: wake (day) and sleep (night).
 
+The above diagram depicts overall organization of Robot Dream approach.
+On the left it's (improvised) robotic system (like museum robot-guide)
+that have to communicate with humans and need to react in (soft) real-time.
+On the right there is a supercomputer (like Blue Gene) that is capable of
+complex emotional appraisal and processing via simulation of spiking neural
+network with neuromodulation (see NEUCOGAR project).
+
+Robot Dream project strives to reconcile these two systems by means of
+staged information exchange.
+
+1. Robot governed by rules-based system accumulates and stores all inbound signals.
+2. At some point robot "goes to sleep" and transmits stored information to supercomputer system.
+3. Supercomputer starts processing of recieived information with the spiking neural network.
+4. Spiking neural network produces updates to robot's rules to accommodate emotional responses.
+5. Robot receives and applies updated rules the starts a new cycle.
+
 ### Translation
 
 ![High level translations](HL_Translations.png)
@@ -64,27 +80,6 @@ Overall robotic system life-cycle is divided into two phases: wake (day) and sle
 ###Activity
 
 ![High level design activity diagram](HLD_Activity_Synchronisation.png)
-
----
-
-![](dream_diagram.jpg)
-
-The above diagram depicts overall organization of Robot Dream approach.
-On the left it's (improvised) robotic system (like museum robot-guide)
-that have to communicate with humans and need to react in (soft) real-time.
-On the right there is a supercomputer (like Blue Gene) that is capable of
-complex emotional appraisal and processing via simulation of spiking neural
-network with neuromodulation (see NEUCOGAR project).
-
-Robot Dream project strives to reconcile these two systems by means of
-staged information exchange.
-
-1. Robot governed by rules-based system accumulates and stores all inbound signals.
-2. At some point robot "goes to sleep" and transmits stored information to supercomputer system.
-3. Supercomputer starts processing of recieived information with the spiking neural network.
-4. Spiking neural network produces updates to robot's rules to accommodate emotional responses.
-5. Robot receives and applies updated rules the starts a new cycle.
-
 
 ## Application architecture
 

@@ -48,20 +48,21 @@ Overall robotic system life-cycle is divided into two phases: *wake* (day) and *
       * Then simulation starts producing a set of updated rules to a robotic system;
       * Finally update is transferred to a robotic system.
 * [**c**] The updated behavior strategies is transferred to a robotic system and applied to it.
-* [**d**] The robotic system continues it's wake phase with updated control system strategies, adjusted emotional reactions and accumulating new experience to be processed again starting from **a**.
-
-Robot Dream project strives to reconcile these two systems by means of
-staged information exchange.
-
-1. Robot managed via rules-based system accumulates and stores all inbound signals.
-2. At some point robot "goes to sleep" and transmits stored information to supercomputer system.
-3. Supercomputer starts processing of recieived information with the spiking neural network.
-4. Spiking neural network produces updates to robot's rules to accommodate emotional responses.
-5. Robot receives and applies updated rules the starts a new cycle.
+* [**d**] The robotic system continues it's wake phase with updated control system strategies, adjusted emotional reactions and accumulating new experience, storing all sensory inputs, to be processed again starting from **a**.
 
 ### Translation
 
 ![High level translations](HL_Translations.png)
+
+Overall **reverse translation** is gradual step by step process that could be divided into several phases:
+
+- Increase of abstraction layer of the sleeping brain 
+- Translation of rNN of the **sleeping brain** into rule based description of the behavior strategies of a robotic system
+- Validation of translation steps
+- Validation of overall reverse translation process
+- Transfer of rule based behavior strategies into a robotic system.
+
+
 
 ##HLD
 
@@ -81,6 +82,8 @@ staged information exchange.
 ###Activity
 
 ![High level design activity diagram](HLD_Activity_Synchronisation.png)
+
+
 
 ## Application architecture
 

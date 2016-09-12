@@ -42,13 +42,13 @@ appraisal we propose life-cycle separation into “day” and “night” phases
 ![High level overview](HL_Life_cycle.png)
 Overall robotic system life-cycle is divided into two phases: *wake* (day) and *sleep* (night).
 
-* [**a**] In this position a robotic system transfers the accumulated during *wake* phase experience into realistic neural network of the *sleeping brain*.
-* [**b**] Processing of *sleeping phase* is done as follows:
-      * The accumulated experience is transferred from a robotic system to the Sleeping brain;
-      * Then simulation starts producing a set of updated rules to a robotic system;
-      * Finally update is transferred to a robotic system.
-* [**c**] The updated behavior strategies is transferred to a robotic system and applied to it.
-* [**d**] The robotic system continues it's wake phase with updated control system strategies, adjusted emotional reactions and accumulating new experience, storing all sensory inputs, to be processed again starting from **a**.
+- [**a**] In this position a robotic system transfers the accumulated during *wake* phase experience into realistic neural network of the *sleeping brain*.
+- [**b**] Processing of *sleeping phase* is done as follows:
+      - The accumulated experience is transferred from a robotic system to the Sleeping brain;
+      - Then simulation starts producing a set of updated rules to a robotic system;
+      - Finally update is transferred to a robotic system.
+- [**c**] The updated behavior strategies is transferred to a robotic system and applied to it.
+- [**d**] The robotic system continues it's wake phase with updated control system strategies, adjusted emotional reactions and accumulating new experience, storing all sensory inputs, to be processed again starting from **a**.
 
 ### Translation
 

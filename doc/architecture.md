@@ -64,13 +64,29 @@ The **reverse translation** is gradual step by step process that could be divide
 - Validation of overall reverse translation process
 - Transfer of rule based behavior strategies into a robotic system.
 
+Overall translation validation is based on overall statistical analysis of the semantically tagged rNN of a sleeping brain highlighting most important neuronal connections using semantic mapping to the key concepts.
 
+---
+**Add semantic mapping process here**
+---
 
 ##HLD
 
 ###Use cases
 
 ![Use cases](HLD_Use_cases.png)
+
+There are three main types of use cases:
+
+1. Live
+1. Translate 
+   2. Direct
+   2. Reverse 
+   
+The **living** use case is denoting the ordinary life-cycle of a robotic system or sleeping brain. For a robotic system usually consists of real time acting based on updated behavior strategies storing the daily experience with semantic highlighting: object and action tagging, pleasure and pain tagging.
+
+The **translation** use case is denoting the communication ...
+
 
 ###Components
 

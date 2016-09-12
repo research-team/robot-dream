@@ -42,17 +42,19 @@ appraisal we propose life-cycle separation into “day” and “night” phases
 ![High level overview](HL_Life_cycle.png)
 Overall robotic system life-cycle is divided into two phases: wake (day) and sleep (night).
 
-The above diagram depicts overall organization of Robot Dream approach.
-On the left it's (improvised) robotic system (like museum robot-guide)
-that have to communicate with humans and need to react in (soft) real-time.
-On the right there is a supercomputer (like Blue Gene) that is capable of
-complex emotional appraisal and processing via simulation of spiking neural
-network with neuromodulation (see NEUCOGAR project).
+* [a.] In this position a robotic system transfers the accumulated during wake phase experience into realistic neural network.
+* [b.] Processing is done as follows:
+      * First the accumulated experience is transferred from a robotic system to the processing center;
+      * Then simulation starts producing a set of updated rules for robot's control system;
+      * Finally update is transferred to the robotic system.
+* [c.] The updated rules of the control system are transferred to the robotic system and applied to it.
+* [d.] The robotic system continues it's job running updated control system with adjusted emotional reactions and accumulating new experience to be processed again starting from *A*.
+
 
 Robot Dream project strives to reconcile these two systems by means of
 staged information exchange.
 
-1. Robot governed by rules-based system accumulates and stores all inbound signals.
+1. Robot managed via rules-based system accumulates and stores all inbound signals.
 2. At some point robot "goes to sleep" and transmits stored information to supercomputer system.
 3. Supercomputer starts processing of recieived information with the spiking neural network.
 4. Spiking neural network produces updates to robot's rules to accommodate emotional responses.

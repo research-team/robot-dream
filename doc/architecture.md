@@ -54,7 +54,9 @@ Overall robotic system life-cycle is divided into two phases: *wake* (day) and *
 
 ![High level translations](HL_Translations.png)
 
-Overall **reverse translation** is gradual step by step process that could be divided into several phases:
+The **direct translation** is done in the playback mode similar to a mammalian brain processing of the wake experience. This way whole wake experience should be translated to the sequence of sleeping brain neurons activations based on the semantics of an inbound signals, for example the activations of tactile sensors should be translated into activations of sensory cortex, audio signals should be translated into auditory cortex neurons activations. 
+
+The **reverse translation** is gradual step by step process that could be divided into several phases:
 
 - Increase of abstraction layer of the sleeping brain 
 - Translation of rNN of the **sleeping brain** into rule based description of the behavior strategies of a robotic system

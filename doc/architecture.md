@@ -108,17 +108,43 @@ Different sensory tagged are translated into tagged neuronal structures of the r
 
 Transfer of the stream of stored and tagged experience from the robotic system into sleeping brain.
 
+#####Rule based system
+
+The temporal probabilistic rules system.
+
+...
+
 ####Sleeping brain
 
 ![High level design components of the "sleeping brain"](HLD_Component_SleepingBrainLifeCycle.png)
 
 The high-level representation of overall structure of the **sleeping brain**. 
 
-The robotic system **ExperienceTranslator** includes **ExperiencePlayer** that translates different types of tagged inbound sensory inputs transferred from robotic system into neuronal activities of rNN of the **sleeping brain** in the form of synchronous playback of neuronal activations based on wiring of sensory channel to the **sleeping brain** area.
+The robotic system **ExperienceTranslator** includes **ExperiencePlayer** that translates different types of tagged inbound sensory inputs transferred from robotic system into neuronal activities of rNN of the sleeping brain in the form of synchronous playback of neuronal activations based on wiring of sensory channel to the sleeping brain area.
 
-The **ReverseTranslator** component is responsible for 
+The **ReverseTranslator** component is responsible for the translation of neuronal structures and activities or the sleeping brain into the robotic system rule based system. The translation process could be divided into two principal phases:
+
+- rising abstraction layer or the rNN of the sleeping brain reducing computational load making rNN operate in sub-real-time mode
+- generalization and convolution neuronal structures into rules of the robotic system via **GeneralisationStrategy**
+- generalization and convolution are gradual stepwise processes that include 2 types of validation: step **StepValidator** and overall **OverallValidator**. Where the **OverallValidator** does validation based on number of neuronal connections to the pattern tagged with one event. The threshold value of the connection could be set as for example 20 percent per step and 60 percent per overall process (this should be clarified). 
+
+#####Rise of abstraction layer of the rNN of sleeping brain
+
+![Rise of abstraction layer](WP_20160729_001.jpg)
+
+#####Narrative
+
+The stable sequence of the neuronal patterns/circuits invocations could be generalized in one high-level construct of the temporal probabilistic rules system.
+
+...
+
+#####Fusion
+
+...
 
 #####Neuronal structures tagging
+
+Every time the robotic system perceives tagged event including new object the inbound sensory stream is been tagged as well as neuronal structures of sleeping brain, during the **direct translation** that are involved in the processing are tagged as related to the tagged event. At the end of the day the rNN is semantically marked neuronal pattern and circuits. 
 
 #####Pleasure and pain 
 
@@ -126,7 +152,8 @@ The **ReverseTranslator** component is responsible for
 
 #####Validation 
 
-... Add steps and validation description here
+During the **reverse translation** phase these pattern and circuits are generalized into high-level logical rules via mechanisms described above. 
+The number of representations of objects is reduced, but the transnational system should track the adequacy of processing via selecting most important according to the number of tagged connections events(objects) and persist them for further processing. If a important object was deleted during processing the system start the processing stage from the begging using less strict generalization rules.
 
 ###Activity
 

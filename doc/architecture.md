@@ -88,7 +88,7 @@ The **translation** use case is denoting the transfer and processing the origina
 ####Robot life cycle
 ![High level design components of robot life cycle](HLD_Component_RobotLifeCycle.png)
 
-This is high-level representation of the overall structure of the robotic system with emphasis on the integration with sleeping brain. The **RobotLifeCycle** component provides proper functions for the real-time operations of a robotic system including storage of the **wake** phase experience with semantic tagging. 
+This is high-level representation of the overall structure of the robotic system. The **RobotLifeCycle** component provides proper functions for the real-time operations of a robotic system including storage of the **wake** phase experience with semantic tagging and translation into the **sleeping brain**.
 
 #####Semantic tagging
 
@@ -104,10 +104,9 @@ Different sensory tagged are translated into tagged neuronal structures of the r
 
 ... Add activity diagram here
 
+#####Direct translation
 
-#####Pleasure and pain
-
-...
+Transfer of the stream of stored and tagged experience from the robotic system into sleeping brain.
 
 ####Sleeping brain
 
@@ -115,8 +114,17 @@ Different sensory tagged are translated into tagged neuronal structures of the r
 
 The high-level representation of overall structure of the **sleeping brain**. 
 
-The robotic system **ExperienceTranslator** 
+The robotic system **ExperienceTranslator** includes **ExperiencePlayer** that translates different types of tagged inbound sensory inputs transferred from robotic system into neuronal activities of rNN of the **sleeping brain** in the form of synchronous playback of neuronal activations based on wiring of sensory channel to the **sleeping brain** area.
 
+The **ReverseTranslator** component is responsible for 
+
+#####Neuronal structures tagging
+
+#####Pleasure and pain 
+
+...
+
+#####Validation 
 
 ... Add steps and validation description here
 

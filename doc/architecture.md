@@ -64,11 +64,7 @@ The **reverse translation** is gradual step by step process that could be divide
 - Validation of overall reverse translation process
 - Transfer of rule based behavior strategies into a robotic system.
 
-Overall translation validation is based on overall statistical analysis of the semantically tagged rNN of a sleeping brain highlighting most important neuronal connections using semantic mapping to the key concepts.
-
----
-**Add semantic mapping process here**
----
+Overall translation validation is based on overall statistical analysis of the semantically tagged rNN of a sleeping brain highlighting most important neuronal connections using **semantic tagging** to the key concepts.
 
 ##HLD
 
@@ -91,6 +87,21 @@ The **translation** use case is denoting the transfer and processing the origina
 
 ####Robot life cycle
 ![High level design components of robot life cycle](HLD_Component_RobotLifeCycle.png)
+
+This is high-level representation of the overall structure of the robotic system with emphasis on the integration with sleeping brain. The **RobotLifeCycle** component provides proper functions for the real-time operations of a robotic system including storage of the **wake** phase experience with semantic tagging. 
+
+#####Semantic tagging
+
+Semantic tagging is the association process of several sensory inputs channels using temporal window.
+A robotic system tags time frames, and if possible objects in different input channels based on detected tagging events building associations in a forms of semantic clustering. Tagging events could be:
+
+- pleasure and pain stimulus 
+- detected visual object: banana, battery, bright flash, human figure, etc
+- detected audio signal: loud sound, word, etc
+- sensory stimulus
+
+Different sensory tagged are translated into tagged neuronal structures of the rNN of the sleeping brain during the direct translation phase.
+
 
 ####Sleeping brain
 

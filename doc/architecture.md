@@ -102,10 +102,23 @@ A robotic system tags time frames, and if possible objects in different input ch
 
 Different sensory tagged are translated into tagged neuronal structures of the rNN of the sleeping brain during the direct translation phase.
 
+... Add activity diagram here
+
+
+#####Pleasure and pain
+
+...
 
 ####Sleeping brain
 
 ![High level design components of the "sleeping brain"](HLD_Component_SleepingBrainLifeCycle.png)
+
+The high-level representation of overall structure of the **sleeping brain**. 
+
+The robotic system **ExperienceTranslator** 
+
+
+... Add steps and validation description here
 
 ###Activity
 

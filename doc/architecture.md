@@ -47,7 +47,7 @@ Overall robotic system life-cycle is divided into two phases: *wake* (day) and *
       - The accumulated experience is transferred from a robotic system to the Sleeping brain;
       - Then simulation starts producing a set of updated rules to a robotic system;
       - Finally update is transferred to a robotic system.
-- [**c**] The updated behavior strategies is transferred to a robotic system and applied to it.
+x- [**c**] The updated behavior strategies is transferred to a robotic system and applied to it.
 - [**d**] The robotic system continues it's wake phase with updated control system strategies, adjusted emotional reactions and accumulating new experience, storing all sensory inputs, to be processed again starting from **a**.
 
 ### Translation
@@ -85,7 +85,7 @@ There are three main types of use cases:
    
 The **living** use case is denoting the ordinary life-cycle of a robotic system or sleeping brain. For a robotic system usually consists of real time acting based on updated behavior strategies storing the daily experience with semantic highlighting: object and action tagging, pleasure and pain tagging.
 
-The **translation** use case is denoting the communication ...
+The **translation** use case is denoting the transfer and processing the original stored experience of a robotic system into the form of neural network activity.
 
 
 ###Components

@@ -182,3 +182,13 @@ The number of representations of objects is reduced, but the transnational syste
 ###Activity
 
 ![High level design activity diagram](HLD_Activity_Synchronisation.png)
+
+Overall the robot to the sleeping brain synchronization life-cycle.
+ - Firstly the robotic system stores the experience of every sensory channel, including pleasure and pain tags.
+ - During the **direct translation** phase robotic system transmits the stored information to the **sleeping brain**.
+ - The **sleeping brain** plays back the transmitted experience by means of realistic neuronal network  (rNN) neurons activation (translating).
+ - The **sleeping brain** runs the simulation life-cycle updating the rNN.
+ - During the **reverse translation** phase the **sleeping brain** runs the number of activities to translate the updated structure of rNN into rules of behavioral strategies of the robotic system.
+ - The robotic system updates behavioral strategies and runs the real-time or semi real-time life-cycle, storing new experience.
+ 
+ Practically speaking the sleeping phase of the sleeping brain and the wake phase of the robotic system could overlap and process simultaneously.

@@ -90,6 +90,28 @@ The **translation** use case is denoting the transfer and processing the origina
 
 This is high-level representation of the overall structure of the robotic system. The **RobotLifeCycle** component provides proper functions for the real-time operations of a robotic system including storage of the **wake** phase experience with semantic tagging and translation into the **sleeping brain**.
 
+... Rewrite the paragraphs below
+
+So "closest" to a robot layer of the system is a **driver** that responsible for
+sending the actual commands for the robot over appropriate channel
+(bluetooth, wi-fi, etc.). On the other side driver interacts with the next
+layer of abstract commands (hardware abstraction layer). Driver should
+translate abstract commands into concrete ones for particular robotic
+system.
+
+"Abstract commands" we should keep in mind that this term (and module) 
+should include representation for sensory
+signals flowing in the opposite direction: from robot to control system.
+Moreover this layer might include representation for internal states of
+the control system like "pleasure" and "pain", or just "reward" and "punishment".
+
+The central part of the system is a cognitive architecture implementation.
+Here we adopt "model of six" proposed by Marvin Minsky. 
+For the prototype we need to implement the first two layers, namely, instinctive
+and learned.
+
+
+
 #####Semantic tagging
 
 Semantic tagging is the association process of several sensory inputs channels using temporal window.
@@ -158,36 +180,3 @@ The number of representations of objects is reduced, but the transnational syste
 ###Activity
 
 ![High level design activity diagram](HLD_Activity_Synchronisation.png)
-
-
-
-## Application architecture
-
-![](app_overview.jpg)
-
-For the start we adapt our architecture for scenarios where control system
-is executed on a workstation or alike and communicates with robotic platform
-wirelessly over bluetooth or wi-fi.
-
-So "closest" to a robot layer of the system is a driver that responsible for
-sending the actual commands for the robot over appropriate channel
-(bluetooth, wi-fi, etc.). On the other side driver interacts with the next
-layer of abstract commands (hardware abstraction layer). Driver should
-translate abstract commands into concrete ones for particular robotic
-system.
-
-For simplicity let's talk about "abstract commands" but we should keep in
-mind that this term (and module) should include representation for sensory
-signals flowing in the opposite direction: from robot to control system.
-Moreover this layer might include representation for internal states of
-the control system such like "feel of joy" or "bad feeling". Or just
-"reward" and "punishment" signals to itself in the simplest case.
-
-The central part of the system is a cognitive architecture implementation.
-Here we adopt 6-layer architecture suggested by Marvin Minsky. For the
-prototype we need to implement the first two layers, namely, instinctive
-and learned.
-
-The final layer (not depicted on the diagram) is for supercomputer (spiking
-neural network) communication. It's responsible for transmission of
-collected data, receipt and application of rules update.

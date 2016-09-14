@@ -59,7 +59,7 @@ The **direct translation** is done in the playback mode similar to a mammalian b
 The **reverse translation** is gradual step by step process that could be divided into several phases:
 
 - Increase of abstraction layer of the sleeping brain 
-- Translation of rNN of the **sleeping brain** into rule based description of the behavior strategies of a robotic system
+- Translation of realistic neural network rNN of the **sleeping brain** into rule based description of the behavior strategies of a robotic system
 - Validation of translation steps
 - Validation of overall reverse translation process
 - Transfer of rule based behavior strategies into a robotic system.
@@ -151,7 +151,10 @@ Different sensory tagged are translated into tagged neuronal structures of the r
 
 #####Rise of abstraction layer of the rNN of sleeping brain
 
-![Rise of abstraction layer](WP_20160729_001.jpg)
+The granularity level of the rNN could be switched in several ways for example instead of Hodgkin–Huxley model the integrate and fire could be used.
+The other way is to take in account events of a different time scale: **spikes** and electro-chemical activity including changes of conductance, resistance, current and potential in the **milliseconds** timescale; spike timing plasticity (excitatory, inhibitory) in the **seconds** timescale; long term as well as structural plasticity in the **hours** timescale.
+
+<!-- ![Rise of abstraction layer](WP_20160729_001.jpg) -->
 
 #####Narrative
 

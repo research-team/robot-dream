@@ -146,7 +146,7 @@ A robotic system tags time frames, and if possible objects in different input ch
 
 Different sensory tagged are translated into tagged neuronal structures of the rNN of the sleeping brain during the direct translation phase.
 
-... Add activity diagram here
+![Semantic tagger activity](HLD_Activity_SemanticTagger.png)
 
 
 #####Rise of abstraction layer of the rNN of sleeping brain

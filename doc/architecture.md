@@ -110,22 +110,6 @@ Here we adopt "model of six" proposed by Marvin Minsky.
 For the prototype we need to implement the first two layers, namely, instinctive
 and learned.
 
-
-
-#####Semantic tagging
-
-Semantic tagging is the association process of several sensory inputs channels using temporal window.
-A robotic system tags time frames, and if possible objects in different input channels based on detected tagging events building associations in a forms of semantic clustering. Tagging events could be:
-
-- pleasure and pain stimulus 
-- detected visual object: banana, battery, bright flash, human figure, etc
-- detected audio signal: loud sound, word, etc
-- sensory stimulus
-
-Different sensory tagged are translated into tagged neuronal structures of the rNN of the sleeping brain during the direct translation phase.
-
-... Add activity diagram here
-
 #####Direct translation
 
 Transfer of the stream of stored and tagged experience from the robotic system into sleeping brain.
@@ -149,6 +133,21 @@ The **ReverseTranslator** component is responsible for the translation of neuron
 - rising abstraction layer or the rNN of the sleeping brain reducing computational load making rNN operate in sub-real-time mode
 - generalization and convolution neuronal structures into rules of the robotic system via **GeneralisationStrategy**
 - generalization and convolution are gradual stepwise processes that include 2 types of validation: step **StepValidator** and overall **OverallValidator**. Where the **OverallValidator** does validation based on number of neuronal connections to the pattern tagged with one event. The threshold value of the connection could be set as for example 20 percent per step and 60 percent per overall process (this should be clarified). 
+
+#####Semantic tagging
+
+Semantic tagging is the association process of several sensory inputs channels using temporal window.
+A robotic system tags time frames, and if possible objects in different input channels based on detected tagging events building associations in a forms of semantic clustering. Tagging events could be:
+
+- pleasure and pain stimulus 
+- detected visual object: banana, battery, bright flash, human figure, etc
+- detected audio signal: loud sound, word, etc
+- sensory stimulus
+
+Different sensory tagged are translated into tagged neuronal structures of the rNN of the sleeping brain during the direct translation phase.
+
+... Add activity diagram here
+
 
 #####Rise of abstraction layer of the rNN of sleeping brain
 

@@ -88,27 +88,28 @@ The **translation** use case is denoting the transfer and processing the origina
 #### Robot life cycle
 ![High level design components of robot life cycle](HLD_Component_RobotLifeCycle.png)
 
-This is high-level representation of the overall structure of the robotic system. The **RobotLifeCycle** component provides proper functions for the real-time operations of a robotic system including storage of the **wake** phase experience with semantic tagging and translation into the **sleeping brain**.
+This is a high-level representation of the overall structure of the robotic control system.
+The control system might be embedded into robotic platform of executed on remote
+machine wirelessly communicating with the robot.
 
-... Rewrite the paragraphs below
+The **RobotLifeCycle** component provides proper functions for real-time operation
+of a robotic system including storage of the **wake** phase experience and translation
+into the **sleeping brain**.
 
-So "closest" to a robot layer of the system is a **driver** that responsible for
-sending the actual commands for the robot over appropriate channel
-(bluetooth, wi-fi, etc.). On the other side driver interacts with the next
-layer of abstract commands (hardware abstraction layer). Driver should
-translate abstract commands into concrete ones for particular robotic
-system.
-
-"Abstract commands" we should keep in mind that this term (and module)
-should include representation for sensory
-signals flowing in the opposite direction: from robot to control system.
-Moreover this layer might include representation for internal states of
-the control system like "pleasure" and "pain", or just "reward" and "punishment".
+The **DriverInterface** is responsible for communication with the underlying
+hardware platform. It translates abstract commands into concrete ones for particular
+robotic system.
 
 The central part of the system is a cognitive architecture implementation.
-Here we adopt "model of six" proposed by Marvin Minsky.
-For the prototype we need to implement the first two layers, namely, instinctive
-and learned.
+The component is named **ModelOfSix** as we adopt "model of six" proposed by Marvin Minsky.
+It contains six interconnected behavioral layers: instinctive, learned, deliberative,
+reflective, self-reflective and self-conscious. Each layer implements appropriate
+rules-based inference adopting if-do-then rules.
+
+During its course of operation robotic system records inbound information for later
+transmission to the **sleeping brain**. **ExperienceStorage** component keeps all
+this data until **DirectTransmitter** transfers it to a supercomputer.
+
 
 ##### Direct translation
 

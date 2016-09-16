@@ -173,7 +173,7 @@ Every time the robotic system perceives tagged event including new object the in
 
 ##### Pleasure and pain
 
-...
+... Working on https://trello.com/c/nHmCkOzM/45-scan-articles-on-pleasure-and-pain
 
 ##### Validation
 

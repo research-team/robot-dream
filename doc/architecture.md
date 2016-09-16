@@ -159,9 +159,9 @@ The other way is to take in account events of a different time scale: **spikes**
 
 ##### Narrative
 
-The stable sequence of the neuronal patterns/circuits invocations could be generalized in one high-level construct of the temporal probabilistic rules system.
-
-...
+The narrative is the form of generalization of logical rules and neuronal circuits into logical rules based on temporal sequential patterns. 
+The sequential neuronal pattern could be generalized into form of higher level concept or and consequent of the pattern activation. 
+From the perspective of temporal logical rules the sequence of logical patterns could be generalized in the form of logical inference final consequent. The narrative could be understood as form of clustering of neuronal pattern circuits in high-level abstractions as well as sequential patterns of temporal [probabilistic] logic in high-level logical concepts. 
 
 ##### Fusion
 

@@ -187,7 +187,7 @@ The number of representations of objects is reduced, but the transnational syste
 
 ### Activity
 
-![High level design activity diagram](HLD_Activity_Synchronisation.png)
+![High level design activity diagram](HLD_Activity_life_cycle.png)
 
 Overall the robot to the dreaming brain synchronization life-cycle.
  - Firstly the robotic system stores the experience of every sensory channel, including pleasure and pain tags.

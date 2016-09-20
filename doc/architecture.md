@@ -40,11 +40,11 @@ appraisal we propose life-cycle separation into “day” and “night” phases
 ### Life cycle
 
 ![High level overview](HL_Life_cycle.png)
-Overall robotic system life-cycle is divided into two phases: *wake* (day) and *sleep* (night).
+Overall robotic system life-cycle is divided into two phases: *wake* (day) and *dream* (night).
 
-- [**a**] In this position a robotic system transfers the accumulated during *wake* phase experience into realistic neural network of the *sleeping brain*.
-- [**b**] Processing of *sleeping phase* is done as follows:
-  - The accumulated experience is transferred from a robotic system to the Sleeping brain;
+- [**a**] In this position a robotic system transfers the accumulated during *wake* phase experience into realistic neural network of the *dreaming brain*.
+- [**b**] Processing of *dreaming phase* is done as follows:
+  - The accumulated experience is transferred from a robotic system to the dreaming brain;
   - Then simulation starts producing a set of updated rules to a robotic system;
   - Finally update is transferred to a robotic system.
 - [**c**] The updated behavior strategies is transferred to a robotic system and applied to it.
@@ -54,17 +54,17 @@ Overall robotic system life-cycle is divided into two phases: *wake* (day) and *
 
 ![High level translations](HL_Translations.png)
 
-The **direct translation** is done in the playback mode similar to a mammalian brain processing of the wake experience. This way whole wake experience should be translated to the sequence of sleeping brain neurons activations based on the semantics of an inbound signals, for example the activations of tactile sensors should be translated into activations of sensory cortex, audio signals should be translated into auditory cortex neurons activations.
+The **direct translation** is done in the playback mode similar to a mammalian brain processing of the wake experience. This way whole wake experience should be translated to the sequence of dreaming brain neurons activations based on the semantics of an inbound signals, for example the activations of tactile sensors should be translated into activations of sensory cortex, audio signals should be translated into auditory cortex neurons activations.
 
 The **reverse translation** is gradual step by step process that could be divided into several phases:
 
-- Increase of abstraction layer of the sleeping brain
-- Translation of realistic neural network rNN of the **sleeping brain** into rule based description of the behavior strategies of a robotic system
+- Increase of abstraction layer of the dreaming brain
+- Translation of realistic neural network rNN of the **dreaming brain** into rule based description of the behavior strategies of a robotic system
 - Validation of translation steps
 - Validation of overall reverse translation process
 - Transfer of rule based behavior strategies into a robotic system.
 
-Overall translation validation is based on overall statistical analysis of the semantically tagged rNN of a sleeping brain highlighting most important neuronal connections using **semantic tagging** to the key concepts.
+Overall translation validation is based on overall statistical analysis of the semantically tagged rNN of a dreaming brain highlighting most important neuronal connections using **semantic tagging** to the key concepts.
 
 ## HLD
 
@@ -76,12 +76,12 @@ There are three main types of use cases:
 
 1. Live
 1. Translate
-   2. Direct
-   2. Reverse
+  2. Direct
+  2. Reverse
 
-The **living** use case is denoting the ordinary life-cycle of a robotic system or sleeping brain. For a robotic system usually consists of real time acting based on updated behavior strategies storing the daily experience with semantic highlighting: object and action tagging, pleasure and pain tagging.
+The **living** use case is denoting the ordinary life-cycle of a robotic system or dreaming brain. For a robotic system usually consists of real time acting based on updated behavior strategies storing the daily experience with semantic highlighting: object and action tagging, pleasure and pain tagging.
 
-The **translation** use case is denoting the transfer and processing the original stored experience of a robotic system into the form of neural network activity and from neural network into robotic system rules. The **direct** translation in the form of playback of the **wake** phase experience in form of neuronal activity of a sleeping brain, the **reverse** process the updated rNN of a sleeping brain in to rules of a robotic system.
+The **translation** use case is denoting the transfer and processing the original stored experience of a robotic system into the form of neural network activity and from neural network into robotic system rules. The **direct** translation in the form of playback of the **wake** phase experience in form of neuronal activity of a dreaming brain, the **reverse** process the updated rNN of a dreaming brain in to rules of a robotic system.
 
 ### Components
 
@@ -94,7 +94,7 @@ machine wirelessly communicating with the robot.
 
 The **RobotLifeCycle** component provides proper functions for real-time operation
 of a robotic system including storage of the **wake** phase experience and translation
-into the **sleeping brain**.
+into the **dreaming brain**.
 
 The **DriverInterface** is responsible for communication with the underlying
 hardware platform. It translates abstract commands into concrete ones for particular
@@ -107,13 +107,13 @@ reflective, self-reflective and self-conscious. Each layer implements appropriat
 rules-based inference adopting if-do-then rules.
 
 During its course of operation robotic system records inbound information for later
-transmission to the **sleeping brain**. **ExperienceStorage** component keeps all
+transmission to the **dreaming brain**. **ExperienceStorage** component keeps all
 this data until **DirectTransmitter** transfers it to a supercomputer.
 
 
 ##### Direct translation
 
-Transfer of the stream of stored and tagged experience from the robotic system into sleeping brain.
+Transfer of the stream of stored and tagged experience from the robotic system into dreaming brain.
 
 ##### Rule based system
 
@@ -121,17 +121,17 @@ The temporal probabilistic rules system.
 
 ...
 
-#### Sleeping brain
+#### Dreaming brain
 
-![High level design components of the "sleeping brain"](HLD_Component_SleepingBrainLifeCycle.png)
+![High level design components of the "dreaming brain"](HLD_Component_SleepingBrainLifeCycle.png)
 
-The high-level representation of overall structure of the **sleeping brain**.
+The high-level representation of overall structure of the **dreaming brain**.
 
-The robotic system **ExperienceTranslator** includes **ExperiencePlayer** that translates different types of tagged inbound sensory inputs transferred from robotic system into neuronal activities of rNN of the sleeping brain in the form of synchronous playback of neuronal activations based on wiring of sensory channel to the sleeping brain area.
+The robotic system **ExperienceTranslator** includes **ExperiencePlayer** that translates different types of tagged inbound sensory inputs transferred from robotic system into neuronal activities of rNN of the dreaming brain in the form of synchronous playback of neuronal activations based on wiring of sensory channel to the dreaming brain area.
 
-The **ReverseTranslator** component is responsible for the translation of neuronal structures and activities or the sleeping brain into the robotic system rule based system. The translation process could be divided into two principal phases:
+The **ReverseTranslator** component is responsible for the translation of neuronal structures and activities or the dreaming brain into the robotic system rule based system. The translation process could be divided into two principal phases:
 
-- rising abstraction layer or the rNN of the sleeping brain reducing computational load making rNN operate in sub-real-time mode
+- rising abstraction layer or the rNN of the dreaming brain reducing computational load making rNN operate in sub-real-time mode
 - generalization and convolution neuronal structures into rules of the robotic system via **GeneralisationStrategy**
 - generalization and convolution are gradual stepwise processes that include 2 types of validation: step **StepValidator** and overall **OverallValidator**. Where the **OverallValidator** does validation based on number of neuronal connections to the pattern tagged with one event. The threshold value of the connection could be set as for example 20 percent per step and 60 percent per overall process (this should be clarified).
 
@@ -145,12 +145,12 @@ A robotic system tags time frames, and if possible objects in different input ch
 - detected audio signal: loud sound, word, etc
 - sensory stimulus
 
-Different sensory tagged are translated into tagged neuronal structures of the rNN of the sleeping brain during the direct translation phase.
+Different sensory tagged are translated into tagged neuronal structures of the rNN of the dreaming brain during the direct translation phase.
 
 ![Semantic tagger activity](HLD_Activity_SemanticTagger.png)
 
 
-##### Rise of abstraction layer of the rNN of sleeping brain
+##### Rise of abstraction layer of the rNN of dreaming brain
 
 The granularity level of the rNN could be switched in several ways for example instead of Hodgkin–Huxley model the integrate and fire could be used.
 The other way is to take in account events of a different time scale: **spikes** and electro-chemical activity including changes of conductance, resistance, current and potential in the **milliseconds** timescale; spike timing plasticity (excitatory, inhibitory) in the **seconds** timescale; long term as well as structural plasticity in the **hours** timescale.
@@ -159,9 +159,9 @@ The other way is to take in account events of a different time scale: **spikes**
 
 ##### Narrative
 
-The narrative is the form of generalization of logical rules and neuronal circuits into logical rules based on temporal sequential patterns. 
-The sequential neuronal pattern could be generalized into form of higher level concept or and consequent of the pattern activation. 
-From the perspective of temporal logical rules the sequence of logical patterns could be generalized in the form of logical inference final consequent. The narrative could be understood as form of clustering of neuronal pattern circuits in high-level abstractions as well as sequential patterns of temporal [probabilistic] logic in high-level logical concepts. 
+The narrative is the form of generalization of logical rules and neuronal circuits into logical rules based on temporal sequential patterns.
+The sequential neuronal pattern could be generalized into form of higher level concept or and consequent of the pattern activation.
+From the perspective of temporal logical rules the sequence of logical patterns could be generalized in the form of logical inference final consequent. The narrative could be understood as form of clustering of neuronal pattern circuits in high-level abstractions as well as sequential patterns of temporal [probabilistic] logic in high-level logical concepts.
 
 ##### Fusion
 
@@ -169,7 +169,7 @@ From the perspective of temporal logical rules the sequence of logical patterns 
 
 ##### Neuronal structures tagging
 
-Every time the robotic system perceives tagged event including new object the inbound sensory stream is been tagged as well as neuronal structures of sleeping brain, during the **direct translation** that are involved in the processing are tagged as related to the tagged event. At the end of the day the rNN is semantically marked neuronal pattern and circuits.
+Every time the robotic system perceives tagged event including new object the inbound sensory stream is been tagged as well as neuronal structures of dreaming brain, during the **direct translation** that are involved in the processing are tagged as related to the tagged event. At the end of the day the rNN is semantically marked neuronal pattern and circuits.
 
 ##### Pleasure and pain
 
@@ -184,12 +184,12 @@ The number of representations of objects is reduced, but the transnational syste
 
 ![High level design activity diagram](HLD_Activity_Synchronisation.png)
 
-Overall the robot to the sleeping brain synchronization life-cycle.
+Overall the robot to the dreaming brain synchronization life-cycle.
  - Firstly the robotic system stores the experience of every sensory channel, including pleasure and pain tags.
- - During the **direct translation** phase robotic system transmits the stored information to the **sleeping brain**.
- - The **sleeping brain** plays back the transmitted experience by means of realistic neuronal network  (rNN) neurons activation (translating).
- - The **sleeping brain** runs the simulation life-cycle updating the rNN.
- - During the **reverse translation** phase the **sleeping brain** runs the number of activities to translate the updated structure of rNN into rules of behavioral strategies of the robotic system.
+ - During the **direct translation** phase robotic system transmits the stored information to the **dreaming brain**.
+ - The **dreaming brain** plays back the transmitted experience by means of realistic neuronal network  (rNN) neurons activation (translating).
+ - The **dreaming brain** runs the simulation life-cycle updating the rNN.
+ - During the **reverse translation** phase the **dreaming brain** runs the number of activities to translate the updated structure of rNN into rules of behavioral strategies of the robotic system.
  - The robotic system updates behavioral strategies and runs the real-time or semi real-time life-cycle, storing new experience.
- 
- Practically speaking the sleeping phase of the sleeping brain and the wake phase of the robotic system could overlap and process simultaneously.
+
+ Practically speaking the dreaming phase of the dreaming brain and the wake phase of the robotic system could overlap and process simultaneously.

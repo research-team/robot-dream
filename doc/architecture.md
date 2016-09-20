@@ -113,7 +113,12 @@ this data until **DirectTransmitter** transfers it to a supercomputer.
 
 ##### Direct translation
 
-Transfer of the stream of stored and tagged experience from the robotic system into dreaming brain.
+Transfer of the stream of stored and tagged experience from the robotic system into
+the dreaming brain.
+
+For transmission of tactile signals we're adopting Neuralynx file format. For further
+details please consult [this description](direct_translation_format.md).
+
 
 ##### Rule based system
 

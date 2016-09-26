@@ -178,7 +178,8 @@ Every time the robotic system perceives tagged event including new object the in
 
 ##### Pleasure and pain
 
-According to the dissertation "Neurocomputational Mechanisms for Adaptive Self-Preservative Robot Behaviour" by Nicolás Ignacio Navarro Guerrero, the main structures involved in pain processing: VTA, thalamus, amygdala, PAG, RRF, hippocampus. These structures are implemented in the [NeuCogAr project](https://github.com/research-team/neucogar). 
+According to the dissertation "Neurocomputational Mechanisms for Adaptive Self-Preservative Robot Behaviour" by Nicolás Ignacio Navarro Guerrero, the main structures involved in pain processing: PFC, VTA, thalamus, amygdala, PAG, RRF, hippocampus. These structures are implemented in the [NeuCogAr project](https://github.com/research-team/neucogar). For the detailed description of pleasure and pain via nociception see chapter 6, for the detailed description of fear conditioning see chapter 7 of the dissertation.
+
 
 ##### Validation
 

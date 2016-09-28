@@ -182,10 +182,6 @@ The narrative is the form of generalization of logical rules and neuronal circui
 The sequential neuronal pattern could be generalized into form of higher level concept or and consequent of the pattern activation.
 From the perspective of temporal logical rules the sequence of logical patterns could be generalized in the form of logical inference final consequent. The narrative could be understood as form of clustering of neuronal pattern circuits in high-level abstractions as well as sequential patterns of temporal [probabilistic] logic in high-level logical concepts.
 
-##### Fusion
-
-...
-
 ##### Neuronal structures tagging
 
 Every time the robotic system perceives tagged event including new object the inbound sensory stream is been tagged as well as neuronal structures of dreaming brain, during the **direct translation** that are involved in the processing are tagged as related to the tagged event. At the end of the day the rNN is semantically marked neuronal pattern and circuits.

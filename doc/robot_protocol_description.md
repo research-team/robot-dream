@@ -8,6 +8,7 @@ This is a description for communication protocol between host PC (master) and Ar
 [C++ MODUBUS library.](http://libmodbus.org/)
 
 MODBUS RTU version via Arduino serial port will be used. And because of Arduino library restrictions only operations with holding registers are allowed.
+
 |Function|Code|
 |:--------|:----|
 |Read Multiple Holding Registers|3 (0x03)|

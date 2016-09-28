@@ -1,4 +1,4 @@
-xf# Robot Dream architecture
+# Robot Dream architecture
 
 ## Problem
 

@@ -1,4 +1,4 @@
-# Robot Dream architecture
+xf# Robot Dream architecture
 
 ## Problem
 
@@ -83,6 +83,20 @@ The **living** use case is denoting the ordinary life-cycle of a robotic system 
 
 The **translation** use case is denoting the transfer and processing the original stored experience of a robotic system into the form of neural network activity and from neural network into robotic system rules. The **direct** translation in the form of playback of the **wake** phase experience in form of neuronal activity of a dreaming brain, the **reverse** process the updated rNN of a dreaming brain in to rules of a robotic system.
 
+### Activity
+
+![High level design activity diagram](HLD_Activity_life_cycle.png)
+
+Overall the robot to the dreaming brain synchronization life-cycle.
+ - Firstly the robotic system stores the experience of every sensory channel, including pleasure and pain tags.
+ - During the **direct translation** phase robotic system transmits the stored information to the **dreaming brain**.
+ - The **dreaming brain** plays back the transmitted experience by means of realistic neuronal network  (rNN) neurons activation (translating).
+ - The **dreaming brain** runs the simulation life-cycle updating the rNN.
+ - During the **reverse translation** phase the **dreaming brain** runs the number of activities to translate the updated structure of rNN into rules of behavioral strategies of the robotic system.
+ - The robotic system updates behavioral strategies and runs the real-time or semi real-time life-cycle, storing new experience.
+
+ Practically speaking the dreaming phase of the dreaming brain and the wake phase of the robotic system could overlap and process simultaneously.
+
 ### Components
 
 #### Robot life cycle
@@ -126,7 +140,7 @@ The temporal probabilistic rules system.
 
 ...
 
-#### Dreaming brain
+#### Dreaming brain life cycle
 
 ![High level design components of the "dreaming brain"](HLD_Component_SleepingBrainLifeCycle.png)
 
@@ -140,7 +154,7 @@ The **ReverseTranslator** component is responsible for the translation of neuron
 - generalization and convolution neuronal structures into rules of the robotic system via **GeneralisationStrategy**
 - generalization and convolution are gradual stepwise processes that include 2 types of validation: step **StepValidator** and overall **OverallValidator**. Where the **OverallValidator** does validation based on number of neuronal connections to the pattern tagged with one event. The threshold value of the connection could be set as for example 20 percent per step and 60 percent per overall process (this should be clarified).
 
-##### Semantic tagging
+##### Semantic tagger
 
 Semantic tagging is the association process of several sensory inputs channels using temporal window.
 A robotic system tags time frames, and if possible objects in different input channels based on detected tagging events building associations in a forms of semantic clustering. Tagging events could be:
@@ -186,16 +200,3 @@ According to the dissertation "Neurocomputational Mechanisms for Adaptive Self-P
 During the **reverse translation** phase these pattern and circuits are generalized into high-level logical rules via mechanisms described above.
 The number of representations of objects is reduced, but the transnational system should track the adequacy of processing via selecting most important according to the number of tagged connections events(objects) and persist them for further processing. If a important object was deleted during processing the system start the processing stage from the begging using less strict generalization rules.
 
-### Activity
-
-![High level design activity diagram](HLD_Activity_life_cycle.png)
-
-Overall the robot to the dreaming brain synchronization life-cycle.
- - Firstly the robotic system stores the experience of every sensory channel, including pleasure and pain tags.
- - During the **direct translation** phase robotic system transmits the stored information to the **dreaming brain**.
- - The **dreaming brain** plays back the transmitted experience by means of realistic neuronal network  (rNN) neurons activation (translating).
- - The **dreaming brain** runs the simulation life-cycle updating the rNN.
- - During the **reverse translation** phase the **dreaming brain** runs the number of activities to translate the updated structure of rNN into rules of behavioral strategies of the robotic system.
- - The robotic system updates behavioral strategies and runs the real-time or semi real-time life-cycle, storing new experience.
-
- Practically speaking the dreaming phase of the dreaming brain and the wake phase of the robotic system could overlap and process simultaneously.

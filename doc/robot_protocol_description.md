@@ -25,6 +25,7 @@ Stop bits : 1
 [Arduino robot](https://www.arduino.cc/en/Main/Robot)
 ### Robot register configuration
 **Read-only registers**
+
 |Description|Address|
 |:--------|:----|
 |IR distance sensor value in cm| 0x00 |
@@ -47,6 +48,7 @@ Stop bits : 1
 Floor control is the result of analysis from 5 IR sensors at front bottom side of the robot. 1 means there is floor, 0  means no floor. Used to prevent robot from falling of edges.
 
 **Read-write registers**
+
 |Description|Address|
 |:--------|:----|
 |Left wheel Speed | 0x10 |
@@ -58,6 +60,7 @@ Floor control is the result of analysis from 5 IR sensors at front bottom side o
 add desc for speed later
 
 **Write-only registers**
+
 |Description|Address|
 |:--------|:----|
 |Move command | 0x16 |

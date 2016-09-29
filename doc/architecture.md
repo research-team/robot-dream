@@ -99,7 +99,7 @@ Overall the robot to the dreaming brain synchronization life-cycle.
 
 ### Components
 
-#### Robot life cycle
+#### Robot
 ![High level design components of robot life cycle](HLD_Component_RobotLifeCycle.png)
 
 This is a high-level representation of the overall structure of the robotic control system.
@@ -107,7 +107,7 @@ The control system might be embedded into robotic platform of executed on remote
 machine wirelessly communicating with the robot.
 
 The **RobotLifeCycle** component provides proper functions for real-time operation
-of a robotic system including storage of the **wake** phase experience and translation
+of a robotic system via the **RuleBasedSystem** including storage of the **wake** phase experience and translation
 into the **dreaming brain**.
 
 The **DriverInterface** is responsible for communication with the underlying

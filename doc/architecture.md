@@ -169,7 +169,7 @@ Different sensory tagged are translated into tagged neuronal structures of the r
 ![Semantic tagger activity](HLD_Activity_SemanticTagger.png)
 
 
-##### DreamingBrainLifeCycle: rise of abstraction layer of the rNN
+##### DreamingBrainLifeCycle:Rise of abstraction layer of the rNN
 
 The granularity level of the rNN could be switched in several ways for example instead of Hodgkin–Huxley model the integrate and fire could be used.
 The other way is to take in account events of a different time scale: **spikes** and electro-chemical activity including changes of conductance, resistance, current and potential in the **milliseconds** timescale; spike timing plasticity (excitatory, inhibitory) in the **seconds** timescale; long term as well as structural plasticity in the **hours** timescale.
@@ -182,12 +182,12 @@ The narrative is the form of generalization of logical rules and neuronal circui
 The sequential neuronal pattern could be generalized into form of higher level concept or and consequent of the pattern activation.
 From the perspective of temporal logical rules the sequence of logical patterns could be generalized in the form of logical inference final consequent. The narrative could be understood as form of clustering of neuronal pattern circuits in high-level abstractions as well as sequential patterns of temporal [probabilistic] logic in high-level logical concepts.
 
-##### Pleasure and pain
+##### ExperiencePlayer:Pleasure and pain
 
 According to the dissertation "Neurocomputational Mechanisms for Adaptive Self-Preservative Robot Behaviour" by Nicolás Ignacio Navarro Guerrero, the main structures involved in pain processing: PFC, VTA, thalamus, amygdala, PAG, RRF, hippocampus. These structures are implemented in the [NeuCogAr project](https://github.com/research-team/neucogar). For the detailed description of pleasure and pain via nociception see chapter 6, for the detailed description of fear conditioning see chapter 7 of the dissertation.
 
 
-##### Validation
+##### Validator
 
 During the **reverse translation** phase these pattern and circuits are generalized into high-level logical rules via mechanisms described above.
 The number of representations of objects is reduced, but the **StepValidator** tracks the adequacy of processing via selecting most important according to the number of tagged connections events(objects) and persist them for further processing. If a important object was deleted during processing the system start the processing stage from the begging using less strict generalization rules.

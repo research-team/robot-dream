@@ -40,9 +40,9 @@ appraisal we propose life-cycle separation into “day” and “night” phases
 ### Life cycle
 
 ![High level overview](HL_Life_cycle.png)
-Overall robotic system life-cycle is divided into two phases: **wake** (day) and **dream** (night).
+Overall robotic system life-cycle is divided into two phases: *wake* (day) and *dream* (night).
 
-- [**a**] In this position a robotic system transfers the accumulated during **wake** phase experience into realistic neural network of the *dreaming brain*.
+- [**a**] In this position a robotic system transfers the accumulated during *wake* phase experience into realistic neural network of the *dreaming brain*.
 - [**b**] Processing of *dreaming phase* is done as follows:
   - The accumulated experience is transferred from a robotic system to the dreaming brain;
   - Then simulation starts producing a set of updated rules to a robotic system;
@@ -90,9 +90,9 @@ The **translation** use case is denoting the transfer and processing the origina
 Overall the robot to the dreaming brain synchronization life-cycle.
  - Firstly the robotic system stores the experience of every sensory channel, including pleasure and pain tags.
  - During the **direct translation** phase robotic system transmits the stored information to the **dreaming brain**.
- - The **DreamingBrain** plays back the transmitted experience by means of realistic neuronal network  (rNN) neurons activation (translating).
- - The **DreamingBrain** runs the simulation life-cycle updating the rNN.
- - During the **reverse translation** phase the **DreamingBrain** runs the number of activities to translate the updated structure of rNN into rules of behavioral strategies of the robotic system.
+ - The **dreaming brain** plays back the transmitted experience by means of realistic neuronal network  (rNN) neurons activation (translating).
+ - The **dreaming brain** runs the simulation life-cycle updating the rNN.
+ - During the **reverse translation** phase the **dreaming brain** runs the number of activities to translate the updated structure of rNN into rules of behavioral strategies of the robotic system.
  - The robotic system updates behavioral strategies and runs the real-time or semi real-time life-cycle, storing new experience.
 
  Practically speaking the dreaming phase of the dreaming brain and the wake phase of the robotic system could overlap and process simultaneously.

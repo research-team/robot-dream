@@ -59,7 +59,7 @@ The **direct translation** is done in the playback mode similar to a mammalian b
 The **reverse translation** is gradual step by step process that could be divided into several phases:
 
 - Increase of abstraction layer of the dreaming brain
-- Translation of realistic neural network rNN of the **dreaming brain** into rule based description of the behavior strategies of a robotic system
+- Translation of the realistic neural network (**rNN**) of the **dreaming brain** into rule based description of the behavior strategies of a robotic system
 - Validation of translation steps
 - Validation of overall reverse translation process
 - Transfer of rule based behavior strategies into a robotic system.
@@ -146,21 +146,21 @@ The temporal probabilistic rules system, probably [NARS](https://github.com/open
 
 The high-level representation of overall structure of the **DreamingBrain**.
 
-The robotic system **ExperienceTranslator** includes **ExperiencePlayer** that translates different types of tagged inbound sensory inputs transferred from robotic system into neuronal activities of rNN of the dreaming brain in the form of synchronous playback of neuronal activations based on wiring of sensory channel to the dreaming brain area.
+The **ExperienceTranslator** includes **ExperiencePlayer** that translates different types of tagged inbound sensory inputs transferred from robotic system into neuronal activities of rNN of the dreaming brain in the form of synchronous playback of neuronal activations based on wiring of sensory channel to the dreaming brain area.
 
-The **ReverseTranslator** component is responsible for the translation of neuronal structures and activities or the dreaming brain into the robotic system rule based system. The translation process could be divided into two principal phases:
+The **ReverseTranslator** component is responsible for the translation of neuronal structures and activities or the dreaming brain into the robotic system **RuleBasedSystem**. The translation process could be divided into principal phases:
 
-- rising abstraction layer or the rNN of the dreaming brain reducing computational load making rNN operate in sub-real-time mode
-- generalization and convolution neuronal structures into rules of the robotic system via **GeneralisationStrategy**
-- generalization and convolution are gradual stepwise processes that include 2 types of validation: step **StepValidator** and overall **OverallValidator**. Where the **OverallValidator** does validation based on number of neuronal connections to the pattern tagged with one event. The threshold value of the connection could be set as for example 20 percent per step and 60 percent per overall process (this should be clarified).
+- rising abstraction layer or the rNN of the dreaming brain reducing computational load making rNN operate in sub-real-time mode done by **DreamingBrainLifeCycle**
+- generalization and convolution neuronal structures into rules of the robotic system **RuleBasedSystem** via **GeneralisationStrategy** and its components: **Narrative**, **Induction**, **Abduction**, **OntologyBased**.
+- generalization and convolution are gradual stepwise processes that include 2 types of validation: **StepValidator** and overall **OverallValidator**.
 
-##### Semantic tagger
+##### SemanticTagger
 
 Semantic tagging is the association process of several sensory inputs channels using temporal window.
 A robotic system tags time frames, and if possible objects in different input channels based on detected tagging events building associations in a forms of semantic clustering. Tagging events could be:
 
 - pleasure and pain stimulus
-- detected visual object: banana, battery, bright flash, human figure, etc
+- detected visual object: banana, battery, bright flash light, human figure, etc
 - detected audio signal: loud sound, word, etc
 - sensory stimulus
 
@@ -169,22 +169,18 @@ Different sensory tagged are translated into tagged neuronal structures of the r
 ![Semantic tagger activity](HLD_Activity_SemanticTagger.png)
 
 
-##### Rise of abstraction layer of the rNN of dreaming brain
+##### DreamingBrainLifeCycle: rise of abstraction layer of the rNN
 
 The granularity level of the rNN could be switched in several ways for example instead of Hodgkin–Huxley model the integrate and fire could be used.
 The other way is to take in account events of a different time scale: **spikes** and electro-chemical activity including changes of conductance, resistance, current and potential in the **milliseconds** timescale; spike timing plasticity (excitatory, inhibitory) in the **seconds** timescale; long term as well as structural plasticity in the **hours** timescale.
 
 <!-- ![Rise of abstraction layer](WP_20160729_001.jpg) -->
 
-##### Narrative
+##### GeneralisationStrategy:Narrative
 
 The narrative is the form of generalization of logical rules and neuronal circuits into logical rules based on temporal sequential patterns.
 The sequential neuronal pattern could be generalized into form of higher level concept or and consequent of the pattern activation.
 From the perspective of temporal logical rules the sequence of logical patterns could be generalized in the form of logical inference final consequent. The narrative could be understood as form of clustering of neuronal pattern circuits in high-level abstractions as well as sequential patterns of temporal [probabilistic] logic in high-level logical concepts.
-
-##### Neuronal structures tagging
-
-Every time the robotic system perceives tagged event including new object the inbound sensory stream is been tagged as well as neuronal structures of dreaming brain, during the **direct translation** that are involved in the processing are tagged as related to the tagged event. At the end of the day the rNN is semantically marked neuronal pattern and circuits.
 
 ##### Pleasure and pain
 
@@ -194,5 +190,9 @@ According to the dissertation "Neurocomputational Mechanisms for Adaptive Self-P
 ##### Validation
 
 During the **reverse translation** phase these pattern and circuits are generalized into high-level logical rules via mechanisms described above.
-The number of representations of objects is reduced, but the transnational system should track the adequacy of processing via selecting most important according to the number of tagged connections events(objects) and persist them for further processing. If a important object was deleted during processing the system start the processing stage from the begging using less strict generalization rules.
+The number of representations of objects is reduced, but the **StepValidator** tracks the adequacy of processing via selecting most important according to the number of tagged connections events(objects) and persist them for further processing. If a important object was deleted during processing the system start the processing stage from the begging using less strict generalization rules.
+
+ Where the **OverallValidator** does validation based on number of neuronal connections to the pattern tagged with one event. The threshold value of the connection could be set as for example 20 percent per step and 60 percent per overall process (this should be clarified).
+
+
 

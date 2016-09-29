@@ -2,10 +2,10 @@
 This is a description for communication protocol between host PC (master) and Arduino Robot platform (slave)
 
 ## MODBUS 
-[MODBUS specification.](http://www.modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf)\
-[Simple MODBUS description](https://ru.wikipedia.org/wiki/Modbus)\
-[Arduino MODBUS library.](https://github.com/angeloc/simplemodbusng)\
-[C++ MODUBUS library.](http://libmodbus.org/)
+ * [MODBUS specification.](http://www.modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf)
+ * [Simple MODBUS description](https://ru.wikipedia.org/wiki/Modbus)
+ * [Arduino MODBUS library.](https://github.com/angeloc/simplemodbusng)
+ * [C++ MODUBUS library.](http://libmodbus.org/)
 
 MODBUS RTU version via Arduino serial port will be used. And because of Arduino library restrictions only operations with holding registers are allowed.
 
@@ -16,10 +16,10 @@ MODBUS RTU version via Arduino serial port will be used. And because of Arduino 
 |Write Multiple Holding Registers|16 (0x10)|
 
 ### Connection information
-Baudrate : 115200 baud/sec\
-Data bits : 8\
-Parity : None\
-Stop bits : 1
+ * Baudrate : 115200 baud/sec
+ * Data bits : 8
+ * Parity : None
+ * Stop bits : 1
 
 ## Next information may change within next versions of robots
 ### Platform description

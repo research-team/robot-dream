@@ -125,26 +125,26 @@ transmission to the **dreaming brain**. **ExperienceStorage** component keeps al
 this data until **DirectTransmitter** transfers it to a supercomputer.
 
 
-##### Direct translation
+##### DirectTransmitter
 
 Transfer of the stream of stored and tagged experience from the robotic system into
 the dreaming brain.
 
-For transmission of tactile signals we're adopting Neuralynx file format. For further
+For transmission of signals we're adopting Neuralynx file format. For further
 details please consult [this description](direct_translation_format.md).
 
 
-##### Rule based system
+##### RuleBasedSystem
 
-The temporal probabilistic rules system.
+The temporal probabilistic rules system, probably [NARS](https://github.com/opennars/opennars/wiki).
 
 ...
 
-#### Dreaming brain life cycle
+#### DreamingBrain
 
 ![High level design components of the "dreaming brain"](HLD_Component_SleepingBrainLifeCycle.png)
 
-The high-level representation of overall structure of the **dreaming brain**.
+The high-level representation of overall structure of the **DreamingBrain**.
 
 The robotic system **ExperienceTranslator** includes **ExperiencePlayer** that translates different types of tagged inbound sensory inputs transferred from robotic system into neuronal activities of rNN of the dreaming brain in the form of synchronous playback of neuronal activations based on wiring of sensory channel to the dreaming brain area.
 

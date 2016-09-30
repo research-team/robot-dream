@@ -53,6 +53,7 @@ void setup() {
 void loop() {
   holdingRegs[TOTAL_ERRORS] = modbus_update(holdingRegs);
   IR_update();
+  delay(50);
 }
 
 void IR_update(){

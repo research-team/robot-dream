@@ -53,6 +53,7 @@ void setup() {
 void loop() {
   holdingRegs[TOTAL_ERRORS] = modbus_update(holdingRegs);
   IR_update();
+  Floor_update();
   delay(50);
 }
 
@@ -60,4 +61,13 @@ void IR_update(){
   double data = Robot.analogRead(TK2);
   data*=5;data/=1024;//transform readed data to volts
   holdingRegs[IR]=(unsigned int)round(-115+205*data-29*data*data-216*log(data));//transform to distance, using magic formula
+}
+void Floor_update(){
+  Robot.updateIR();
+  byte sum=0;
+  for(int i=0;i<=4;i++){
+    if(Robot.IRarray[i]>455)
+      sum+=1;
+  }
+  holdingRegs[FLOOR]=(sum>=3?0:1);
 }

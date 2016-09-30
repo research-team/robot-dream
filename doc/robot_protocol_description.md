@@ -29,6 +29,7 @@ MODBUS RTU version via Arduino serial port will be used. And because of Arduino 
 ### Robot sensors description
  * Infrared distance sensor - Sharp 2Y0A02 - measures distance using infrared light. Measures distance from 20 to 150 cm.
  * Battery voltage is measured by using 2 resistors, making voltage divider from 6 to 5 volts(Need to check 4 NiMh accumulators max voltage).
+ * Floor control is the result of analysis from 5 IR sensors at front bottom side of the robot. 1 means there is floor, 0  means no floor. Used to prevent robot from falling of edges.
  * Compass - digital compass Honeywell HMC6352 -built in Arduino Robot is used to measure turn angle
  * Ultrasonic distance sensor - **unknown model** - used to measure distance to objects, closer, than 20 cm.
  * Bumper - used to detect objects by touching it. Based on end stop switches.
@@ -55,8 +56,6 @@ MODBUS RTU version via Arduino serial port will be used. And because of Arduino 
 |Empty reg|0x0D|
 |Empty reg|0x0E|
 |Empty reg|0x0F|
-
-Floor control is the result of analysis from 5 IR sensors at front bottom side of the robot. 1 means there is floor, 0  means no floor. Used to prevent robot from falling of edges.
 
 **Read-write registers**
 

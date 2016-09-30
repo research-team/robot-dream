@@ -45,6 +45,7 @@ enum
 };
 
 unsigned int holdingRegs[TOTAL_REGS_SIZE];
+byte prevfloor=1;
 void setup() {
   Robot.begin();
   modbus_configure(115200, 1, 0, TOTAL_REGS_SIZE, 0);  
@@ -64,10 +65,22 @@ void IR_update(){
 }
 void Floor_update(){
   Robot.updateIR();
-  byte sum=0;
+  byte sum=0;//count how many sensor on floor
   for(int i=0;i<=4;i++){
     if(Robot.IRarray[i]>455)
       sum+=1;
   }
-  holdingRegs[FLOOR]=(sum>=3?0:1);
+  if(prevfloor==1){//if robot was on floor
+    if(sum<=3)//if 3 or less sensors on floor
+      holdingRegs[FLOOR]=0;//whole robot not on floor
+    else
+      holdingRegs[FLOOR]=1;//on floor
+  }
+  else if(prevfloor==0){//if robot was not on floor
+    if(sum>=4)//if 4 or more on floor
+      holdingRegs[FLOOR]=1;//whole robot on floor
+    else
+      holdingRegs[FLOOR]=0;//off floor
+  }    
+  prevfloor=holdingRegs[FLOOR];
 }

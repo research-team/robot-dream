@@ -49,4 +49,11 @@ void setup() {
 
 void loop() {
   holdingRegs[TOTAL_ERRORS] = modbus_update(holdingRegs);
+  IR_update();
+}
+
+void IR_update(){
+  double data = Robot.analogRead(TK2);
+  data*=5;data/=1024;//transform readed data to volts
+  holdingRegs[IR]=(unsigned int)round(-115+205*data-29*data*data-216*log(data));//transform to distance, using magic formula
 }

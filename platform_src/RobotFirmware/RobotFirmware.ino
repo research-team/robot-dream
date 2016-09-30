@@ -1,7 +1,10 @@
-#include <SimpleModbusSlave.h>
+//robot libs
 #include <ArduinoRobot.h>
 #include <Wire.h>
 #include <SPI.h>
+
+//other libs
+#include <SimpleModbusSlave.h>
 #include <math.h>
 
 enum

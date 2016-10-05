@@ -14,7 +14,7 @@ enum
   IR,
   VOLTS,
   FLOOR, 
-  E3,
+  COMPASS,
   E4,
   E5,
   E6,
@@ -55,6 +55,7 @@ void loop() {
   holdingRegs[TOTAL_ERRORS] = modbus_update(holdingRegs);
   IR_update();
   Floor_update();
+  Compass_update();
   delay(50);
 }
 
@@ -63,6 +64,7 @@ void IR_update(){
   data*=5;data/=1024;//transform readed data to volts
   holdingRegs[IR]=(unsigned int)round(-115+205*data-29*data*data-216*log(data));//transform to distance, using magic formula
 }
+
 void Floor_update(){
   Robot.updateIR();
   byte sum=0;//count how many sensor on floor
@@ -83,4 +85,8 @@ void Floor_update(){
       holdingRegs[FLOOR]=0;//off floor
   }    
   prevfloor=holdingRegs[FLOOR];
+}
+
+void Compass_update(){
+  holdingRegs[COMPASS]=Robot.compassRead();
 }

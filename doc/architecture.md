@@ -57,6 +57,8 @@ During the "maturation" "wake-dream" cycles should become more inclined towards 
 
 One of possibles scenario could be that originally the robotic system should not have any preset rules. If the robotic system receives any painful feedback (for example hits the wall) it should be unable to react accordingly to situation. During "dreaming" phase the "dreaming brain" that should not have any preset reaction should try any random motor reaction that in its turn should be translated as rule to the robotic system. The robotic system will use this action: if this reaction reduces the pain the robotic system registers the "pain relief". The "pain relief" translated into the "dreaming brain" triggers the reward system that in its turn reinforce the association of painful sensory input with the action. On the other hand if the action does not lead to "pain relief" the pain sensory input persist and is still been translated into the "dreaming brain". The dreaming brain should try other random action and the whole "robot dream" should repeat the cycle of "dream-wake".
 
+The other possible option could be: the robotic system would have predefined (instinctive) rules, that should be translated into neuronal structures of the "dreaming brain". This way we should use "bisimulation" approach described in our article: "Robot Dream". 
+
 ### Translation
 
 ![High level translations](HL_Translations.png)

@@ -23,7 +23,7 @@ robotic platform AR-601:
 
 However the simulation of 1% of human brain required a cluster of 250 K-
 supercomputers (each contains 96 computing nodes, each node contains a 2.0
-GHz 8-core SPARC64 processor and 16 GB of memory) that was done by KEN
+GHz 8-core SPARC64 processor and 16 GB of memory) that was done by RIKEN
 institute in 2013 and this simulation was slower than human brain in 1000 times
 [12]. According to the estimates of the Human brain project the computational
 capacity to simulate whole human brain should be 30 exaflop that is not feasible
@@ -49,6 +49,13 @@ Overall robotic system life-cycle is divided into two phases: *wake* (day) and *
   - Finally update is transferred to a robotic system.
 - [**c**] The updated behavior strategies is transferred to a robotic system and applied to it.
 - [**d**] The robotic system continues it's wake phase with updated control system strategies, adjusted emotional reactions and accumulating new experience, storing all sensory inputs, to be processed again starting from **a**.
+
+### Training 
+
+We propose to use mammalian dream analogy for the training process either.
+During the "maturation" "wake-dream" cycles should become more inclined towards "wake" phase but originally the system should be more "dreaming" rather than actively acting. The purpose of this "dream-wake" balancing is to provide more frequent thus intensive "dreaming" rather than acting to adapt and update the rule-based system to the real world environment.
+
+One of possibles scenario could be that originally the robotic system should not have any preset rules. If the robotic system receives any painful feedback (for example hits the wall) it should be unable to react accordingly to situation. During "dreaming" phase the "dreaming brain" that should not have any preset reaction should try any random motor reaction that in its turn should be translated as rule to the robotic system. The robotic system will use this action: if this reaction reduces the pain the robotic system registers the "pain relief". The "pain relief" translated into the "dreaming brain" triggers the reward system that in its turn reinforce the association of painful sensory input with the action. On the other hand if the action does not lead to "pain relief" the pain sensory input persist and is still been translated into the "dreaming brain". The dreaming brain should try other random action and the whole "robot dream" should repeat the cycle of "dream-wake".
 
 ### Translation
 

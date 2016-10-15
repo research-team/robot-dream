@@ -56,7 +56,6 @@ void loop() {
   IR_update();
   Floor_update();
   Compass_update();
-  delay(50);
 }
 
 void IR_update(){

@@ -4,7 +4,7 @@
 module Rules where
 
 data IfDo c a = IfDo {
-                  condition :: c
+                  condition :: c 
                 , action    :: a
                 } deriving (Eq,Show)
 

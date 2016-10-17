@@ -3,19 +3,24 @@
 {-# LANGUAGE FlexibleInstances #-}
 module Rules where
 
+-- | IF 'condition' DO 'action' rule following Minsky's "Model Six"
 data IfDo c a = IfDo {
                   condition :: c
                 , action    :: a
                 } deriving (Eq,Show)
 
+-- | IF 'condition' DO 'action' THEN 'outcome' rule following Minsky's "Model Six"
+-- This form is used for deliberative thinking and above layers
 data IfDoThen c a = IfDoThen {
                       rule    :: IfDo c a
                     , outcome :: c
                     } deriving (Eq,Show)
 
+-- | The main common trait of the rules - they might match some situation
 class CanMatch a b where
   matches :: a -> b -> Bool
 
+-- | The second common trait of the rules - they prescribe some action
 class Actionable a b | a -> b where
   getAction :: a -> b
 

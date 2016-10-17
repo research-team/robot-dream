@@ -62,3 +62,31 @@ Continue simulation with new generator behaviour.
 ```python 
 nest.Simulate(dt)
 ```
+### Full code
+```python 
+isBlocked = False
+last_spike_time = 0
+
+for t in np.arange(0, T, dt):
+    if last_spike_time <= t:
+        isBlocked = False
+    if not isBlocked:
+        if os.path.isfile(filename):
+            with open(filename, 'r') as f:
+                intervals = [float(time) / 100 for time in f.readline().split(" ")]
+
+            intervals[0] += t
+            for i in xrange(1, len(intervals)):
+                intervals[i] += intervals[i - 1]
+
+            last_spike_time = intervals[-1]
+            generator = nest.Create('spike_generator', 1)
+            nest.SetStatus(generator, {'spike_times': intervals, 'spike_weights': [100. for i in intervals]})
+
+            nest.Connect(generator, (Cortex[L4][L4_Glu0][column][0],) )
+
+            isBlocked = True
+            del intervals
+            os.rename(filename, filename + "_done")
+    nest.Simulate(dt)
+```

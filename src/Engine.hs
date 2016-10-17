@@ -5,7 +5,7 @@
 {-# LANGUAGE MultiParamTypeClasses #-}
 module Engine where
 
-import Control.Monad (forever)
+import Control.Monad (forever, guard)
 import Data.Functor ((<$>))
 import Data.List (find, delete)
 import Data.Maybe (fromMaybe)
@@ -32,15 +32,17 @@ instance Actionable Rule Command where
 f :: [Rule] -> Reading -> Command
 f db r = fromMaybe (Forward 0.5) $ getAction <$> find (`matches` r) db
 
--- TODO: implement backtracking
-chainForward :: CanMatch (IfDoThen c a) c => [IfDoThen c a] -> c -> [a]
-chainForward []        _    = []
-chainForward (r:rules) goal =
-  if matches r goal
-    then return $ action $ rule r
-    else let goal' = condition $ rule r
-             a     = action $ rule r
-         in a : chainForward rules goal' -- FIXME: this way we'll never reach original goal
+
+chainForward :: (Eq c, Eq a) => [IfDoThen c a] -> c -> c -> [a]
+chainForward []    _     _    = []
+chainForward rules start goal = do
+  r <- rules              -- try all available rules
+  guard $ matches r start -- reject `r` and backtrack unless it matches current condition
+  let res = outcome r
+  let a   = action $ rule r
+  if res == goal
+    then return a
+    else a : chainForward (delete r rules) (condition $ rule r) goal
 
 
 initialDB :: [Rule]

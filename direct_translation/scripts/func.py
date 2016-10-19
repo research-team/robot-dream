@@ -137,7 +137,6 @@ def f_name_gen(path, name):
 
 
 def simulate():
-    import time
     global startsimulate, endsimulate, SAVE_PATH
 
     nest.PrintNetwork()
@@ -145,17 +144,13 @@ def simulate():
     logger.debug('* * * Simulating')
     startsimulate = datetime.datetime.now()
 
-    # FIRST INIT (DO NOT CHANGE!)
-    isBlocked = False
-    last_spike_time = 0
+    # For example set 10ms. It's mean that we will start read data from 10ms of simulation
+    last_spike_time = 10
 
     for t in np.arange(0, T, dt):
         print "SIMULATING [{0}, {1}]".format(t, t + dt)
         # if interval ended (by the last spike time)
         if last_spike_time <= t:
-            # remove block and stay ready for new intervals
-            isBlocked = False
-        if not isBlocked:
             # try to find data file
             if os.path.isfile(filename):
                 # open file an read all intervals
@@ -164,8 +159,8 @@ def simulate():
                     intervals = [float(time) / 100 for time in f.readline().split(" ")]
 
                 # transfer to spike times
-                intervals[0] += t
-                for i in xrange(1, len(intervals)):
+                intervals[:1] = t, intervals[0] + t
+                for i in xrange(2, len(intervals)):
                     intervals[i] += intervals[i - 1]
 
                 # set new last spike time
@@ -177,15 +172,13 @@ def simulate():
                 # connect to the neuron
                 nest.Connect(generator, (Cortex[L4][L4_Glu0][column][0],) )
 
-                # mark that read is blocked
-                isBlocked = True
                 # delete unwanted data
                 del intervals
                 # mark file as opened
                 os.rename(filename, filename + "_done")
 
         nest.Simulate(dt)
-        print "COMPLETED {0}%\n".format(t/T*100 + 1)
+        print "COMPLETED {0:.2f}%\n".format(t/T*100)
 
     endsimulate = datetime.datetime.now()
     logger.debug('* * * Simulation completed successfully')

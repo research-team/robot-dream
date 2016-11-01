@@ -4,10 +4,10 @@ This is a description for communication protocol between host PC (master) and Ar
 ## MODBUS 
  * [MODBUS specification.](http://www.modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf)
  * [Simple MODBUS description](https://ru.wikipedia.org/wiki/Modbus)
- * [Arduino MODBUS library.](https://github.com/angeloc/simplemodbusng)
+ * [FreeMODBUS library.](http://www.freemodbus.org/index.php?idx=32)
  * [C++ MODUBUS library.](http://libmodbus.org/)
 
-MODBUS RTU version via Arduino serial port will be used. And because of Arduino library restrictions only operations with holding registers are allowed.
+MODBUS RTU version via STM32F401C-DISCO UART2 will be used. 
 
 |Function|Code|
 |:--------|:----|

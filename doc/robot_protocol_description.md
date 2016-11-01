@@ -68,7 +68,7 @@ MODBUS RTU version via STM32F401C-DISCO UART2 will be used.
 |Empty reg| 0x13 |
 |Empty reg| 0x14 |
 |Empty reg| 0x15 |
-add desc for speed later
+Speed range 0-255, which represents voltage on each motor from 0 to 6 volts 
 
 **Write-only registers**
 

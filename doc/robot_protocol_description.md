@@ -25,8 +25,10 @@ MODBUS RTU version via STM32F401C-DISCO UART2 will be used.
 
 ### Platform description
 [Arduino robot](https://www.arduino.cc/en/Main/Robot)
+
 [STM32F401C-DISCO](http://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mcu-eval-tools/stm32-mcu-eval-tools/stm32-mcu-discovery-kits/stm32f4discovery.html)
-All sensors and Arduino robot platform will be connected to STM32F4 board. Platform connected and controled via I2C.
+
+All sensors and Arduino robot platform will be connected to STM32F4 board.  will be connected to Arduino robot platform via I2C
 ###Add I2C protocol decription later
 
 

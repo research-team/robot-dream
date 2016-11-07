@@ -162,8 +162,9 @@ def simulate():
                 intervals[:1] = t, intervals[0] + t
                 for i in xrange(2, len(intervals)):
                     intervals[i] += intervals[i - 1]
-
                 # set new last spike time
+                print intervals
+
                 last_spike_time = intervals[-1]
                 # create generator with new intervals
                 generator = nest.Create('spike_generator', 1)

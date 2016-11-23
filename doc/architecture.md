@@ -37,12 +37,12 @@ appraisal we propose life-cycle separation into “day” and “night” phases
 
 ## High level overview
 
-### Life cycle
+### Life cycle ("dream-wake" cycle)
 
 ![High level overview](HL_Life_cycle.png)
 Overall robotic system life-cycle is divided into two phases: *wake* (day) and *dream* (night).
 
-- [**a**] In this position a robotic system transfers the accumulated during *wake* phase experience into realistic neural network of the *dreaming brain*.
+- [**a**] In this position a robotic system transfers the accumulated during *wake* phase experience into spiking neural network of the *dreaming brain*.
 - [**b**] Processing of *dreaming phase* is done as follows:
   - The accumulated experience is transferred from a robotic system to the dreaming brain;
   - Then simulation starts producing a set of updated rules to a robotic system;
@@ -68,12 +68,12 @@ The **direct translation** is done in the playback mode similar to a mammalian b
 The **reverse translation** is gradual step by step process that could be divided into several phases:
 
 - Increase of abstraction layer of the dreaming brain
-- Translation of the realistic neural network (**rNN**) of the **dreaming brain** into rule based description of the behavior strategies of a robotic system
+- Translation of the spiking neural network (**sNN**) of the **dreaming brain** into rule based description of the behavior strategies of a robotic system
 - Validation of translation steps
 - Validation of overall reverse translation process
 - Transfer of rule based behavior strategies into a robotic system.
 
-Overall translation validation is based on overall statistical analysis of the semantically tagged rNN of a dreaming brain highlighting most important neuronal connections using **semantic tagging** to the key concepts.
+Overall translation validation is based on overall statistical analysis of the semantically tagged sNN of a dreaming brain highlighting most important neuronal connections using **semantic tagging** to the key concepts.
 
 ## HLD
 
@@ -90,20 +90,20 @@ There are three main types of use cases:
 
 The **living** use case is denoting the ordinary life-cycle of a robotic system or dreaming brain. For a robotic system usually consists of real time acting based on updated behavior strategies storing the daily experience with semantic highlighting: object and action tagging, pleasure and pain tagging.
 
-The **translation** use case is denoting the transfer and processing the original stored experience of a robotic system into the form of neural network activity and from neural network into robotic system rules. The **direct** translation in the form of playback of the **wake** phase experience in form of neuronal activity of a dreaming brain, the **reverse** process the updated rNN of a dreaming brain in to rules of a robotic system.
+The **translation** use case is denoting the transfer and processing the original stored experience of a robotic system into the form of neural network activity and from neural network into robotic system rules. The **direct** translation in the form of playback of the **wake** phase experience in form of neuronal activity of a dreaming brain, the **reverse** process the updated sNN of a dreaming brain in to rules of a robotic system.
 
 ### Activity
 
 ![High level design activity diagram](HLD_Activity_life_cycle.png)
 
 Overall the robot to the dreaming brain synchronization life-cycle.
-- "Wake phase"
+- "**Wake phase**"
   - Firstly the robotic system stores the experience of every sensory channel, including pleasure and pain tags.
   - During the **direct translation** the robotic system transmits the stored information to the **dreaming brain**.
-- "Dreaming phase"
-  - The **dreaming brain** plays back the transmitted experience by means of realistic neuronal network  (rNN) neurons activation (translating).
-  - The **dreaming brain** runs the simulation life-cycle updating the rNN.
-  - During the **reverse translation** the **dreaming brain** runs the number of activities to translate the updated structure of rNN into rules of behavioral strategies of the robotic system.
+- "**Dreaming phase**"
+  - The **dreaming brain** plays back the transmitted experience by means of spiking neuronal network  (sNN) neurons activation (translating).
+  - The **dreaming brain** runs the simulation life-cycle updating the sNN.
+  - During the **reverse translation** the **dreaming brain** runs the number of activities to translate the updated structure of sNN into rules of behavioral strategies of the robotic system.
   - The robotic system updates behavioral strategies and runs the real-time or semi real-time life-cycle, storing new experience.
 
  Practically speaking the dreaming phase of the dreaming brain and the wake phase of the robotic system could overlap and process simultaneously.
@@ -157,11 +157,11 @@ The temporal probabilistic rules system, probably [NARS](https://github.com/open
 
 The high-level representation of overall structure of the **DreamingBrain**.
 
-The **ExperienceTranslator** includes **ExperiencePlayer** that translates different types of tagged inbound sensory inputs transferred from robotic system into neuronal activities of rNN of the dreaming brain in the form of synchronous playback of neuronal activations based on wiring of sensory channel to the dreaming brain area.
+The **ExperienceTranslator** includes **ExperiencePlayer** that translates different types of tagged inbound sensory inputs transferred from robotic system into neuronal activities of sNN of the dreaming brain in the form of synchronous playback of neuronal activations based on wiring of sensory channel to the dreaming brain area.
 
 The **ReverseTranslator** component is responsible for the translation of neuronal structures and activities or the dreaming brain into the robotic system **RuleBasedSystem**. The translation process could be divided into principal phases:
 
-- rising abstraction layer or the rNN of the dreaming brain reducing computational load making rNN operate in sub-real-time mode done by **DreamingBrainLifeCycle**
+- rising abstraction layer or the sNN of the dreaming brain reducing computational load making sNN operate in sub-real-time mode done by **DreamingBrainLifeCycle**
 - generalization and convolution neuronal structures into rules of the robotic system **RuleBasedSystem** via **GeneralisationStrategy** and its components: **Narrative**, **Induction**, **Abduction**, **OntologyBased**.
 - generalization and convolution are gradual stepwise processes that include 2 types of validation: **StepValidator** and overall **OverallValidator**.
 
@@ -175,14 +175,14 @@ A robotic system tags time frames, and if possible objects in different input ch
 - detected audio signal: loud sound, word, etc
 - sensory stimulus
 
-Different sensory tagged are translated into tagged neuronal structures of the rNN of the dreaming brain during the direct translation phase.
+Different sensory tagged are translated into tagged neuronal structures of the sNN of the dreaming brain during the direct translation phase.
 
 ![Semantic tagger activity](HLD_Activity_SemanticTagger.png)
 
 
-##### DreamingBrainLifeCycle:Rise of abstraction layer of the rNN
+##### DreamingBrainLifeCycle:Rise of abstraction layer of the sNN
 
-The granularity level of the rNN could be switched in several ways for example instead of Hodgkin–Huxley model the integrate and fire could be used.
+The granularity level of the sNN could be switched in several ways for example instead of Hodgkin–Huxley model the integrate and fire could be used.
 The other way is to take in account events of a different time scale: **spikes** and electro-chemical activity including changes of conductance, resistance, current and potential in the **milliseconds** timescale; spike timing plasticity (excitatory, inhibitory) in the **seconds** timescale; long term as well as structural plasticity in the **hours** timescale.
 
 <!-- ![Rise of abstraction layer](WP_20160729_001.jpg) -->

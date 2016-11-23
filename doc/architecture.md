@@ -59,7 +59,7 @@ One of possibles scenario could be that originally the robotic system should not
 
 The other possible option could be: the robotic system would have predefined (instinctive) rules, that should be translated into neuronal structures of the "dreaming brain". This way we should use "bisimulation" approach described in our article: "Robot Dream" to adapt the "dreaming brain" first to the instinctive rules.
 
-### Translation
+### Translations
 
 ![High level translations](HL_Translations.png)
 
@@ -73,7 +73,7 @@ The **reverse translation** is gradual step by step process that could be divide
 - Validation of overall reverse translation process
 - Transfer of rule based behavior strategies into a robotic system.
 
-Overall translation validation is based on overall statistical analysis of the semantically tagged sNN of a dreaming brain highlighting most important neuronal connections using **semantic tagging** to the key concepts.
+Overall translation validation is based on overall statistical analysis of the semantically tagged sNN of a dreaming brain highlighting most important neuronal connections using [**semantic tagging**](architecture.md#semantictagger) to the key concepts.
 
 ## HLD
 

@@ -67,8 +67,8 @@ The **direct translation** is done in the playback mode similar to a mammalian b
 
 The **reverse translation** is gradual step by step process that could be divided into several phases:
 
-- Increase of abstraction layer of the dreaming brain
-- Translation of the spiking neural network (**sNN**) of the **dreaming brain** into rule based description of the behavior strategies of a robotic system
+- Increase of abstraction layer and generalize the "dreaming brain" spiking neural network (**sNN**) connections
+- Translation of the **sNN** of the **"dreaming brain"** into rule based description of the behavior strategies of a robotic system
 - Validation of translation steps
 - Validation of overall reverse translation process
 - Transfer of rule based behavior strategies into a robotic system.
@@ -157,6 +157,8 @@ The temporal probabilistic rules system, probably [NARS](https://github.com/open
 
 The high-level representation of overall structure of the **DreamingBrain**.
 
+##### Reverse translation
+
 The **ExperienceTranslator** includes **ExperiencePlayer** that translates different types of tagged inbound sensory inputs transferred from robotic system into neuronal activities of sNN of the dreaming brain in the form of synchronous playback of neuronal activations based on wiring of sensory channel to the dreaming brain area.
 
 The **ReverseTranslator** component is responsible for the translation of neuronal structures and activities or the dreaming brain into the robotic system **RuleBasedSystem**. The translation process could be divided into principal phases:
@@ -164,6 +166,16 @@ The **ReverseTranslator** component is responsible for the translation of neuron
 - rising abstraction layer or the sNN of the dreaming brain reducing computational load making sNN operate in sub-real-time mode done by **DreamingBrainLifeCycle**
 - generalization and convolution neuronal structures into rules of the robotic system **RuleBasedSystem** via **GeneralisationStrategy** and its components: **Narrative**, **Induction**, **Abduction**, **OntologyBased**.
 - generalization and convolution are gradual stepwise processes that include 2 types of validation: **StepValidator** and overall **OverallValidator**.
+
+
+###### Sub components 
+
+- Increase of abstraction layer of the dreaming brain
+- Translation of the spiking neural network (**sNN**) of the **dreaming brain** into rule based description of the behavior strategies of a robotic system
+- Validation of translation steps
+- Validation of overall reverse translation process
+- Transfer of rule based behavior strategies into a robotic system.
+
 
 ##### SemanticTagger
 

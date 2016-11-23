@@ -164,6 +164,26 @@ The high-level representation of overall structure of the **DreamingBrain**.
 
 The **ExperienceTranslator** includes **ExperiencePlayer** that translates different types of tagged inbound sensory inputs transferred from robotic system into neuronal activities of sNN of the dreaming brain in the form of synchronous playback of neuronal activations based on wiring of sensory channel to the dreaming brain area.
 
+###### ExperienceTranslator.ExperiencePlayer.AuditoryPlayer
+
+...
+
+###### ExperienceTranslator.ExperiencePlayer.VisualPlayer
+
+...
+
+###### ExperienceTranslator.ExperiencePlayer.TactilePlayer
+
+...
+
+###### ExperienceTranslator.ExperiencePlayer.PainPlayer
+
+...
+
+###### ExperienceTranslator.ExperiencePlayer.PleasurePlayer
+
+...
+
 ###### ExperienceTranslator.SemanticTagger
 
 Semantic tagging is the association process of several sensory inputs channels using temporal window.

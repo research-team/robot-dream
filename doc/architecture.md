@@ -191,20 +191,42 @@ The **ReverseTranslator** component is responsible for the translation of neuron
 - generalization and convolution neuronal structures into rules of the robotic system **RuleBasedSystem** via **GeneralisationStrategy** and its components: **Narrative**, **Induction**, **Abduction**, **OntologyBased**.
 - generalization and convolution are gradual stepwise processes that include 2 types of validation: **StepValidator** and overall **OverallValidator**.
 
-###### DreamingBrainLifeCycle:Rise of abstraction layer of the sNN
+###### DreamingBrainLifeCycle.AbstractionLayer
 
 The granularity level of the sNN could be switched in several ways for example instead of Hodgkin–Huxley model the integrate and fire could be used.
 The other way is to take in account events of a different time scale: **spikes** and electro-chemical activity including changes of conductance, resistance, current and potential in the **milliseconds** timescale; spike timing plasticity (excitatory, inhibitory) in the **seconds** timescale; long term as well as structural plasticity in the **hours** timescale.
 
 <!-- ![Rise of abstraction layer](WP_20160729_001.jpg) -->
 
-###### GeneralisationStrategy:Narrative
+
+###### DreamingBrainLifeCycle.Appraisal
+
+...
+
+###### DreamingBrainLifeCycle.CubeOfEmotions
+
+...
+
+###### GeneralisationStrategy.Narrative
 
 The narrative is the form of generalization of logical rules and neuronal circuits into logical rules based on temporal sequential patterns.
 The sequential neuronal pattern could be generalized into form of higher level concept or and consequent of the pattern activation.
 From the perspective of temporal logical rules the sequence of logical patterns could be generalized in the form of logical inference final consequent. The narrative could be understood as form of clustering of neuronal pattern circuits in high-level abstractions as well as sequential patterns of temporal [probabilistic] logic in high-level logical concepts.
 
-###### Validator
+###### GeneralisationStrategy.Induction
+
+...
+
+###### GeneralisationStrategy.Abduction
+
+...
+
+###### GeneralisationStrategy.OntologyBased
+
+...
+
+
+###### ReverseTranslator.Validator
 
 During the **reverse translation** phase these pattern and circuits are generalized into high-level logical rules via mechanisms described above.
 The number of representations of objects is reduced, but the **StepValidator** tracks the adequacy of processing via selecting most important according to the number of tagged connections events(objects) and persist them for further processing. If a important object was deleted during processing the system start the processing stage from the begging using less strict generalization rules.

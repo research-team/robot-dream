@@ -97,12 +97,14 @@ The **translation** use case is denoting the transfer and processing the origina
 ![High level design activity diagram](HLD_Activity_life_cycle.png)
 
 Overall the robot to the dreaming brain synchronization life-cycle.
- - Firstly the robotic system stores the experience of every sensory channel, including pleasure and pain tags.
- - During the **direct translation** phase robotic system transmits the stored information to the **dreaming brain**.
- - The **dreaming brain** plays back the transmitted experience by means of realistic neuronal network  (rNN) neurons activation (translating).
- - The **dreaming brain** runs the simulation life-cycle updating the rNN.
- - During the **reverse translation** phase the **dreaming brain** runs the number of activities to translate the updated structure of rNN into rules of behavioral strategies of the robotic system.
- - The robotic system updates behavioral strategies and runs the real-time or semi real-time life-cycle, storing new experience.
+- "Wake phase"
+  - Firstly the robotic system stores the experience of every sensory channel, including pleasure and pain tags.
+  - During the **direct translation** the robotic system transmits the stored information to the **dreaming brain**.
+- "Dreaming phase"
+  - The **dreaming brain** plays back the transmitted experience by means of realistic neuronal network  (rNN) neurons activation (translating).
+  - The **dreaming brain** runs the simulation life-cycle updating the rNN.
+  - During the **reverse translation** the **dreaming brain** runs the number of activities to translate the updated structure of rNN into rules of behavioral strategies of the robotic system.
+  - The robotic system updates behavioral strategies and runs the real-time or semi real-time life-cycle, storing new experience.
 
  Practically speaking the dreaming phase of the dreaming brain and the wake phase of the robotic system could overlap and process simultaneously.
 

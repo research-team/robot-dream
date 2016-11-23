@@ -65,6 +65,8 @@ The other possible option could be: the robotic system would have predefined (in
 
 The **direct translation** is done in the playback mode similar to a mammalian brain processing of the wake experience. This way whole wake experience should be translated to the sequence of dreaming brain neurons activations based on the semantics of an inbound signals, for example the activations of tactile sensors should be translated into activations of sensory cortex, audio signals should be translated into auditory cortex neurons activations.
 
+![High level reverse translation](HLD_Activity_Reverse_translation.png)
+
 The **reverse translation** is gradual step by step process that could be divided into several phases:
 
 - Increase of abstraction layer and generalize the "**dreaming brain**" spiking neural network (**sNN**) connections
@@ -72,6 +74,7 @@ The **reverse translation** is gradual step by step process that could be divide
 - Validation of translation steps
 - Validation of overall reverse translation process
 - Transfer of rule based behavior strategies into a robotic system.
+
 
 Overall translation validation is based on overall statistical analysis of the semantically tagged sNN of a dreaming brain highlighting most important neuronal connections using [**semantic tagging**](architecture.md#semantictagger) to the key concepts.
 

@@ -164,7 +164,7 @@ The high-level representation of overall structure of the **DreamingBrain**.
 
 The **ExperienceTranslator** includes **ExperiencePlayer** that translates different types of tagged inbound sensory inputs transferred from robotic system into neuronal activities of sNN of the dreaming brain in the form of synchronous playback of neuronal activations based on wiring of sensory channel to the dreaming brain area.
 
-###### SemanticTagger
+###### ExperienceTranslator.SemanticTagger
 
 Semantic tagging is the association process of several sensory inputs channels using temporal window.
 A robotic system tags time frames, and if possible objects in different input channels based on detected tagging events building associations in a forms of semantic clustering. Tagging events could be:
@@ -179,17 +179,13 @@ Different sensory tagged are translated into tagged neuronal structures of the s
 ![Semantic tagger activity](HLD_Activity_SemanticTagger.png)
 
 
-###### ExperiencePlayer:Pleasure and pain
+###### ExperienceTranslator.ExperiencePlayer.Pleasure and pain
 
 According to the dissertation "Neurocomputational Mechanisms for Adaptive Self-Preservative Robot Behaviour" by Nicolás Ignacio Navarro Guerrero, the main structures involved in pain processing: PFC, VTA, thalamus, amygdala, PAG, RRF, hippocampus. These structures are implemented in the [NeuCogAr project](https://github.com/research-team/neucogar). For the detailed description of pleasure and pain via nociception see chapter 6, for the detailed description of fear conditioning see chapter 7 of the dissertation.
 
-##### Reverse translation
+...
 
-The **ReverseTranslator** component is responsible for the translation of neuronal structures and activities or the dreaming brain into the robotic system **RuleBasedSystem**. The translation process could be divided into principal phases:
-
-- rising abstraction layer or the sNN of the "**dreaming brain**" reducing computational load making sNN operate in sub-real-time mode done by **DreamingBrainLifeCycle**
-- generalization and convolution neuronal structures into rules of the robotic system **RuleBasedSystem** via **GeneralisationStrategy** and its components: **Narrative**, **Induction**, **Abduction**, **OntologyBased**.
-- generalization and convolution are gradual stepwise processes that include 2 types of validation: **StepValidator** and overall **OverallValidator**.
+##### Dreaming Phase
 
 ###### DreamingBrainLifeCycle.AbstractionLayer
 
@@ -197,7 +193,6 @@ The granularity level of the sNN could be switched in several ways for example i
 The other way is to take in account events of a different time scale: **spikes** and electro-chemical activity including changes of conductance, resistance, current and potential in the **milliseconds** timescale; spike timing plasticity (excitatory, inhibitory) in the **seconds** timescale; long term as well as structural plasticity in the **hours** timescale.
 
 <!-- ![Rise of abstraction layer](WP_20160729_001.jpg) -->
-
 
 ###### DreamingBrainLifeCycle.Appraisal
 
@@ -207,21 +202,31 @@ The other way is to take in account events of a different time scale: **spikes**
 
 ...
 
-###### GeneralisationStrategy.Narrative
+
+##### Reverse translation
+
+The **ReverseTranslator** component is responsible for the translation of neuronal structures and activities or the dreaming brain into the robotic system **RuleBasedSystem**. The translation process could be divided into principal phases:
+
+- rising abstraction layer or the sNN of the "**dreaming brain**" reducing computational load making sNN operate in sub-real-time mode done by **DreamingBrainLifeCycle**
+- generalization and convolution neuronal structures into rules of the robotic system **RuleBasedSystem** via **GeneralisationStrategy** and its components: **Narrative**, **Induction**, **Abduction**, **OntologyBased**.
+- generalization and convolution are gradual stepwise processes that include 2 types of validation: **StepValidator** and overall **OverallValidator**.
+
+
+###### ReverseTranslator.GeneralisationStrategy.Narrative
 
 The narrative is the form of generalization of logical rules and neuronal circuits into logical rules based on temporal sequential patterns.
 The sequential neuronal pattern could be generalized into form of higher level concept or and consequent of the pattern activation.
 From the perspective of temporal logical rules the sequence of logical patterns could be generalized in the form of logical inference final consequent. The narrative could be understood as form of clustering of neuronal pattern circuits in high-level abstractions as well as sequential patterns of temporal [probabilistic] logic in high-level logical concepts.
 
-###### GeneralisationStrategy.Induction
+###### ReverseTranslator.GeneralisationStrategy.Induction
 
 ...
 
-###### GeneralisationStrategy.Abduction
+###### ReverseTranslator.GeneralisationStrategy.Abduction
 
 ...
 
-###### GeneralisationStrategy.OntologyBased
+###### ReverseTranslator.GeneralisationStrategy.OntologyBased
 
 ...
 

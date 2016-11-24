@@ -138,7 +138,6 @@ During its course of operation robotic system records inbound information for la
 transmission to the **dreaming brain**. **ExperienceStorage** component keeps all
 this data until **DirectTransmitter** transfers it to a supercomputer.
 
-
 ##### DirectTransmitter (Direct translation)
 
 Transfer of the stream of stored and tagged experience from the robotic system into
@@ -206,6 +205,11 @@ According to the dissertation "Neurocomputational Mechanisms for Adaptive Self-P
 ...
 
 ##### Dreaming Phase
+
+###### DreamingBrainLifeCycle
+
+The life cycle of the sNN simulated brain is still open question.
+Most obvious approach is to run the simulation of wake processing of the sensory inputs of the brain updating synaptic weights, updating associations and circuits.
 
 ###### DreamingBrainLifeCycle.AbstractionLayer
 

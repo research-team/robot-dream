@@ -209,7 +209,7 @@ According to the dissertation "Neurocomputational Mechanisms for Adaptive Self-P
 ###### DreamingBrainLifeCycle
 
 The life cycle of the sNN simulated brain is still open question.
-Most obvious approach is to run the simulation of wake processing of the sensory inputs of the brain updating synaptic weights, updating associations and circuits. This could be understood as the starting point of the "dreaming brain" processing approach. The alternative could be reimplementation of mammalian dreaming phases in the simulated "dreaming brain" that still is not completely clear from the computational system functioning perspective. 
+Most obvious approach is to run the simulation of wake processing of the sensory inputs of the brain updating synaptic weights, updating associations and circuits. This could be understood as the starting point of the "dreaming brain" processing approach. The alternative could be reimplementation of mammalian dreaming phases in the simulated "dreaming brain" that still is not completely clear from the computational system functioning perspective. This way we propose to gradually move from simple implementation of wake processing of the simulated brain to possibly dream phases implementation eventually we could reach the "wake-dream" phases of a mammalian brain.
 
 ###### DreamingBrainLifeCycle.AbstractionLayer
 

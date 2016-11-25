@@ -162,23 +162,23 @@ The incoming set of spikes S1 triggers the pattern P1 of critics on two levels: 
 
 A way to think is a main activity to change the content of memory and perform an action [4]. A way to think runs a workflow that could trigger the hardware controller of the robotic system or change the data of the information processing context. We propose the following workflow:
 
-1.Spike hits the system;
-2.The system creates inbound context for this spike based on its attributes: source channel (visual, audial, ...), time, number of activated neurons, neurotransmitters, previously processed information, see Data Structures section for the details;
-3.The system starts processing the spike;
-4.Several Critics are activated by based on resulting probability of their rules;
-5.Several spikes are accumulated in the system state and when their number reaches the threshold the motor reaction is triggered;
-6.The critic activates a way to think;
-7.The way to think generates data for controllers.
+1. Spike hits the system;
+2. The system creates inbound context for this spike based on its attributes: source channel (visual, audial, ...), time, number of activated neurons, neurotransmitters, previously processed information, see Data Structures section for the details;
+3. The system starts processing the spike;
+4. Several Critics are activated by based on resulting probability of their rules;
+5. Several spikes are accumulated in the system state and when their number reaches the threshold the motor reaction is triggered;
+6. The critic activates a way to think;
+7. The way to think generates data for controllers.
 
 ###### Data structures
 According to our approach, the input from robots is encoded by spikes. A spike is an abstract object with following attributes:
 
-1.Source channel;
-2.Timing: start time, duration.
-3.Semantic tag of the event to be processed.
-4.Number of activated neurons.
-5.Neurotransmitters used to generate this spike.
-6.Previously processed information context.
+1. Source channel;
+2. Timing: start time, duration.
+3. Semantic tag of the event to be processed.
+4. Number of activated neurons.
+5. Neurotransmitters used to generate this spike.
+6. Previously processed information context.
 
 
 #### DreamingBrain

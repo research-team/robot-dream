@@ -154,8 +154,6 @@ Due to the (quasi) real-time requirement we propose to use TU framework, based o
 
 Probabilistic critic is the implementation of critic from the T3 “Critic-Selector-Way to think” triplet. Spikes trigger several critics, that start inbound information processing in parallel on several levels of mental activity. Critics are grouped in contexts based on their level of mental activity and semantics of the processing information (audial, visual, tactile). The activation of one critic of the context increases the probability of triggering corresponding critics on the same context. This way every critic is a temporal probabilistic predicate that contains set of rules that are evaluated not only over the incoming information, but over current system state and context of recently processed information.
 
-... Add picture here
-
 The incoming set of spikes S1 triggers the pattern P1 of critics on two levels: instinctive (basic reflexes) and learned (simple-trained reactions). The pattern P1 and the next set of spikes trigger two patterns P2 on learned level and P3 on the instinctive levels. Later these two patters trigger two more patters one on each level: P4 and P5. This mechanism of spiking reasoning system is inspired by the “Hierarchical temporal memory” HTM approach [5] and in a similar way has predictive mechanism: the activation of the pattern P1 could be used as the indication of the S2 set of spikes. To use the advantages of training we propose to extend logical rules with weight value similar to confidence value in [NARS](https://github.com/opennars/opennars/wiki). 
 
 ###### Way to think

@@ -143,15 +143,43 @@ this data until **DirectTransmitter** transfers it to a supercomputer.
 Transfer of the stream of stored and tagged experience from the robotic system into
 the dreaming brain.
 
-For transmission of signals we're adopting Neuralynx file format. For further
+For transmission of signals we're adopting NEST file format. For further
 details please consult [this description](direct_translation_format.md).
-
 
 ##### RuleBasedSystem (Robot life cycle)
 
-The temporal probabilistic rules system, probably [NARS](https://github.com/opennars/opennars/wiki).
+Due to the (quasi) real-time requirement we propose to use TU framework, based on the “Critic-Selector-Way to think” (T3) model, it helps us to implement the rule based system managing the robotic system. The T3 “Critic-Selector-Way to think” triplet is inherited from the works of [Marvin Minsky](https://en.wikipedia.org/wiki/The_Emotion_Machine). This approach provides an option to evaluate incoming sensory data over the stored knowledge in the knowledge base. The input information of the TU framework [2] is textual while in this work we propose to use spikes for the representation of input and processing information of the TU framework. The TU framework is based on probabilistic rules and uses logical reasoning with the 6-levels of mental activity and T3 over spikes.
 
-...
+###### Probabilistic Critic
+
+Probabilistic critic is the implementation of critic from the T3 “Critic-Selector-Way to think” triplet. Spikes trigger several critics, that start inbound information processing in parallel on several levels of mental activity. Critics are grouped in contexts based on their level of mental activity and semantics of the processing information (audial, visual, tactile). The activation of one critic of the context increases the probability of triggering corresponding critics on the same context. This way every critic is a temporal probabilistic predicate that contains set of rules that are evaluated not only over the incoming information, but over current system state and context of recently processed information.
+
+... Add picture here
+
+The incoming set of spikes S1 triggers the pattern P1 of critics on two levels: instinctive (basic reflexes) and learned (simple-trained reactions). The pattern P1 and the next set of spikes trigger two patterns P2 on learned level and P3 on the instinctive levels. Later these two patters trigger two more patters one on each level: P4 and P5. This mechanism of spiking reasoning system is inspired by the “Hierarchical temporal memory” HTM approach [5] and in a similar way has predictive mechanism: the activation of the pattern P1 could be used as the indication of the S2 set of spikes. To use the advantages of training we propose to extend logical rules with weight value similar to confidence value in [NARS](https://github.com/opennars/opennars/wiki). 
+
+###### Way to think
+
+A way to think is a main activity to change the content of memory and perform an action [4]. A way to think runs a workflow that could trigger the hardware controller of the robotic system or change the data of the information processing context. We propose the following workflow:
+
+1.Spike hits the system;
+2.The system creates inbound context for this spike based on its attributes: source channel (visual, audial, ...), time, number of activated neurons, neurotransmitters, previously processed information, see Data Structures section for the details;
+3.The system starts processing the spike;
+4.Several Critics are activated by based on resulting probability of their rules;
+5.Several spikes are accumulated in the system state and when their number reaches the threshold the motor reaction is triggered;
+6.The critic activates a way to think;
+7.The way to think generates data for controllers.
+
+###### Data structures
+According to our approach, the input from robots is encoded by spikes. A spike is an abstract object with following attributes:
+
+1.Source channel;
+2.Timing: start time, duration.
+3.Semantic tag of the event to be processed.
+4.Number of activated neurons.
+5.Neurotransmitters used to generate this spike.
+6.Previously processed information context.
+
 
 #### DreamingBrain
 

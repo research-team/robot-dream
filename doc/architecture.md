@@ -223,6 +223,13 @@ Different sensory tagged are translated into tagged neuronal structures of the s
 
 ![Semantic tagger activity](HLD_Activity_SemanticTagger.png)
 
+####### Tagging of "dreaming brain" structures
+
+![Somatosensory system](https://upload.wikimedia.org/wikipedia/commons/6/60/Comprehensive_List_of_Relevant_Pathways_for_the_Somatosensory_System.png)
+
+Comprehensive description available in [wikipedia](https://en.wikipedia.org/wiki/Somatosensory_system).
+
+As depicted on the schema above the tagging of somatosensory input goes from the brain stem via thalamus to sensory cortex. Further processing could involve limbic system, prefrontal cortex and eventually motor cortex. SemanticTagger should mark neuronal structures of the "dreaming brain" involved in processing sensory information in areas listed above but should not be limited to reactive sensory only processing also tagging should involve thinking processes not directly triggered by one sensory input possibly as mixture of tags.
 
 ###### ExperienceTranslator.ExperiencePlayer.Pleasure and pain
 

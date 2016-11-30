@@ -223,7 +223,7 @@ Different sensory tagged are translated into tagged neuronal structures of the s
 
 ![Semantic tagger activity](HLD_Activity_SemanticTagger.png)
 
-####### Tagging of "dreaming brain" structures
+###### Tagging of the "dreaming brain" structures
 
 ![Somatosensory system](https://upload.wikimedia.org/wikipedia/commons/6/60/Comprehensive_List_of_Relevant_Pathways_for_the_Somatosensory_System.png)
 

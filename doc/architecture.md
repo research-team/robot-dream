@@ -76,7 +76,7 @@ The **reverse translation** is gradual step by step process that could be divide
 - Transfer of rule based behavior strategies into a robotic system.
 
 
-Overall translation validation is based on overall statistical analysis of the semantically tagged sNN of a dreaming brain highlighting most important neuronal connections using [**semantic tagging**](architecture.md#semantictagger) to the key concepts.
+Overall translation validation is based on overall statistical analysis of the semantically tagged sNN of a dreaming brain highlighting most important neuronal connections using [**semantic tagging**](architecture.md#experiencetranslatorsemantictagger) to the key concepts.
 
 ## HLD
 

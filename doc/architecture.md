@@ -181,7 +181,7 @@ According to our approach, the input from robots is encoded by spikes. A spike i
 
 #### DreamingBrain
 
-![High level design components of the "dreaming brain"](HLD_Component_SleepingBrainLifeCycle.png)
+![High level design components of the "dreaming brain"](HLD_Component_SleepingBrain.png)
 
 The high-level representation of overall structure of the **DreamingBrain**.
 

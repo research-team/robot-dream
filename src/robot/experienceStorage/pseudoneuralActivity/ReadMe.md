@@ -1,0 +1,1 @@
+This program reads IR sensor data from robot and makes pseudoneural activity graph

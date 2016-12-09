@@ -30,24 +30,44 @@
 		<td align=right><b>L6 →  <td>0    <td>0    <td>3.2  <td>3.2  <td>7.0  <td>2.8
 </table>
 
+<table>
+	<tr> 
+		<td width="55%"><img src="L2.png"/>
+		<td>INFO
+	<tr> 
+		<td width="55%"><img src="L3.png"/>
+		<td>INFO
+	<tr> 
+		<td width="55%"><img src="L4.png"/>
+		<td align="justify">
+		Tactile information relating to single whisker deflections is in part signaled via thalamocortical neurons of the ventral posterior medial nucleus (VPM) providing important input to L4 neurons. With their strong output connectivity to other cortical layers, the excitatory neurons of L4 are in a good position to distribute this sensory information to both supragranular and infragranular cortical layers within the C2 barrel column.
 
-#### L2
-![L2](L2.png)
+	<tr> 
+		<td width="55%"><img src="L5A.png"/>
+		<td>INFO
+	<tr> 
+		<td width="55%"><img src="L5B.png"/>
+		<td>INFO
+	<tr> 
+		<td width="55%"><img src="L6.png"/>
+		<td>INFO
+</table>
 
-#### L3
-![L3](L3.png)
+## Neuron number (MOUSE BRAIN!!!) [Link](http://www.sciencedirect.com/science/article/pii/S0896627308010921)
 
-#### L4
-![L3](L4.png)
-
-#### L5A
-![L5A](L5A.png)
-
-#### L5B
-![L5B](L5B.png)
-
-#### L6
-![L3](L6.png)
-
-## Cell number
-![NN](cell_number.png)
+<table>
+	<tr align="center">
+		<td><b>Layer <td><b>Glu <td><b>GABA <td rowspan="7"><img src="cell_number.png"></img>
+	<tr>
+		<td align=right><b>L2 <td>546 ± 49 <td>107 ± 7
+	<tr>
+		<td align=right><b>L3 <td>1145 ± 132 <td>123 ± 19
+	<tr>
+		<td align=right><b>L4 <td>1656 ± 83 <td>140 ± 9
+	<tr>
+		<td align=right><b>L5A<td>454 ± 46 <td>90 ± 14
+	<tr>
+		<td align=right><b>L5B<td>641 ± 50 <td>131 ± 6
+	<tr>
+		<td align=right><b>L6<td>1288 ± 84 <td>127 ± 9
+</table>

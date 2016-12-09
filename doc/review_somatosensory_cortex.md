@@ -53,6 +53,10 @@
 		<td>INFO
 </table>
 
+## Strength inputs in L2/3 [Link](http://www.cell.com/neuron/fulltext/S0896-6273(13)00267-5)
+![L2/3](input_strength.png)
+
+
 ## Neuron number (MOUSE BRAIN!!!) [Link](http://www.sciencedirect.com/science/article/pii/S0896627308010921)
 
 <table>
@@ -71,3 +75,10 @@
 	<tr>
 		<td align=right><b>L6<td>1288 ± 84 <td>127 ± 9
 </table>
+
+## Connections
+[Link](http://www.cell.com/neuron/fulltext/S0896-6273(13)00267-5)
+![inputs](inputs_L23.png)
+
+
+

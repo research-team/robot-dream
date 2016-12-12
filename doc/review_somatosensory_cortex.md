@@ -2,23 +2,51 @@
 
 Neocortical areas are believed to be organized into vertical modules, the cortical columns, and the horizontal layers 1–6. In the somatosensory barrel cortex these columns are defined by the readily discernible barrel structure in layer 4. Information processing in the neocortex occurs along vertical and horizontal axes, thereby linking individual barrel-related columns via axons running through the different cortical layers of the barrel cortex. Long-range signaling occurs within the neocortical layers but also through axons projecting through the white matter to other neocortical areas and subcortical brain regions. Because of the ease of identification of barrel-related columns, the rodent barrel cortex has become a prototypical system to study the interactions between different neuronal connections within a sensory cortical area and between this area and other cortical as well subcortical regions. Such interactions will be described specifically for the feed-forward and feedback loops between the somatosensory and the somatomotor cortices as well as the different thalamic nuclei. In addition, recent advances concerning the morphological characteristics of excitatory neurons and their impact on the synaptic connectivity patterns and signaling properties of neuronal microcircuits in the whisker-related somatosensory cortex will be reviewed. In this context, their relationship between the structural properties of barrel-related columns and their function as a module in vertical synaptic signaling in the whisker-related cortical areas will be described.
 
-- [Cortical layers of barrel column (Mouse)](#cortical-layers-of-barrel-column--mouse)
-- [Number of neurons per column (Mouse)](#number-of-neurons-per-column--mouse)
-- [Excitatory connection probability (Mouse)](#excitatory-connection-probability--mouse)
-- [Strength inputs in L2/3 (Mouse)](#strength-inputs-in-l23-mouse)
-- [Kinetics of uEPSPs (Mouse)]()
-- [Connections (Rat)](#connections)
-	- [Glutamate](#glutamate-5-rat)
+- [Cortical layers of barrel column (Mouse)](#cortical-layers-of-barrel-column-mouse)
+- [Neuron](#neuron)
+- [Number of neurons per column (Mouse)](#number-of-neurons-per-column-mouse)
+- [Excitatory connection probability (Mouse)](#excitatory-connection-probability-mouse)
+- [Strength inputs in L2/3 (Mouse)](#strength-inputs-mouse)
+- [Kinetics of uEPSPs (Mouse)](#kinetics-of-uepsps-uncaging-evoked-excitatory-postsynaptic-potentials-mouse)
+- [Connections](#connections)
+	- [Glutamate (Rat)](#glutamate-rat)
 		- [Layer 4](#layer-4)
 		- [Layers 2/3](#layers-23)
 		- [Layers 5A/5B](#layers-5a5b)
 		- [Layers 6A/6B](#layers-6a6b)
 	- [GABA](#gaba)
+- [Final schema](#final-schema)
 - [References](#references)
 
 ## Cortical layers of barrel column (Mouse)
 ![layers](layers.png)
-> Examples of different dendritic morphologies found in the mouse C2 barrel column. Layer boundaries are drawn to scale at their mean subpial distance **([1])**
+> Examples of different dendritic morphologies found in the mouse C2 barrel column. Layer boundaries are drawn to scale at their mean subpial distance 
+
+**[Link #1]**
+
+## Neuron
+
+
+ADD INFO!!! 
+<table>
+	<tr>
+		<td>Neuron name <td>NEST model <td>Proxy NEST model <td>Standard NEST parameters
+	</tr>
+	<tr>
+		<td> 
+			<b>pyramidal cell</b>
+		<td>
+			Doesn't exist
+		<td>
+			iaf_psc_exp
+		<td>
+			<ul>
+				<li>a
+				<li>b
+				<li>c
+			</ul>
+	</tr>
+</table>
 
 
 ## Number of neurons per column (Mouse)
@@ -61,7 +89,9 @@ Neocortical areas are believed to be organized into vertical modules, the cortic
 	</tr>
 </table>
 
-> Estimated numbers (mean ± SEM) of excitatory and inhibitory cells in different layers of the mouse C2 barrel column **([1])**
+> Estimated numbers (mean ± SEM) of excitatory and inhibitory cells in different layers of the mouse C2 barrel column 
+
+**[Link #1]**
 
 
 ## Excitatory connection probability (Mouse)
@@ -94,16 +124,18 @@ Neocortical areas are believed to be organized into vertical modules, the cortic
 		<td align=right><b>L6 →</b><td>0    <td>0    <td>3.2  <td>3.2  <td>7.0  <td>2.8
 	</tr>
 </table>
-> The layer-specific mean input and output connectivity from L2, L3, L4, L5A, L5B and L6 **([1])**
+> The layer-specific mean input and output connectivity from L2, L3, L4, L5A, L5B and L6 
+
+**[Link #1]**
 
 ![L2](L2.png)![L3](L3.png)
 ![L4](L4.png)![L5A](L5A.png)
 ![L5B](L5B.png)![L6](L6.png)
+**[Link #1]**
 
-
-## Strength inputs in L2/3 (Mouse) ([5])
-Summary of excitatory and inhibitory input patterns across all the celltypes examined.  
-For pyramidal neuron:
+## Strength inputs (Mouse)
+Summary of excitatory and inhibitory input patterns across all the cell types examined.  
+Data in table is presented for **pyramidal neuron**, because it's the main type of cells in barrel columns.
 <table>
 	<tr align="center">
 		<td><b>Layer</b>
@@ -151,24 +183,35 @@ For pyramidal neuron:
 	</tr>
 </table>
 
+**[Link #5]**
+
 
 ## Kinetics of uEPSPs (uncaging-Evoked Excitatory PostSynaptic Potentials) (Mouse)
 ![delays](kinetics_of_uEPSPs.png)
->(A) Latency was measured from AP peak to uEPSP onset. Rise-time was measured from 20% to 80% of the peak uEPSP amplitude. Time-to-peak was measured from latency to peak. Half-width indicates the measured full-width at half-maximal response amplitude. Decay-time was the time constant obtained from a single exponential fit of 80% to 20% on the falling phase of the uEPSP.  
+>(A) **Latency** was measured from AP peak to uEPSP onset.  
+**Rise-time** was measured from 20% to 80% of the peak uEPSP amplitude.  
+Time-to-peak was measured from latency to peak  
+**Half-width** indicates the measured full-width at half-maximal response amplitude.  
+Decay-time was the time constant obtained from a single exponential fit of 80% to 20% on the falling phase of the uEPSP.  
 (B) Example experiments showing differences in uEPSP duration. An example synaptic connection between two L4 neurons (red) has a longer duration compared to a different example experiment with a synaptic connnection from a L4 neuron to a L3 neuron (blue). The traces have been scaled so that the peak of the uEPSP has the same amplitude.  
 (C) Example experiments showing differences in uEPSP latency. An example synaptic connection between two L2 neurons (red) has a shorter latency than a different example experiment showing a connection from L2 to L5B (blue). The traces have been scaled so that the peak of the uEPSP has the same amplitude.  
 (D) Color-coded matrix of layer specific uEPSP latencies.  
 (E) Color-coded matrix of layer specific uEPSP rise-times.  
-(F) Color-coded matrix of layer specific uEPSP half-widths **([4])**
+(F) Color-coded matrix of layer specific uEPSP half-widths 
 
-**Full table of uncaging-Evoked Excitatory PostSynaptic Potentials:**
+**[Link #4]**
+
+### Full table of uncaging-Evoked Excitatory PostSynaptic Potentials:
 ![times](times.png)
+
+**[Link #4]**
+
 
 ## Connections
 
-### Glutamate ([5]) (Rat)
+### Glutamate (Rat)
 
-###	Layer 4
+### Layer 4
 <table>
 	<tr>
 		<td width="40%"><img src="L4_schema.png"/></td>
@@ -203,6 +246,8 @@ For pyramidal neuron:
 	</tr>
 </table>
 
+**[Link #5]**
+
 ---
 
 ### Layers 2/3
@@ -211,6 +256,8 @@ For pyramidal neuron:
 (A) Reconstructions of a pyramidal cell located in the upper half of layer 2/3 (L2 pyramidal cell, left) and a pyramidal cell located in the lower half of layer 2/3 (L3 pyramidal cell, left) of rat barrel cortex; modified with permission of the Society of Neuroscience. Note that the apical tuft of the L2 pyramidal cell is substantially larger than the basal dendritic tree of that neuron while L3 pyramidal cells have slender apical tufts. Modified with permission from the Society of Neuroscience.  
 (B) Diagram of the excitatory synaptic connections of and onto L2 pyramidal cells (red neuron with blue axon) in the barrel cortex. Only synaptic input from neurons and regions relevant for L2 pyramidal cells is shown in this graph. For detailed information on the location of synaptic contacts and possible subtypes of L2 pyramidal cells see text.  
 (C) Diagram of the excitatory synaptic connections of and onto L3 pyramidal cells (red neuron with blue axon) in the barrel cortex. Only synaptic input from neurons and regions relevant for L3 pyramidal cells is shown in this graph. For detailed information on the location of synaptic contacts and possible subtypes of L3 pyramidal cells see text.
+
+**[Link #5]**
 
 ---
 
@@ -221,6 +268,8 @@ For pyramidal neuron:
 (B) Diagram of the excitatory synaptic connections of and onto slender-tufted L5A pyramidal cells (red neuron with blue axon) in the barrel cortex. Only synaptic input from neurons and regions relevant for slender-tufted L5A pyramidal cells is shown in this graph. For detailed information on the location of synaptic contacts and possible subtypes of slender-tufted L5A pyramidal cells see text.  
 (C) Diagram of the excitatory synaptic connections of and onto thick-tufted L5B pyramidal cells (red neuron with blue axon) in the barrel cortex. Only synaptic input from neurons and regions relevant for thick-tufted L5B pyramidal cells is shown in this graph. Note that thick-tufted L5B pyramidal cells receive synaptic input from virtually all cortical layers. For detailed information on the location of synaptic contacts and possible subtypes of thick-tufted L5B pyramidal cells see text.
 
+**[Link #5]**
+
 ---
 
 ### Layers 6A/6B
@@ -230,23 +279,35 @@ For pyramidal neuron:
 (B) Diagram of the excitatory synaptic connections of and onto corticothalamic L6A pyramidal cells (red neuron with blue axon) in the barrel cortex. Only synaptic input from neurons and regions relevant for corticothalamic L6A pyramidal cells is shown in this graph. For detailed information on the location of synaptic contacts and possible subtypes of corticothalamic L6A pyramidal cells see text.  
 (C) Diagram of the excitatory synaptic connections of and onto corticocortical L6A pyramidal cells (red neuron with blue axon) in the barrel cortex. Only synaptic input from neurons and regions relevant for corticocortical L6A pyramidal cells is shown in this graph. For detailed information on the location of synaptic contacts and possible subtypes of corticocortical L6A pyramidal cells see text.
 
+**[Link #5]**
+
 ---
 
 ### GABA
 ![inputs](inputs_L23.png)
-> Origin **([3])**
+> Origin 
+
+**[Link #3]**
+
+
+## Final schema
+
+Not FINISHED!
+![L2,L3,L4](result_schema_L234.png)
+![L5A, L5B, L6](result_schema_L5A5B6.png)
+
 
 ## References
-[1]: http://www.cell.com/neuron/abstract/S0896-6273(08)01092-1
-[2]: http://neuronaldynamics.epfl.ch/online/Ch12.S1.html
-[3]: http://www.cell.com/neuron/abstract/S0896-6273(13)00267-5
-[4]: http://www.cell.com/cms/attachment/604400/4788014/mmc1.pdf
-[5]: http://journal.frontiersin.org/article/10.3389/fnana.2012.00024/full
-[6]: https://www.ncbi.nlm.nih.gov/pubmed/19129386
+[Link #1]: http://www.cell.com/neuron/abstract/S0896-6273(08)01092-1
+[Link #2]: http://neuronaldynamics.epfl.ch/online/Ch12.S1.html
+[Link #3]: http://www.cell.com/neuron/abstract/S0896-6273(13)00267-5
+[Link #4]: http://www.cell.com/cms/attachment/604400/4788014/mmc1.pdf
+[Link #5]: http://journal.frontiersin.org/article/10.3389/fnana.2012.00024/full
+[Link #6]: https://www.ncbi.nlm.nih.gov/pubmed/19129386
 
-- **[1]** The Excitatory Neuronal Network of the C2 Barrel Column in Mouse Primary Somatosensory Cortex
-- **[2]** Columnar organization (Online book)
-- **[3]** Synaptic Computation and Sensory Processing in Neocortical Layer 2/3
-- **[4]** Supplemental Data. The Excitatory Neuronal Network of the C2 Barrel Column in Mouse Primary Somatosensory Cortex
-- **[5]** Excitatory neuronal connectivity in the barrel cortex
-- **[6]** Laminar Specificity of Functional Input to Distinct Types of Inhibitory Cortical Neurons
+- **[Link #1]** The Excitatory Neuronal Network of the C2 Barrel Column in Mouse Primary Somatosensory Cortex
+- **[Link #2]** Columnar organization (Online book)
+- **[Link #3]** Synaptic Computation and Sensory Processing in Neocortical Layer 2/3
+- **[Link #4]** Supplemental Data. The Excitatory Neuronal Network of the C2 Barrel Column in Mouse Primary Somatosensory Cortex
+- **[Link #5]** Excitatory neuronal connectivity in the barrel cortex
+- **[Link #6]** Laminar Specificity of Functional Input to Distinct Types of Inhibitory Cortical Neurons

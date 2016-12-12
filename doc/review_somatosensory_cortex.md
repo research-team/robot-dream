@@ -1,8 +1,8 @@
-## Review of somatosensory cortex (Mouse and rat brains)
+# Review of somatosensory cortex (Mouse and rat brains)
 
 Neocortical areas are believed to be organized into vertical modules, the cortical columns, and the horizontal layers 1–6. In the somatosensory barrel cortex these columns are defined by the readily discernible barrel structure in layer 4. Information processing in the neocortex occurs along vertical and horizontal axes, thereby linking individual barrel-related columns via axons running through the different cortical layers of the barrel cortex. Long-range signaling occurs within the neocortical layers but also through axons projecting through the white matter to other neocortical areas and subcortical brain regions. Because of the ease of identification of barrel-related columns, the rodent barrel cortex has become a prototypical system to study the interactions between different neuronal connections within a sensory cortical area and between this area and other cortical as well subcortical regions. Such interactions will be described specifically for the feed-forward and feedback loops between the somatosensory and the somatomotor cortices as well as the different thalamic nuclei. In addition, recent advances concerning the morphological characteristics of excitatory neurons and their impact on the synaptic connectivity patterns and signaling properties of neuronal microcircuits in the whisker-related somatosensory cortex will be reviewed. In this context, their relationship between the structural properties of barrel-related columns and their function as a module in vertical synaptic signaling in the whisker-related cortical areas will be described.
 
-### Cortical layers
+## Cortical layers
 ![layers](layers.png)
 > Examples of different dendritic morphologies found in the mouse C2 barrel column. Layer boundaries are drawn to scale at their mean subpial distance **([1])**
 
@@ -27,7 +27,7 @@ Neocortical areas are believed to be organized into vertical modules, the cortic
 
 > Estimated numbers (mean ± SEM) of excitatory and inhibitory cells in different layers of the mouse C2 barrel column **([1])**
 
-### Excitatory connection probability (%) (Mouse)
+## Excitatory connection probability (%) (Mouse)
 
 <table>
   <tr align=center font-weight=bold>
@@ -98,7 +98,7 @@ Full table:
 
 ### Glutamate ([5]) (Rat)
 
-#### Layer 4
+###	 Layer 4
 <table>
 	<tr>
 		<td width="40%"><img src="L4_schema.png"/></td>
@@ -135,7 +135,7 @@ Full table:
 
 ---
 
-#### Layers 2/3
+### Layers 2/3
 ![L2/3](L2.3_schema.png)
 > **Excitatory synaptic input–output relationship in layer 2/3 of the S1 barrel cortex**  
 (A) Reconstructions of a pyramidal cell located in the upper half of layer 2/3 (L2 pyramidal cell, left) and a pyramidal cell located in the lower half of layer 2/3 (L3 pyramidal cell, left) of rat barrel cortex; modified with permission of the Society of Neuroscience. Note that the apical tuft of the L2 pyramidal cell is substantially larger than the basal dendritic tree of that neuron while L3 pyramidal cells have slender apical tufts. Modified with permission from the Society of Neuroscience.  
@@ -144,7 +144,7 @@ Full table:
 
 ---
 
-#### Layers 5A/5B
+### Layers 5A/5B
 ![L5A-L5B](L5AB_schema.png)
 > **Excitatory synaptic input–output relationship in layer 5 of the S1 barrel cortex**  
 (A) Reconstructions of three types of pyramidal cells in layer 5 of the barrel cortex. Slender-tufted pyramidal cells (left) are predominantly located in sublamina 5A while thick-tufted pyramidal cells (middle) are mostly found in sublamina 5B. Corticocallosal L5 pyramidal cells (right) are found throughout layer 5. They are characterized by a very diminutive or even absent apical tuft. Modified with permission of the Society of Neuroscience, Springer and Oxford Journals, respectively.  
@@ -153,7 +153,7 @@ Full table:
 
 ---
 
-#### Layers 6A/6B
+### Layers 6A/6B
 ![L6A-L6B](L6AB_schema.png)
 > **Excitatory synaptic input–output relationship in layer 6 of the S1 barrel cortex**  
 (A) Reconstructions of three types of pyramidal cells in sublamina A of layer 6 in the rat barrel cortex; modiefied with permission of the Society for Neuroscience. L6A pyramidal cell projecting exclusively back to the VPM nucleus of the thalamus (left), L6A pyramidal neuron projecting to both the VPM and the POm nuclei of the somatosensory thalamus (middle) and a corticocortical L6A pyramidal cell. The apical trees of L6A pyramidal cells terminate between upper layer 5 and lower layer 3 and have very small or even no tuft. Modified with permission from the Society for Neuroscience.  

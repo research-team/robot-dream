@@ -4,6 +4,7 @@ Neocortical areas are believed to be organized into vertical modules, the cortic
 
 - [Cortical layers of barrel column (Mouse)](#cortical-layers-of-barrel-column-mouse)
 - [Neuron](#neuron)
+- [Parameters](#parameters)
 - [Number of neurons per column (Mouse)](#number-of-neurons-per-column-mouse)
 - [Excitatory connection probability (Mouse)](#excitatory-connection-probability-mouse)
 - [Strength inputs in L2/3 (Mouse)](#strength-inputs-mouse)
@@ -26,28 +27,159 @@ Neocortical areas are believed to be organized into vertical modules, the cortic
 
 ## Neuron
 
-
-ADD INFO!!! 
 <table>
-	<tr>
-		<td>Neuron name <td>NEST model <td>Proxy NEST model <td>Standard NEST parameters
+	<tr align="center">
+		<td><b>Neuron name</b> <td><b>NEST model</b> <td><b>Proxy NEST model</b> <td><b>Standard NEST parameters</b> <td><b>Value</b> <td><b>Description</b>
 	</tr>
 	<tr>
-		<td> 
-			<b>pyramidal cell</b>
-		<td>
-			Doesn't exist
-		<td>
-			iaf_psc_exp
-		<td>
-			<ul>
-				<li>a
-				<li>b
-				<li>c
-			</ul>
+		<td rowspan="14"><b>pyramidal cell</b>
+		<td rowspan="14">Doesn't exist
+		<td rowspan="14">iaf_psc_exp <b><sup>1</sup></b>
+		<td>V_reset
+		<td>-70.0
+		<td>Reset membrane potential after a spike in mV
+	</tr>
+	<tr>
+		<td>V_th
+		<td>-55.0
+		<td>Spike threshold in mV
+	</tr>
+	<tr>
+		<td>tau_m
+		<td>10.0
+		<td>Membrane time constant in ms
+	</tr>
+	<tr>
+		<td>I_e
+		<td>0.0
+		<td>Constant input current in pA
+	</tr><tr>
+		<td>t_spike	
+		<td>-1.0	
+		<td>Point in time of last spike in ms
+	</tr><tr>
+		<td>V_m
+		<td>-70.0
+		<td>Membrane potential in mV
+	</tr><tr>
+		<td>E_L
+		<td>-70.0
+		<td>Resting membrane potential in mV
+	</tr><tr>
+		<td>tau_syn_ex
+		<td>2.0
+		<td>Time constant of postsynaptic excitatory currents in ms
+	</tr><tr>
+		<td>beta_Ca
+		<td>0.001
+		<td>?? Not declared in NEST documentation
+	</tr><tr>
+		<td>t_ref
+		<td>2.0
+		<td>Duration of refractory period (V_m = V_reset) in ms
+	</tr><tr>
+		<td>Ca
+		<td>0.0
+		<td>?? Not declared in NEST documentation
+	</tr><tr>
+		<td>C_m
+		<td>250.0
+		<td>Capacity of the membrane in pF
+	</tr>
+	<tr>
+		<td>tau_syn_in
+		<td>2.0
+		<td>Time constant of postsynaptic inhibitory currents in ms
+	</tr>
+	<tr>
+		<td>tau_Ca
+		<td>10000.0	
+		<td>?? Not declared in NEST documentation
 	</tr>
 </table>
 
+> <b><sup>1</sup></b> "We found that the empirical dynamic I-V curve could be accurately fitted by the **exponential integrate-fire (EIF)** form Eq (2) for each of the four pyramidal-cell classes from layers 2/3, 4 and 5" (in chapter "Quality of model fits")  
+**[Link #7]**
+
+
+## Parameters
+
+#### The mean μ and standard deviation σ for the parameter distributions (log-normal unless otherwise marked).
+'*' is Normal distribution.	
+
+<table>
+	<tr align="center">
+		<td><b>Parameter</b> <td><b>Description</b> <td colspan="2"><b>Layer 2/3</b> <td colspan="2"><b>Layer 4</b> <td colspan="2"><b>Slender <br/>Layer 5</b> <td colspan="2"><b>Thick <br/>Layer 5</b>
+	</tr>
+	<tr>
+		<td>	<td>	<td>μ	<td>σ	<td>μ	<td>σ	<td>μ	<td>σ	<td>μ	<td>σ
+	</tr>
+	<tr>
+		<td>C (pF)	<td>Membrane capacitance <td>134	<td>32.8 <td>135 <td>36.7 <td>133 <td>31.9 <td>284 <td>78.5
+	</tr>
+	<tr>
+		<td>R<sub>in</sub>(MΩ) <td>Input Resistance <td>121 <td>45.2 <td>149 <td>50.5 <td>154 <td>73.3 <td>52.4 <td>19.4
+	</tr>
+	<tr>
+		<td>G<sub>in</sub>(nS) <td>Input conductance <td>9.31 <td>3.24 <td>7.52 <td>2.69 <td>7.94 <td>3.38 <td>21.5 <td>7.4
+	</tr>
+	<tr>
+		<td>τ (ms) <td>Membrane time constant <td>14.6 <td>2.53 <td>17.2 <td>4.18 <td>18.3 <td>4.74 <td>18.7 <td>4.23
+	</tr>
+	<tr>
+		<td>E (mV) <td>Membrane equilibrium potential <td>−79.3* <td>4.27* <td>−71.8* <td>4.20* <td>−69.9* <td>4.18* <td>−68.5* <td>3.98*
+	</tr>
+	<tr>
+		<td>S(%) <td>Sag percentage from hyperpolarising current <td>11 <td>5.7 <td>21 <td>7.65 <td>26.8* <td>7.58* <td>30.6* <td>9.20*
+	</tr>	
+	<tr>
+		<td>V<sub>T</sub> − E (mV) <td>Potential between threshold and rest <td>29.8 <td>4.16 <td>23.2 <td>4.46 <td>20.1 <td>4.28 <td>15.7 <td>4.25
+	</tr>
+	<tr>
+		<td>V<sub>T</sub> (mV) <td>Spike-onset threshold <td>−49.5* <td>3.81* <td>−48.7* <td>3.53* <td>−49.7* <td>3.56* <td>−52.7* <td>3.59*
+	</tr>
+	<tr>
+		<td>I<sub>spike</sub> (pA) <td>Spike initiation current <td>270 <td>77.4 <td>173 <td>66.5 <td>150 <td>48.6 <td>324 <td>105
+	</tr>
+	<tr>										
+		<td>Δ<sub>T</sub> (mV) <td>Spike sharpness <td>1.34 <td>0.55 <td>1.28 <td>0.394 <td>1.35 <td>0.523 <td>1.16 <td>0.479
+	</tr>
+	<tr>
+		<td>A<sub>amp</sub> (mV) <td>Action potential amplitude <td>75.5* <td>7.76* <td>74.5* <td>6.47* <td>77.2* <td>7.07* <td>84.1* <td>5.15*
+	</tr>
+	<tr>
+		<td>A<sub>dur</sub> (ms) <td>Action potential duration <td>1.41 <td>0.245 <td>1.33 <td>0.215 <td>1.16 <td>0.271 <td>0.981 <td>0.149
+	</tr>
+	<tr>
+		<td>A<sub>rise</sub> (mV/ms) <td>Action potential rate of rise <td>234 <td>50.3 <td>258 <td>46.2 <td>275 <td>76.8 <td>319 <td>46.9
+	</tr>
+	<tr>
+		<td>g 1 (nS) <td>Post-spike jump in conductance <td>14.3 <td>7.5 <td>20 <td>9.6 <td>15.7 <td>7.7 <td>26.1 <td>12.5
+	</tr>
+	<tr>
+		<td>τ<sub>g</sub> (ms) <td>Conductance decay time constant <td>17 <td>17.4 <td>17.3 <td>15.8 <td>23.3 <td>23.9 <td>24.5 <td>21.8
+	</tr>
+	<tr>
+		<td>V<sub>T1</sub> (mV) <td>Post-spike jump in spike threshold <td>16.2 <td>4.4 <td>15.9 <td>5.1 <td>13.1 <td>4 <td>14.8 <td>4.4
+	</tr>
+	<tr>
+		<td>τ<sub>T</sub> (ms) <td>Spike threshold decay time constant <td>13.6 <td>8.9 <td>14.1 <td>4.9 <td>16.4 <td>9.7 <td>12.7 <td>5.3
+	</tr>
+	<tr>
+		<td>E<sub>jump</sub> (mV) <td>Post-Spike jump in E <td>15.8 <td>5.7 <td>10.1 <td>3.7 <td>9.6 <td>4.3 <td>7.9 <td>4.6		
+	</tr>
+	<tr>
+		<td>E<sub>sag</sub> (mV)	<td>Post-spike sag in E <td>1.3 <td>0.9 <td>1.8 <td>1.1 <td>2.7 <td>1.7 <td>4.4 <td>2		
+	</tr>
+	<tr>
+		<td>t<sub>sag</sub> (ms) <td>Post-spike time of E<sub>sag</sub> <td>87.5 <td>23.2 <td>66.2 <td>18.9 <td>53 <td>19.9 <td>40.4 <td>11.5		
+	</tr>
+	<tr>
+		<td>t<sub>0</sub> (ms) <td>Post-spike time at which E crosses baseline <td>45.9 <td>15.7 <td>30.6 <td>12.2 <td>21.6 <td>12 <td>11.5 <td>6.8
+	</tr>
+</table>
+
+**[Link #7]**
 
 ## Number of neurons per column (Mouse)
 <table>
@@ -284,9 +416,15 @@ Decay-time was the time constant obtained from a single exponential fit of 80% t
 ---
 
 ### GABA
-![inputs](inputs_L23.png)
-> Origin 
-
+<table>
+	<tr>
+		<td><img src="inputs_L23.png"/>
+		<td>
+			<p>Schematic representation of main excitatory and inhibitory inputs to L2/3 pyramidal neurons within a barrel cortex column.</p>
+			<br>Black - excitatory 
+			<br>Green - inhibitory
+	</tr>
+</table>
 **[Link #3]**
 
 
@@ -304,6 +442,7 @@ Not FINISHED!
 [Link #4]: http://www.cell.com/cms/attachment/604400/4788014/mmc1.pdf
 [Link #5]: http://journal.frontiersin.org/article/10.3389/fnana.2012.00024/full
 [Link #6]: https://www.ncbi.nlm.nih.gov/pubmed/19129386
+[Link #7]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4546387/
 
 - **[Link #1]** The Excitatory Neuronal Network of the C2 Barrel Column in Mouse Primary Somatosensory Cortex
 - **[Link #2]** Columnar organization (Online book)
@@ -311,3 +450,4 @@ Not FINISHED!
 - **[Link #4]** Supplemental Data. The Excitatory Neuronal Network of the C2 Barrel Column in Mouse Primary Somatosensory Cortex
 - **[Link #5]** Excitatory neuronal connectivity in the barrel cortex
 - **[Link #6]** Laminar Specificity of Functional Input to Distinct Types of Inhibitory Cortical Neurons
+- **[Link #7]** Experimentally Verified Parameter Sets for Modelling Heterogeneous Neocortical Pyramidal-Cell Populations

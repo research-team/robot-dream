@@ -109,7 +109,7 @@ Neocortical areas are believed to be organized into vertical modules, the cortic
 
 <table>
 	<tr align="center">
-		<td><b>Parameter</b> <td><b>Description</b> <td colspan="2"><b>Layer 2/3</b> <td colspan="2"><b>Layer 4</b> <td colspan="2"><b>Slender <br/>Layer 5</b> <td colspan="2"><b>Thick <br/>Layer 5</b>
+		<td><b>Parameter</b> <td><b>Description</b> <td colspan="2"><b>Layer 2/3</b> <br/>pyramidal-cell <td colspan="2"><b>Layer 4</b> <br/>pyramidal-cell  <td colspan="2"><b>Layer 5</b><br/> slender-tufted pyramidal cells <td colspan="2"><b>Layer 5</b> <br/>thick-tufted pyramidal cells
 	</tr>
 	<tr>
 		<td>	<td>	<td>μ	<td>σ	<td>μ	<td>σ	<td>μ	<td>σ	<td>μ	<td>σ

@@ -1,8 +1,10 @@
 """Main property"""
-GlobalColumns = 30 #3000
 
-X = 6
-Y = 5
+
+X = 3
+Y = 2
+
+GlobalColumns = X * Y
 
 # keys for layer tuples
 Glu = 0
@@ -24,30 +26,24 @@ k_NN = 'NN'
 k_model = 'Model'
 
 # general settings
-T = 1000.
+T = 500.
 dt = 10.
 
 # neurons number for spike detector
 N_detect = 100
 
 # Neurons number for multimeter
-N_volt = 3
+N_volt = 7
 
 # Generator delay
 pg_delay = 2.
 
 # Synapse weights
-w_Glu = 3.
-w_GABA = -w_Glu * 2
+w_Glu = 20.
+w_GABA = -w_Glu * 1.5
 
 # Minimal number of neurons
 NN_minimal = 10
 
-# Synapse models
-glu_synapse      = 'glu_synapse'
-gaba_synapse     = 'gaba_synapse'
-gen_static_syn   = 'noise_conn'
-
 # Additional setings
-dopamine_flag = True     # dopamine modulation flag
 status_gui = True        # True - GUI is on | False - is off

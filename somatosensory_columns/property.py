@@ -39,7 +39,7 @@ N_volt = 7
 pg_delay = 2.
 
 # Synapse weights
-w_Glu = 20.
+w_Glu = 10.
 w_GABA = -w_Glu * 1.5
 
 # Minimal number of neurons
@@ -47,3 +47,4 @@ NN_minimal = 10
 
 # Additional setings
 status_gui = True        # True - GUI is on | False - is off
+random_flag = False

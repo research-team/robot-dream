@@ -1,11 +1,6 @@
 from functions import *
 
 startbuild = datetime.datetime.now()
-
-nest.ResetKernel()
-nest.SetKernelStatus({'overwrite_files': True,
-                      'local_num_threads': 4,
-                      'resolution': 0.1})
 logger = logging.getLogger('neuromodulation')
 
 logger.debug("* * * Building layers")
@@ -95,14 +90,14 @@ logger.debug("* * * Adding neighbors connections")
 for column in range(GlobalColumns):
     for neighbor in getNeighbors(column):
         # L2 layer
-        connect(Cortex[L2][Glu][column],    Cortex[L2][Glu][neighbor],  syn_type=Glu,   weight_coef=1.0, conn_prob=L2_to_L2)
+        connect(Cortex[L2][Glu][column],    Cortex[L2][Glu][neighbor],  syn_type=Glu,   weight_coef=0.5, conn_prob=L2_to_L2)
         # L3 layer
-        connect(Cortex[L3][Glu][column],    Cortex[L3][Glu][neighbor],  syn_type=Glu,   weight_coef=1.0, conn_prob=L3_to_L3)
+        connect(Cortex[L3][Glu][column],    Cortex[L3][Glu][neighbor],  syn_type=Glu,   weight_coef=0.5, conn_prob=L3_to_L3)
         # L5A layer
-        connect(Cortex[L5A][Glu][column],   Cortex[L5A][Glu][neighbor], syn_type=Glu,   weight_coef=1.0, conn_prob=L5A_to_L5A)
+        connect(Cortex[L5A][Glu][column],   Cortex[L5A][Glu][neighbor], syn_type=Glu,   weight_coef=0.5, conn_prob=L5A_to_L5A)
 
 logger.debug("* * * Connect generators")
-specific_generator(Cortex[L6][Glu][2], coef_part=0.4)
+specific_generator(Cortex[L6][Glu][2], coef_part=0.3)
 
 logger.debug("* * * Connect detectors")
 

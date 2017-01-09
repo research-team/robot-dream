@@ -41,22 +41,22 @@ L6_Vth_mu = -49.7
 L6_Vth_sigma = 3.56 / 4
 
 # C_m
-L2_Cm_mu = 134
+L2_Cm_mu = 134.
 L2_Cm_sigma = 32.8 / 4
 
-L3_Cm_mu = 134
+L3_Cm_mu = 134.
 L3_Cm_sigma = 32.8 / 4
 
-L4_Cm_mu = 135
+L4_Cm_mu = 135.
 L4_Cm_sigma = 36.7 / 4
 
-L5A_Cm_mu = 133
+L5A_Cm_mu = 133.
 L5A_Cm_sigma = 31.9 / 4
 
-L5B_Cm_mu = 284
+L5B_Cm_mu = 284.
 L5B_Cm_sigma = 78.5 / 4
 
-L6_Cm_mu = 133
+L6_Cm_mu = 133.
 L6_Cm_sigma = 31.9 / 4
 
 # t_ref
@@ -123,8 +123,9 @@ global_neuron_parameters = {#'E_L': -70.,        # (mV) Resting membrane potenti
                             #'C_m': 250.,        # (pF) Capacity of the membrane
                             #'t_ref': 2.,        # (ms) Duration of refractory period (V_m = V_reset)
                             'V_m': -60.,        # (mV) Membrane potential at start
-                            'tau_syn_ex': 1.,   # (ms) Time constant of postsynaptic excitatory currents
-                            'tau_syn_in': 1.}   # (ms) Time constant of postsynaptic inhibitory currents
+                            #'tau_syn_ex': 1.,   # (ms) Time constant of postsynaptic excitatory currents
+                            #'tau_syn_in': 1.
+}   # (ms) Time constant of postsynaptic inhibitory currents
 
 # L2P     L2 pyramidal cell
 # L3P     L3 pyramidal cell
@@ -136,8 +137,9 @@ global_neuron_parameters = {#'E_L': -70.,        # (mV) Resting membrane potenti
 # Synapse common parameters
 STDP_synapseparams = {
     'model': 'stdp_synapse',
-    'alpha': {'distribution': 'normal_clipped', 'low': 0.5, 'mu': 5.0, 'sigma': 1.0},       # Asymmetry parameter (scales depressing increments as alpha*lambda)
-    'lambda': 0.5                           # Step size
+    #'alpha': {'distribution': 'normal_clipped', 'low': 0.5, 'mu': 5.0, 'sigma': 1.0},
+    'lambda': 0.5,      # Step size
+    'alpha': 1.         # Asymmetry parameter (scales depressing increments as alpha*lambda)
 }
 
 # Glutamate synapse

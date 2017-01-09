@@ -14,6 +14,11 @@ from data import *
 import ast
 import time
 
+nest.ResetKernel()
+nest.SetKernelStatus({'overwrite_files': True,
+                      'local_num_threads': 4,
+                      'resolution': 0.1})
+
 neighbors = {}
 multimeters = {}            # dict name_part : spikedetector
 spike_generators = {}       # dict name_part : spikegenerator
@@ -76,37 +81,68 @@ def getNeighbors(column):
 
 
 def generate_dict(layer):
-    if layer == 0:
-        return dict(dict(E_L=   np.random.normal(L2_EL_mu,   L2_EL_sigma),
-                         V_th=  np.random.normal(L2_Vth_mu,  L2_Vth_sigma),
-                         C_m=   np.random.normal(L2_Cm_mu,   L2_Cm_sigma),
-                         t_ref= np.random.normal(L2_tref_mu, L2_tref_sigma), **global_neuron_parameters))
-    elif layer == 1:
-        return dict(dict(E_L=   np.random.normal(L3_EL_mu,   L3_EL_sigma),
-                         V_th=  np.random.normal(L3_Vth_mu,  L3_Vth_sigma),
-                         C_m=   np.random.normal(L3_Cm_mu,   L3_Cm_sigma),
-                         t_ref= np.random.normal(L3_tref_mu, L3_tref_sigma), **global_neuron_parameters))
-    elif layer == 2:
-        return dict(dict(E_L=   np.random.normal(L4_EL_mu,   L4_EL_sigma),
-                         V_th=  np.random.normal(L4_Vth_mu,  L4_Vth_sigma),
-                         C_m=   np.random.normal(L4_Cm_mu,   L4_Cm_sigma),
-                         t_ref= np.random.normal(L4_tref_mu, L4_tref_sigma), **global_neuron_parameters))
-    elif layer == 3:
-        return dict(dict(E_L=   np.random.normal(L5A_EL_mu,   L5A_EL_sigma),
-                         V_th=  np.random.normal(L5A_Vth_mu,  L5A_Vth_sigma),
-                         C_m=   np.random.normal(L5A_Cm_mu,   L5A_Cm_sigma),
-                         t_ref= np.random.normal(L5A_tref_mu, L5A_tref_sigma), **global_neuron_parameters))
-    elif layer == 4:
-        return dict(dict(E_L=   np.random.normal(L5B_EL_mu,   L5B_EL_sigma),
-                         V_th=  np.random.normal(L5B_Vth_mu,  L5B_Vth_sigma),
-                         C_m=   np.random.normal(L5B_Cm_mu,   L5B_Cm_sigma),
-                         t_ref= np.random.normal(L5B_tref_mu, L5B_tref_sigma), **global_neuron_parameters))
+    if random_flag:
+        if layer == 0:
+            return dict(dict(E_L=   np.random.normal(L2_EL_mu,   L2_EL_sigma),
+                             V_th=  np.random.normal(L2_Vth_mu,  L2_Vth_sigma),
+                             C_m=   np.random.normal(L2_Cm_mu,   L2_Cm_sigma),
+                             t_ref= np.random.normal(L2_tref_mu, L2_tref_sigma), **global_neuron_parameters))
+        elif layer == 1:
+            return dict(dict(E_L=   np.random.normal(L3_EL_mu,   L3_EL_sigma),
+                             V_th=  np.random.normal(L3_Vth_mu,  L3_Vth_sigma),
+                             C_m=   np.random.normal(L3_Cm_mu,   L3_Cm_sigma),
+                             t_ref= np.random.normal(L3_tref_mu, L3_tref_sigma), **global_neuron_parameters))
+        elif layer == 2:
+            return dict(dict(E_L=   np.random.normal(L4_EL_mu,   L4_EL_sigma),
+                             V_th=  np.random.normal(L4_Vth_mu,  L4_Vth_sigma),
+                             C_m=   np.random.normal(L4_Cm_mu,   L4_Cm_sigma),
+                             t_ref= np.random.normal(L4_tref_mu, L4_tref_sigma), **global_neuron_parameters))
+        elif layer == 3:
+            return dict(dict(E_L=   np.random.normal(L5A_EL_mu,   L5A_EL_sigma),
+                             V_th=  np.random.normal(L5A_Vth_mu,  L5A_Vth_sigma),
+                             C_m=   np.random.normal(L5A_Cm_mu,   L5A_Cm_sigma),
+                             t_ref= np.random.normal(L5A_tref_mu, L5A_tref_sigma), **global_neuron_parameters))
+        elif layer == 4:
+            return dict(dict(E_L=   np.random.normal(L5B_EL_mu,   L5B_EL_sigma),
+                             V_th=  np.random.normal(L5B_Vth_mu,  L5B_Vth_sigma),
+                             C_m=   np.random.normal(L5B_Cm_mu,   L5B_Cm_sigma),
+                             t_ref= np.random.normal(L5B_tref_mu, L5B_tref_sigma), **global_neuron_parameters))
+        else:
+            return dict(dict(E_L=   np.random.normal(L6_EL_mu,   L6_EL_sigma),
+                             V_th=  np.random.normal(L6_Vth_mu,  L6_Vth_sigma),
+                             C_m=   np.random.normal(L6_Cm_mu,   L6_Cm_sigma),
+                             t_ref= np.random.normal(L6_tref_mu, L6_tref_sigma), **global_neuron_parameters))
     else:
-        return dict(dict(E_L=   np.random.normal(L6_EL_mu,   L6_EL_sigma),
-                         V_th=  np.random.normal(L6_Vth_mu,  L6_Vth_sigma),
-                         C_m=   np.random.normal(L6_Cm_mu,   L6_Cm_sigma),
-                         t_ref= np.random.normal(L6_tref_mu, L6_tref_sigma), **global_neuron_parameters))
-
+        if layer == 0:
+            return dict(dict(E_L=   L2_EL_mu,
+                             V_th=  L2_Vth_mu,
+                             C_m=   L2_Cm_mu,
+                             t_ref= L2_tref_mu, **global_neuron_parameters))
+        elif layer == 1:
+            return dict(dict(E_L=   L3_EL_mu,
+                             V_th=  L3_Vth_mu,
+                             C_m=   L3_Cm_mu,
+                             t_ref= L3_tref_mu, **global_neuron_parameters))
+        elif layer == 2:
+            return dict(dict(E_L=   L4_EL_mu,
+                             V_th=  L4_Vth_mu,
+                             C_m=   L4_Cm_mu,
+                             t_ref= L4_tref_mu, **global_neuron_parameters))
+        elif layer == 3:
+            return dict(dict(E_L=   L5A_EL_mu,
+                             V_th=  L5A_Vth_mu,
+                             C_m=   L5A_Cm_mu,
+                             t_ref= L5A_tref_mu, **global_neuron_parameters))
+        elif layer == 4:
+            return dict(dict(E_L=   L5B_EL_mu,
+                             V_th=  L5B_Vth_mu,
+                             C_m=   L5B_Cm_mu,
+                             t_ref= L5B_tref_mu, **global_neuron_parameters))
+        else:
+            return dict(dict(E_L=   L6_EL_mu,
+                             V_th=  L6_Vth_mu,
+                             C_m=   L6_Cm_mu,
+                             t_ref= L6_tref_mu,  **global_neuron_parameters))
 
 
 def build_model(column_number):
@@ -188,15 +224,10 @@ def specific_generator(part, coef_part=1.0, weight=w_Glu, delay=pg_delay):
     syn_spec = {'weight': weight,
                 'delay': delay}
 
-    raw = "1300 1600 1600 3250 2500 2900 3100 2700 3350 1400 1550 1600 1500 1550 1650 1650 1700 1450 2900 2850 3250 3000 2700 2750 1700 1700 1650 1700 1550 1700 1650 1700 1500 1700 1650 1650 2750 3100 3000 2950 2950 3000 3100 3100 3250 3100 1200 1450 1450 1400 1550 1650 1700 1600 1700 1650 1450 1650 1600 1550 1400 1700 3100 3200 3400 3100 3100 3000 2950 1400 1350 1250 1250 1250 1250 1000 1150 1300 1300 1250 1250 1250 1300 1250 1250 1000 3050 2950 3100 3150 3000 3350 3100 3000 2950 1100 1500 1550 1500 1500 1350 1350 1400 1400 1350 1400 1250 1300 1350 1200 1400 1250 1400 1400 1300 1400 1400 1400 1400 1200 1300 1300 1200 1400 1100 1400 1400 1200 1300 1300 1200 1400 1400 1400 1400 1400 1400 1350 1400 1250 1300 1200 1400 1250 1200 1300 1400 1400 1400 1350 1350 1350 1150 1350 1400 1250 1150 1200 1400 1350 1400 1300 1400 2750 3100 2950 2700 2400 2050 2300 2300 2300 2150 2300 2300 2400 2050 2200 2300 2300 2300 2300 2400 2200 2150 2300 2250 2000 2200 2250 1950 2100 2100 2200 2200 2100 2300 2150 2200 1950 2100 1800 2750 2600 2850 2650 2750 2750 2600 2750 2600 2750 2850 2850 2500 2850 2800 2300 2600 2750 2450 2450 2750 2450 2750 2750 2850 2600 2600 2450 2750 1450 3150 3200 3450 2800 3050 3050 3400 3250 3100"
-    intervals = raw.split(" ")
-    spikes = [0.0]
-    for i in range(len(intervals)):
-        spikes.append(float("%.1f" % (spikes[i] + float(intervals[i]) / 1000)))
-
+    spikes_time = [5.0, 50.0, 52.,55., 200.,300.,305.,310.,350.,355.,356.,357., 400., 450.,450.5,451.,490.]
     # =================
     generator1 = nest.Create('spike_generator', 1)
-    nest.SetStatus(generator1, {'spike_times': spikes[1:], 'spike_weights': [500. for i in spikes[1:]]})
+    nest.SetStatus(generator1, {'spike_times': spikes_time, 'spike_weights': [200. for i in spikes_time]})
 
     # Connect generator and part IDs with connection specification and synapse specification
     nest.Connect(generator1, part, conn_spec=conn_spec, syn_spec=syn_spec)

@@ -1,50 +1,33 @@
-"""
-Primal/initial dictionary of parts
-It contains:
-    -Motor Cortex
-    -Striatum
-    -GPe:       globus pallidus external
-    -GPi:       globus pallidus internal
-    -STN:       subthalamic nucleus
-    -SNr:       substantia nigra pars reticulata
-    -SNc:       substantia nigra pars compacta
-    -Thalamus
-    -Prefrontal cortex
-    -NAc:       Nucleus Accumbens
-    -VTA:       Ventral Tegmental Area
-    -PPTg:      Pedunculopontine Tegmental nucleus
-    -Amygdala
-Prefix description:
-    -GABA - GABA
-    -Glu  - glutamate
-    -ACh  - acetylcholine
-    -DA   - dopamine
-"""
-
 from property import *
+from parameters import *
 
 # Tuples of layers with Names and Numver of neurons
-L2_tuple = ({k_name: 'L2 [Glu]'},
-            {k_name: 'L2 [GABA]'})
+L2_tuple = {}
+L3_tuple = {}
+L4_tuple = {}
+L5A_tuple = {}
+L5B_tuple = {}
+L6_tuple = {}
 
-L3_tuple = ({k_name: 'L3 [Glu]'},
-            {k_name: 'L3 [GABA]'})
+layers_name = {0: 'L2',
+               1: 'L3',
+               2: 'L4',
+               3: 'L5A',
+               4: 'L5B',
+               5: 'L6'}
 
-L4_tuple = ({k_name: 'L4 [Glu]'},
-            {k_name: 'L4 [GABA]'})
+Striatum = ({k_name: 'Striatum [Glu]'},)
+Thalamus = ({k_name: 'Thalamus [Glu]'},)
+POm = ({k_name: 'POm [Glu]'},)
 
-L5A_tuple = ({k_name: 'L5A [Glu]'},
-             {k_name: 'L5A [GABA]'})
-
-L5B_tuple = ({k_name: 'L5B [Glu]'},
-             {k_name: 'L5B [GABA]'})
-
-L6_tuple = ({k_name: 'L6 [Glu]'},
-            {k_name: 'L6 [GABA]'})
-
-Striatum = ({k_name: 'Striatum'},)
-Thalamus = ({k_name: 'Thalamus'},)
-POm = ({k_name: 'Pom'},)
+                    #Glu  GABA  dict of neurons
+cortex_params = ( (546, 107,  L2_param),
+                  (1145, 123, L3_param),
+                  (1656, 140, L4_param),
+                  (454, 90,    L5A_param),
+                  (641, 131,   L5B_param),
+                  (1288, 127, L6_param)
+)
 
 Cortex = (L2_tuple, L3_tuple, L4_tuple, L5A_tuple, L5B_tuple, L6_tuple)
 
@@ -52,20 +35,4 @@ Striatum[Glu][k_NN] = 100
 Thalamus[Glu][k_NN] = 100
 POm[Glu][k_NN] = 100
 
-L2_tuple[Glu][k_NN] = 546
-L2_tuple[GABA][k_NN] = 107
-
-L3_tuple[Glu][k_NN] = 1145
-L3_tuple[GABA][k_NN] = 123
-
-L4_tuple[Glu][k_NN] = 1656
-L4_tuple[GABA][k_NN] = 140
-
-L5A_tuple[Glu][k_NN] = 454
-L5A_tuple[GABA][k_NN] = 90
-
-L5B_tuple[Glu][k_NN] = 641
-L5B_tuple[GABA][k_NN] = 131
-
-L6_tuple[Glu][k_NN] = 1288
-L6_tuple[GABA][k_NN] = 127
+raw = "1300 1600 1600 3250 2500 2900 3100 2700 3350 1400 1550 1600 1500 1550 1650 1650 1700 1450 2900 2850 3250 3000 2700 2750 1700 1700 1650 1700 1550 1700 1650 1700 1500 1700 1650 1650 2750 3100 3000 2950 2950 3000 3100 3100 3250 3100 1200 1450 1450 1400 1550 1650 1700 1600 1700 1650 1450 1650 1600 1550 1400 1700 3100 3200 3400 3100 3100 3000 2950 1400 1350 1250 1250 1250 1250 1000 1150 1300 1300 1250 1250 1250 1300 1250 1250 1000 3050 2950 3100 3150 3000 3350 3100 3000 2950 1100 1500 1550 1500 1500 1350 1350 1400 1400 1350 1400 1250 1300 1350 1200 1400 1250 1400 1400 1300 1400 1400 1400 1400 1200 1300 1300 1200 1400 1100 1400 1400 1200 1300 1300 1200 1400 1400 1400 1400 1400 1400 1350 1400 1250 1300 1200 1400 1250 1200 1300 1400 1400 1400 1350 1350 1350 1150 1350 1400 1250 1150 1200 1400 1350 1400 1300 1400 2750 3100 2950 2700 2400 2050 2300 2300 2300 2150 2300 2300 2400 2050 2200 2300 2300 2300 2300 2400 2200 2150 2300 2250 2000 2200 2250 1950 2100 2100 2200 2200 2100 2300 2150 2200 1950 2100 1800 2750 2600 2850 2650 2750 2750 2600 2750 2600 2750 2850 2850 2500 2850 2800 2300 2600 2750 2450 2450 2750 2450 2750 2750 2850 2600 2600 2450 2750 1450 3150 3200 3450 2800 3050 3050 3400 3250 3100 1300 1600 1600 3250 2500 2900 3100 2700 3350 1400 1550 1600 1500 1550 1650 1650 1700 1450 2900 2850 3250 3000 2700 2750 1700 1700 1650 1700 1550 1700 1650 1700 1500 1700 1650 1650 2750 3100 3000 2950 2950 3000 3100 3100 3250 3100 1200 1450 1450 1400 1550 1650 1700 1600 1700 1650 1450 1650 1600 1550 1400 1700 3100 3200 3400 3100 3100 3000 2950 1400 1350 1250 1250 1250 1250 1000 1150 1300 1300 1250 1250 1250 1300 1250 1250 1000 3050 2950 3100 3150 3000 3350 3100 3000 2950 1100 1500 1550 1500 1500 1350 1350 1400 1400 1350 1400 1250 1300 1350 1200 1400 1250 1400 1400 1300 1400 1400 1400 1400 1200 1300 1300 1200 1400 1100 1400 1400 1200 1300 1300 1200 1400 1400 1400 1400 1400 1400 1350 1400 1250 1300 1200 1400 1250 1200 1300 1400 1400 1400 1350 1350 1350 1150 1350 1400 1250 1150 1200 1400 1350 1400 1300 1400 2750 3100 2950 2700 2400 2050 2300 2300 2300 2150 2300 2300 2400 2050 2200 2300"

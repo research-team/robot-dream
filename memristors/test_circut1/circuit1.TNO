@@ -3,7 +3,7 @@
 ***                           yurra2007@yandex.ru                            ***
 ***                                   home                                   ***
 ***                      Transient Analysis of circuit1                      ***
-***                           16.03.2017 19:33:17                            ***
+***                           17.03.2017 14:52:23                            ***
 ********************************************************************************
 Limits
 ======
@@ -32,12 +32,12 @@ Temperature=27
 DC Operating Point Voltages
 ===========================
 Node          Voltage  Node          Voltage  Node          Voltage 
-1              0.000   2             -1.556   3             -7.000  
+1             -7.000   2             -3.111   3             -7.000  
 4           -112.724m  5           -369.044m  VC            15.000  
 VE           -15.000   8           -367.099m  $G_VDD       -15.000  
-$G_PULSE      -1.333   $G_VPP        15.000   X1.FLUX       -1.556T 
-X1.CHARGE  -19.444MEG  X1.X         202.019m  X2.FLUX        1.556T 
-X2.CHARGE   19.444MEG  X2.X         202.022m 
+$G_PULSE      -1.333   $G_VPP        15.000   X1.FLUX       -3.111T 
+X1.CHARGE  -38.889MEG  X1.X         202.019m  X2.FLUX        3.111T 
+X2.CHARGE   38.889MEG  X2.X         202.024m 
 
 
 Operating Point for Devices of Type Diode
@@ -160,12 +160,12 @@ vce                   0.000           0.000
 Operating Point for Devices of Type Resistor
 ============================================
 Instance:                REX1           RINH1         OA1.Rc1         OA1.Rc2
-V                     -1.556           5.444         158.204m        158.185m
+V                      3.889           3.889         158.204m        158.185m
 Power DC Terms:
-PD                    24.198u        296.420u         11.794u         11.792u
+PD                   151.235u        151.235u         11.794u         11.792u
 
 DC Pin Currents:
-Ir                   -15.556u         54.444u         74.552u         74.543u
+Ir                    38.889u         38.889u         74.552u         74.543u
 
 Device Variables:
 tc1                    0.000           0.000           0.000           0.000 
@@ -199,12 +199,12 @@ tc2                    0.000           0.000           0.000           0.000
 
 
 Instance:                  R2              R3              R4         X1.RMEM
-V                    965.478m       -963.533m       -369.044m         -1.556 
+V                    965.478m       -963.533m       -369.044m         -3.111 
 Power DC Terms:
-PD                     9.321u          4.642u          1.362u         30.247u
+PD                     9.321u          4.642u          1.362u        120.987u
 
 DC Pin Currents:
-Ir                     9.655u         -4.818u         -3.690u        -19.444u
+Ir                     9.655u         -4.818u         -3.690u        -38.889u
 
 Device Variables:
 tc1                    0.000           0.000           0.000           0.000 
@@ -212,12 +212,12 @@ tc2                    0.000           0.000           0.000           0.000
 
 
 Instance:          X1.EFLUX.R    X1.ECHARGE.R       X1.RSHUNT         X2.RMEM
-V                      1.556T       19.444MEG        202.019m          1.556 
+V                      3.111T       38.889MEG        202.019m          3.111 
 Power DC Terms:
-PD                     2.420T        378.085          40.812p         30.247u
+PD                     9.679T          1.512K         40.812p        120.988u
 
 DC Pin Currents:
-Ir                     1.556          19.444u        202.019p         19.444u
+Ir                     3.111          38.889u        202.019p         38.889u
 
 Device Variables:
 tc1                    0.000           0.000           0.000           0.000 
@@ -225,12 +225,12 @@ tc2                    0.000           0.000           0.000           0.000
 
 
 Instance:          X2.EFLUX.R    X2.ECHARGE.R       X2.RSHUNT
-V                     -1.556T      -19.444MEG        202.022m
+V                     -3.111T      -38.889MEG        202.024m
 Power DC Terms:
-PD                     2.420T        378.088          40.813p
+PD                     9.679T          1.512K         40.814p
 
 DC Pin Currents:
-Ir                    -1.556         -19.444u        202.022p
+Ir                    -3.111         -38.889u        202.024p
 
 Device Variables:
 tc1                    0.000           0.000           0.000 
@@ -241,7 +241,7 @@ tc2                    0.000           0.000           0.000
 Operating Point for Devices of Type Capacitor
 =============================================
 Instance:                  C1          OA1.C1          OA1.Ce          OA1.C3
-V                      1.443          18.741u          1.207          -1.334 
+V                      2.998          18.741u          1.207          -1.334 
 Power DC Terms:
 PS                     0.000           0.000           0.000           0.000 
 
@@ -253,7 +253,7 @@ ic                     0.000           0.000           0.000           0.000
 
 
 Instance:                  C2      X1.EFLUX.C    X1.ECHARGE.C           X1.CX
-V                   -367.099m         -1.556T      -19.444MEG        202.019m
+V                   -367.099m         -3.111T      -38.889MEG        202.019m
 Power DC Terms:
 PS                     0.000           0.000           0.000           0.000 
 
@@ -265,7 +265,7 @@ ic                     0.000           0.000           0.000         202.020m
 
 
 Instance:          X2.EFLUX.C    X2.ECHARGE.C           X2.CX
-V                      1.556T       19.444MEG        202.022m
+V                      3.111T       38.889MEG        202.024m
 Power DC Terms:
 PS                     0.000           0.000           0.000 
 
@@ -289,30 +289,30 @@ State                    LIN
 Operating Point for Devices of Type Function Source
 ===================================================
 Instance:           X1.EFLUX        X1.EFLUX      X1.ECHARGE      X1.ECHARGE
-V                    -1.556T          1.556T      -19.444MEG       19.444MEG
+V                    -3.111T          3.111T      -38.889MEG       38.889MEG
 Power DC Terms:
-PG                    0.000           2.420T          0.000         378.085 
+PG                    0.000           9.679T          0.000           1.512K
 
 DC Pin Currents:
-ISource               0.000          -1.556           0.000         -19.444u
+ISource               0.000          -3.111           0.000         -38.889u
 
 
 Instance:              X1.GX        X2.EFLUX        X2.EFLUX      X2.ECHARGE
-V                  -202.019m          1.556T         -1.556T       19.444MEG
+V                  -202.019m          3.111T         -3.111T       38.889MEG
 Power DC Terms:
-PG                 -142.681m          0.000           2.420T          0.000 
+PG                 -285.360m          0.000           9.679T          0.000 
 
 DC Pin Currents:
-ISource            -706.274m          0.000           1.556           0.000 
+ISource              -1.413           0.000           3.111           0.000 
 
 
 Instance:         X2.ECHARGE           X2.GX
-V                 -19.444MEG       -202.022m
+V                 -38.889MEG       -202.024m
 Power DC Terms:
-PG                  378.088         376.789m
+PG                    1.512K        753.586m
 
 DC Pin Currents:
-ISource              19.444u          1.865 
+ISource              38.889u          3.730 
 
 
 
@@ -340,12 +340,12 @@ ISource              -8.831n
 Operating Point for Devices of Type SPICE Source
 ================================================
 Instance:                 V1              V2              V3              V4
-V                     0.000          -7.000          15.000         -15.000 
+V                    -7.000          -7.000          15.000         -15.000 
 Power DC Terms:
-PG                    0.000         381.111u          0.000           0.000 
+PG                  272.222u        272.222u          0.000           0.000 
 
 DC Pin Currents:
-ISource             -15.556u         54.444u          0.000           0.000 
+ISource              38.889u         38.889u          0.000           0.000 
 
 
 Instance:            OA1.IEE         OA1.VS1          OA1.VC          OA1.VE
@@ -372,6 +372,6 @@ Power DC Terms:
 PG                   12.500m          0.000           0.000 
 
 DC Pin Currents:
-ISource             833.333u        -19.444u         19.444u
+ISource             833.333u        -38.889u         38.889u
 
 

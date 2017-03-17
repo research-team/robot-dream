@@ -255,7 +255,7 @@ Show Grid Text=True
 
 [Comp]
 Name=Voltage Source
-Px=672,728
+Px=672,720
 Rot=3
 
 [Attr]
@@ -286,17 +286,14 @@ ON=0,11,Saved_Sin
 V=DC 0 AC 1 0 Sin 0 10 0.5 0 0 0
 Style=256
 
-[Wire]
-Pxs=672,728,672,768
-
 [Comp]
 Name=Ground
-Px=672,768
+Px=672,736
 Rot=7
 
 [Comp]
 Name=Resistor
-Px=672,640
+Px=672,664
 Rot=5
 
 [Attr]
@@ -305,7 +302,7 @@ V=REx1
 Style=8192
 
 [Attr]
-ON=8,-39,RESISTANCE
+ON=5,-39,RESISTANCE
 V=100K
 Style=8192
 
@@ -315,7 +312,7 @@ V
 
 [Comp]
 Name=Memristor
-Px=720,560
+Px=720,584
 Rot=4
 
 [Attr]
@@ -361,21 +358,18 @@ V
 
 [Comp]
 Name=Ground
-Px=768,560
+Px=768,584
 Rot=7
 
 [Wire]
-Pxs=672,640,672,680
+Pxs=672,584,672,616
 
 [Wire]
-Pxs=672,560,672,592
-
-[Wire]
-Pxs=672,560,720,560
+Pxs=672,584,720,584
 
 [Comp]
 Name=Voltage Source
-Px=880,728
+Px=880,720
 Rot=3
 
 [Attr]
@@ -401,17 +395,14 @@ ON=0,0,Saved_None
 V=DC 10 AC 0 0
 Style=256
 
-[Wire]
-Pxs=880,728,880,768
-
 [Comp]
 Name=Ground
-Px=880,768
+Px=880,736
 Rot=7
 
 [Comp]
 Name=Resistor
-Px=880,640
+Px=880,664
 Rot=5
 
 [Attr]
@@ -430,7 +421,7 @@ V
 
 [Comp]
 Name=Memristor
-Px=976,560
+Px=976,584
 Rot=6
 
 [Attr]
@@ -476,21 +467,18 @@ V
 
 [Comp]
 Name=Ground
-Px=976,560
+Px=976,584
 Rot=7
 
 [Wire]
-Pxs=880,640,880,680
+Pxs=880,584,880,616
 
 [Wire]
-Pxs=880,560,880,592
-
-[Wire]
-Pxs=880,560,928,560
+Pxs=880,584,928,584
 
 [Comp]
 Name=Capacitor
-Px=696,392
+Px=696,416
 Rot=4
 
 [Attr]
@@ -509,7 +497,7 @@ V
 
 [Comp]
 Name=Diode
-Px=816,392
+Px=816,416
 Rot=6
 
 [Attr]
@@ -571,7 +559,7 @@ Page=3
 
 [Comp]
 Name=Opamp
-Px=880,408
+Px=880,432
 
 [Attr]
 ON=44,28,PART
@@ -662,7 +650,7 @@ Pxs=552,640,552,648
 
 [Comp]
 Name=Diode
-Px=816,456
+Px=816,480
 Rot=6
 
 [Attr]
@@ -680,7 +668,7 @@ V=DO-204AH
 
 [Comp]
 Name=Capacitor
-Px=768,496
+Px=768,520
 Rot=4
 
 [Attr]
@@ -698,23 +686,23 @@ ON=0,0,PACKAGE
 V
 
 [Wire]
-Pxs=880,536,880,560
+Pxs=880,560,880,584
 
 [Wire]
-Pxs=672,536,880,536
+Pxs=672,560,880,560
 
 [Wire]
-Pxs=672,536,672,560
+Pxs=672,560,672,584
 
 [Wire]
-Pxs=672,392,672,536
+Pxs=672,416,672,560
 
 [Wire]
-Pxs=672,392,696,392
+Pxs=672,416,696,416
 
 [Comp]
 Name=Resistor
-Px=760,360
+Px=760,384
 Rot=5
 
 [Attr]
@@ -732,63 +720,63 @@ ON=0,0,PACKAGE
 V
 
 [Wire]
-Pxs=744,392,760,392
+Pxs=744,416,760,416
 
 [Wire]
-Pxs=760,360,760,392
+Pxs=760,384,760,416
 
 [Wire]
-Pxs=760,392,768,392
+Pxs=760,416,768,416
 
 [Wire]
-Pxs=816,392,848,392
+Pxs=816,416,848,416
 
 [Wire]
-Pxs=880,392,880,408
+Pxs=880,416,880,432
 
 [Wire]
-Pxs=816,456,872,456
+Pxs=816,480,872,480
 
 [Wire]
-Pxs=816,496,872,496
+Pxs=816,520,872,520
 
 [Wire]
-Pxs=872,456,872,496
+Pxs=872,480,872,520
 
 [Wire]
-Pxs=872,456,880,456
+Pxs=872,480,880,480
 
 [Comp]
 Name=Ground
-Px=752,472
+Px=752,496
 Rot=2
 
 [Wire]
-Pxs=752,456,768,456
+Pxs=752,480,768,480
 
 [Wire]
-Pxs=752,456,752,472
+Pxs=752,480,752,496
 
 [Wire]
-Pxs=752,472,752,496
+Pxs=752,496,752,520
 
 [Wire]
-Pxs=752,496,768,496
+Pxs=752,520,768,520
 
 [Comp]
 Name=Ground
-Px=728,312
+Px=728,336
 Rot=6
 
 [Wire]
-Pxs=728,312,760,312
+Pxs=728,336,760,336
 
 [Wire]
-Pxs=872,496,952,496
+Pxs=872,520,952,520
 
 [Comp]
 Name=Resistor
-Px=1000,496
+Px=1000,520
 Rot=6
 
 [Attr]
@@ -807,7 +795,7 @@ V
 
 [Comp]
 Name=Resistor
-Px=1032,368
+Px=1032,392
 Rot=7
 
 [Attr]
@@ -826,7 +814,7 @@ V
 
 [Comp]
 Name=Resistor
-Px=1032,288
+Px=1032,320
 Rot=7
 
 [Attr]
@@ -845,47 +833,38 @@ V
 
 [Comp]
 Name=Ground
-Px=992,280
+Px=1000,312
 Rot=6
 
 [Wire]
-Pxs=992,280,1032,280
+Pxs=952,456,992,456
 
 [Wire]
-Pxs=1032,280,1032,288
+Pxs=992,440,992,456
 
 [Wire]
-Pxs=1032,336,1032,360
+Pxs=992,440,1032,440
 
 [Wire]
-Pxs=952,432,992,432
+Pxs=1000,520,1032,520
 
 [Wire]
-Pxs=992,416,992,432
+Pxs=1032,440,1032,488
 
 [Wire]
-Pxs=992,416,1032,416
+Pxs=848,384,1032,384
 
 [Wire]
-Pxs=1000,496,1032,496
+Pxs=848,384,848,416
 
 [Wire]
-Pxs=1032,416,1032,464
+Pxs=1032,384,1032,392
 
 [Wire]
-Pxs=848,360,1032,360
+Pxs=848,416,880,416
 
 [Wire]
-Pxs=848,360,848,392
-
-[Wire]
-Pxs=1032,360,1032,368
-
-[Wire]
-Pxs=848,392,880,392
-
-[Wire]
-Pxs=1032,464,1032,496
+Pxs=1032,488,1032,520
 
 [Wire]
 Pxs=496,696,496,728
@@ -894,17 +873,38 @@ Pxs=496,696,496,728
 Pxs=496,728,528,728
 
 [Wire]
-Pxs=912,384,912,400
+Pxs=912,408,912,424
 
 [Wire]
-Pxs=912,464,912,472
+Pxs=912,488,912,496
 
 [Wire]
-Pxs=912,472,912,480
+Pxs=912,496,912,504
+
+[Wire]
+Pxs=672,720,672,736
+
+[Wire]
+Pxs=880,720,880,736
+
+[Wire]
+Pxs=672,664,672,672
+
+[Wire]
+Pxs=880,664,880,672
+
+[Wire]
+Pxs=1000,312,1032,312
+
+[Wire]
+Pxs=1032,312,1032,320
+
+[Wire]
+Pxs=1032,368,1032,384
 
 [Grid Text]
 Text="$G_VDD"
-Px=912,472
+Px=912,496
 GridSnap=True
 JustifyH=Left
 JustifyV=Bottom
@@ -912,7 +912,7 @@ CBorder=None
 
 [Grid Text]
 Text="$G_VPP"
-Px=912,384
+Px=912,408
 GridSnap=True
 JustifyH=Left
 JustifyV=Bottom
@@ -920,7 +920,7 @@ CBorder=None
 
 [Grid Text]
 Text="$G_PULSE"
-Px=1032,464
+Px=1032,488
 GridSnap=True
 JustifyH=Left
 JustifyV=Bottom
@@ -1114,9 +1114,9 @@ PrinterScale=1
 Scale 0=1
 Scale 1=1
 Scale 2=1
-SB 3=218,428
+SB 3=394,297
 Scale 3=0.66666666666666663
-Px=883,711
+Px=1191,424
 WinBackGround Color=#FFFFFF
 Select Color=#FF0000
 Anchor Color=#000000

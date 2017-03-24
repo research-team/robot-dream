@@ -3,7 +3,7 @@
 ***                           yurra2007@yandex.ru                            ***
 ***                                   home                                   ***
 ***                      Transient Analysis of Inv_sum                       ***
-***                           24.03.2017 18:11:57                            ***
+***                           24.03.2017 19:00:13                            ***
 ********************************************************************************
 Limits
 ======
@@ -31,10 +31,10 @@ Temperature=27
 
 DC Operating Point Voltages
 ===========================
-Node           Voltage  Node           Voltage  Node           Voltage 
-1               2.131   $G_VDD         -5.000   $G_BELL        -3.606  
-$G_VCC          5.000   VC             15.000   VE            -15.000  
-$G_INPULSE      5.000  
+Node            Voltage  Node            Voltage  Node            Voltage 
+1                2.131   $G_VDD          -5.000   $G_BELL         -3.606  
+$G_VCC           5.000   VC              15.000   VE             -15.000  
+$G_INPULSE       5.000   $G_INPULSE1      5.000  
 
 
 Operating Point for Devices of Type Diode
@@ -262,9 +262,18 @@ ISource            -20.218p       -19.802p      -208.225u         0.000
 Instance:                V2             V3             V4             V5
 V                  -15.000          5.000         -5.000          5.000 
 Power DC Terms:
-PG                   0.000          1.893m         1.135m       286.873u
+PG                   0.000          1.893m         1.135m       143.436u
 
 DC Pin Currents:
-ISource              0.000       -378.631u       226.928u       -57.375u
+ISource              0.000       -378.631u       226.928u       -28.687u
+
+
+Instance:                V6
+V                    5.000 
+Power DC Terms:
+PG                 143.436u
+
+DC Pin Currents:
+ISource            -28.687u
 
 

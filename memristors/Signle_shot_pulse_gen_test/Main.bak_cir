@@ -114,7 +114,7 @@ Name=Opamp
 Definition=Opamp
 Shape=Opamp5
 Mask=5121
-Used=1
+Used=5
 memo=Opamp
 Label Offset=44,29,-14,39
 PinCnt=5
@@ -141,7 +141,7 @@ Name=Ground
 Definition=Ground
 Shape=Ground
 Mask=1793
-Used=205
+Used=235
 memo=Ground
 Label Offset=0,0,0,0
 PinCnt=1
@@ -151,8 +151,8 @@ Pin="PinA",0,0,-3,-7
 Name=Capacitor
 Definition=Capacitor
 Shape=Capacitor
-Mask=7425
-Used=19
+Mask=7169
+Used=29
 memo=Capacitor
 Label Offset=16,12,12,12
 PinCnt=2
@@ -163,8 +163,8 @@ Pin="Minus",0,0,-14,-5
 Name=Diode
 Definition=Diode
 Shape=Diode
-Mask=5121
-Used=4
+Mask=5633
+Used=10
 memo=Diode
 Label Offset=17,10,12,12
 PinCnt=2
@@ -175,8 +175,8 @@ Pin="Cathode",0,0,-20,-8
 Name=Resistor
 Definition=Resistor
 Shape=Resistor
-Mask=7681
-Used=118
+Mask=6913
+Used=146
 memo=Resistor
 Label Offset=18,6,8,11
 PinCnt=2
@@ -187,8 +187,8 @@ Pin="Minus",0,0,-14,-4
 Name=Voltage Source
 Definition=VSpice
 Shape=SPICE_V
-Mask=5377
-Used=29
+Mask=4865
+Used=40
 memo=Voltage Source
 Label Offset=19,13,15,13
 PinCnt=2
@@ -245,13 +245,13 @@ Rot=3
 Page=3
 
 [Attr]
-ON=-26,-41,PART
-V=V1
+ON=-26,-27,VALUE
+V=15
 Style=8192
 
 [Attr]
-ON=-26,-27,VALUE
-V=15
+ON=-26,-41,PART
+V=V1
 Style=8192
 
 [Comp]
@@ -267,13 +267,13 @@ Rot=3
 Page=3
 
 [Attr]
-ON=-26,-41,PART
-V=V2
+ON=-31,-27,VALUE
+V=-15
 Style=8192
 
 [Attr]
-ON=-31,-27,VALUE
-V=-15
+ON=-26,-41,PART
+V=V2
 Style=8192
 
 [Comp]
@@ -574,7 +574,7 @@ V
 
 [Attr]
 ON=0,0,Saved_None
-V=DC 5 AC 0 0
+V=DC 5 AC 0 0 
 Style=256
 
 [Attr]
@@ -617,7 +617,7 @@ Style=8192
 
 [Attr]
 ON=-94,-41,VALUE
-V=DC 5 AC 0 0
+V=DC 5 AC 0 0 
 
 [Attr]
 ON=0,0,PACKAGE
@@ -630,7 +630,7 @@ Style=256
 
 [Attr]
 ON=0,0,Saved_None
-V=DC 5 AC 0 0
+V=DC 5 AC 0 0 
 Style=256
 
 [Comp]
@@ -653,7 +653,7 @@ V
 
 [Attr]
 ON=0,0,Saved_None
-V=DC -5 AC 0 0
+V=DC -5 AC 0 0 
 Style=256
 
 [Comp]
@@ -1060,7 +1060,7 @@ CurrentSection 3=0
 Splitter.xs=0
 Splitter.ys=0
 TextQuad=4099
-Scale=1
+Scale=0.66666666666666663
 GridUser=10
 ShapeGroups="Main","Euro","Polarity","Main1","Main11","Electrolytic","GroundArrow","DeMorgan"
 CalcRMS=False
@@ -1184,7 +1184,7 @@ ALIGNBOTTOM=Yes
 
 [Section]
 Index=0
-Name="Main"
+Name="circuit1"
 Type=Main
 Enable=True
 CurrentPage 0=0
@@ -1206,9 +1206,8 @@ PrinterScale=1
 Scale 0=1
 Scale 1=1
 Scale 2=1
-SB 3=0,192
 Scale 3=0.66666666666666663
-Px=115,484
+Px=742,253
 WinBackGround Color=#FFFFFF
 Select Color=#FF0000
 Anchor Color=#000000

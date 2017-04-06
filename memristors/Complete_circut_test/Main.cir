@@ -7,8 +7,8 @@ Shape Version=11.00
 Screen=1920,1080
 MCAPVersion=11.0.1.9
 Key ID=0
-NLCnt=170
-TXCnt=23
+NLCnt=171
+TXCnt=24
 
 [shapedef]
 Name=Capacitor
@@ -128,7 +128,7 @@ Name=Ground
 Definition=Ground
 Shape=Ground
 Mask=1793
-Used=750
+Used=753
 memo=Ground
 Label Offset=0,0,0,0
 PinCnt=1
@@ -151,7 +151,7 @@ Name=Opamp
 Definition=Opamp
 Shape=Opamp5
 Mask=4097
-Used=43
+Used=44
 memo=Opamp
 Label Offset=44,29,-14,39
 PinCnt=5
@@ -165,8 +165,8 @@ Pin="VCC",4,-1,5,14
 Name=Capacitor
 Definition=Capacitor
 Shape=Capacitor
-Mask=6913
-Used=1011
+Mask=7169
+Used=1014
 memo=Capacitor
 Label Offset=4,-38,12,12
 PinCnt=2
@@ -178,7 +178,7 @@ Name=Diode
 Definition=Diode
 Shape=Diode
 Mask=5633
-Used=487
+Used=489
 memo=Diode
 Label Offset=17,10,12,12
 PinCnt=2
@@ -190,7 +190,7 @@ Name=Resistor
 Definition=Resistor
 Shape=Resistor_Euro
 Mask=6401
-Used=1889
+Used=1893
 memo=Resistor
 Label Offset=11,-36,10,10
 PinCnt=2
@@ -202,7 +202,7 @@ Name=NMOS
 Definition=NMOS
 Shape=NMOS
 Mask=4096
-Used=9
+Used=11
 memo=NMOS
 Label Offset=29,1,7,25
 PinCnt=4
@@ -262,7 +262,7 @@ Style=8192
 
 [Attr]
 ON=-32,-41,VALUE
-V=DC 0 AC 1 0 Pulse -5 5 10u 1n 1n 100u 20m
+V=DC 0 AC 1 0 Pulse -5 5 0 1n 1n 1m 10m
 
 [Attr]
 ON=0,0,PACKAGE
@@ -280,7 +280,7 @@ Style=256
 
 [Attr]
 ON=0,0,Saved_Pulse
-V=DC 0 AC 1 0 Pulse -5 5 10u 1n 1n 100u 20m
+V=DC 0 AC 1 0 Pulse -5 5 0 1n 1n 1m 10m
 Style=256
 
 [Attr]
@@ -462,7 +462,7 @@ Style=8192
 
 [Attr]
 ON=-37,4,RESISTANCE
-V=625K
+V=150k
 Style=8192
 
 [Attr]
@@ -496,7 +496,7 @@ Style=8192
 
 [Attr]
 ON=8,-26,RESISTANCE
-V=200K
+V=800K
 Style=8192
 
 [Attr]
@@ -562,7 +562,7 @@ ON=0,0,PACKAGE
 V
 
 [Wire]
-Pxs=504,528,536,528
+Pxs=504,528,512,528
 
 [Comp]
 Name=Capacitor
@@ -575,8 +575,8 @@ V=C4
 Style=8192
 
 [Attr]
-ON=0,0,CAPACITANCE
-V=100u
+ON=-1,2,CAPACITANCE
+V=1u
 Style=8192
 
 [Attr]
@@ -594,8 +594,8 @@ V=R8
 Style=8192
 
 [Attr]
-ON=0,0,RESISTANCE
-V=100k
+ON=1,1,RESISTANCE
+V=10meg
 Style=8192
 
 [Attr]
@@ -709,7 +709,7 @@ Style=8192
 
 [Attr]
 ON=0,0,CAPACITANCE
-V=10N
+V=8N
 Style=8192
 
 [Attr]
@@ -747,7 +747,7 @@ Style=8192
 
 [Attr]
 ON=0,0,RESISTANCE
-V=100K
+V=50K
 Style=8192
 
 [Attr]
@@ -1058,24 +1058,6 @@ Rot=3
 [Wire]
 Pxs=1320,296,1400,296
 
-[Comp]
-Name=NMOS
-Px=1400,296
-Rot=4
-
-[Attr]
-ON=29,-16,PART
-V=M1
-Style=8192
-
-[Attr]
-ON=29,-15,MODEL
-V=$GENERIC_N
-
-[Attr]
-ON=0,0,PACKAGE
-V
-
 [Wire]
 Pxs=1288,448,1336,448
 
@@ -1190,7 +1172,7 @@ Style=8192
 
 [Attr]
 ON=-37,4,RESISTANCE
-V=625K
+V=150k
 Style=8192
 
 [Attr]
@@ -1224,7 +1206,7 @@ Style=8192
 
 [Attr]
 ON=8,-26,RESISTANCE
-V=200K
+V=800K
 Style=8192
 
 [Attr]
@@ -1304,7 +1286,7 @@ Style=8192
 
 [Attr]
 ON=0,0,CAPACITANCE
-V=100u
+V=1u
 Style=8192
 
 [Attr]
@@ -1323,7 +1305,7 @@ Style=8192
 
 [Attr]
 ON=0,0,RESISTANCE
-V=100k
+V=10meg
 Style=8192
 
 [Attr]
@@ -1372,6 +1354,34 @@ Pxs=1320,144,1320,216
 
 [Wire]
 Pxs=1320,216,1320,296
+
+[Comp]
+Name=NMOS
+Px=1400,296
+
+[Attr]
+ON=29,1,PART
+V=M1
+Style=8192
+
+[Attr]
+ON=29,15,MODEL
+V=$GENERIC_N
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Wire]
+Pxs=512,528,536,528
+
+[Grid Text]
+Text="$G_FILTER"
+Px=512,528
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
 
 [Grid Text]
 Text="$G_INPUT"
@@ -1534,7 +1544,7 @@ JustifyV=Top
 CBorder=None
 
 [Grid Text]
-Text="$G_VDD1"
+Text="$G_VDD"
 Px=1176,112
 GridSnap=True
 JustifyH=Left
@@ -1550,7 +1560,7 @@ JustifyV=Bottom
 CBorder=None
 
 [Grid Text]
-Text="$G_VCC1"
+Text="$G_VCC"
 Px=1176,184
 GridSnap=True
 JustifyH=Left
@@ -1711,9 +1721,9 @@ PrinterScale=1
 Scale 0=1
 Scale 1=1
 Scale 2=1
-SB 3=0,48
+SB 3=205,48
 Scale 3=1
-Px=299,573
+Px=511,228
 WinBackGround Color=#FFFFFF
 Select Color=#FF0000
 Anchor Color=#000000
@@ -1774,6 +1784,7 @@ Type=Text
 Print=False
 Enable=True
 Name=Models
+SB 0=25,1
 Font=Height=-15,FStyle=0,Color=#000000,Name=Courier New
 Comment Color=#008000
 WinBackGround Color=#FFFFFF
@@ -1804,6 +1815,8 @@ Page=1
 [Text Area]
 Section=0
 Page=2
+Text=
+Text=.MODEL $GENERIC_N NMOS ()
 
 [InfoPage]
 InfoPage=True
@@ -1884,7 +1897,7 @@ FFT_IncludeDCHarmonic=False
 FFT_AutoScale_Harmonics="10"
 PrinterAutoTile=No
 PrinterBlackBorder=No
-MonMaxShow=3
+MonMaxShow=10
 MonPageWidth=66
 MonPlotWidth=21
 MonExprXWidth=142
@@ -2043,7 +2056,7 @@ Seed=0
 
 [Limits]
 Analysis=Transient
-TRange=1
+TRange=200m
 TStep=0
 NPts=51
 Temp=27
@@ -2060,8 +2073,8 @@ Plt=1
 AliasID=1
 XExp=T
 YExp=v($G_INPUT)
-XRng=1,0
-YRng=15,-15
+XRng=150m,0
+YRng=5.5,-5.5
 Options=LINEARX,LINEARY
 Range Grid X=1
 Range Grid Y=1
@@ -2086,8 +2099,8 @@ Plt=1
 AliasID=2
 XExp=T
 YExp=v($G_PULSE)
-XRng=1,0
-YRng=15,-15
+XRng=150m,0
+YRng=5.5,-5.5
 Options=LINEARX,LINEARY
 Range Grid X=1
 Range Grid Y=1
@@ -2108,11 +2121,200 @@ NOFmtY=3E
 
 [WaveForm]
 Analysis=Transient
-AliasID=-1
+Plt=1
+AliasID=4
+XExp=T
+YExp=v($G_C2)
+XRng=150m,0
+YRng=5.5,-5.5
 Options=LINEARX,LINEARY
+Range Grid X=1
+Range Grid Y=1
 Enable=Enable
-Line Color=#008000
-Text Color=#008000
+Line Color=#FF00FF
+Text Color=#FF00FF
+Rainbow=False
+VFmtX=3
+VFmtY=3
+ScaleFactorX="None"
+ScaleFactorY="None"
+ScaleUnitsX="Auto"
+ScaleUnitsY="Auto"
+SFmtX=2
+SFmtY=2
+NOFmtX=3E
+NOFmtY=3E
+
+[WaveForm]
+Analysis=Transient
+Plt=2
+AliasID=3
+XExp=T
+YExp=v($G_PULSE)
+XRng=150m,0
+YRng=5.5,-5.5
+Options=LINEARX,LINEARY
+Range Grid X=1
+Range Grid Y=1
+Enable=Enable
+Line Color=#0000FF
+Text Color=#0000FF
+Rainbow=False
+VFmtX=3
+VFmtY=3
+ScaleFactorX="None"
+ScaleFactorY="None"
+ScaleUnitsX="Auto"
+ScaleUnitsY="Auto"
+SFmtX=2
+SFmtY=2
+NOFmtX=3E
+NOFmtY=3E
+
+[WaveForm]
+Analysis=Transient
+Plt=2
+AliasID=5
+XExp=T
+YExp=v($G_INT1)
+XRng=150m,0
+YRng=5.5,-5.5
+Options=LINEARX,LINEARY
+Range Grid X=1
+Range Grid Y=1
+Enable=Enable
+Line Color=#FF0000
+Text Color=#FF0000
+Rainbow=False
+VFmtX=3
+VFmtY=3
+ScaleFactorX="None"
+ScaleFactorY="None"
+ScaleUnitsX="Auto"
+ScaleUnitsY="Auto"
+SFmtX=2
+SFmtY=2
+NOFmtX=3E
+NOFmtY=3E
+
+[WaveForm]
+Analysis=Transient
+Plt=3
+AliasID=6
+XExp=T
+YExp=v($G_INPUT)
+XRng=150m,0
+YRng=5.5,-5.5
+Options=LINEARX,LINEARY
+Range Grid X=1
+Range Grid Y=1
+Enable=Enable
+Line Color=#0000FF
+Text Color=#0000FF
+Rainbow=False
+VFmtX=3
+VFmtY=3
+ScaleFactorX="None"
+ScaleFactorY="None"
+ScaleUnitsX="Auto"
+ScaleUnitsY="Auto"
+SFmtX=2
+SFmtY=2
+NOFmtX=3E
+NOFmtY=3E
+
+[WaveForm]
+Analysis=Transient
+Plt=3
+AliasID=7
+XExp=T
+YExp=v($G_INT2)
+XRng=150m,0
+YRng=5.5,-5.5
+Options=LINEARX,LINEARY
+Range Grid X=1
+Range Grid Y=1
+Enable=Enable
+Line Color=#FF0000
+Text Color=#FF0000
+Rainbow=False
+VFmtX=3
+VFmtY=3
+ScaleFactorX="None"
+ScaleFactorY="None"
+ScaleUnitsX="Auto"
+ScaleUnitsY="Auto"
+SFmtX=2
+SFmtY=2
+NOFmtX=3E
+NOFmtY=3E
+
+[WaveForm]
+Analysis=Transient
+Plt=4
+AliasID=8
+XExp=T
+YExp=v($G_SOMBRERO)
+XRng=150m,0
+YRng=5.5,-5.5
+Options=LINEARX,LINEARY
+Range Grid X=1
+Range Grid Y=1
+Enable=Enable
+Line Color=#FF0000
+Text Color=#FF0000
+Rainbow=False
+VFmtX=3
+VFmtY=3
+ScaleFactorX="None"
+ScaleFactorY="None"
+ScaleUnitsX="Auto"
+ScaleUnitsY="Auto"
+SFmtX=2
+SFmtY=2
+NOFmtX=3E
+NOFmtY=3E
+
+[WaveForm]
+Analysis=Transient
+Plt=4
+AliasID=9
+XExp=T
+YExp=v($G_INVPULSE)
+XRng=150m,0
+YRng=5.5,-5.5
+Options=LINEARX,LINEARY
+Range Grid X=1
+Range Grid Y=1
+Enable=Enable
+Line Color=#0000FF
+Text Color=#0000FF
+Rainbow=False
+VFmtX=3
+VFmtY=3
+ScaleFactorX="None"
+ScaleFactorY="None"
+ScaleUnitsX="Auto"
+ScaleUnitsY="Auto"
+SFmtX=2
+SFmtY=2
+NOFmtX=3E
+NOFmtY=3E
+
+[WaveForm]
+Analysis=Transient
+Plt=5
+AliasID=10
+XExp=T
+YExp=v($G_HEBB)
+XRng=150m,0
+YRng=5.5,-5.5
+Options=LINEARX,LINEARY
+Range Grid X=1
+Range Grid Y=1
+Enable=Enable
+Line Color=#FF0000
+Text Color=#FF0000
 Rainbow=False
 VFmtX=3
 VFmtY=3

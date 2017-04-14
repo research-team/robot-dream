@@ -3,7 +3,7 @@
 ***                                                                          ***
 ***                                                                          ***
 ***                        Transient Analysis of Main                        ***
-***                           06.04.2017 15:59:41                            ***
+***                           14.04.2017 11:31:17                            ***
 ********************************************************************************
 Limits
 ======
@@ -33,12 +33,13 @@ DC Operating Point Voltages
 ===========================
 Node            Voltage  Node            Voltage  Node            Voltage 
 $G_INPUT        -5.000   $G_VCC           5.000   $G_VDD          -5.000  
-4             -289.261m  $G_C2         -287.320m  $G_PULSE      -596.165m 
+$G_FILTER     -289.261m  $G_C2         -287.320m  $G_PULSE      -596.165m 
 7             -220.778m  8               -5.000   $G_INT2          3.606  
-10            -596.165m  $G_INT1          3.606   12               1.202  
-$G_SOMBRERO     -3.606   14              -1.902   15              -1.900  
-$G_HEBB       -193.396m  17            -289.261m  $G_C3         -287.320m 
-$G_INVPULSE   -596.165m  20            -220.778m  21              -1.770  
+10            -596.165m  $G_INT1          3.606   $G_INPUT1       -5.000  
+13               1.202   $G_SOMBRERO     -3.606   15              -1.902  
+16              -1.900   $G_HEBB       -193.396m  18            -289.261m 
+$G_C3         -287.320m  20            -596.165m  21            -220.778m 
+22              -1.770  
 
 
 Operating Point for Devices of Type Diode
@@ -934,10 +935,10 @@ Operating Point for Devices of Type SPICE Source
 Instance:                V3             V4             V5         X2.IEE
 V                   -5.000          5.000         -5.000          3.873 
 Power DC Terms:
-PG                  50.001p         9.815m        10.583m      -580.960u
+PG                   0.000          9.815m        10.583m      -580.960u
 
 DC Pin Currents:
-ISource             10.000p        -1.963m         2.117m       150.000u
+ISource              0.000         -1.963m         2.117m       150.000u
 
 
 Instance:            X2.VS1          X2.VC          X2.VE         X2.VLP
@@ -1030,12 +1031,12 @@ DC Pin Currents:
 ISource              3.606p         2.414p       -20.012p       -20.008p
 
 
-Instance:            X6.VS2
-V                    0.000 
+Instance:            X6.VS2             V6
+V                    0.000         -5.000 
 Power DC Terms:
-PG                   0.000 
+PG                   0.000         50.001p
 
 DC Pin Currents:
-ISource             -2.443u
+ISource             -2.443u        10.000p
 
 

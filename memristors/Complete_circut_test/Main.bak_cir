@@ -8,7 +8,7 @@ Screen=1920,1080
 MCAPVersion=11.0.1.9
 Key ID=0
 NLCnt=171
-TXCnt=24
+TXCnt=25
 
 [shapedef]
 Name=Capacitor
@@ -128,7 +128,7 @@ Name=Ground
 Definition=Ground
 Shape=Ground
 Mask=1793
-Used=753
+Used=840
 memo=Ground
 Label Offset=0,0,0,0
 PinCnt=1
@@ -139,7 +139,7 @@ Name=Voltage Source
 Definition=VSpice
 Shape=SPICE_V
 Mask=4864
-Used=19
+Used=121
 memo=Voltage Source
 Label Offset=19,13,15,13
 PinCnt=2
@@ -151,7 +151,7 @@ Name=Opamp
 Definition=Opamp
 Shape=Opamp5
 Mask=4097
-Used=44
+Used=36
 memo=Opamp
 Label Offset=44,29,-14,39
 PinCnt=5
@@ -165,8 +165,8 @@ Pin="VCC",4,-1,5,14
 Name=Capacitor
 Definition=Capacitor
 Shape=Capacitor
-Mask=7169
-Used=1014
+Mask=6913
+Used=1003
 memo=Capacitor
 Label Offset=4,-38,12,12
 PinCnt=2
@@ -178,7 +178,7 @@ Name=Diode
 Definition=Diode
 Shape=Diode
 Mask=5633
-Used=489
+Used=481
 memo=Diode
 Label Offset=17,10,12,12
 PinCnt=2
@@ -189,8 +189,8 @@ Pin="Cathode",0,0,-20,-8
 Name=Resistor
 Definition=Resistor
 Shape=Resistor_Euro
-Mask=6401
-Used=1893
+Mask=7425
+Used=1872
 memo=Resistor
 Label Offset=11,-36,10,10
 PinCnt=2
@@ -202,7 +202,7 @@ Name=NMOS
 Definition=NMOS
 Shape=NMOS
 Mask=4096
-Used=11
+Used=8
 memo=NMOS
 Label Offset=29,1,7,25
 PinCnt=4
@@ -262,7 +262,7 @@ Style=8192
 
 [Attr]
 ON=-32,-41,VALUE
-V=DC 0 AC 1 0 Pulse -5 5 0 1n 1n 1m 10m
+V=DC 0 AC 1 0 Pulse -5 5 0 1n 1n 1m 2m
 
 [Attr]
 ON=0,0,PACKAGE
@@ -280,7 +280,7 @@ Style=256
 
 [Attr]
 ON=0,0,Saved_Pulse
-V=DC 0 AC 1 0 Pulse -5 5 0 1n 1n 1m 10m
+V=DC 0 AC 1 0 Pulse -5 5 0 1n 1n 1m 2m
 Style=256
 
 [Attr]
@@ -638,7 +638,7 @@ Pxs=296,528,296,560
 
 [Comp]
 Name=Opamp
-Px=872,344
+Px=648,384
 Rot=4
 
 [Attr]
@@ -676,11 +676,11 @@ V
 Pxs=840,552,880,552
 
 [Wire]
-Pxs=840,344,872,344
+Pxs=616,384,648,384
 
 [Comp]
 Name=Capacitor
-Px=880,256
+Px=656,296
 Rot=4
 
 [Attr]
@@ -718,7 +718,7 @@ V
 
 [Comp]
 Name=Resistor
-Px=784,296
+Px=560,336
 Rot=4
 
 [Attr]
@@ -758,31 +758,31 @@ V
 Pxs=952,528,968,528
 
 [Wire]
-Pxs=952,320,952,352
+Pxs=728,360,728,392
 
 [Wire]
-Pxs=928,256,952,256
+Pxs=704,296,728,296
 
 [Wire]
-Pxs=952,256,952,320
+Pxs=728,296,728,360
 
 [Wire]
-Pxs=944,320,952,320
+Pxs=720,360,728,360
 
 [Wire]
-Pxs=952,352,976,352
+Pxs=728,392,752,392
 
 [Wire]
-Pxs=856,256,880,256
+Pxs=632,296,656,296
 
 [Wire]
-Pxs=832,296,856,296
+Pxs=608,336,632,336
 
 [Wire]
-Pxs=856,256,856,296
+Pxs=632,296,632,336
 
 [Wire]
-Pxs=856,296,872,296
+Pxs=632,336,648,336
 
 [Wire]
 Pxs=928,448,968,448
@@ -806,9 +806,6 @@ Pxs=848,448,848,504
 Pxs=848,504,880,504
 
 [Wire]
-Pxs=296,296,760,296
-
-[Wire]
 Pxs=1000,528,1112,528
 
 [Comp]
@@ -821,11 +818,11 @@ Pxs=672,504,776,504
 
 [Comp]
 Name=Ground
-Px=840,344
+Px=616,384
 Rot=7
 
 [Wire]
-Pxs=296,296,296,368
+Pxs=296,136,296,368
 
 [Comp]
 Name=Opamp
@@ -935,7 +932,7 @@ Pxs=1112,472,1112,528
 Pxs=1128,352,1128,400
 
 [Wire]
-Pxs=976,352,1128,352
+Pxs=752,392,904,392
 
 [Comp]
 Name=Opamp
@@ -993,7 +990,7 @@ ON=0,0,PACKAGE
 V
 
 [Wire]
-Pxs=1424,320,1584,320
+Pxs=792,136,952,136
 
 [Wire]
 Pxs=1584,320,1584,368
@@ -1052,11 +1049,8 @@ Pxs=1688,392,1688,448
 
 [Comp]
 Name=Ground
-Px=1424,272
+Px=792,88
 Rot=3
-
-[Wire]
-Pxs=1320,296,1400,296
 
 [Wire]
 Pxs=1288,448,1336,448
@@ -1075,7 +1069,7 @@ Pxs=296,368,296,528
 
 [Comp]
 Name=Opamp
-Px=1144,168
+Px=504,136
 Rot=4
 
 [Attr]
@@ -1093,15 +1087,15 @@ V
 
 [Comp]
 Name=Ground
-Px=992,128
+Px=352,96
 Rot=7
 
 [Wire]
-Pxs=1176,176,1176,184
+Pxs=536,144,536,152
 
 [Comp]
 Name=Capacitor
-Px=1032,96
+Px=392,64
 Rot=4
 
 [Attr]
@@ -1120,7 +1114,7 @@ V
 
 [Comp]
 Name=Diode
-Px=1080,120
+Px=440,88
 Rot=6
 
 [Attr]
@@ -1137,32 +1131,32 @@ ON=0,0,PACKAGE
 V
 
 [Wire]
-Pxs=992,120,1032,120
+Pxs=352,88,392,88
 
 [Wire]
-Pxs=992,120,992,128
+Pxs=352,88,352,96
 
 [Wire]
-Pxs=992,96,1032,96
+Pxs=352,64,392,64
 
 [Wire]
-Pxs=992,96,992,120
+Pxs=352,64,352,88
 
 [Wire]
-Pxs=1080,96,1096,96
+Pxs=440,64,456,64
 
 [Wire]
-Pxs=1144,96,1144,120
+Pxs=504,64,504,88
 
 [Wire]
-Pxs=1080,120,1144,120
+Pxs=440,88,504,88
 
 [Wire]
-Pxs=1176,96,1176,112
+Pxs=536,64,536,80
 
 [Comp]
 Name=Resistor
-Px=1224,80
+Px=584,48
 Rot=2
 
 [Attr]
@@ -1180,23 +1174,23 @@ ON=0,0,PACKAGE
 V
 
 [Wire]
-Pxs=1216,144,1240,144
+Pxs=576,112,600,112
 
 [Wire]
-Pxs=1240,80,1240,144
+Pxs=600,48,600,112
 
 [Wire]
-Pxs=1144,80,1176,80
+Pxs=504,48,536,48
 
 [Wire]
-Pxs=1144,80,1144,96
+Pxs=504,48,504,64
 
 [Wire]
-Pxs=1224,80,1240,80
+Pxs=584,48,600,48
 
 [Comp]
 Name=Resistor
-Px=1240,216
+Px=600,184
 Rot=3
 
 [Attr]
@@ -1215,7 +1209,7 @@ V
 
 [Comp]
 Name=Resistor
-Px=1240,280
+Px=600,248
 Rot=3
 
 [Attr]
@@ -1233,29 +1227,29 @@ ON=0,0,PACKAGE
 V
 
 [Wire]
-Pxs=1240,144,1240,168
+Pxs=600,112,600,136
 
 [Wire]
-Pxs=1240,216,1240,224
+Pxs=600,184,600,192
 
 [Wire]
-Pxs=1120,224,1240,224
+Pxs=480,192,600,192
 
 [Wire]
-Pxs=1120,168,1120,224
+Pxs=480,136,480,192
 
 [Wire]
-Pxs=1240,224,1240,232
+Pxs=600,192,600,200
 
 [Wire]
-Pxs=1120,168,1144,168
+Pxs=480,136,504,136
 
 [Wire]
-Pxs=1240,280,1240,296
+Pxs=600,248,600,264
 
 [Comp]
 Name=Diode
-Px=1088,168
+Px=448,136
 Rot=6
 
 [Attr]
@@ -1272,11 +1266,11 @@ ON=0,0,PACKAGE
 V
 
 [Wire]
-Pxs=1088,168,1120,168
+Pxs=448,136,480,136
 
 [Comp]
 Name=Capacitor
-Px=952,168
+Px=312,136
 Rot=4
 
 [Attr]
@@ -1295,7 +1289,7 @@ V
 
 [Comp]
 Name=Resistor
-Px=1024,232
+Px=384,200
 Rot=3
 
 [Attr]
@@ -1314,50 +1308,35 @@ V
 
 [Comp]
 Name=Ground
-Px=1024,248
+Px=384,216
 Rot=7
 
 [Wire]
-Pxs=1024,232,1024,248
+Pxs=384,200,384,216
 
 [Wire]
-Pxs=1024,168,1024,184
+Pxs=384,136,384,152
 
 [Wire]
-Pxs=1024,168,1040,168
+Pxs=384,136,400,136
 
 [Wire]
-Pxs=1000,168,1024,168
+Pxs=360,136,384,136
 
 [Wire]
-Pxs=760,168,952,168
+Pxs=600,112,768,112
 
 [Wire]
-Pxs=1240,144,1320,144
-
-[Wire]
-Pxs=1096,96,1144,96
+Pxs=456,64,504,64
 
 [Comp]
 Name=Ground
-Px=1240,296
+Px=600,264
 Rot=7
-
-[Wire]
-Pxs=760,168,760,296
-
-[Wire]
-Pxs=760,296,784,296
-
-[Wire]
-Pxs=1320,144,1320,216
-
-[Wire]
-Pxs=1320,216,1320,296
 
 [Comp]
 Name=NMOS
-Px=1400,296
+Px=768,112
 
 [Attr]
 ON=29,1,PART
@@ -1374,6 +1353,69 @@ V
 
 [Wire]
 Pxs=512,528,536,528
+
+[Comp]
+Name=Voltage Source
+Px=416,392
+Rot=3
+
+[Attr]
+ON=-31,-27,PART
+V=V6
+Style=8192
+
+[Attr]
+ON=-32,-41,VALUE
+V=DC 0 AC 1 0 Pulse -5 5 0 1n 1n 5m 10m
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Attr]
+ON=0,0,Saved_None
+V=DC 5 AC 0 0
+Style=256
+
+[Attr]
+ON=0,0,Saved_Exp
+V=DC 0 AC 1 0 Exp 0 1 100n 100n 500n 100n
+Style=256
+
+[Attr]
+ON=0,0,Saved_Pulse
+V=DC 0 AC 1 0 Pulse -5 5 0 1n 1n 5m 10m
+Style=256
+
+[Attr]
+ON=0,11,Saved_Sin
+V=DC 0 AC 1 0 Sin 0 1 1meg 0 0 0
+Style=256
+
+[Attr]
+ON=0,22,Saved_PWL
+V=DC 0 AC 1 0 PWL 0,1 100n,2 400n,3 500n,4 600n,1 700n,2 1u,0
+Style=256
+
+[Wire]
+Pxs=416,336,432,336
+
+[Comp]
+Name=Ground
+Px=416,392
+Rot=7
+
+[Wire]
+Pxs=432,336,560,336
+
+[Wire]
+Pxs=416,336,416,344
+
+[Wire]
+Pxs=296,136,312,136
+
+[Wire]
+Pxs=728,240,736,240
 
 [Grid Text]
 Text="$G_FILTER"
@@ -1449,7 +1491,7 @@ CBorder=None
 
 [Grid Text]
 Text="$G_INT2"
-Px=976,352
+Px=752,392
 GridSnap=True
 JustifyH=Left
 JustifyV=Bottom
@@ -1457,7 +1499,7 @@ CBorder=None
 
 [Grid Text]
 Text="$G_VCC"
-Px=904,352
+Px=680,392
 GridSnap=True
 JustifyH=Left
 JustifyV=Bottom
@@ -1465,7 +1507,7 @@ CBorder=None
 
 [Grid Text]
 Text="$G_VDD"
-Px=904,288
+Px=680,328
 GridSnap=True
 JustifyH=Left
 JustifyV=Bottom
@@ -1513,7 +1555,7 @@ CBorder=None
 
 [Grid Text]
 Text="$G_INVPULSE"
-Px=1320,216
+Px=688,32
 GridSnap=True
 JustifyH=Left
 JustifyV=Top
@@ -1545,7 +1587,7 @@ CBorder=None
 
 [Grid Text]
 Text="$G_VDD"
-Px=1176,112
+Px=536,80
 GridSnap=True
 JustifyH=Left
 JustifyV=Bottom
@@ -1553,7 +1595,7 @@ CBorder=None
 
 [Grid Text]
 Text="$G_C3"
-Px=1096,96
+Px=456,64
 GridSnap=True
 JustifyH=Left
 JustifyV=Bottom
@@ -1561,7 +1603,15 @@ CBorder=None
 
 [Grid Text]
 Text="$G_VCC"
-Px=1176,184
+Px=536,152
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="$G_INPUT1"
+Px=432,336
 GridSnap=True
 JustifyH=Left
 JustifyV=Bottom
@@ -1721,9 +1771,9 @@ PrinterScale=1
 Scale 0=1
 Scale 1=1
 Scale 2=1
-SB 3=205,48
+SB 3=206,0
 Scale 3=1
-Px=511,228
+Px=732,242
 WinBackGround Color=#FFFFFF
 Select Color=#FF0000
 Anchor Color=#000000
@@ -1784,7 +1834,7 @@ Type=Text
 Print=False
 Enable=True
 Name=Models
-SB 0=25,1
+SB 0=25,0
 Font=Height=-15,FStyle=0,Color=#000000,Name=Courier New
 Comment Color=#008000
 WinBackGround Color=#FFFFFF
@@ -2073,10 +2123,10 @@ Plt=1
 AliasID=1
 XExp=T
 YExp=v($G_INPUT)
-XRng=150m,0
+XRng=90m,30m
 YRng=5.5,-5.5
 Options=LINEARX,LINEARY
-Range Grid X=1
+Range Grid X=1m
 Range Grid Y=1
 Enable=Enable
 Line Color=#0000FF
@@ -2099,10 +2149,10 @@ Plt=1
 AliasID=2
 XExp=T
 YExp=v($G_PULSE)
-XRng=150m,0
+XRng=90m,30m
 YRng=5.5,-5.5
 Options=LINEARX,LINEARY
-Range Grid X=1
+Range Grid X=1m
 Range Grid Y=1
 Enable=Enable
 Line Color=#FF0000
@@ -2125,12 +2175,12 @@ Plt=1
 AliasID=4
 XExp=T
 YExp=v($G_C2)
-XRng=150m,0
+XRng=90m,30m
 YRng=5.5,-5.5
 Options=LINEARX,LINEARY
-Range Grid X=1
+Range Grid X=1m
 Range Grid Y=1
-Enable=Enable
+Enable=DontRun
 Line Color=#FF00FF
 Text Color=#FF00FF
 Rainbow=False
@@ -2151,10 +2201,10 @@ Plt=2
 AliasID=3
 XExp=T
 YExp=v($G_PULSE)
-XRng=150m,0
+XRng=90m,30m
 YRng=5.5,-5.5
 Options=LINEARX,LINEARY
-Range Grid X=1
+Range Grid X=1m
 Range Grid Y=1
 Enable=Enable
 Line Color=#0000FF
@@ -2177,10 +2227,10 @@ Plt=2
 AliasID=5
 XExp=T
 YExp=v($G_INT1)
-XRng=150m,0
+XRng=90m,30m
 YRng=5.5,-5.5
 Options=LINEARX,LINEARY
-Range Grid X=1
+Range Grid X=1m
 Range Grid Y=1
 Enable=Enable
 Line Color=#FF0000
@@ -2202,11 +2252,11 @@ Analysis=Transient
 Plt=3
 AliasID=6
 XExp=T
-YExp=v($G_INPUT)
-XRng=150m,0
+YExp=v($G_INPUT1)
+XRng=90m,30m
 YRng=5.5,-5.5
 Options=LINEARX,LINEARY
-Range Grid X=1
+Range Grid X=1m
 Range Grid Y=1
 Enable=Enable
 Line Color=#0000FF
@@ -2229,10 +2279,10 @@ Plt=3
 AliasID=7
 XExp=T
 YExp=v($G_INT2)
-XRng=150m,0
+XRng=90m,30m
 YRng=5.5,-5.5
 Options=LINEARX,LINEARY
-Range Grid X=1
+Range Grid X=1m
 Range Grid Y=1
 Enable=Enable
 Line Color=#FF0000
@@ -2255,12 +2305,12 @@ Plt=4
 AliasID=8
 XExp=T
 YExp=v($G_SOMBRERO)
-XRng=150m,0
+XRng=90m,30m
 YRng=5.5,-5.5
 Options=LINEARX,LINEARY
-Range Grid X=1
+Range Grid X=1m
 Range Grid Y=1
-Enable=Enable
+Enable=DontRun
 Line Color=#FF0000
 Text Color=#FF0000
 Rainbow=False
@@ -2281,12 +2331,12 @@ Plt=4
 AliasID=9
 XExp=T
 YExp=v($G_INVPULSE)
-XRng=150m,0
+XRng=90m,30m
 YRng=5.5,-5.5
 Options=LINEARX,LINEARY
-Range Grid X=1
+Range Grid X=1m
 Range Grid Y=1
-Enable=Enable
+Enable=DontRun
 Line Color=#0000FF
 Text Color=#0000FF
 Rainbow=False
@@ -2307,12 +2357,12 @@ Plt=5
 AliasID=10
 XExp=T
 YExp=v($G_HEBB)
-XRng=150m,0
+XRng=90m,30m
 YRng=5.5,-5.5
 Options=LINEARX,LINEARY
-Range Grid X=1
+Range Grid X=1m
 Range Grid Y=1
-Enable=Enable
+Enable=DontRun
 Line Color=#FF0000
 Text Color=#FF0000
 Rainbow=False

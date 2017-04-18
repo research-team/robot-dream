@@ -1,3 +1,5 @@
+import matplotlib.pyplot as plt
+
 f = open('Data.txt', 'r')
 data=[]
 noshiftdata=[]
@@ -22,22 +24,75 @@ while s!="":
             p2.append(d)
             lp2=d[0]
     s=f.readline()
+#rising g_inp
 #print p1
+#rising g_pul
 #print p2
 res=[]
 for d in p1:
     if d in p2:
         res.append(d)
-print res
-ind1=p1.index(res[1])
-ind2=p2.index(res[1])
-print ind1
-print ind2
+#print(res)
+ind1=p1.index(res[1])#g_inp pulses
+ind2=p2.index(res[1])#g_pul pulses
+#print [ind1,ind2]
+x=[]
+sombrero=[]
+hebb=[]
+
 while p1[ind1][0]-p2[ind2][0]<T1:
-    
+    cur1=p1[ind1]
+    cur2=p2[ind2]
+    #rint cur1
+    #print cur2
+    i1=data.index(cur2)
+    i2=data.index(p2[ind2+1])
+    #print [i1,i2]
+    maxs=data[i1]
+    maxh=data[i1]
+    #print data[i1:i2]
+    for d in data[i1:i2]:
+        if d[3]>maxs[3]:
+            maxs=d
+        if d[4]>maxh[4]:
+            maxh=d
+    x.append(cur1[0]-cur2[0])
+    sombrero.append(maxs[3])
+    hebb.append(maxs[4])
     ind1-=1
     ind2-=1
-print p1[ind1]
-print p2[ind2]
+
+while p2[ind2][0]-p1[ind1][0]<T1:
+    cur1=p1[ind1]
+    cur2=p2[ind2]
+    #rint cur1
+    #print cur2
+    i1=data.index(cur2)
+    i2=data.index(p2[ind2+1])
+    #print [i1,i2]
+    maxs=data[i1]
+    maxh=data[i1]
+    #print data[i1:i2]
+    for d in data[i1:i2]:
+        if d[3]>maxs[3]:
+            maxs=d
+        if d[4]>maxh[4]:
+            maxh=d
+    x.append(cur1[0]-cur2[0])
+    sombrero.append(maxs[3])
+    hebb.append(maxs[4])
+    ind1+=1
+    ind2+=1
+smb=plt.plot(x,sombrero)
+plt.setp(smb, color='r', linewidth=2.0)
+plt.show()
+
+heb=plt.plot(x,hebb)
+plt.setp(heb, color='g', linewidth=2.0)
+plt.show()
+#print sombrero
+#print hebb
+#print p1[ind1]
+#print p2[ind2]
 #T v($G_PULSE) v($G_INPUT1) v($G_SOMBRERO)  v($G_HEBB)
 #>1.8

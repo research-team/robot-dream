@@ -3,11 +3,11 @@
 ***                                                                          ***
 ***                                                                          ***
 ***                        Transient Analysis of Main                        ***
-***                           14.04.2017 13:17:29                            ***
+***                           18.04.2017 15:21:44                            ***
 ********************************************************************************
 Limits
 ======
-Time Range               100m
+Time Range               200m
 Maximum Time Step        0
 Number of Points         51
 Temperature              Linear 27
@@ -932,7 +932,7 @@ ISource             -5.311n        -6.717n
 
 Operating Point for Devices of Type SPICE Source
 ================================================
-Instance:                V3             V1             V2        OA1.IEE
+Instance:                V5             V1             V2        OA1.IEE
 V                   -5.000          5.000         -5.000          3.873 
 Power DC Terms:
 PG                   0.000          6.794m         7.556m      -580.960u
@@ -1031,7 +1031,7 @@ DC Pin Currents:
 ISource              3.606p         2.414p       -20.012p       -20.008p
 
 
-Instance:           OA5.VS2             V4             V6             V7
+Instance:           OA5.VS2             V6             V3             V4
 V                    0.000         -5.000         15.000        -15.000 
 Power DC Terms:
 PG                   0.000        430.295u        24.958m        25.000m

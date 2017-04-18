@@ -128,7 +128,7 @@ Name=Ground
 Definition=Ground
 Shape=Ground
 Mask=1793
-Used=842
+Used=847
 memo=Ground
 Label Offset=0,0,0,0
 PinCnt=1
@@ -139,7 +139,7 @@ Name=Voltage Source
 Definition=VSpice
 Shape=SPICE_V
 Mask=4864
-Used=123
+Used=129
 memo=Voltage Source
 Label Offset=19,13,15,13
 PinCnt=2
@@ -151,7 +151,7 @@ Name=Opamp
 Definition=Opamp
 Shape=Opamp5
 Mask=4097
-Used=36
+Used=39
 memo=Opamp
 Label Offset=44,29,-14,39
 PinCnt=5
@@ -177,8 +177,8 @@ Pin="Minus",0,0,-14,-5
 Name=Diode
 Definition=Diode
 Shape=Diode
-Mask=5633
-Used=481
+Mask=4097
+Used=483
 memo=Diode
 Label Offset=17,10,12,12
 PinCnt=2
@@ -189,8 +189,8 @@ Pin="Cathode",0,0,-20,-8
 Name=Resistor
 Definition=Resistor
 Shape=Resistor_Euro
-Mask=7425
-Used=1874
+Mask=6145
+Used=1884
 memo=Resistor
 Label Offset=11,-36,10,10
 PinCnt=2
@@ -262,7 +262,7 @@ Style=8192
 
 [Attr]
 ON=-32,-41,VALUE
-V=DC 0 AC 1 0 Pulse -5 5 0 1n 1n 0.75m 3m
+V=DC 0 AC 1 0 Pulse -5 5 0 1n 1n 2m 5m
 
 [Attr]
 ON=0,0,PACKAGE
@@ -280,7 +280,7 @@ Style=256
 
 [Attr]
 ON=0,0,Saved_Pulse
-V=DC 0 AC 1 0 Pulse -5 5 0 1n 1n 0.75m 3m
+V=DC 0 AC 1 0 Pulse -5 5 0 1n 1n 2m 5m
 Style=256
 
 [Attr]
@@ -627,9 +627,6 @@ Name=Ground
 Px=656,656
 Rot=7
 
-[Wire]
-Pxs=296,368,296,528
-
 [Comp]
 Name=Opamp
 Px=648,384
@@ -799,9 +796,6 @@ Rot=7
 Name=Ground
 Px=616,384
 Rot=7
-
-[Wire]
-Pxs=296,136,296,368
 
 [Comp]
 Name=Opamp
@@ -1059,8 +1053,8 @@ V=C6
 Style=8192
 
 [Attr]
-ON=-12,-19,CAPACITANCE
-V=10N
+ON=-14,-19,CAPACITANCE
+V=15N
 Style=8192
 
 [Attr]
@@ -1121,7 +1115,7 @@ Style=8192
 
 [Attr]
 ON=-37,4,RESISTANCE
-V=150k
+V=210k
 Style=8192
 
 [Attr]
@@ -1318,7 +1312,7 @@ Style=8192
 
 [Attr]
 ON=-32,-41,VALUE
-V=DC 0 AC 1 0 Pulse -5 5 0 1n 1n 1m {3m+100u}
+V=DC 0 AC 1 0 Pulse -5 5 0 1n 1n 2m {5m+100u}
 
 [Attr]
 ON=0,0,PACKAGE
@@ -1336,7 +1330,7 @@ Style=256
 
 [Attr]
 ON=0,0,Saved_Pulse
-V=DC 0 AC 1 0 Pulse -5 5 0 1n 1n 1m {3m+100u}
+V=DC 0 AC 1 0 Pulse -5 5 0 1n 1n 2m {5m+100u}
 Style=256
 
 [Attr]
@@ -1534,6 +1528,12 @@ Pxs=1280,576,1280,592
 [Wire]
 Pxs=1280,504,1280,528
 
+[Wire]
+Pxs=296,480,296,528
+
+[Wire]
+Pxs=296,136,296,480
+
 [Grid Text]
 Text="$G_FILTER"
 Px=480,528
@@ -1544,7 +1544,7 @@ CBorder=None
 
 [Grid Text]
 Text="$G_INPUT"
-Px=296,368
+Px=296,480
 GridSnap=True
 JustifyH=Left
 JustifyV=Bottom
@@ -1904,8 +1904,9 @@ PrinterScale=1
 Scale 0=1
 Scale 1=1
 Scale 2=1
+SB 3=199,10
 Scale 3=1
-Px=422,374
+Px=488,243
 WinBackGround Color=#FFFFFF
 Select Color=#FF0000
 Anchor Color=#000000
@@ -2019,7 +2020,7 @@ WinBackGround Color=#FFFFFF
 Select Color=#FF0000
 Anchor Color=#000000
 Select Box Color=#000080
-Title
+Title=Main.cir
 AutoTitle=Yes
 Grid Color=#808080
 Grid Weight=1
@@ -2067,7 +2068,7 @@ Data Point Labels Color Back=#FFFF00
 OperPoint=True
 OperPointOnly=False
 AutoScaleRanges=False
-FixedTimeStep=False
+FixedTimeStep=True
 DoPSS=False
 PSS_Periods="1"
 PSS_Iterations="5"
@@ -2078,7 +2079,7 @@ FFT_IncludeDCHarmonic=False
 FFT_AutoScale_Harmonics="10"
 PrinterAutoTile=No
 PrinterBlackBorder=No
-MonMaxShow=10
+MonMaxShow=11
 MonPageWidth=66
 MonPlotWidth=21
 MonExprXWidth=142
@@ -2107,6 +2108,7 @@ Num Out Write Operating Point=True
 Num Out Write Measurement Values=True
 Num Out Write Values=True
 Num Out Write Waveform Header=True
+Num Out Column Format="Vertical X,Y Pairs"
 Num Out Allow Dup Y Expr=False
 Num Out Low="TSTART"
 Num Out High="TMAX"
@@ -2237,9 +2239,9 @@ Seed=0
 
 [Limits]
 Analysis=Transient
-TRange=200m
-TStep=0
-NPts=51
+TRange=800m
+TStep=100u
+NPts=10000
 Temp=27
 RetraceRuns=1
 StateVar=Zero
@@ -2254,7 +2256,7 @@ Plt=1
 AliasID=1
 XExp=T
 YExp=v($G_INPUT)
-XRng=200m,30m
+XRng=800m,240m
 YRng=5.5,-5.5
 Options=LINEARX,LINEARY
 Range Grid X=1m
@@ -2280,7 +2282,7 @@ Plt=1
 AliasID=2
 XExp=T
 YExp=v($G_PULSE)
-XRng=200m,30m
+XRng=800m,240m
 YRng=5.5,-5.5
 Options=LINEARX,LINEARY
 Range Grid X=1m
@@ -2306,7 +2308,7 @@ Plt=1
 AliasID=4
 XExp=T
 YExp=v($G_C2)
-XRng=200m,30m
+XRng=800m,240m
 YRng=5.5,-5.5
 Options=LINEARX,LINEARY
 Range Grid X=1m
@@ -2332,9 +2334,9 @@ Plt=2
 AliasID=3
 XExp=T
 YExp=v($G_PULSE)
-XRng=200m,30m
+XRng=800m,240m
 YRng=5.5,-5.5
-Options=LINEARX,LINEARY
+Options=OUTPUT,LINEARX,LINEARY
 Range Grid X=1m
 Range Grid Y=1
 Enable=Enable
@@ -2358,12 +2360,12 @@ Plt=2
 AliasID=5
 XExp=T
 YExp=v($G_INT1)
-XRng=200m,30m
+XRng=800m,240m
 YRng=5.5,-5.5
 Options=LINEARX,LINEARY
 Range Grid X=1m
 Range Grid Y=1
-Enable=Enable
+Enable=DontRun
 Line Color=#FF0000
 Text Color=#FF0000
 Rainbow=False
@@ -2384,9 +2386,9 @@ Plt=3
 AliasID=6
 XExp=T
 YExp=v($G_INPUT1)
-XRng=200m,30m
+XRng=800m,240m
 YRng=5.5,-5.5
-Options=LINEARX,LINEARY
+Options=OUTPUT,LINEARX,LINEARY
 Range Grid X=1m
 Range Grid Y=1
 Enable=Enable
@@ -2410,34 +2412,8 @@ Plt=3
 AliasID=7
 XExp=T
 YExp=v($G_INT2)
-XRng=200m,30m
+XRng=800m,240m
 YRng=5.5,-5.5
-Options=LINEARX,LINEARY
-Range Grid X=1m
-Range Grid Y=1
-Enable=Enable
-Line Color=#FF0000
-Text Color=#FF0000
-Rainbow=False
-VFmtX=3
-VFmtY=3
-ScaleFactorX="None"
-ScaleFactorY="None"
-ScaleUnitsX="Auto"
-ScaleUnitsY="Auto"
-SFmtX=2
-SFmtY=2
-NOFmtX=3E
-NOFmtY=3E
-
-[WaveForm]
-Analysis=Transient
-Plt=4
-AliasID=8
-XExp=T
-YExp=v($G_SOMBRERO)
-XRng=200m,30m
-YRng=10,-10
 Options=LINEARX,LINEARY
 Range Grid X=1m
 Range Grid Y=1
@@ -2459,10 +2435,36 @@ NOFmtY=3E
 [WaveForm]
 Analysis=Transient
 Plt=4
+AliasID=8
+XExp=T
+YExp=v($G_SOMBRERO)
+XRng=800m,240m
+YRng=10,-10
+Options=OUTPUT,LINEARX,LINEARY
+Range Grid X=1m
+Range Grid Y=1
+Enable=Enable
+Line Color=#FF0000
+Text Color=#FF0000
+Rainbow=False
+VFmtX=3
+VFmtY=3
+ScaleFactorX="None"
+ScaleFactorY="None"
+ScaleUnitsX="Auto"
+ScaleUnitsY="Auto"
+SFmtX=2
+SFmtY=2
+NOFmtX=3E
+NOFmtY=3E
+
+[WaveForm]
+Analysis=Transient
+Plt=4
 AliasID=9
 XExp=T
 YExp=v($G_INVPULSE)
-XRng=200m,30m
+XRng=800m,240m
 YRng=5.5,-5.5
 Options=LINEARX,LINEARY
 Range Grid X=1m
@@ -2484,13 +2486,39 @@ NOFmtY=3E
 
 [WaveForm]
 Analysis=Transient
+Plt=4
+AliasID=11
+XExp=T
+YExp=v($G_C3)
+XRng=800m,240m
+YRng=5.5,-5.5
+Options=LINEARX,LINEARY
+Range Grid X=1m
+Range Grid Y=1
+Enable=DontRun
+Line Color=#FF0000
+Text Color=#FF0000
+Rainbow=False
+VFmtX=3
+VFmtY=3
+ScaleFactorX="None"
+ScaleFactorY="None"
+ScaleUnitsX="Auto"
+ScaleUnitsY="Auto"
+SFmtX=2
+SFmtY=2
+NOFmtX=3E
+NOFmtY=3E
+
+[WaveForm]
+Analysis=Transient
 Plt=5
 AliasID=10
 XExp=T
 YExp=v($G_HEBB)
-XRng=200m,30m
+XRng=800m,240m
 YRng=10,-10
-Options=LINEARX,LINEARY
+Options=OUTPUT,LINEARX,LINEARY
 Range Grid X=1m
 Range Grid Y=1
 Enable=Enable

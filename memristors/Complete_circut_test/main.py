@@ -1,12 +1,12 @@
 import matplotlib.pyplot as plt
 
-f = open('Data.txt', 'r')
+f = open('Data2.txt', 'r')
 data=[]
 noshiftdata=[]
 p1=[]
 p2=[]
-T0=0.0049
-T1=0.005
+T0=0.0048
+T1=0.0049
 lp1=0;
 lp2=0;
 s=f.readline()
@@ -32,7 +32,7 @@ res=[]
 for d in p1:
     if d in p2:
         res.append(d)
-#print(res)
+print res
 ind1=p1.index(res[1])#g_inp pulses
 ind2=p2.index(res[1])#g_pul pulses
 #print [ind1,ind2]
@@ -58,17 +58,18 @@ while p1[ind1][0]-p2[ind2][0]<T1:
             maxh=d
     x.append(cur1[0]-cur2[0])
     sombrero.append(maxs[3])
-    hebb.append(maxs[4])
+    hebb.append(maxh[4])
     ind1-=1
     ind2-=1
-
+#print sombrero
 while p2[ind2][0]-p1[ind1][0]<T1:
     cur1=p1[ind1]
     cur2=p2[ind2]
+    cur3=p2[ind2+1]
     #rint cur1
     #print cur2
     i1=data.index(cur2)
-    i2=data.index(p2[ind2+1])
+    i2=data.index(cur3)
     #print [i1,i2]
     maxs=data[i1]
     maxh=data[i1]
@@ -80,13 +81,12 @@ while p2[ind2][0]-p1[ind1][0]<T1:
             maxh=d
     x.append(cur1[0]-cur2[0])
     sombrero.append(maxs[3])
-    hebb.append(maxs[4])
+    hebb.append(maxh[4])
     ind1+=1
     ind2+=1
 smb=plt.plot(x,sombrero)
 plt.setp(smb, color='r', linewidth=2.0)
 plt.show()
-
 heb=plt.plot(x,hebb)
 plt.setp(heb, color='g', linewidth=2.0)
 plt.show()

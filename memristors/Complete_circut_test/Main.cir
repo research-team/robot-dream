@@ -7,8 +7,8 @@ Shape Version=11.00
 Screen=1920,1080
 MCAPVersion=11.0.1.9
 Key ID=0
-NLCnt=183
-TXCnt=27
+NLCnt=103
+TXCnt=19
 
 [shapedef]
 Name=Capacitor
@@ -19,21 +19,6 @@ Line=26,0,48,0
 Current=32,12,16,12
 Ellipse=29,-7,31,-5
 FColor=#0000FF
-
-[shapedef]
-Name=Diode
-Root="Diode.root",0,0,0
-
-[shapedef]
-Name=Diode.root
-Line=0,0,20,0
-Line=28,0,48,0
-Rectangle=18,-8,20,8
-PolyClosed=3
-PolyLine=20,0
-PolyLine=28,-8
-PolyLine=28,8
-Current=32,16,16,16
 
 [shapedef]
 Name=Ground
@@ -127,8 +112,8 @@ Current=32,16,16,16
 Name=Ground
 Definition=Ground
 Shape=Ground
-Mask=1793
-Used=847
+Mask=769
+Used=852
 memo=Ground
 Label Offset=0,0,0,0
 PinCnt=1
@@ -139,7 +124,7 @@ Name=Voltage Source
 Definition=VSpice
 Shape=SPICE_V
 Mask=4864
-Used=129
+Used=132
 memo=Voltage Source
 Label Offset=19,13,15,13
 PinCnt=2
@@ -174,23 +159,11 @@ Pin="Plus",6,0,-3,-5
 Pin="Minus",0,0,-14,-5
 
 [compdef]
-Name=Diode
-Definition=Diode
-Shape=Diode
-Mask=4097
-Used=483
-memo=Diode
-Label Offset=17,10,12,12
-PinCnt=2
-Pin="Anode",6,0,-9,-8
-Pin="Cathode",0,0,-20,-8
-
-[compdef]
 Name=Resistor
 Definition=Resistor
 Shape=Resistor_Euro
 Mask=6145
-Used=1884
+Used=1885
 memo=Resistor
 Label Offset=11,-36,10,10
 PinCnt=2
@@ -201,8 +174,8 @@ Pin="Minus",0,0,-14,-4
 Name=NMOS
 Definition=NMOS
 Shape=NMOS
-Mask=4096
-Used=8
+Mask=4608
+Used=9
 memo=NMOS
 Label Offset=29,1,7,25
 PinCnt=4
@@ -252,7 +225,7 @@ Pxs=976,576,976,592
 
 [Comp]
 Name=Voltage Source
-Px=296,608
+Px=616,656
 Rot=3
 
 [Attr]
@@ -295,11 +268,11 @@ Style=256
 
 [Comp]
 Name=Ground
-Px=296,632
+Px=616,680
 Rot=7
 
 [Wire]
-Pxs=296,608,296,632
+Pxs=616,656,616,680
 
 [Comp]
 Name=Voltage Source
@@ -362,270 +335,6 @@ Pxs=1064,576,1064,592
 
 [Wire]
 Pxs=1064,504,1064,528
-
-[Comp]
-Name=Opamp
-Px=560,528
-Rot=4
-
-[Attr]
-ON=40,-44,PART
-V=OA1
-Style=8192
-
-[Attr]
-ON=44,-57,MODEL
-V=$GENERIC
-
-[Attr]
-ON=0,0,PACKAGE
-V
-
-[Comp]
-Name=Ground
-Px=408,488
-Rot=7
-
-[Wire]
-Pxs=592,536,592,544
-
-[Comp]
-Name=Capacitor
-Px=448,456
-Rot=4
-
-[Attr]
-ON=16,-26,PART
-V=C2
-Style=8192
-
-[Attr]
-ON=-12,-19,CAPACITANCE
-V=10N
-Style=8192
-
-[Attr]
-ON=0,0,PACKAGE
-V
-
-[Comp]
-Name=Diode
-Px=496,480
-Rot=6
-
-[Attr]
-ON=-34,10,PART
-V=VD2
-Style=8192
-
-[Attr]
-ON=-81,24,MODEL
-V=$GENERIC
-
-[Attr]
-ON=0,0,PACKAGE
-V
-
-[Wire]
-Pxs=408,480,448,480
-
-[Wire]
-Pxs=408,480,408,488
-
-[Wire]
-Pxs=408,456,448,456
-
-[Wire]
-Pxs=408,456,408,480
-
-[Wire]
-Pxs=496,456,512,456
-
-[Wire]
-Pxs=560,456,560,480
-
-[Wire]
-Pxs=496,480,560,480
-
-[Wire]
-Pxs=592,456,592,472
-
-[Comp]
-Name=Resistor
-Px=640,440
-Rot=2
-
-[Attr]
-ON=-34,-20,PART
-V=R2
-Style=8192
-
-[Attr]
-ON=-37,4,RESISTANCE
-V=150k
-Style=8192
-
-[Attr]
-ON=0,0,PACKAGE
-V
-
-[Wire]
-Pxs=632,504,656,504
-
-[Wire]
-Pxs=656,440,656,504
-
-[Wire]
-Pxs=560,440,592,440
-
-[Wire]
-Pxs=560,440,560,456
-
-[Wire]
-Pxs=640,440,656,440
-
-[Comp]
-Name=Resistor
-Px=656,576
-Rot=3
-
-[Attr]
-ON=-24,-25,PART
-V=R3
-Style=8192
-
-[Attr]
-ON=8,-26,RESISTANCE
-V=800K
-Style=8192
-
-[Attr]
-ON=0,0,PACKAGE
-V
-
-[Comp]
-Name=Resistor
-Px=656,640
-Rot=3
-
-[Attr]
-ON=-24,-25,PART
-V=R4
-Style=8192
-
-[Attr]
-ON=0,0,RESISTANCE
-V=800K
-Style=8192
-
-[Attr]
-ON=0,0,PACKAGE
-V
-
-[Wire]
-Pxs=656,504,656,528
-
-[Wire]
-Pxs=656,576,656,584
-
-[Wire]
-Pxs=536,584,656,584
-
-[Wire]
-Pxs=536,528,536,584
-
-[Wire]
-Pxs=656,584,656,592
-
-[Wire]
-Pxs=536,528,560,528
-
-[Wire]
-Pxs=656,640,656,656
-
-[Comp]
-Name=Diode
-Px=472,528
-Rot=6
-
-[Attr]
-ON=-34,10,PART
-V=VD1
-Style=8192
-
-[Attr]
-ON=-81,24,MODEL
-V=$GENERIC
-
-[Attr]
-ON=0,0,PACKAGE
-V
-
-[Wire]
-Pxs=472,528,480,528
-
-[Comp]
-Name=Capacitor
-Px=336,528
-Rot=4
-
-[Attr]
-ON=16,-26,PART
-V=C1
-Style=8192
-
-[Attr]
-ON=-1,2,CAPACITANCE
-V=1u
-Style=8192
-
-[Attr]
-ON=0,0,PACKAGE
-V
-
-[Comp]
-Name=Resistor
-Px=408,592
-Rot=3
-
-[Attr]
-ON=-24,-25,PART
-V=R1
-Style=8192
-
-[Attr]
-ON=1,1,RESISTANCE
-V=10meg
-Style=8192
-
-[Attr]
-ON=0,0,PACKAGE
-V
-
-[Comp]
-Name=Ground
-Px=408,608
-Rot=7
-
-[Wire]
-Pxs=408,592,408,608
-
-[Wire]
-Pxs=408,528,408,544
-
-[Wire]
-Pxs=408,528,424,528
-
-[Wire]
-Pxs=384,528,408,528
-
-[Wire]
-Pxs=512,456,560,456
-
-[Comp]
-Name=Ground
-Px=656,656
-Rot=7
 
 [Comp]
 Name=Opamp
@@ -719,26 +428,7 @@ Style=8192
 
 [Attr]
 ON=12,8,RESISTANCE
-V=50K
-Style=8192
-
-[Attr]
-ON=0,0,PACKAGE
-V
-
-[Comp]
-Name=Resistor
-Px=656,504
-Rot=4
-
-[Attr]
-ON=18,-20,PART
-V=R7
-Style=8192
-
-[Attr]
-ON=15,7,RESISTANCE
-V=50K
+V=125K
 Style=8192
 
 [Attr]
@@ -827,7 +517,7 @@ Style=8192
 
 [Attr]
 ON=18,-34,RESISTANCE
-V=100k
+V=100meg
 Style=8192
 
 [Attr]
@@ -846,7 +536,7 @@ Style=8192
 
 [Attr]
 ON=18,-34,RESISTANCE
-V=100k
+V=100meg
 Style=8192
 
 [Attr]
@@ -865,7 +555,7 @@ Style=8192
 
 [Attr]
 ON=18,-34,RESISTANCE
-V=100k
+V=100meg
 Style=8192
 
 [Attr]
@@ -927,7 +617,7 @@ Style=8192
 
 [Attr]
 ON=-50,-36,RESISTANCE
-V=100K
+V=100meg
 Style=8192
 
 [Attr]
@@ -946,18 +636,12 @@ Style=8192
 
 [Attr]
 ON=-50,-36,RESISTANCE
-V=100K
+V=100meg
 Style=8192
 
 [Attr]
 ON=0,0,PACKAGE
 V
-
-[Wire]
-Pxs=792,136,1200,136
-
-[Wire]
-Pxs=1200,136,1200,312
 
 [Wire]
 Pxs=1184,312,1200,312
@@ -977,7 +661,7 @@ Style=8192
 
 [Attr]
 ON=-50,-36,RESISTANCE
-V=100K
+V=100meg
 Style=8192
 
 [Attr]
@@ -1010,295 +694,6 @@ Pxs=1064,312,1064,360
 
 [Wire]
 Pxs=1304,336,1304,392
-
-[Comp]
-Name=Ground
-Px=792,88
-Rot=3
-
-[Comp]
-Name=Opamp
-Px=504,136
-Rot=4
-
-[Attr]
-ON=44,-43,PART
-V=OA5
-Style=8192
-
-[Attr]
-ON=44,-57,MODEL
-V=$GENERIC
-
-[Attr]
-ON=0,0,PACKAGE
-V
-
-[Comp]
-Name=Ground
-Px=352,96
-Rot=7
-
-[Wire]
-Pxs=536,144,536,152
-
-[Comp]
-Name=Capacitor
-Px=392,64
-Rot=4
-
-[Attr]
-ON=16,-26,PART
-V=C6
-Style=8192
-
-[Attr]
-ON=-14,-19,CAPACITANCE
-V=15N
-Style=8192
-
-[Attr]
-ON=0,0,PACKAGE
-V
-
-[Comp]
-Name=Diode
-Px=440,88
-Rot=6
-
-[Attr]
-ON=-34,10,PART
-V=VD5
-Style=8192
-
-[Attr]
-ON=-81,24,MODEL
-V=$GENERIC
-
-[Attr]
-ON=0,0,PACKAGE
-V
-
-[Wire]
-Pxs=352,88,392,88
-
-[Wire]
-Pxs=352,88,352,96
-
-[Wire]
-Pxs=352,64,392,64
-
-[Wire]
-Pxs=352,64,352,88
-
-[Wire]
-Pxs=440,64,456,64
-
-[Wire]
-Pxs=504,64,504,88
-
-[Wire]
-Pxs=440,88,504,88
-
-[Wire]
-Pxs=536,64,536,80
-
-[Comp]
-Name=Resistor
-Px=584,48
-Rot=2
-
-[Attr]
-ON=-34,-20,PART
-V=R13
-Style=8192
-
-[Attr]
-ON=-37,4,RESISTANCE
-V=210k
-Style=8192
-
-[Attr]
-ON=0,0,PACKAGE
-V
-
-[Wire]
-Pxs=576,112,600,112
-
-[Wire]
-Pxs=600,48,600,112
-
-[Wire]
-Pxs=504,48,536,48
-
-[Wire]
-Pxs=504,48,504,64
-
-[Wire]
-Pxs=584,48,600,48
-
-[Comp]
-Name=Resistor
-Px=600,184
-Rot=3
-
-[Attr]
-ON=10,-41,PART
-V=R14
-Style=8192
-
-[Attr]
-ON=8,-26,RESISTANCE
-V=800K
-Style=8192
-
-[Attr]
-ON=0,0,PACKAGE
-V
-
-[Comp]
-Name=Resistor
-Px=600,248
-Rot=3
-
-[Attr]
-ON=10,-37,PART
-V=R15
-Style=8192
-
-[Attr]
-ON=7,-22,RESISTANCE
-V=800K
-Style=8192
-
-[Attr]
-ON=0,0,PACKAGE
-V
-
-[Wire]
-Pxs=600,112,600,136
-
-[Wire]
-Pxs=600,184,600,192
-
-[Wire]
-Pxs=480,192,600,192
-
-[Wire]
-Pxs=480,136,480,192
-
-[Wire]
-Pxs=600,192,600,200
-
-[Wire]
-Pxs=480,136,504,136
-
-[Wire]
-Pxs=600,248,600,264
-
-[Comp]
-Name=Diode
-Px=448,136
-Rot=6
-
-[Attr]
-ON=-34,10,PART
-V=VD4
-Style=8192
-
-[Attr]
-ON=-81,24,MODEL
-V=$GENERIC
-
-[Attr]
-ON=0,0,PACKAGE
-V
-
-[Wire]
-Pxs=448,136,480,136
-
-[Comp]
-Name=Capacitor
-Px=312,136
-Rot=4
-
-[Attr]
-ON=16,-26,PART
-V=C5
-Style=8192
-
-[Attr]
-ON=0,0,CAPACITANCE
-V=1u
-Style=8192
-
-[Attr]
-ON=0,0,PACKAGE
-V
-
-[Comp]
-Name=Resistor
-Px=384,200
-Rot=3
-
-[Attr]
-ON=7,-35,PART
-V=R12
-Style=8192
-
-[Attr]
-ON=0,0,RESISTANCE
-V=10meg
-Style=8192
-
-[Attr]
-ON=0,0,PACKAGE
-V
-
-[Comp]
-Name=Ground
-Px=384,216
-Rot=7
-
-[Wire]
-Pxs=384,200,384,216
-
-[Wire]
-Pxs=384,136,384,152
-
-[Wire]
-Pxs=384,136,400,136
-
-[Wire]
-Pxs=360,136,384,136
-
-[Wire]
-Pxs=600,112,648,112
-
-[Wire]
-Pxs=456,64,504,64
-
-[Comp]
-Name=Ground
-Px=600,264
-Rot=7
-
-[Comp]
-Name=NMOS
-Px=768,112
-
-[Attr]
-ON=29,1,PART
-V=M1
-Style=8192
-
-[Attr]
-ON=29,15,MODEL
-V=$GENERIC_N
-
-[Attr]
-ON=0,0,PACKAGE
-V
 
 [Comp]
 Name=Voltage Source
@@ -1358,25 +753,19 @@ Pxs=432,336,560,336
 Pxs=416,336,416,344
 
 [Wire]
-Pxs=296,136,312,136
-
-[Wire]
 Pxs=728,240,728,272
 
 [Wire]
 Pxs=728,272,728,296
 
 [Wire]
-Pxs=296,528,336,528
+Pxs=616,504,656,504
 
 [Wire]
-Pxs=296,528,296,560
+Pxs=616,552,616,608
 
 [Wire]
 Pxs=728,240,864,240
-
-[Wire]
-Pxs=648,112,768,112
 
 [Wire]
 Pxs=1048,312,1064,312
@@ -1390,9 +779,6 @@ Pxs=1024,240,1048,240
 [Wire]
 Pxs=1048,240,1048,312
 
-[Wire]
-Pxs=480,528,536,528
-
 [Comp]
 Name=Resistor
 Px=664,240
@@ -1405,7 +791,7 @@ Style=8192
 
 [Attr]
 ON=12,8,RESISTANCE
-V=50K
+V=125K
 Style=8192
 
 [Attr]
@@ -1433,7 +819,7 @@ Style=8192
 
 [Attr]
 ON=15,7,RESISTANCE
-V=50K
+V=125K
 Style=8192
 
 [Attr]
@@ -1529,22 +915,109 @@ Pxs=1280,576,1280,592
 Pxs=1280,504,1280,528
 
 [Wire]
-Pxs=296,480,296,528
+Pxs=1200,248,1200,312
+
+[Comp]
+Name=Resistor
+Px=656,504
+Rot=4
+
+[Attr]
+ON=18,-20,PART
+V=R19
+Style=8192
+
+[Attr]
+ON=12,8,RESISTANCE
+V=125K
+Style=8192
+
+[Attr]
+ON=0,0,PACKAGE
+V
 
 [Wire]
-Pxs=296,136,296,480
+Pxs=616,504,616,552
 
-[Grid Text]
-Text="$G_FILTER"
-Px=480,528
-GridSnap=True
-JustifyH=Left
-JustifyV=Bottom
-CBorder=None
+[Comp]
+Name=Voltage Source
+Px=1272,184
+Rot=2
+
+[Attr]
+ON=-31,-27,PART
+V=V7
+Style=8192
+
+[Attr]
+ON=-32,-41,VALUE
+V=DC 0 AC 1 0 Pulse 0 1 0 0 0 2.55m 5.1m
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Attr]
+ON=0,0,Saved_None
+V=DC 5 AC 0 0
+Style=256
+
+[Attr]
+ON=0,0,Saved_Exp
+V=DC 0 AC 1 0 Exp 0 1 100n 100n 500n 100n
+Style=256
+
+[Attr]
+ON=0,0,Saved_Pulse
+V=DC 0 AC 1 0 Pulse 0 1 0 0 0 2.55m 5.1m
+Style=256
+
+[Attr]
+ON=0,11,Saved_Sin
+V=DC 0 AC 1 0 Sin 0 1 1meg 0 0 0
+Style=256
+
+[Attr]
+ON=0,22,Saved_PWL
+V=DC 0 AC 1 0 PWL 0,1 100n,2 400n,3 500n,4 600n,1 700n,2 1u,0
+Style=256
+
+[Wire]
+Pxs=1272,184,1296,184
+
+[Wire]
+Pxs=1200,208,1200,248
+
+[Comp]
+Name=Ground
+Px=1296,184
+
+[Comp]
+Name=NMOS
+Px=1224,184
+Rot=2
+
+[Attr]
+ON=-47,-15,PART
+V=M1
+Style=8192
+
+[Attr]
+ON=-110,-29,MODEL
+V=$GENERIC_N
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Comp]
+Name=Ground
+Px=1200,160
+Rot=3
 
 [Grid Text]
 Text="$G_INPUT"
-Px=296,480
+Px=616,552
 GridSnap=True
 JustifyH=Left
 JustifyV=Bottom
@@ -1561,38 +1034,6 @@ CBorder=None
 [Grid Text]
 Text="$G_VCC"
 Px=976,504
-GridSnap=True
-JustifyH=Left
-JustifyV=Bottom
-CBorder=None
-
-[Grid Text]
-Text="$G_VDD"
-Px=592,472
-GridSnap=True
-JustifyH=Left
-JustifyV=Bottom
-CBorder=None
-
-[Grid Text]
-Text="$G_C2"
-Px=512,456
-GridSnap=True
-JustifyH=Left
-JustifyV=Bottom
-CBorder=None
-
-[Grid Text]
-Text="$G_PULSE"
-Px=640,440
-GridSnap=True
-JustifyH=Left
-JustifyV=Bottom
-CBorder=None
-
-[Grid Text]
-Text="$G_VCC"
-Px=592,544
 GridSnap=True
 JustifyH=Left
 JustifyV=Bottom
@@ -1672,7 +1113,7 @@ CBorder=None
 
 [Grid Text]
 Text="$G_INVPULSE"
-Px=648,112
+Px=1200,248
 GridSnap=True
 JustifyH=Left
 JustifyV=Top
@@ -1700,30 +1141,6 @@ Px=1232,368
 GridSnap=True
 JustifyH=Left
 JustifyV=Top
-CBorder=None
-
-[Grid Text]
-Text="$G_VDD"
-Px=536,80
-GridSnap=True
-JustifyH=Left
-JustifyV=Bottom
-CBorder=None
-
-[Grid Text]
-Text="$G_C3"
-Px=456,64
-GridSnap=True
-JustifyH=Left
-JustifyV=Bottom
-CBorder=None
-
-[Grid Text]
-Text="$G_VCC"
-Px=536,152
-GridSnap=True
-JustifyH=Left
-JustifyV=Bottom
 CBorder=None
 
 [Grid Text]
@@ -1904,9 +1321,9 @@ PrinterScale=1
 Scale 0=1
 Scale 1=1
 Scale 2=1
-SB 3=199,10
+SB 3=156,48
 Scale 3=1
-Px=488,243
+Px=1245,190
 WinBackGround Color=#FFFFFF
 Select Color=#FF0000
 Anchor Color=#000000
@@ -1967,6 +1384,7 @@ Type=Text
 Print=False
 Enable=True
 Name=Models
+SB 0=25,1
 Font=Height=-15,FStyle=0,Color=#000000,Name=Courier New
 Comment Color=#008000
 WinBackGround Color=#FFFFFF
@@ -2108,7 +1526,6 @@ Num Out Write Operating Point=True
 Num Out Write Measurement Values=True
 Num Out Write Values=True
 Num Out Write Waveform Header=True
-Num Out Column Format="Vertical X,Y Pairs"
 Num Out Allow Dup Y Expr=False
 Num Out Low="TSTART"
 Num Out High="TMAX"
@@ -2240,8 +1657,8 @@ Seed=0
 [Limits]
 Analysis=Transient
 TRange=800m
-TStep=100u
-NPts=10000
+TStep=1u
+NPts=1000000
 Temp=27
 RetraceRuns=1
 StateVar=Zero
@@ -2256,7 +1673,7 @@ Plt=1
 AliasID=1
 XExp=T
 YExp=v($G_INPUT)
-XRng=800m,240m
+XRng=800m,0
 YRng=5.5,-5.5
 Options=LINEARX,LINEARY
 Range Grid X=1m
@@ -2282,7 +1699,7 @@ Plt=1
 AliasID=2
 XExp=T
 YExp=v($G_PULSE)
-XRng=800m,240m
+XRng=800m,0
 YRng=5.5,-5.5
 Options=LINEARX,LINEARY
 Range Grid X=1m
@@ -2308,7 +1725,7 @@ Plt=1
 AliasID=4
 XExp=T
 YExp=v($G_C2)
-XRng=800m,240m
+XRng=800m,0
 YRng=5.5,-5.5
 Options=LINEARX,LINEARY
 Range Grid X=1m
@@ -2333,8 +1750,8 @@ Analysis=Transient
 Plt=2
 AliasID=3
 XExp=T
-YExp=v($G_PULSE)
-XRng=800m,240m
+YExp=v($G_INPUT)
+XRng=800m,0
 YRng=5.5,-5.5
 Options=OUTPUT,LINEARX,LINEARY
 Range Grid X=1m
@@ -2351,8 +1768,8 @@ ScaleUnitsX="Auto"
 ScaleUnitsY="Auto"
 SFmtX=2
 SFmtY=2
-NOFmtX=3E
-NOFmtY=3E
+NOFmtX=9E
+NOFmtY=9E
 
 [WaveForm]
 Analysis=Transient
@@ -2360,7 +1777,7 @@ Plt=2
 AliasID=5
 XExp=T
 YExp=v($G_INT1)
-XRng=800m,240m
+XRng=800m,0
 YRng=5.5,-5.5
 Options=LINEARX,LINEARY
 Range Grid X=1m
@@ -2386,7 +1803,7 @@ Plt=3
 AliasID=6
 XExp=T
 YExp=v($G_INPUT1)
-XRng=800m,240m
+XRng=800m,0
 YRng=5.5,-5.5
 Options=OUTPUT,LINEARX,LINEARY
 Range Grid X=1m
@@ -2403,8 +1820,8 @@ ScaleUnitsX="Auto"
 ScaleUnitsY="Auto"
 SFmtX=2
 SFmtY=2
-NOFmtX=3E
-NOFmtY=3E
+NOFmtX=9E
+NOFmtY=9E
 
 [WaveForm]
 Analysis=Transient
@@ -2412,7 +1829,7 @@ Plt=3
 AliasID=7
 XExp=T
 YExp=v($G_INT2)
-XRng=800m,240m
+XRng=800m,0
 YRng=5.5,-5.5
 Options=LINEARX,LINEARY
 Range Grid X=1m
@@ -2438,8 +1855,8 @@ Plt=4
 AliasID=8
 XExp=T
 YExp=v($G_SOMBRERO)
-XRng=800m,240m
-YRng=10,-10
+XRng=800m,0
+YRng=15,-15
 Options=OUTPUT,LINEARX,LINEARY
 Range Grid X=1m
 Range Grid Y=1
@@ -2455,8 +1872,8 @@ ScaleUnitsX="Auto"
 ScaleUnitsY="Auto"
 SFmtX=2
 SFmtY=2
-NOFmtX=3E
-NOFmtY=3E
+NOFmtX=9E
+NOFmtY=9E
 
 [WaveForm]
 Analysis=Transient
@@ -2464,7 +1881,7 @@ Plt=4
 AliasID=9
 XExp=T
 YExp=v($G_INVPULSE)
-XRng=800m,240m
+XRng=800m,0
 YRng=5.5,-5.5
 Options=LINEARX,LINEARY
 Range Grid X=1m
@@ -2490,7 +1907,7 @@ Plt=4
 AliasID=11
 XExp=T
 YExp=v($G_C3)
-XRng=800m,240m
+XRng=800m,0
 YRng=5.5,-5.5
 Options=LINEARX,LINEARY
 Range Grid X=1m
@@ -2516,8 +1933,8 @@ Plt=5
 AliasID=10
 XExp=T
 YExp=v($G_HEBB)
-XRng=800m,240m
-YRng=10,-10
+XRng=800m,0
+YRng=15,-15
 Options=OUTPUT,LINEARX,LINEARY
 Range Grid X=1m
 Range Grid Y=1
@@ -2533,8 +1950,8 @@ ScaleUnitsX="Auto"
 ScaleUnitsY="Auto"
 SFmtX=2
 SFmtY=2
-NOFmtX=3E
-NOFmtY=3E
+NOFmtX=9E
+NOFmtY=9E
 
 [Limits]
 Analysis=DynamicAC

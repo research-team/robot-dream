@@ -67,12 +67,19 @@ for p2p in p2:
         hebb.append(maxh)
     else:
         hebb.append(minh)
-#smb=plt.plot(x[26:73],sombrero[26:73])
+
+smb=plt.plot(x[26:73],sombrero[26:73])
 #smb=plt.plot(x,sombrero)
-#plt.setp(smb, color='r', linewidth=2.0)
+plt.tick_params(labelsize=20)
+plt.setp(smb, color='r', linewidth=2.0)
+plt.xlabel('dt',fontsize=20)
+plt.ylabel('dw',fontsize=20)
 plt.show()
+
 heb=plt.plot(x[26:75],hebb[26:75])
-#xx=map(lambda x: x - T1/2, x)
 #heb=plt.plot(x,hebb)
+plt.tick_params(labelsize=20)
 plt.setp(heb, color='g', linewidth=2.0)
+plt.xlabel('dt',fontsize=20)
+plt.ylabel('dw',fontsize=20)
 plt.show()

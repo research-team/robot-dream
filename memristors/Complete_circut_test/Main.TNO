@@ -3,13 +3,13 @@
 ***                                                                          ***
 ***                                                                          ***
 ***                        Transient Analysis of Main                        ***
-***                           22.04.2017 20:33:49                            ***
+***                           24.04.2017 13:58:17                            ***
 ********************************************************************************
 Limits
 ======
 Time Range               800m
-Maximum Time Step        100u
-Number of Points         10000
+Maximum Time Step        1u
+Number of Points         1000000
 Temperature              Linear 27
 Retrace Runs             1
 Run Options              Normal

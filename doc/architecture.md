@@ -189,9 +189,9 @@ The high-level representation of overall structure of the **DreamingBrain** comp
 
 ##### Memristive system solution
 
-![High level design components of the "dreaming brain" in memristive solution](HLD_Component_MemristieveDreamingBrain.png)
+![High level design components of the "dreaming brain" in memristive solution](HLD_Component_MemristiveDreamingBrain.png)
 
-The high-level representation of overall structure of the **DreamingBrain** component in reasoning system solution.
+The high-level representation of overall structure of the **DreamingBrain** component in memristive solution.
 
 
 ##### Direct translation

@@ -181,9 +181,18 @@ According to our approach, the input from robots is encoded by spikes. A spike i
 
 #### DreamingBrain
 
+##### Reasoning system solution
+
 ![High level design components of the "dreaming brain"](HLD_Component_SleepingBrain.png)
 
-The high-level representation of overall structure of the **DreamingBrain**.
+The high-level representation of overall structure of the **DreamingBrain** component in reasoning system solution.
+
+##### Memristive system solution
+
+![High level design components of the "dreaming brain" in memristive solution](HLD_Component_MemristieveDreamingBrain.png)
+
+The high-level representation of overall structure of the **DreamingBrain** component in reasoning system solution.
+
 
 ##### Direct translation
 

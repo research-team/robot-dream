@@ -1,6 +1,6 @@
 # Memristive brain architecture
 
-Starting idea of the memristive brain project: implement emotional pathways of a mammalian brain biomimetically  reproducing cortical and subcortical structures of a mammalian brain. Previously we have used "cube of emotions" by Hugo Lövheim to as the base for the emotional simulation for the reimplementation of psycho-emotional states of a mammal in a computational system, see our project [NeuCogAr](https://github.com/research-team/NEUCOGAR).
+Starting idea of the memristive brain project: implement emotional pathways of a mammalian brain biomimetically  reproducing cortical and subcortical structures of a mammalian brain. Previously we have used "cube of emotions" by Hugo Lövheim to as the base for the emotional simulation for the reimplementation of psycho-emotional states of a mammal in a computational system, see our project [NeuCogAr](https://github.com/research-team/NEUCOGAR). The "cube of emotions" is based on three monoamine neuromodulators: dopamine (DA), noradrenaline (NA) and serotonin (5HT).
 
 ## Component diagram
 
@@ -8,3 +8,14 @@ As the part of [Robot Dream architecture](architecture.md) the memristive brain 
 
 ![Memristive brain HLD component diagram](HLD_Component_Memristive_Robot.png)
 
+## Initial ideas
+
+The initial idea was to start with dopaminergic pathways of mammals, for example nigrostriatal pathway as possibly most basic and simplest pathway among others of DA, NA and 5HT pathways. 
+
+![Simplified diagram of nigrostriatal pathway](nigrostriatal.png)
+
+This pathway works in balance of excitation/inhibition as well there is influence of the dopamine neuromodulation over striatal D1 and D2 receptors.
+
+This is implemented dopamine pathways in the NeuCogAr project.
+
+![Complete dopamine pathways]()

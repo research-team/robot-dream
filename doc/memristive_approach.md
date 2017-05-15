@@ -34,8 +34,10 @@ As the starting point we have selected the implementation of inhibitory impact o
 
 ![Block diagram](HL_Emristor.png)
 
+
+
 ## Neuromodulation
 
-
+We plan to implement the [G-Protein](https://en.wikipedia.org/wiki/G_protein%E2%80%93coupled_receptor) signalling [pathway principles](https://en.wikipedia.org/wiki/Signal_transduction) in hardware based on memristive elements. 
 
 

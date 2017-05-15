@@ -34,7 +34,13 @@ As the starting point we have selected the implementation of inhibitory impact o
 
 ![Block diagram](HL_Emristor.png)
 
-
+The figure above represents a high level block diagram of artificial memristive neuron and contains inputs as green circles 1, ..n, ..n + m, where n is the number of excitatory synapses and m is number of inhibitory synapses per one cell. 
+The scale of the n+m is 10^4. 
+Excitatory and inhibitory memristive elements are depicted with pink and blue color rectangles and are marked as Ex and Inh respectively. 
+Excitatory memristive elements are trained via Hebbian learning while inhibitory memristive elements are trained to via one of the inhibitory learning functions "sombrero". 
+All excitatory and inhibitory memristive element outputs are transferred to threshold adder and integrator 2. The adder implements balancing of excitatory and inhibitory impact of memristive elements (synapses), and its output starts the output pulse (spike) generator. 
+The integrator 1 represents integrated output of the neuron and its output is been processed by inverting adder to be compared with integrated input of the neuron provided and extended via integrator 1. The inverting adder output is transmitted to inhibitory memristive elements and implements sombrero shaped training (the blue rectangular graph). The monostable multivibrator is activated via positive signal of the inverting adder triggering a relay that grounds the slave invertor crating the positive half of t axis of the train function graph (shown to the right of the pink rectangular graph). The negative (right) half of the graph is formed via the slave invertor in the non-grounded mode. The output of the feedback: 1/x or Hebbian training is broadcasted to all excitatory memristive elements.
+The proposed schema implements two possible algorithms of training or STDP for excitatory and inhibitory memristive elements along with “integrate and fire” algorithm of output spikes generation.
 
 ## Neuromodulation
 

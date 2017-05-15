@@ -42,12 +42,11 @@ Excitatory memristive elements are trained via Hebbian learning while inhibitory
 
 All excitatory and inhibitory memristive element outputs are transferred to threshold adder and integrator 2. The adder implements balancing of excitatory and inhibitory impact of memristive elements (synapses), and its output starts the output pulse (spike) generator. 
 
-The integrator 1 represents integrated output of the neuron and its output is processed by inverting adder to be compared with integrated input of the neuron provided via integrator 1.
+The integrator 1 represents integrated output of the neuron and its output is processed by inverting adder to be compared with integrated input of the neuron provided via integrator 1. The inverting adder output is transmitted to inhibitory memristive elements and implements "sombrero" shaped learning function (the blue rectangular graph). 
 
-The inverting adder output is transmitted to inhibitory memristive elements and implements "sombrero" shaped learning function (the blue rectangular graph). 
-The monostable multivibrator is activated via positive signal of the inverting adder triggering a relay that grounds the slave inverter crating the positive half of the Δt axis of the learning function graph (shown to the left of the pink rectangular graph). 
+The monostable multivibrator is activated via positive signal of the inverting adder triggering a relay that grounds the slave inverter crating the positive half of the Δt axis of the learning function graph (show as right half of the pink rectangular graph). 
 
-The negative (right) half of the graph is formed via the slave inverter in the non-grounded mode. The output of the feedback: 1/x or Hebbian learning is provided to all excitatory memristive elements.
+The negative (left) half of the graph is formed via the slave inverter in the non-grounded mode. The output of the feedback: 1/x or Hebbian learning is provided to all excitatory memristive elements.
 
 The proposed schema implements two possible algorithms of learning or STDP for excitatory and inhibitory memristive elements along with “integrate and fire” algorithm of output spikes generation.
 

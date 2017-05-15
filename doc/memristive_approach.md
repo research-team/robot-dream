@@ -4,4 +4,6 @@ Starting idea of the memristive brain project: implement emotional pathways of a
 
 ## Component diagram
 
+As the part of [Robot Dream architecture](architecture.md) the memristive brain component takes central role in a robotic system. 
+
 ![Memristive brain HLD component diagram](HLD_Component_Memristive_Robot.png)

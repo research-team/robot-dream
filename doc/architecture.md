@@ -114,6 +114,12 @@ Overall the robot to the dreaming brain synchronization life-cycle.
 ### Components
 
 #### Robot
+
+There are two general options available:
+
+1. Cognitive architecture based on ["model of six" described in TU project](https://github.com/tu-team/2/blob/master/doc/design_specification-3/index.md).
+1. Memristive spiking neuronal network.
+
 ![High level design components of robot life cycle](HLD_Component_RobotLifeCycle.png)
 
 This is a high-level representation of the overall structure of the robotic control system.

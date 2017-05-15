@@ -18,4 +18,16 @@ This pathway works in balance of excitation/inhibition as well there is influenc
 
 This is implemented dopamine pathways in the NeuCogAr project.
 
-![Complete dopamine pathways]()
+![Dopamine pathways implemented in NeuCogAr](https://raw.githubusercontent.com/research-team/NEUCOGAR/master/NEST/cube/dopamine/integrated/doc/diagram.png)
+
+## Initial requirements
+
+The memristive solution should be capable of key processes of a mammalian brain involved in psycho-emotional processing:
+
+1. Excitatory 
+1. Inhibitory 
+1. Neuromodulatory 
+
+## Memristive neuron
+
+

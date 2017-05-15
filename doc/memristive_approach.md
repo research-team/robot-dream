@@ -16,7 +16,7 @@ The initial idea was to start with dopaminergic pathways of mammals, for example
 
 This pathway works in balance of excitation/inhibition as well there is influence of the dopamine neuromodulation over striatal D1 and D2 receptors.
 
-This is implemented dopamine pathways in the NeuCogAr project.
+This is implemented dopamine pathways in the [NeuCogAr project](https://github.com/research-team/NEUCOGAR).
 
 ![Dopamine pathways implemented in NeuCogAr](https://raw.githubusercontent.com/research-team/NEUCOGAR/master/NEST/cube/dopamine/integrated/doc/diagram.png)
 
@@ -29,5 +29,13 @@ The memristive solution should be capable of key processes of a mammalian brain 
 1. Neuromodulatory 
 
 ## Memristive neuron
+
+As the starting point we have selected the implementation of inhibitory impact over neuronal processes in memristive hardware implementation. 
+
+![Block diagram](HL_Emristor.png)
+
+## Neuromodulation
+
+
 
 

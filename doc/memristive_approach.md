@@ -55,8 +55,8 @@ The proposed schema implements two possible algorithms of learning or STDP for e
 ![Memristive neuron wiring schematic](wiring_schematic.png)
 
 The Figure above represents the wiring diagram, where excitatory and inhibitory pulses are transmitted to memristive elements Xj, where j=1..n+m. When the accumulated voltage on the memristive elements exceeds the threshold, the one short multivibrator on the operational amplifier OA1 provides a single short pulse, which duration is determined by 
-```math
-T1 = C2* R2 * ln(1 +R3/R4)$$
+```
+T1 = C2* R2 * ln(1 +R3/R4)
 ```
 Signals from Out and OA1 output are transmitted to integrators on op-amps OA2 and OA3, that set the impulse descending edge of the training function. The pulse-rise time constant of the integrating circuit is 
 ```

@@ -1,0 +1,20 @@
+* C:\Users\yurra\Documents\robot-dream\memristors\LTSPICE\Main_sch.asc
+V1 +V 0 15
+V2 -V 0 -15
+XU1 N001 N005 +V -V N004 level.2 Avol=1Meg GBW=10Meg Slew=10Meg ilimit=25m rail=0 Vos=0 phimargin=45 en=0 enk=0 in=0 ink=0 Rin=500Meg
+C1 N003 N002 0.1µ V=25 Irms=0 Rser=0.017282 Lser=350p mfg="Würth Elektronik" pn="885012207072 WCAP-CSGP 0805" type="X7R"
+C2 N005 0 0.01µ V=25 Irms=0 Rser=0.026173 Lser=533.953p mfg="Würth Elektronik" pn="885012008030 WCAP-CSGP 1206" type="NP0"
+R1 0 N003 100K tol=1 pwr=0.1
+R2 N004 N005 63.4K tol=1 pwr=0.1
+R3 N001 N004 200K tol=1 pwr=0.1
+R4 0 N001 806K tol=1 pwr=0.1
+D1 N003 N001 1N914
+D2 0 N005 1N914
+V3 N002 0 PULSE(-5 5 0 1n 1n 0.0005 0.002)
+.model D D
+.lib C:\Users\yurra\Documents\LTspiceXVII\lib\cmp\standard.dio
+.lib memrs.lib
+.tran 0.1
+.lib UniversalOpamps2.sub
+.backanno
+.end

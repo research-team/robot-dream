@@ -1,23 +1,26 @@
-Circuit: * C:\Users\yurra\Documents\robot-dream\memristors\LTSPICE\Main_sch.asc
+Circuit: * C:\users\yura\My Documents\robot-dream\memristors\LTSPICE\Main_sch.asc
 
 C2: Increased Cpar to 1e-014
 C1: Increased Cpar to 1e-013
+WARNING: Node NC_01 is floating.
+WARNING: Node NC_02 is floating.
+
 Direct Newton iteration for .op point succeeded.
 
-Date: Thu May 18 17:57:10 2017
-Total elapsed time: 0.491 seconds.
+Date: Fri May 19 17:18:49 2017
+Total elapsed time: 5.162 seconds.
 
 tnom = 27
 temp = 27
 method = modified trap
-totiter = 76396
-traniter = 76381
-tranpoints = 31206
-accept = 24949
-rejected = 6257
-matrix size = 13
+totiter = 555952
+traniter = 555937
+tranpoints = 194641
+accept = 150360
+rejected = 44281
+matrix size = 20
 fillins = 1
 solver = Normal
-Matrix Compiler1: 612 bytes object code size  0.2/0.2/[0.0]
-Matrix Compiler2: off  [0.2]/0.4/0.4
+Matrix Compiler1: 692 bytes object code size  1.1/0.6/[0.5]
+Matrix Compiler2: 1.52 KB object code size  0.8/1.3/[0.7]
 

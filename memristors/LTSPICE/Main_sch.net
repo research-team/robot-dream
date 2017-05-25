@@ -1,35 +1,54 @@
 * C:\users\yura\My Documents\robot-dream\memristors\LTSPICE\Main_sch.asc
 V1 +5V 0 5
 V2 -5V 0 -5
-XU1 N006 N009 +5V -5V PULSE level.2 Avol=1Meg GBW=10Meg Slew=10Meg ilimit=25m rail=0 Vos=0 phimargin=45 en=0 enk=0 in=0 ink=0 Rin=500Meg
-C1 N007 INPUT 0.1µ V=25 Irms=0 Rser=0.017282 Lser=350p mfg="Würth Elektronik" pn="885012207072 WCAP-CSGP 0805" type="X7R"
-C2 N009 0 0.012µ V=25 Irms=332m Rser=0.302696 Lser=0 mfg="KEMET" pn="C0805F123K3RAC" type="X7R"
-R1 0 N007 100K tol=1 pwr=0.1
-R2 PULSE N009 75K tol=1 pwr=0.1
-R3 N006 PULSE 200K tol=1 pwr=0.1
-R4 0 N006 806K tol=1 pwr=0.1
-D1 N007 N006 1N914
-D2 0 N009 1N914
-XU2 0 N008 +5V -5V INT1 level.2 Avol=1Meg GBW=10Meg Slew=10Meg ilimit=25m rail=0 Vos=0 phimargin=45 en=0 enk=0 in=0 ink=0 Rin=500Meg
-C3 INT1 N008 0.0068µ V=25 Irms=0 Rser=0.0165691 Lser=256.21p mfg="Würth Elektronik" pn="885012009005 WCAP-CSGP 1210" type="NP0"
-R5 INT1 N008 100K tol=1 pwr=0.1
-R6 N008 PULSE 100K tol=1 pwr=0.1
-XU3 0 N002 +5V -5V INT2 level.2 Avol=1Meg GBW=10Meg Slew=10Meg ilimit=25m rail=0 Vos=0 phimargin=45 en=0 enk=0 in=0 ink=0 Rin=500Meg
-C4 INT2 N002 0.0068µ V=25 Irms=0 Rser=0.0165691 Lser=256.21p mfg="Würth Elektronik" pn="885012009005 WCAP-CSGP 1210" type="NP0"
-R7 INT2 N002 100K tol=1 pwr=0.1
-R8 N002 N001 100K tol=1 pwr=0.1
+XU1 N011 N014 +5V -5V PULSE level.2 Avol=1Meg GBW=10Meg Slew=10Meg ilimit=25m rail=0 Vos=0 phimargin=45 en=0 enk=0 in=0 ink=0 Rin=500Meg
+C1 N012 INPUT 0.1µ V=25 Irms=0 Rser=0.017282 Lser=350p mfg="Würth Elektronik" pn="885012207072 WCAP-CSGP 0805" type="X7R"
+C2 N014 0 0.012µ V=25 Irms=332m Rser=0.302696 Lser=0 mfg="KEMET" pn="C0805F123K3RAC" type="X7R"
+R1 0 N012 100K tol=1 pwr=0.1
+R2 PULSE N014 75K tol=1 pwr=0.1
+R3 N011 PULSE 200K tol=1 pwr=0.1
+R4 0 N011 806K tol=1 pwr=0.1
+D1 N012 N011 1N914
+D2 0 N014 1N914
+XU2 0 N013 +5V -5V INT1 level.2 Avol=1Meg GBW=10Meg Slew=10Meg ilimit=25m rail=0 Vos=0 phimargin=45 en=0 enk=0 in=0 ink=0 Rin=500Meg
+C3 INT1 N013 0.0068µ V=25 Irms=0 Rser=0.0165691 Lser=256.21p mfg="Würth Elektronik" pn="885012009005 WCAP-CSGP 1210" type="NP0"
+R5 INT1 N013 100K tol=1 pwr=0.1
+R6 N013 PULSE 100K tol=1 pwr=0.1
+XU3 0 N008 +5V -5V INT2 level.2 Avol=1Meg GBW=10Meg Slew=10Meg ilimit=25m rail=0 Vos=0 phimargin=45 en=0 enk=0 in=0 ink=0 Rin=500Meg
+C4 INT2 N008 0.0068µ V=25 Irms=0 Rser=0.0165691 Lser=256.21p mfg="Würth Elektronik" pn="885012009005 WCAP-CSGP 1210" type="NP0"
+R7 INT2 N008 100K tol=1 pwr=0.1
+R8 N008 N007 100K tol=1 pwr=0.1
 V3 +15V 0 15
 V4 -15V 0 -15
-V5 INPUT 0 PULSE(-5 5 0 1n 1n 0.0005 0.003)
-V6 N001 0 PULSE(-5 5 0 1n 1n 0.0015 0.0031)
-XU4 N005 N003 +15V -15V N004 level.2 Avol=1Meg GBW=10Meg Slew=10Meg ilimit=25m rail=0 Vos=0 phimargin=45 en=0 enk=0 in=0 ink=0 Rin=500Meg
-R9 N005 INT2 100K tol=1 pwr=0.1
-R10 N005 INT1 100K tol=1 pwr=0.1
-R11 0 N005 100K tol=1 pwr=0.1
-R12 0 N003 100K tol=1 pwr=0.1
-R13 N003 N004 200K tol=1 pwr=0.1
+V5 INPUT 0 PULSE(-3 3 0 1n 1n 0.0005 0.003)
+V6 N007 0 PULSE(-3 3 0.0015 1n 1n 0.0015 0.0031)
+XU4 N010 N009 +15V -15V SOMBRERO level.2 Avol=1Meg GBW=10Meg Slew=10Meg ilimit=25m rail=0 Vos=0 phimargin=45 en=0 enk=0 in=0 ink=0 Rin=500Meg
+R9 N010 INT2 100K tol=1 pwr=0.1
+R10 N010 INT1 100K tol=1 pwr=0.1
+R11 0 N010 100K tol=1 pwr=0.1
+R12 0 N009 100K tol=1 pwr=0.1
+R13 N009 SOMBRERO 200K tol=1 pwr=0.1
+D3 0 SOMBRERO BZX84C15L
+XU5 N005 N006 +15V -15V HEBB level.2 Avol=1Meg GBW=10Meg Slew=10Meg ilimit=25m rail=0 Vos=0 phimargin=45 en=0 enk=0 in=0 ink=0 Rin=500Meg
+R14 SOMBRERO N005 100K tol=1 pwr=0.1
+R15 SOMBRERO N006 100K tol=1 pwr=0.1
+R16 N006 HEBB 100K tol=1 pwr=0.1
+M1 N005 INVPULSE 0 0 IRFP2907
+XU6 N001 N004 +15V -15V INVPULSE level.2 Avol=1Meg GBW=10Meg Slew=10Meg ilimit=25m rail=0 Vos=0 phimargin=45 en=0 enk=0 in=0 ink=0 Rin=500Meg
+C5 N004 0 0.33µ V=25 Irms=332m Rser=0.302696 Lser=0
+R17 INVPULSE N004 82.5K tol=1 pwr=0.1
+R18 N001 INVPULSE 187.5K tol=1 pwr=0.1
+R19 0 N001 806K tol=1 pwr=0.1
+D4 N003 N001 1N914
+D5 0 N004 1N914
+C6 N003 SOMBRERO 0.1µ V=25 Irms=0 Rser=0.017282 Lser=350p mfg="Würth Elektronik" pn="885012207072 WCAP-CSGP 0805" type="X7R"
+R20 0 N003 100K tol=1 pwr=0.1
+D6 0 INVPULSE D
 .model D D
 .lib C:\users\yura\My Documents\LTspiceXVII\lib\cmp\standard.dio
+.model NMOS NMOS
+.model PMOS PMOS
+.lib C:\users\yura\My Documents\LTspiceXVII\lib\cmp\standard.mos
 .lib memrs.lib
 .tran 0.5
 .lib UniversalOpamps2.sub

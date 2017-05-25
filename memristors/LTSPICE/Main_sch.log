@@ -1,25 +1,25 @@
 Circuit: * C:\users\yura\My Documents\robot-dream\memristors\LTSPICE\Main_sch.asc
 
+C6: Increased Cpar to 1e-013
 C4: Increased Cpar to 6.8e-015
 C3: Increased Cpar to 6.8e-015
 C1: Increased Cpar to 1e-013
 Direct Newton iteration for .op point succeeded.
-Heightened Def Con from 0.377746 to 0.377746
 
-Date: Thu May 25 16:40:26 2017
-Total elapsed time: 2.643 seconds.
+Date: Thu May 25 18:59:59 2017
+Total elapsed time: 6.127 seconds.
 
 tnom = 27
 temp = 27
 method = modified trap
-totiter = 179348
-traniter = 179303
-tranpoints = 72150
-accept = 56569
-rejected = 15582
-matrix size = 29
-fillins = 12
+totiter = 284674
+traniter = 284638
+tranpoints = 97872
+accept = 75938
+rejected = 21934
+matrix size = 45
+fillins = 27
 solver = Normal
-Matrix Compiler1: 1.90 KB object code size  2.2/0.9/[0.5]
-Matrix Compiler2: 2.95 KB object code size  1.1/1.5/[0.9]
+Matrix Compiler1: 3.67 KB object code size  3.8/1.5/[0.7]
+Matrix Compiler2: 5.00 KB object code size  1.7/1.8/[1.0]
 

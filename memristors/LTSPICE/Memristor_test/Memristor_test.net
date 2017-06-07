@@ -1,0 +1,15 @@
+* C:\users\yura\My Documents\robot-dream\memristors\LTSPICE\Memristor_test\Memristor_test.asc
+V1 N004 0 PULSE(0 5 0 1n 1n 4m 7.5m)
+R1 N001 N004 100K tol=1 pwr=0.1
+XU1 N002 0 NC_01 MEM_BIOLEK
+C1 N001 0 0.1µ V=6.3 Irms=2.55 Rser=0.00502825 Lser=0 mfg="KEMET" pn="C0201C104K9PAC" type="X5R"
+R2 N002 N001 100K tol=1 pwr=0.1
+V2 N005 0 PULSE(0 -4 2m 1n 1n 4m 7.5m)
+R3 N001 N005 100K tol=1 pwr=0.1
+XU2 0 N003 NC_02 MEM_BIOLEK
+C2 N001 0 0.1µ V=6.3 Irms=2.55 Rser=0.00502825 Lser=0 mfg="KEMET" pn="C0201C104K9PAC" type="X5R"
+R4 N003 N001 100K tol=1 pwr=0.1
+.lib memrs.lib
+.tran 1500m
+.backanno
+.end

@@ -11,9 +11,7 @@ The working metaphor is the dreaming and wake phase of a mammalian life.
 
 ![High level architecture]()
 
-During the wake phase a robotic system acts in realtime and stores the inbound stimula and managing actuators signals in the form of pseudoneuronal activity. Later the pseudoneuronal activity is transferred to the HPC cluster with the simulated dreaming brain. The dreaming brain processes the inbound information updates the synapses of the simulated neuronal circuits. Later updated behavioral strategies are transferred back to the robotic embodiment system. 
-
-we came to the idea of a roobtic embodiment.
+During the wake phase a robotic system acts in realtime and stores the inbound stimula and managing actuators signals in the form of pseudoneuronal activity. Later the pseudoneuronal activity is transferred to the HPC cluster with the simulated dreaming brain. The dreaming brain processes the inbound information updates the synapses of the simulated neuronal circuits. Later updated behavioral strategies are transferred back to the robotic embodiment system.  
 
 Prototype implementation of an architecture suggested in Robot Dream paper (http://arxiv.org/abs/1603.03007)
 

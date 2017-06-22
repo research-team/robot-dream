@@ -9,6 +9,10 @@ During the [NeuCogAr](https://github.com/research-team/neucogar) project we have
 The simulated brain with emotional drives needs the embodiment to have an interface with the real world with all the complexity and variety of inbound stimula. We could not put the cluster based simulation that is not real time into the robotic embodiment with the computational capacity similar to one notebook. To solve the computational capacity gap problem we have introduced the two phases approach.
 The working metaphor is the dreaming and wake phase of a mammalian life. 
 
+![High level architecture]()
+
+During the wake phase a robotic system acts in realtime and stores the inbound stimula and managing actuators signals in the form of pseudoneuronal activity. Later the pseudoneuronal activity is transferred to the HPC cluster with the simulated dreaming brain. 
+
 we came to the idea of a roobtic embodiment.
 
 Prototype implementation of an architecture suggested in Robot Dream paper (http://arxiv.org/abs/1603.03007)

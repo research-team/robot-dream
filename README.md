@@ -6,6 +6,9 @@ The project is dedicated to the integration of the simulated mammalian brain dev
 
 During the [NeuCogAr](https://github.com/research-team/neucogar) project we have managed to reimplement several basic emotinal states: fear-like, disgust-like based on two dopamine and serotonin subsystems. Later we have added noradrenaline subsystem completely implementing the ["cube of emotions" by Hugo Lövheim](https://en.wikipedia.org/wiki/L%C3%B6vheim_cube_of_emotion).
 
+The simulated brain with emotional drives needs the embodiment to have an interface with the real world with all the complexity and variety of inbound stimula. We could not put the cluster based simulation that is not real time into the robotic embodiment with the computational capacity similar to one notebook. To solve the computational capacity gap problem we have introduced the two phases approach.
+The working metaphor is the dreaming and wake phase of a mammalian life. 
+
 we came to the idea of a roobtic embodiment.
 
 Prototype implementation of an architecture suggested in Robot Dream paper (http://arxiv.org/abs/1603.03007)

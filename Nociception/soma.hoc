@@ -1,0 +1,112 @@
+create soma, treeA[1], treeB[1]
+
+access soma
+objectvar f
+
+
+soma {
+    nseg = 1
+    diam = 18.8
+    L = 18.8
+    Ra = 123.0
+    insert hh
+    insert pas
+}
+
+insert hh
+gnabar_hh= 0.25
+gl_hh = .0001666 
+el_hh = -60.0
+insert pas
+
+f = new File()
+
+f.ropen("treeA.dat")
+ndendA = f.scanvar() 
+create treeA[ndendA]
+
+for i = 0,ndendA-1 {
+      
+  me = f.scanvar() - 1 // sets the current branch/section 
+  child1 = f.scanvar() - 1 
+  child2 = f.scanvar() - 1
+
+  treeA[me]{ 
+    nseg = 1
+    diam = f.scanvar()
+    L = f.scanvar()
+    Ra = 123
+
+    pt3dclear()
+
+    pt3dadd(f.scanvar(),f.scanvar(),f.scanvar(),diam)
+    pt3dadd(f.scanvar(),f.scanvar(),f.scanvar(),diam)
+
+    insert pas
+    g_pas = .0001666
+    e_pas = -60.0
+
+    if (child1 >= 0) {
+      connect treeA[child1](0), 1
+    }
+
+    if (child2 >= 0) {
+      connect treeA[child2](0), 1
+    }
+  }
+}
+
+f.close() //closes the file data holder called f
+
+f.ropen("treeB.dat")
+ndendB = f.scanvar() 
+create treeB[ndendB]
+
+for i = 0,ndendB-1 {
+      
+  me = f.scanvar() - 1 // sets the current branch/section 
+  child1 = f.scanvar() - 1 
+  child2 = f.scanvar() - 1
+
+  treeB[me]{ 
+    nseg = 1
+    diam = f.scanvar()
+    L = f.scanvar()
+    Ra = 123
+
+    pt3dclear()
+
+    pt3dadd(f.scanvar(),f.scanvar(),f.scanvar(),diam)
+    pt3dadd(f.scanvar(),f.scanvar(),f.scanvar(),diam)
+
+    insert pas
+    g_pas = .0001666
+    e_pas = -60.0
+
+    if (child1 >= 0) {
+      connect treeB[child1](0), 1
+    }
+
+    if (child2 >= 0) {
+      connect treeB[child2](0), 1
+    }
+  }
+}
+
+f.close() //closes the file data holder called f
+
+// Connect things together 
+connect treeA[0](0), soma(1) 
+connect treeB[0](0), soma(0)
+
+objectvar electrode
+soma electrode = new IClamp(0.5)
+soma electrode.del=100
+soma electrode.dur=100
+soma electrode.amp = 0.45
+
+print soma.v
+
+forall psection()
+
+tstop = 300

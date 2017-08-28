@@ -1,9 +1,35 @@
 create soma, treeA[1], treeB[1]
 
+v_init = -80
+tstop = 80 
+dt = 0.01
+celsius = 37
+
 access soma
 objectvar f
 
+begintemplate Sin
+objref list, diff1[1],p2x30[1] 
+public diff1,p2x30
+public list
 
+proc init(){
+nsyn =$1
+objectvar diff1[nsyn],p2x30[nsyn]
+list= new List()
+for i=0, nsyn-1 {
+diff1[i]=new AtP_3(0.5)
+p2x30[i] = new p2x3(0.5)
+diff1[i].h =$2
+setpointer p2x30[i].patp, diff1[i].atp
+}
+for i=0, nsyn-1 {
+ list.append(diff1[i])
+}
+}
+endtemplate Sin
+
+n=2
 soma {
     nseg = 1
     diam = 18.8
@@ -24,6 +50,8 @@ f = new File()
 f.ropen("treeA.dat")
 ndendA = f.scanvar() 
 create treeA[ndendA]
+objref GrCell[ndendA]
+
 
 for i = 0,ndendA-1 {
       
@@ -40,7 +68,15 @@ for i = 0,ndendA-1 {
     pt3dclear()
 
     pt3dadd(f.scanvar(),f.scanvar(),f.scanvar(),diam)
-    pt3dadd(f.scanvar(),f.scanvar(),f.scanvar(),diam)
+
+    x = f.scanvar()
+    y = f.scanvar()
+    z = f.scanvar()
+
+    pt3dadd(x, y, z,diam)
+
+    h = (0.0001)*x*x + (0.0001)*y*y + (0.0001)*z*z
+    GrCell[me] = new Sin(n,h)
 
     insert pas
     g_pas = .0001666
@@ -62,6 +98,8 @@ f.ropen("treeB.dat")
 ndendB = f.scanvar() 
 create treeB[ndendB]
 
+objref GrCell2[ndendB]
+
 for i = 0,ndendB-1 {
       
   me = f.scanvar() - 1 // sets the current branch/section 
@@ -77,7 +115,15 @@ for i = 0,ndendB-1 {
     pt3dclear()
 
     pt3dadd(f.scanvar(),f.scanvar(),f.scanvar(),diam)
-    pt3dadd(f.scanvar(),f.scanvar(),f.scanvar(),diam)
+    
+    x = f.scanvar()
+    y = f.scanvar()
+    z = f.scanvar()
+
+    pt3dadd(x, y, z,diam)
+
+    h = (0.0001)*x*x + (0.0001)*y*y + (0.0001)*z*z
+    GrCell[me] = new Sin(n,h)
 
     insert pas
     g_pas = .0001666
@@ -99,14 +145,9 @@ f.close() //closes the file data holder called f
 connect treeA[0](0), soma(1) 
 connect treeB[0](0), soma(0)
 
-objectvar electrode
-soma electrode = new IClamp(0.5)
-soma electrode.del=100
-soma electrode.dur=100
-soma electrode.amp = 0.45
-
 print soma.v
 
 forall psection()
 
-tstop = 300
+finitialize(v_init)
+

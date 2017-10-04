@@ -1,1 +1,100 @@
-COMMENT26 Ago 2002 Modification of original channel to allow variable time step and to correct an initialization error.    Done by Michael Hines(michael.hines@yale.e) and Ruggero Scorcioni(rscorcio@gmu.edu) at EU Advance Course in Computational Neuroscience. Obidos, Portugalna.modSodium channel, Hodgkin-Huxley style kinetics.  Kinetics were fit to data from Huguenard et al. (1988) and Hamill etal. (1991)qi is not well constrained by the data, since there are no pointsbetween -80 and -55.  So this was fixed at 5 while the thi1,thi2,Rg,Rdwere optimized using a simplex least square procvoltage dependencies are shifted approximately from the bestfit to give higher thresholdAuthor: Zach Mainen, Salk Institute, 1994, zach@salk.eduENDCOMMENTINDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}NEURON {	SUFFIX na	USEION na READ ena WRITE ina	RANGE m, h, gna, gbar	GLOBAL tha, thi1, thi2, qa, qi, qinf, thinf	RANGE minf, hinf, mtau, htau	GLOBAL Ra, Rb, Rd, Rg	GLOBAL q10, temp, tadj, vmin, vmax, vshift}PARAMETER {	gbar = 1000   	(pS/um2)	: 0.12 mho/cm2	vshift = -10	(mV)		: voltage shift (affects all)									tha  = -35	(mV)		: v 1/2 for act		(-42)	qa   = 9	(mV)		: act slope			Ra   = 0.182	(/ms)		: open (v)			Rb   = 0.124	(/ms)		: close (v)			thi1  = -50	(mV)		: v 1/2 for inact 		thi2  = -75	(mV)		: v 1/2 for inact 		qi   = 5	(mV)	        : inact tau slope	thinf  = -65	(mV)		: inact inf slope		qinf  = 6.2	(mV)		: inact inf slope	Rg   = 0.0091	(/ms)		: inact (v)		Rd   = 0.024	(/ms)		: inact recov (v) 	temp = 23	(degC)		: original temp 	q10  = 2.3			: temperature sensitivity	v 		(mV)	dt		(ms)	celsius		(degC)	vmin = -120	(mV)	vmax = 100	(mV)}UNITS {	(mA) = (milliamp)	(mV) = (millivolt)	(pS) = (picosiemens)	(um) = (micron)} ASSIGNED {	ina 		(mA/cm2)	gna		(pS/um2)	ena		(mV)	minf 		hinf	mtau (ms)	htau (ms)	tadj} STATE { m h }INITIAL { 	trates(v+vshift)	m = minf	h = hinf}BREAKPOINT {        SOLVE states METHOD cnexp        gna = tadj*gbar*m*m*m*h	ina = (1e-4) * gna * (v - ena)} LOCAL mexp, hexp DERIVATIVE states {   :Computes state variables m, h, and n         trates(v+vshift)      :             at the current v and dt.        m' =  (minf-m)/mtau        h' =  (hinf-h)/htau}PROCEDURE trates(v) {                                        TABLE minf,  hinf, mtau, htau	DEPEND  celsius, temp, Ra, Rb, Rd, Rg, tha, thi1, thi2, qa, qi, qinf		FROM vmin TO vmax WITH 199	rates(v): not consistently executed from here if usetable == 1:        tinc = -dt * tadj:        mexp = 1 - exp(tinc/mtau):        hexp = 1 - exp(tinc/htau)}PROCEDURE rates(vm) {          LOCAL  a, b	a = trap0(vm,tha,Ra,qa)	b = trap0(-vm,-tha,Rb,qa)        tadj = q10^((celsius - temp)/10)	mtau = 1/tadj/(a+b)	minf = a/(a+b)		:"h" inactivation 	a = trap0(vm,thi1,Rd,qi)	b = trap0(-vm,-thi2,Rg,qi)	htau = 1/tadj/(a+b)	hinf = 1/(1+exp((vm-thinf)/qinf))}FUNCTION trap0(v,th,a,q) {	if (fabs(v/th) > 1e-6) {	        trap0 = a * (v - th) / (1 - exp(-(v - th)/q))	} else {	        trap0 = a * q 	}}	
+NEURON {
+	SUFFIX na
+	USEION na READ ena WRITE ina
+	RANGE gna, gmax
+	RANGE I1, I2, I3, I4, I5, C1, C2, C3, C4, Go
+	GLOBAL A1, B1, C, D1, E1, F1, G1, H1, J1, G2, H2, J2
+}
+
+
+UNITS {
+	(mA) = (milliamp)
+	(mV) = (millivolt)
+	(pS) = (picosiemens)
+	(um) = (micron)
+
+} 
+
+PARAMETER {
+
+	A1 = 44.178
+	B1 = 0.2
+	C = 51.5
+	D1 = 0.88357
+	E1 = 14.07
+	F1 = 0.5
+	G1 = 1.3254
+	H1 = 40.0
+	J1 = 0.09
+	G2 = 0.27878
+	H2 = 20.0
+	J2 = 1.0
+
+	gmax = 58.2 (pS/um2)	: conductance     
+
+}
+
+
+ASSIGNED {
+	ina 	(mA/cm2)
+	gna		(pS/um2)
+	ena		(mV)
+	am		(mV)
+	a1 		(ms)
+	bm		(mV)
+	b1  	(ms)
+	v (mV)	: voltage	
+}
+
+STATE {	
+	I1
+	I2
+	I3
+	I4
+	I5
+	C1
+	C2
+	C3
+	C4
+	Go
+}
+
+INITIAL {
+	C1=1
+}
+
+BREAKPOINT {
+    SOLVE kstates METHOD sparse
+    gna = gmax*Go*Go*Go*C1
+    ina = (1e-4) * gna * (v - ena)
+} 
+
+KINETIC kstates{
+
+	am = A1/(1+exp(-B1 * (v + C))) + D1 * (v + E1)/(1 - exp(-F1 * (v + E1)))
+    a1 = D1 * (v + E1)/(1 - exp(-F1 * (v + E1)))
+    bm = -G1 * (v + H1)/(1 - exp(J1 * (v + H1)))
+    b1 = -G2 * (v + H2)/(1 - exp(J2 * (v + H2)))
+
+	~ I1 <-> I2 (4*am, bm)
+	~ I2 <-> I3 (3*am, 2*bm)
+	~ I3 <-> I4 (2*am, 3*bm)
+	~ I4 <-> I5 (am, 4*bm)
+	~ C1 <-> I1 (0, b1)
+	~ C2 <-> I2 (0, b1)
+	~ C3 <-> I3 (0, b1)
+	~ C4 <-> I4 (0, b1)
+	~ C1 <-> C2 (4*am, bm)
+	~ C2 <-> C3 (3*am, 2*bm)
+	~ C3 <-> C4 (2*am, 3*bm)
+	~ C4 <-> Go (am, 4*bm)
+	~ Go <-> I5 (a1, 0)
+
+
+	CONSERVE I1+I2+I3+I4+I5+C1+C2+C3+C4+Go=1
+}
+
+
+
+
+

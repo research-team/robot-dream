@@ -1,17 +1,1 @@
-<h1> Sensory input for R</h1>
-<h2><a href = "[https://academic.oup.com/cercor/article/20/10/2277/319903](https://academic.oup.com/cercor/article/20/10/2277/319903)">Link 1<a></h2>
-<h2>Number of neuron per column</h2>
-	
-
-Layer | C2 | D2| D3 | Mean ± SD
------------- | ------------- | ------------- | ------------- | -------------
-L1 | 72 |52 |65| 63 ± 10
-L2 | 2619 | 1897 | 1601 2039 ± 524
-L3 | 2727 | 4001 | 4478 | 3735 ± 905 
-L4 | 4465 | 4877 | 3999 | 4447 ± 439 
-L5A | 2011 | 1517 | 1684 | 1737 ± 251
-L5B | 2139 | 2231 | 2336 | 2235 ± 99
-L6A | 3687 | 3691 | 3980 | 3786 ± 168
-L6B 877 1113 1208 1066 ± 170 37.7 43.3 44.8 42 ± 3.8 839 982 1110 977 ± 135
-L1-L6B | 18 597|  19 379 | 19 351 | 19 109 ± 444 
-Septuma | | | | 8067a
+<h1> Sensory input for RobotDream</h1><h2>[link1]: https://academic.oup.com/cercor/article/20/10/2277/319903</h2><h2>Number of neuron per column</h2>	Layer | C2 | D2| D3 | Mean ± SD------------ | ------------- | ------------- | ------------- | -------------L1 | 72 |52 |65| 63 ± 10L2 | 2619 | 1897 | 1601  |  2039 ± 524L3 | 2727 | 4001 | 4478 | 3735 ± 905 L4 | 4465 | 4877 | 3999 | 4447 ± 439 L5A | 2011 | 1517 | 1684 | 1737 ± 251L5B | 2139 | 2231 | 2336 | 2235 ± 99L6A | 3687 | 3691 | 3980 | 3786 ± 168L6B |  877  | 1113  | 1208  | 1066 ± 170 L1-L6B | 18 597|  19 379 | 19 351 | 19 109 ± 444 Septuma | | | | 8067a<h2>[link2]: https://www.nature.com/neuro/journal/v20/n7/full/nn.4576.html</h2><h2> 	Emergence of excitation-inhibition balance</h2> [![fig.1](https://github.com/research-team/robot-dream/blob/master/doc/excitation-inhibition%20balance%20somatosensory%20cortex.jpg)]<h4>The percentage of E (arrow head) and I (circular head) pathways in terms of the total number of connections (7,824,436 ± 104,092). Line thickness illustrates the percentage of connections in the corresponding pathway. (b) Incoming E/I connections for excitatory (left, nE = 26,567) and inhibitory (right, nI = 4,779) cells. Data depict a single exemplar NMC instance (darker colors indicate deeper layers, as in Figure 1; black diagonal lines indicate the identity line; white crosses indicate the mean). (c) E/I connections ratio distribution among excitatory (red) and inhibitory (cyan) population (lines indicate the average over all seven instances and shading indicates the s.d.; the mean E/I ratio per curve is indicated by triangle markers). (d–i) As in a–c but in terms of (d–f) total number of synaptic contacts (synapses: 36,471,080 ± 554,503) and (g–i) total peak synaptic conductance (30.74 ± 0.47 mS). Note the excess excitation vs. inhibition in all three cases. The shifting of the bottom histograms toward 1 implies a higher conductance-based E/I balance. P values of Pearson correlations coefficients are < 0.001 for all six scatterplots.</h4>

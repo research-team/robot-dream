@@ -55,15 +55,9 @@ BREAKPOINT
 }
 if(t>tx1) {
 UNITSOFF
-	dir= (2*c0cleft*alpha/sqrt(4*PI*Deff*(t-tx1)))*(1-exp(h/(4*Deff*(tx1-t))))
-	spill = 2*nu*c0cleft*h*rPSD*rPSD*PI*alpha*(1/sqrt(4*PI*Deff*(t-tx1)))*(exp(meandist*meandist/(4*Deff*(tx1-t)))-exp(Rmf*Rmf/(4*Deff*(tx1-t))))
-	atp= incluspill*spill + includir*dir
+	c0cleft=c0cleft+0.00005
+	atp= (2*c0cleft*PI*alpha*rPSD*rPSD*exp(h/(4*Deff*(tx1-t))))/sqrt(4*4*4*PI*PI*PI*Deff*Deff*Deff*(t-tx1)*(t-tx1)*(t-tx1))
 
-: Experimental waveforms
-Podir=(0.94*exp((tx1-t)/0.37(ms))+0.06*exp((tx1-t)/2.2(ms))
-  -exp((tx1-t)/0.199(ms)))/0.249*(0.43/0.484)*Popeak
-Pospill=(0.39*exp((tx1-t)/2.0(ms))+0.61*exp((tx1-t)/9.1(ms))-
- exp((tx1-t)/0.44(ms)))/0.682*(0.125/0.484)*Popeak
 }
 }
 NET_RECEIVE (weight)

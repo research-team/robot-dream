@@ -1,9 +1,42 @@
 NEURON {
 	SUFFIX na
 	USEION na READ ena WRITE ina
-	RANGE gna, gmax
-	RANGE I1, I2, I3, I4, I5, C1, C2, C3, C4, Go
-	GLOBAL A1, B1, C, D1, E1, F1, G1, H1, J1, G2, H2, J2
+	RANGE m, h, gna, gbar,vshiftm,vshifth,taum_scale,tauh_scale
+	RANGE minf, hinf, mtau, htau
+	GLOBAL a1,a2,a3,a4,v05m,km
+	GLOBAL i1,i2,i3,i4,v05h,kh
+	GLOBAL q10, temp, tadj, vmin, vmax
+}
+
+PARAMETER {
+	gbar = 0.0   	(pS/um2)	: 0.12 mho/cm2
+	vshiftm =-5	(mV)		: activation voltage shift
+	vshifth =-10  (mV)		: inactivation voltage shift 
+	taum_scale= 1
+	tauh_scale=1
+								
+	a1=0.058		(ms)		: activation parameters
+	a2=0.114		(ms)
+	a3=-37		(mV)
+	a4=28			(mV)
+	v05m=-39		(mV)
+	km=10			(mV)
+
+	i1=0.28		(ms)		: inactivation parameters
+	i2=16.7 		(ms)
+	i3=-60		(mV)
+	i4=25			(mV)
+	v05h=-66		(mV)
+	kh=-6			(mV)
+
+	
+	temp = 21	(degC)		: original temp 
+	q10  = 2.3				: temperature sensitivity
+
+	v 		(mV)
+	celsius		(degC)
+	vmin = -120	(mV)
+	vmax = 100	(mV)
 }
 
 
@@ -12,89 +45,61 @@ UNITS {
 	(mV) = (millivolt)
 	(pS) = (picosiemens)
 	(um) = (micron)
-
 } 
 
-PARAMETER {
-
-	A1 = 44.178
-	B1 = 0.2
-	C = 51.5
-	D1 = 0.88357
-	E1 = 14.07
-	F1 = 0.5
-	G1 = 1.3254
-	H1 = 40.0
-	J1 = 0.09
-	G2 = 0.27878
-	H2 = 20.0
-	J2 = 1.0
-
-	gmax = 58.2 (pS/um2)	: conductance     
-
-}
-
-
 ASSIGNED {
-	ina 	(mA/cm2)
+	ina 		(mA/cm2)
 	gna		(pS/um2)
 	ena		(mV)
-	am		(mV)
-	a1 		(ms)
-	bm		(mV)
-	b1  	(ms)
-	v (mV)	: voltage	
+	minf 		hinf
+	mtau (ms)	htau (ms)
+	tadj
 }
+ 
 
-STATE {	
-	I1
-	I2
-	I3
-	I4
-	I5
-	C1
-	C2
-	C3
-	C4
-	Go
-}
+STATE { m h }
 
-INITIAL {
-	C1=1
+INITIAL { 
+	mrates(v+vshiftm)
+	hrates(v+vshifth)
+	m = minf
+	h = hinf
 }
 
 BREAKPOINT {
-    SOLVE kstates METHOD sparse
-    gna = gmax*Go*Go*Go*C1
-    ina = (1e-4) * gna * (v - ena)
+        SOLVE states METHOD cnexp
+        gna = gbar*m*m*m*h
+	ina = (1e-4) * gna * (v - ena)
 } 
 
-KINETIC kstates{
 
-	am = A1/(1+exp(-B1 * (v + C))) + D1 * (v + E1)/(1 - exp(-F1 * (v + E1)))
-    a1 = D1 * (v + E1)/(1 - exp(-F1 * (v + E1)))
-    bm = -G1 * (v + H1)/(1 - exp(J1 * (v + H1)))
-    b1 = -G2 * (v + H2)/(1 - exp(J2 * (v + H2)))
+DERIVATIVE states {    
 
-	~ I1 <-> I2 (4*am, bm)
-	~ I2 <-> I3 (3*am, 2*bm)
-	~ I3 <-> I4 (2*am, 3*bm)
-	~ I4 <-> I5 (am, 4*bm)
-	~ C1 <-> I1 (0, b1)
-	~ C2 <-> I2 (0, b1)
-	~ C3 <-> I3 (0, b1)
-	~ C4 <-> I4 (0, b1)
-	~ C1 <-> C2 (4*am, bm)
-	~ C2 <-> C3 (3*am, 2*bm)
-	~ C3 <-> C4 (2*am, 3*bm)
-	~ C4 <-> Go (am, 4*bm)
-	~ Go <-> I5 (a1, 0)
+	mrates(v+vshiftm)
+	hrates(v+vshifth)
+        m' = (minf-m)/mtau
+        h' = (hinf-h)/htau
 
-
-	CONSERVE I1+I2+I3+I4+I5+C1+C2+C3+C4+Go=1
 }
 
 
 
+PROCEDURE mrates(vm) {  
 
+	:TABLE  mtau, minf DEPEND celsius FROM vmin TO vmax WITH 199
+
+	tadj = q10^((celsius - temp)/10)
+	mtau = (a1+a2*exp(-((vm-a3)/a4)^2))/tadj
+	minf = 1/(1+exp(-(vm-v05m)/km))
+}
+
+
+PROCEDURE hrates(vm) {
+
+	:TABLE  htau, hinf  DEPEND celsius  FROM vmin TO vmax WITH 199
+
+        tadj = q10^((celsius - temp)/10)
+	htau = (i1+i2*exp(-((vm-i3)/i4)^2))/tadj
+	hinf = 1/(1+exp(-(vm-v05h)/kh))
+}
 

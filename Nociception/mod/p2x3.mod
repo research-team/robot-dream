@@ -1,9 +1,9 @@
 NEURON {
 	POINT_PROCESS p2x3
 		POINTER patp
-	RANGE K1, L1, K2, L2, K3, L3, K4, L4, R4, D4, R3, D3, R2, D2
-	RANGE Re, AR, A2R, A3R, Ro, AD, A2D, A3D
-	RANGE g, gmax
+	RANGE K1, L1, K2, L2, K3, L3, K4, L4, R4, D4, R3, D3, R5, D5, R2, D2, M4, M4, M3, N3, M2, N2, M1, N1
+	RANGE Re, AR, A2R, A3R, Ro, AD, A2D, A3D, A3Df, D
+	RANGE g, gmax, Ev
 	NONSPECIFIC_CURRENT i}
 
 UNITS{
@@ -30,9 +30,20 @@ PARAMETER {
 	D3 = 0.00001 (/s) 
 	R2 = 0.00001 (/s) 
 	D2 = 0.00001 (/s)
+	R5 = 0.0001 (/s) 
+	D5 = 2.3 (/s)
+	N4 = 1 (/s)
+	M4 = 0.0001 (/mM /s)
+	N3 = 0.0255 (/s)
+	M3 = 8000 (/mM /s)
+	N2 = 0.017 (/s)
+	M2 = 16000 (/mM /s)
+	N1 = 0.0085 (/s)
+	M1 = 24000 (/mM /s)
+
 
 	gmax = 32.4 (pS)	: conductance     
-	Ev = -80 (mV) 
+	Ev = -40 (mV) 
 	
 }
 
@@ -44,6 +55,10 @@ ASSIGNED {
     k1 (/s)   : binding
     k2 (/s)   : binding
     k3 (/s)   : binding
+    m1 (/s)   
+    m2 (/s)   
+    m3 (/s)  
+    m4 (/s) 
 
 }
 
@@ -56,6 +71,8 @@ STATE {
 	AD
 	A2D
 	A3D
+	A3Df
+	D
 }
 
 INITIAL {
@@ -64,7 +81,7 @@ INITIAL {
 
 BREAKPOINT {
 	SOLVE kstates METHOD sparse
-	g = gmax * Ro
+	g = gmax*Ro
 	i = (1e-3) * g * (v - Ev)
 }
 
@@ -74,13 +91,25 @@ KINETIC kstates{
     k2 = K2*patp
     k3 = K3*patp
 
+    m1 = M1*patp
+    m2 = M2*patp
+    m3 = M3*patp
+    m4 = M4*patp
+
+
 	~ Re <-> AR (k1, L1)
 	~ AR <-> A2R (k2, L2)
+	~ AR <-> AD (D2, R2)
 	~ A2R <-> A3R (k3, L3)
+	~ A2R <-> A2D (D3, R3)
 	~ A3R <-> Ro (K4, L4)
 	~ A3R <-> A3D (D4, R4)
-	~ A2R <-> A2D (D3, R3)
-	~ AR <-> AD (D2, R2)
+	~ Ro <-> A3Df (D5, R5)
+	~ A3Df <-> A3D (N4, m4)
+	~ A3D <-> A3D (N2, m3)
+	~ A2D <-> A3D (N2, m2)
+	~ AD <-> D (N1, m1)
+	
 
-	CONSERVE Re+AR+A2R+A3R+Ro+AD+A2D+A3D=1
+	CONSERVE Re+AR+A2R+A3R+Ro+AD+A2D+A3D+A3Df+D=1
 }

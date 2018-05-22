@@ -1,0 +1,82 @@
+{load_file("nrngui.hoc")}
+objectvar save_window_, rvp_
+objectvar scene_vector_[5]
+objectvar ocbox_, ocbox_list_, scene_, scene_list_
+{ocbox_list_ = new List()  scene_list_ = new List()}
+{pwman_place(0,0,0)}
+{
+save_window_ = new Graph(0)
+save_window_.size(0,800,-80,40)
+scene_vector_[2] = save_window_
+{save_window_.view(0, -80, 800, 120, 0, 0, 735.36, 579.52)}
+graphList[0].append(save_window_)
+save_window_.save_name("graphList[0].")
+save_window_.addexpr("v(.5)", 3, 9, 0.8, 0.9, 2)
+save_window_.addvar("treeA[24].v( 0.5 )", 3, 1, 0.8, 0.9, 2)
+save_window_.addexpr("treeA[20].v( 0.5 )", 2, 1, 0.8, 0.9, 2)
+save_window_.addexpr("treeA[10].v( 0.5 )", 4, 1, 0.8, 0.9, 2)
+save_window_.addexpr("treeA[15].v( 0.5 )", 5, 1, 0.8, 0.9, 2)
+save_window_.addexpr("treeA[12].v( 0.5 )", 6, 1, 0.8, 0.9, 2)
+save_window_.addexpr("treeA[2].v( 0.5 )", 7, 1, 0.8, 0.9, 2)
+save_window_.addexpr("treeA[22].v( 0.5 )", 9, 1, 0.8, 0.9, 2)
+save_window_.addexpr("treeA[7].v( 0.5 )", 1, 1, 0.8, 0.9, 2)
+}
+{
+xpanel("RunControl", 0)
+v_init = -65
+xvalue("Init","v_init", 1,"stdinit()", 1, 1 )
+xbutton("Init & Run","run()")
+xbutton("Stop","stoprun=1")
+runStopAt = 5
+xvalue("Continue til","runStopAt", 1,"{continuerun(runStopAt) stoprun=1}", 1, 1 )
+runStopIn = 1
+xvalue("Continue for","runStopIn", 1,"{continuerun(t + runStopIn) stoprun=1}", 1, 1 )
+xbutton("Single Step","steprun()")
+t = 800
+xvalue("t","t", 2 )
+tstop = 800
+xvalue("Tstop","tstop", 1,"tstop_changed()", 0, 1 )
+dt = 0.025
+xvalue("dt","dt", 1,"setdt()", 0, 1 )
+steps_per_ms = 40
+xvalue("Points plotted/ms","steps_per_ms", 1,"setdt()", 0, 1 )
+screen_update_invl = 0.05
+xvalue("Scrn update invl","screen_update_invl", 1,"", 0, 1 )
+realtime = 3.19
+xvalue("Real Time","realtime", 0,"", 0, 1 )
+xpanel(151,188)
+}
+{
+save_window_ = new Graph(0)
+save_window_.size(0,800,0,1)
+scene_vector_[3] = save_window_
+{save_window_.view(0, 0, 800, 1, 218, 94, 669.12, 588.16)}
+graphList[1].append(save_window_)
+save_window_.save_name("graphList[1].")
+save_window_.addvar("GrCell[24].diff1[1].atp", 3, 1, 0.8, 0.9, 2)
+save_window_.addexpr("GrCell[20].diff1[1].atp", 2, 1, 0.8, 0.9, 2)
+save_window_.addexpr("GrCell[10].diff1[1].atp", 4, 1, 0.8, 0.9, 2)
+save_window_.addexpr("GrCell[15].diff1[1].atp", 5, 1, 0.8, 0.9, 2)
+save_window_.addexpr("GrCell[12].diff1[1].atp", 6, 1, 0.8, 0.9, 2)
+save_window_.addexpr("GrCell[2].diff1[1].atp", 7, 1, 0.8, 0.9, 2)
+save_window_.addexpr("GrCell[22].diff1[1].atp", 9, 1, 0.8, 0.9, 2)
+save_window_.addexpr("GrCell[7].diff1[1].atp", 1, 1, 0.8, 0.9, 2)
+}
+{
+save_window_ = new Graph(0)
+save_window_.size(0,800,-0.01,0.99)
+scene_vector_[4] = save_window_
+{save_window_.view(0, -0.01, 800, 1, 386, 72, 863.04, 497.92)}
+graphList[2].append(save_window_)
+save_window_.save_name("graphList[2].")
+save_window_.addvar("GrCell[24].p2x30[0].Ro", 1, 1, 0.8, 0.9, 2)
+save_window_.addexpr("GrCell[20].p2x30[0].Ro", 1, 1, 0.8, 0.9, 2)
+save_window_.addexpr("GrCell[10].p2x30[0].Ro", 1, 1, 0.8, 0.9, 2)
+save_window_.addexpr("GrCell[15].p2x30[0].Ro", 1, 1, 0.8, 0.9, 2)
+save_window_.addexpr("GrCell[12].p2x30[0].Ro", 1, 1, 0.8, 0.9, 2)
+save_window_.addexpr("GrCell[2].p2x30[0].Ro", 1, 1, 0.8, 0.9, 2)
+save_window_.addexpr("GrCell[22].p2x30[0].Ro", 1, 1, 0.8, 0.9, 2)
+save_window_.addexpr("GrCell[7].p2x30[0].Ro", 1, 1, 0.8, 0.9, 2)
+}
+objectvar scene_vector_[1]
+{doNotify()}

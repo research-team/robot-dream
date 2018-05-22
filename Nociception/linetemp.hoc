@@ -1,0 +1,119 @@
+begintemplate oneCell
+public soma, dend, f, GrCell, connect2target
+create soma, dend
+objectvar f
+objref GrCell
+
+{load_file("atpDiff.hoc")}
+
+proc init(){
+    create soma
+    objectvar f
+
+    soma_diam = 20     
+    soma_len = 20      
+    soma_nseg = 1
+    soma_cm = 1
+    soma_Ra = 200     
+
+    dend_diam = 1      
+    dend_len = 250      
+    dend_nseg = 1
+    dend_cm = 1
+    dend_Ra = 100  
+
+    n=2
+    p=$3
+    soma {
+        nseg = soma_nseg
+        diam = soma_diam
+        L = soma_len
+        Ra = soma_Ra 
+        cm = soma_cm
+        //insert nav1p8
+        //gbar_nav1p8=3.5
+        //insert ka       
+        //gbar_ka = 2.2
+        insert hh
+        gnabar_hh=0.25
+        gl_hh = .0002
+        el_hh = -60.0
+        gkbar_hh = 0.36
+        pt3dclear()
+        pt3dadd(10,10,$1,diam) 
+        pt3dadd(10+soma_len,10,$1,diam) 
+
+    }
+
+    create dend
+    objref GrCell
+
+    dend{ 
+        nseg = dend_nseg
+        diam = dend_diam*$2
+        L = dend_len
+        Ra = dend_Ra
+        cm = dend_cm
+
+        x = 1+L
+        y = 1
+        z = $1
+
+        pt3dclear()
+        pt3dadd(10,10,$1,diam) 
+        pt3dadd(10+soma_len+dend_len,10,$1,diam) 
+
+
+        if(p == 1){
+            h = sqrt((250-x)*(250-x)+(0-y)*(0-y)+(0-z)*(0-z))
+
+            GrCell = new ATPdiff(n,0.1)
+        }
+
+        insert hh
+        gnabar_hh=0.25
+        gkbar_hh=0.04
+        insert na_ion
+        ena = 50
+        insert extracellular
+        xg = 200
+        xc = 50
+        
+        insert na17a
+        gbar_na17a=30.2
+        
+        //xraxial = 100
+
+        //insert nap
+        //gbar_nap = 0.00015
+        insert nafast
+        gbar_nafast=0.042
+        insert naslow
+        gbar_naslow=0.042
+
+        insert kv       
+        gbar_kv = 60
+        ek = -77
+        insert kdr0
+        gbar_kdr0 = 1.2
+          
+        insert kad 
+        gbar_kad = 1.2
+        insert kap    
+        gbar_kap = 1.2
+
+      }
+
+
+    // Connect things together 
+    connect dend(0), soma(0)
+}
+
+obfunc connect2target() { localobj nc //$o1 target point process, optional $o2 returned NetCon
+  soma nc = new NetCon(&v(1), $o1)
+  nc.threshold = 10
+  if (numarg() == 2) { $o2 = nc } // for backward compatibility
+  return nc
+}
+
+endtemplate oneCell

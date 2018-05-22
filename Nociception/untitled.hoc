@@ -1,0 +1,19 @@
+f = new File()
+
+f.ropen("/Users/sulgod/Desktop/arcarc/a3.txt")
+
+aff = 60
+objectvar fr[aff]
+
+for i = 0,aff-1 {
+	aff[i] = f.scanvar() 
+}
+
+f.close()
+
+fok=new File()
+
+
+fok.wopen("a3.txt")
+fr.printf(fok)
+fok.close()

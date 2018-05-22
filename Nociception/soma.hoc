@@ -1,33 +1,9 @@
 create soma, treeA[1], treeB[1]
 
-v_init = -80
 tstop = 80 
-dt = 0.01
-celsius = 37
 
 access soma
 objectvar f
-
-begintemplate Sin
-objref list, diff1[1],p2x30[1] 
-public diff1,p2x30
-public list
-
-proc init(){
-nsyn =$1
-objectvar diff1[nsyn],p2x30[nsyn]
-list= new List()
-for i=0, nsyn-1 {
-diff1[i]=new AtP_3(0.5)
-p2x30[i] = new p2x3(0.5)
-diff1[i].h =$2
-setpointer p2x30[i].patp, diff1[i].atp
-}
-for i=0, nsyn-1 {
- list.append(diff1[i])
-}
-}
-endtemplate Sin
 
 n=2
 soma {
@@ -35,15 +11,8 @@ soma {
     diam = 18.8
     L = 18.8
     Ra = 123.0
-    insert hh
-    insert pas
 }
 
-insert hh
-gnabar_hh= 0.25
-gl_hh = .0001666 
-el_hh = -60.0
-insert pas
 
 f = new File()
 
@@ -75,12 +44,18 @@ for i = 0,ndendA-1 {
 
     pt3dadd(x, y, z,diam)
 
-    h = (0.0001)*x*x + (0.0001)*y*y + (0.0001)*z*z
-    GrCell[me] = new Sin(n,h)
-
+    insert hh
+    gnabar_hh= 2
+    gkbar_hh= 0.4
+    gl_hh= 0.0005
     insert pas
-    g_pas = .0001666
+    g_pas = .0001667
     e_pas = -60.0
+
+    insert cat
+    eca = 126.1
+
+    h = (0.01)*((200-x)*(200-x) + (50-y)*(50-y) + (15-z)*(15-z))
 
     if (child1 >= 0) {
       connect treeA[child1](0), 1
@@ -122,12 +97,19 @@ for i = 0,ndendB-1 {
 
     pt3dadd(x, y, z,diam)
 
-    h = (0.0001)*x*x + (0.0001)*y*y + (0.0001)*z*z
-    GrCell[me] = new Sin(n,h)
-
+    insert hh
+    gnabar_hh= 2
+    gkbar_hh= 0.4
+    gl_hh= 0.0005
     insert pas
-    g_pas = .0001666
+    g_pas = .0001667
     e_pas = -60.0
+
+    insert cat
+    eca = 126.1
+
+    h = (0.01)*((280-x)*(280-x) + (100-y)*(100-y) + (145-z)*(145-z))
+    GrCell2[me] = new Sin(n,h)
 
     if (child1 >= 0) {
       connect treeB[child1](0), 1
@@ -149,5 +131,4 @@ print soma.v
 
 forall psection()
 
-finitialize(v_init)
 

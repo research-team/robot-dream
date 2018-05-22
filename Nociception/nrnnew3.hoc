@@ -15,7 +15,7 @@ nsyn =$1
 objectvar diff1[nsyn],p2x30[nsyn]
 list= new List()
 for i=0, nsyn-1 {
-diff1[i]=new AtP_3(0.5)
+diff1[i]=new AtP_4(0.5)
 p2x30[i] = new p2x3(0.5)
 diff1[i].h =$2
 setpointer p2x30[i].patp, diff1[i].atp
@@ -35,6 +35,12 @@ proc neurong() { local i, j
         for j = 1, fscan() {
             pt3dadd(fscan(),fscan(),fscan(),fscan())
         }
+        insert pas
+        g_pas = 0.0001667
+        e_pas = -60.0
+        insert hh
+
+        
     }
 
     axon {
@@ -42,6 +48,7 @@ proc neurong() { local i, j
         pt3dclear()
         pt3dadd(0,0,0,1)
         pt3dadd(0,0,100,1)
+
     }
     soma connect axon (0), 0.5
     soma connect dend1[0] (0), 0.5
@@ -57,19 +64,27 @@ proc neurong() { local i, j
                 diam = fscan()
                 pt3dadd(x,y,z,diam)
 
-                insert CaT
-                eca = 126.1
-                h = 0.1*(x*x + y*y + z*z)
+                insert cat
+                eca = 126
+                h = 0.001*(x*x + y*y + z*z)
                 GrCell[i] = new Sin(3,h)
-                insert na       
-                gbar_na = 60
-                //insert naslow       
-                //gbar_naslow = 52
+                insert na 
+                gbar_na=58.2 - 0.45*h
                 insert kv       
-                gbar_kv = 60
+                gbar_kv = 64
                 insert ka       
-                gbar_ka = 0.02  *2.0
-        
+                gbar_ka = 0.025
+                //insert bk
+                insert pas
+                g_pas = 0.00005
+                e_pas = -60.0+0.11*h
+
+                //insert hh
+                //gnabar_hh= 0.82
+                //gkbar_hh= 0.25
+               // gcabar_hh= 0.25
+                //gl_hh= 0.00051
+            
             }
         }
     }
@@ -77,8 +92,14 @@ proc neurong() { local i, j
     for i = 1,1090 {
         dend1[fscan()] connect dend1[i] (0), fscan()
     }
+    vs=0
+    for i = 1040,1060 {
+        vs=vs+dend1[i].v
+}
+
 
 }
+
 
 neurong()
 
@@ -5572,9 +5593,39 @@ proc correct() {
 }
 
 correct()
+/* objref f
+objref data
+
+f = new File()
+
+f.ropen("A.dat")
+ndendA = f.scanvar() 
+f.close() 
+   data= new Vector()
+   // Start recording
+   data.record(&dend1[ndendA].v(0.5))
+
+objref fok
+// Start run
+run()
+
+objref datafile
+strdef basename, extension, filename
+extension = "dat"
+basename = "what"
+
+sprint(filename, "%s%d.%s", basename, ndendA, extension)
+fok=new File()
 
 
+fok.wopen(filename)
+data.printf(fok)
+fok.close()
+*/
+
+// Plot soma membrane potential to command window???
 print soma.v
+
 
 forall psection()
 

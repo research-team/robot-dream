@@ -10,14 +10,14 @@ PARAMETER {
 	v (mV)
 	celsius		(degC)
 	gbar=.008 (mho/cm2)
-     		vhalfn=11   (mV)
-        	vhalfl=-56   (mV)
-        	a0l=0.05      (/ms)
-        	a0n=0.05    (/ms)
-        	zetan=-1.5    (1)
-        	zetal=3    (1)
-        	gmn=0.55   (1)
-        	gml=1   (1)
+  vhalfn=11   (mV)
+  vhalfl=-56   (mV)
+  a0l=0.05      (/ms)
+  a0n=0.05    (/ms)
+  zetan=-1.5    (1)
+  zetal=3    (1)
+  gmn=0.55   (1)
+  gml=1   (1)
 	lmin=2  (mS)
 	nmin=0.1  (mS)
 	pw=-1    (1)
@@ -97,11 +97,11 @@ PROCEDURE rates(v (mV)) { :callable from hoc
         a = alpn(v)
         ninf = 1/(1 + a)
         taun = betn(v)/(qt*a0n*(1+a))
-	if (taun<nmin) {taun=nmin}
+	      if (taun<nmin) {taun=nmin}
         a = alpl(v)
         linf = 1/(1+ a)
-	taul = 0.26*(v+50)/qtl
-	if (taul<lmin/qtl) {taul=lmin/qtl}
+      	taul = 0.26*(v+50)/qtl
+      	if (taul<lmin/qtl) {taul=lmin/qtl}
 }
 
 

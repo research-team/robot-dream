@@ -1,0 +1,57 @@
+objref datas, data10, data40, data75, data115, data90
+
+
+data10= new Vector()
+data10.record(&treeA[10].v(0.5))
+data40= new Vector()
+data40.record(&treeA[40].v(0.5))
+data75= new Vector()
+data75.record(&treeA[75].v(0.5))
+data115= new Vector()
+data115.record(&treeA[115].v(0.5))
+data90= new Vector()
+data90.record(&treeA[90].v(0.5))
+datas= new Vector()
+datas.record(&soma.v(0.5))
+
+objref fok
+// Start run
+run()
+
+objref datafile
+strdef basename, extension, filename10, filename40, filename75, filename90, filename115, filenames
+extension = "txt"
+basename = "./res/what"
+
+sprint(filename10, "%s%d.%s", basename, 10, extension)
+sprint(filename40, "%s%d.%s", basename, 40, extension)
+sprint(filename75, "%s%d.%s", basename, 75, extension)
+sprint(filename115, "%s%d.%s", basename, 115, extension)
+sprint(filename90, "%s%d.%s", basename, 90, extension)
+sprint(filenames, "%s%d.%s", basename, 0, extension)
+
+
+fok=new File()
+
+
+fok.wopen(filename10)
+data10.printf(fok)
+fok.close()
+fok.wopen(filename40)
+data40.printf(fok)
+fok.close()
+fok.wopen(filename75)
+data75.printf(fok)
+fok.close()
+fok.wopen(filename115)
+data115.printf(fok)
+fok.close()
+fok.wopen(filename90)
+data90.printf(fok)
+fok.close()
+fok.wopen(filenames)
+datas.printf(fok)
+fok.close()
+
+{load_file("./session/11.ses")}
+

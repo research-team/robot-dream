@@ -15,10 +15,11 @@ nsyn =$1
 objectvar diff1[nsyn],p2x30[nsyn]
 list= new List()
 for i=0, nsyn-1 {
-diff1[i]=new AtP_3(0.5)
+diff1[i]=new AtP_4(0.5)
 p2x30[i] = new p2x3(0.5)
 diff1[i].h =$2
 diff1[i].Deff = 0.4
+p2x30[i].Ev = -80
 setpointer p2x30[i].patp, diff1[i].atp
 }
 for i=0, nsyn-1 {
@@ -78,7 +79,7 @@ for i = 0,ndendA-1 {
         insert na 
         gbar_na=50.2
         insert kv       
-        gbar_kv = 60
+        gbar_kv = 64
         insert ka       
         gbar_ka = 0.025
         insert pas

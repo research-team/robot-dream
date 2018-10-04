@@ -1,14 +1,17 @@
 objref datas, data10, data40, data75, data115, data90
 
+v_init = -72
+tstop = 250
+
 
 data10= new Vector()
 data10.record(&treeA[10].v(0.5))
 data40= new Vector()
-data40.record(&treeA[40].v(0.5))
+data40.record(&treeA[61].v(0.5))
 data75= new Vector()
-data75.record(&treeA[75].v(0.5))
+data75.record(&treeA[59].v(0.5))
 data115= new Vector()
-data115.record(&treeA[115].v(0.5))
+data115.record(&treeA[60].v(0.5))
 data90= new Vector()
 data90.record(&treeA[90].v(0.5))
 datas= new Vector()

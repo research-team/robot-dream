@@ -8,18 +8,25 @@ nsyn =$1
 objectvar diff1[nsyn],p2x30[nsyn]
 list= new List()
 for i=0, nsyn-1 {
-diff1[i]=new AtP_4(0.5)
-p2x30[i] = new p2x3(0.5)
-diff1[i].h =$2
-diff1[i].tx1 = 10
+diff1[i]=new AtP_42(0.5)
+if($5==0){
+    p2x30[i] = new p2x3(0.5)
+}else{
+    p2x30[i] = new p2x2(0.5)
+}diff1[i].h =$2
 diff1[i].Deff = 0.4
 p2x30[i].Ev = -40
+diff1[i].k = 0.1
 setpointer p2x30[i].patp, diff1[i].atp
 }
 for i=0, nsyn-1 {
  list.append(diff1[i])
 }
-diff1[0].tx1 = 65
-diff1[1].tx1 = 35
+diff1[0].tx1 = $4+$3*2
+diff1[1].tx1 = 1000+$4+$3*2
+diff1[2].tx1 = 2000+$4+$3*2
+diff1[3].tx1 = 3000+$4+$3*4
+diff1[4].tx1 = 4000+$4+$3*4
+diff1[5].tx1 = 5000+$4+$3*4
 }
 endtemplate ATPdiff

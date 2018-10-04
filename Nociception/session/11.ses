@@ -14,9 +14,9 @@ save_window_.save_name("graphList[0].")
 save_window_.addexpr("v(.5)", 2, 4, 0.8, 0.9, 2)
 save_window_.addvar("treeA[40].v( 0.5 )", 3, 2, 0.8, 0.9, 2)
 save_window_.addexpr("treeA[10].v( 0.5 )", 4, 2, 0.8, 0.9, 2)
-save_window_.addexpr("treeA[75].v( 0.5 )", 5, 2, 0.8, 0.9, 2)
-save_window_.addexpr("treeA[115].v( 0.5 )", 7, 2, 0.8, 0.9, 2)
-save_window_.addexpr("treeA[90].v( 0.5 )", 1, 2, 0.8, 0.9, 2)
+save_window_.addexpr("treeA[59].v( 0.5 )", 5, 2, 0.8, 0.9, 2)
+save_window_.addexpr("treeA[60].v( 0.5 )", 7, 2, 0.8, 0.9, 2)
+save_window_.addexpr("treeA[61].v( 0.5 )", 1, 2, 0.8, 0.9, 2)
 }
 {
 xpanel("RunControl", 0)

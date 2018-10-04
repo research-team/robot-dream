@@ -12,7 +12,8 @@ scene_vector_[2] = save_window_
 graphList[0].append(save_window_)
 save_window_.save_name("graphList[0].")
 save_window_.addexpr("v(.5)", 1, 1, 0.8, 0.9, 2)
-save_window_.addvar("treeA[119].v( 0.5 )", 1, 1, 0.8, 0.9, 2)
+save_window_.addexpr("dend[0].v(.5)", 4, 1, 0.8, 0.9, 2)
+
 }
 {
 xpanel("RunControl", 0)

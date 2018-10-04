@@ -1,5 +1,5 @@
 NEURON {
-	POINT_PROCESS p2x3
+	POINT_PROCESS p2x2
 		POINTER patp
 	RANGE K1, L1, K2, L2, K3, L3, K4, L4, R4, D4, R3, D3, R5, D5, R2, D2, M4, M4, M3, N3, M2, N2, M1, N1
 	RANGE Re, AR, A2R, A3R, Ro, AD, A2D, A3D, A3Df, D
@@ -24,8 +24,6 @@ PARAMETER {
 	L3 = 40 (/s)
 	K4 = 70 (/s)
 	L4 = 1 (/s)
-	R1 = 0.25 (/s)
-	D1 = 0.00001 (/s)
 	R4 = 0.00001 (/s)
 	D4 = 0.00001 (/s)
 	R3 = 0.00001 (/s)
@@ -33,7 +31,7 @@ PARAMETER {
 	R2 = 0.00001 (/s) 
 	D2 = 0.00001 (/s)
 	R5 = 0.0001 (/s) 
-	D5 = 2.3 (/s)
+	D5 = 0.0001 (/s)
 	N4 = 1 (/s)
 	M4 = 0.0001 (/mM /s)
 	N3 = 0.0255 (/s)
@@ -100,7 +98,6 @@ KINETIC kstates{
 	~ Re <-> AR (k1, L1)
 	~ AR <-> A2R (k2, L2)
 	~ AR <-> AD (D2, R2)
-	~ Re <-> D (D1, R1)
 	~ A2R <-> A3R (k3, L3)
 	~ A2R <-> A2D (D3, R3)
 	~ A3R <-> Ro (K4, L4)
@@ -110,6 +107,7 @@ KINETIC kstates{
 	~ A3D <-> A2D (N3, m3)
 	~ A2D <-> AD (N2, m2)
 	~ AD <-> D (N1, m1)
+	
 
 	CONSERVE Re+AR+A2R+A3R+Ro+AD+A2D+A3D+A3Df+D=1
 }

@@ -1,7 +1,5 @@
 create soma, treeA[1]
 
-tstop = 100 
-v_init = -72
 
 access soma
 objectvar f
@@ -16,22 +14,29 @@ nsyn =$1
 objectvar diff1[nsyn],p2x30[nsyn]
 list= new List()
 for i=0, nsyn-1 {
-diff1[i]=new AtP_4(0.5)
-p2x30[i] = new p2x3(0.5)
+diff1[i]=new AtP_42(0.5)
+if(i==0){
+    p2x30[i] = new p2x3(0.5)
+}else{
+    p2x30[i] = new p2x3(0.5)
+}
 diff1[i].h =$2
-diff1[i].tx1 = 25
+diff1[i].tx1 = 1
 diff1[i].c0cleft = 3
+diff1[i].k = 1
 diff1[i].Deff = 0.08
 p2x30[i].Ev = -40
 setpointer p2x30[i].patp, diff1[i].atp
 }
+//p2x30[0].gmax = 60
+//p2x30[1].gmax = 60
 for i=0, nsyn-1 {
  list.append(diff1[i])
 }
 }
 endtemplate Sin
 
-n=2
+n=1
 soma {
     nseg = 1
     diam = 18.8
@@ -78,54 +83,41 @@ for i = 0,ndendA-1 {
 
     pt3dadd(x, y, z,diam)
 
-    if(me > 10){
-        h = sqrt((15000-x)*(15000-x) + (10-y)*(10-y) + (1-z)*(1-z))
+    if(me > 1){
+        h = sqrt((18000-x)*(18000-x) + (1-y)*(1-y) + (1-z)*(1-z))
 
         GrCell[me] = new Sin(n,h)
     }
 
-    //insert nav18
-    //gbar_nav18 = 0.001
-    //slow_inact_nav18=1
+      
+    insert nav18
+    gbar_nav18 = 0.001
+    slow_inact_nav18=1
     insert na_ion
     ena = 50
     insert na17a
-    gbar_na17a=15.2
+    gbar_na17a=13.2
     insert extracellular
     xg = 1000
     xc = 300
     //xraxial = 100
-
-    //insert nap
-    //gbar_nap = 0.00015
+    insert nap
+    gbar_nap = 0.00022
     insert nafast
-    gbar_nafast=0.022
+    gbar_nafast=0.02
     insert naslow
-    gbar_naslow=0.022
+    gbar_naslow=0.02
 
     insert kv       
     gbar_kv = 60
     ek = -77
     insert kdr0
-    gbar_kdr0 = 0.2
+    gbar_kdr0 = 0.4
       
     insert kad 
     gbar_kad = 0.15
-    insert kap    
-    gbar_kap = 0.15
-
-    /*insert bk
-    gbar_bk = 0.01
-
-    insert cal
-    gbar_cal = 0.0006
-
-    insert sk
-    gkbar_sk = 0.01
-     
-    insert cat
-    eca = 126.1
-    gmax_cat=0.0008*/
+    insert kap   
+    gbar_kap = 0.15 
 
     if (child1 >= 0) {
       connect treeA[child1](0), 1
@@ -142,7 +134,54 @@ connect treeA[0](0), soma(1)
 
 print soma.v
 
-//{load_file("recording.hoc")}
+{load_file("./session/11.ses")}
+{load_file("recording.hoc")}
+
+objref datas
+datas= new Vector()
+datas.record(&GrCell[71].p2x30[1].i)
+objref datas1
+datas1= new Vector()
+datas1.record(&GrCell[71].p2x30[0].i)
+objref datas2
+datas2= new Vector()
+datas2.record(&GrCell[71].p2x30[1].Ro)
+objref datas3
+datas3= new Vector()
+datas3.record(&GrCell[71].p2x30[0].Ro)
+tstop = 250 
+v_init = -72
+objref fok
+// Start run
+run()
+
+objref datafile
+strdef basename, extension, filename00
+basename = "what"
+extension = "txt"
+
+fok=new File()
+
+sprint(filename00, "%s%d.%s", basename, 1, extension)
+fok.wopen(filename00)
+datas.printf(fok)
+fok.close()
+
+sprint(filename00, "%s%d.%s", basename, 0, extension)
+fok.wopen(filename00)
+datas1.printf(fok)
+fok.close()
+
+sprint(filename00, "%s%d.%s", basename, 3, extension)
+fok.wopen(filename00)
+datas2.printf(fok)
+fok.close()
+
+sprint(filename00, "%s%d.%s", basename, 2, extension)
+fok.wopen(filename00)
+datas3.printf(fok)
+fok.close()
+
 
 
 forall psection()

@@ -40,7 +40,7 @@ ASSIGNED{
    Pospill 
 }
 INITIAL {
-	tx1=10
+	tx1=30
 	atp=0
 	dir=0
 	spill=0

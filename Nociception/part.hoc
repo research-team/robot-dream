@@ -19,12 +19,12 @@ p2x30[i].Ev = -40
 //p2x30[i].gmax = 25
 setpointer p2x30[i].patp, diff1[i].atp
 }
-diff1[0].tx1 = 50
-diff1[1].tx1 = 15
-diff1[2].tx1 = 35
-p2x30[0].gmax = 10
-p2x30[1].gmax = 15
-p2x30[2].gmax = 35
+diff1[0].tx1 = 5
+//diff1[1].tx1 = 30
+//diff1[2].tx1 = 25
+p2x30[0].gmax = 50
+//p2x30[1].gmax = 25
+//p2x30[2].gmax = 35
 for i=0, nsyn-1 {
  list.append(diff1[i])
 }
@@ -44,7 +44,7 @@ soma {
 //insert hh
 //insert pas
 
-n = 3
+n = 1
 
 objref GrCell[ndend]
 
@@ -54,19 +54,18 @@ dend[0] {
     L = 250
     Ra = 123
 
-   /* insert hh
+    insert hh
     gnabar_hh= 2
     gkbar_hh= 0.7
-    gl_hh= 0.0005
+    gl_hh= 0.0005 
     insert pas
     g_pas = .0001667
     e_pas = -60.0
-*/
 
-    h = 3
+    h = 0.15
 
     GrCell[0] = new Sin(n,h)
-    insert na_ion
+    /*insert na_ion
     ena = 50
     insert na17a
     gbar_na17a=15.2
@@ -110,32 +109,28 @@ dend[0] {
    
 }
 
+{load_file("./session/2222.ses")}
+
 // Connect things together
 connect dend[0](0), soma(0)
 
 // create an electrode in the soma
-
-print soma.v
-objref datas
-datas= new Vector()
-datas.record(&soma.v(0.5))
-tstop = 50 
-v_init = -72
-objref fok
-// Start run
-run()
-
-objref datafile
-strdef basename, extension, filename00
-basename = "what"
-extension = "txt"
-
-fok=new File()
-
-sprint(filename00, "%s%d.%s", basename, 20, extension)
-fok.wopen(filename00)
-datas.printf(fok)
-fok.close()
+proc epochrun() { local i, n, j
+    running_ = 1
+    tstop = $1*$2+$1*$3 // in case some other code needs tstop
+    stdinit()
+    for n=0,$1 - 1 {
+        print(AtP_4[0].tx1)
+            AtP_4[0].tx1 = 20
+        print(AtP_4[0].tx1)
+        continuerun(t+$2)
+        print(AtP_4[0].tx1)
+            AtP_4[0].tx1 = t+20
+        print(AtP_4[0].tx1)
+        continuerun(t+$3)
+        }
+}
+epochrun(1, 100000, 1000)
 
 forall psection()
 

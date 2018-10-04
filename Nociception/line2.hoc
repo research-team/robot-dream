@@ -14,23 +14,24 @@ nsyn =$1
 objectvar diff1[nsyn],p2x30[nsyn]
 list= new List()
 for i=0, nsyn-1 {
-diff1[i]=new AtP_4(0.5)
+diff1[i]=new AtP_42(0.5)
 p2x30[i] = new p2x3(0.5)
-diff1[i].c0cleft = 3
-diff1[i].Deff = 0.4
+diff1[i].c0cleft = 1
+diff1[i].Deff = 0.08
 p2x30[i].Ev = -40
+//p2x30[i].gmax = 10
 setpointer p2x30[i].patp, diff1[i].atp
 }
 diff1[0].h =$2
 diff1[1].h =$3
-//diff1[0].k = 0
-//diff1[1].k = 0
-diff1[0].tx1 = $5
-diff1[1].tx1 = $4
-//diff1[2].h =$6
-//diff1[3].h =$7
-//diff1[2].tx1 = $8
-//diff1[3].tx1 = $9
+diff1[0].k = 0
+diff1[1].k = 0
+diff1[0].tx1 = $4
+diff1[1].tx1 = $5
+/*diff1[2].h =$6
+diff1[3].h =$7
+diff1[2].tx1 = $8
+diff1[3].tx1 = $9*/
 for i=0, nsyn-1 {
  list.append(diff1[i])
 }
@@ -52,7 +53,7 @@ soma {
 
 f = new File()
 
-f.ropen("modeline.dat")
+f.ropen("./topologies/modeline.dat")
 ndendA = f.scanvar() 
 create treeA[ndendA]
 objref GrCell[ndendA]
@@ -80,58 +81,57 @@ for i = 0,ndendA-1 {
     pt3dadd(x, y, z,diam)
 
    if(me > 10){
-        h1 = (0.00001)*((20000-x)*(20000-x) + (10-y)*(10-y) + (1-z)*(1-z))
-        h2 = (0.00001)*((15000-x)*(15000-x) + (10-y)*(10-y) + (1-z)*(1-z))
+        h1 = (0.00001)*((15000-x)*(15000-x) + (10-y)*(10-y) + (1-z)*(1-z))
+        h2 = (0.00001)*((10000-x)*(10000-x) + (10-y)*(10-y) + (1-z)*(1-z))
         h3 = (0.00001)*((5000-x)*(5000-x) + (10-y)*(10-y) + (1-z)*(1-z))
         //h4 = (0.00001)*((10000-x)*(10000-x) + (10-y)*(10-y) + (1-z)*(1-z))
 
-        GrCell[me] = new Sin(n, h1, h2, 180, 30)
+        GrCell[me] = new Sin(n, h1, h2, 40, 100, h3, h1, 220, 450)
 
     }
-//
 
-    // insert hh
-   // gnabar_hh= 2
-   // gkbar_hh= 0.4
-   // gl_hh= 0.0005
-   // insert pas
-    //g_pas = .0001667
-    //e_pas = -60.0
-insert na17a
-       // insert na18a
+    insert nav18
+    gbar_nav18 = 0.002
+    slow_inact_nav18=1
+    insert na_ion
+    ena = 50
+    insert na17a
+    gbar_na17a=10.2
+    insert extracellular
+    xg = 1000
+    xc = 300
+    //xraxial = 100
 
-     gbar_na17a=30.2
-       //insert extracellular
-//xg = 100
-//xc = 300
-//xraxial = 100
+    insert nap
+    gbar_nap = 0.0002
+    insert nafast
+    gbar_nafast=0.02
+    insert naslow
+    gbar_naslow=0.02
 
-//insert na
-//gbar_na = 1
-//insert nap
-//gbar_nap = 0.0004
-//insert naf
-//gbar_naf = 0.004
-
-     // insert nav1p8
-     // gbar_nav1p8=0.7
-        //insert kf
-       // insert ks
-        insert kv       
-        gbar_kv = 64
-        insert ka       
-        gbar_ka = 0.8
-        //insert kdr
-        //gkdrbar_kdr = 0.0033
-    
-        //insert sk
-        //insert cal
-//gbar_cal = 0.005
-
+    insert kv       
+    gbar_kv = 60
+    ek = -77
+    insert kdr0
+    gbar_kdr0 = 0.25
       
-       //insert cat
-       //eca = 126.1
-      //gmax_cat=0.001
+    insert kad 
+    gbar_kad = 0.2
+    insert kap    
+    gbar_kap = 0.2
+
+    /*insert bk
+    gbar_bk = 0.01
+
+    insert cal
+    gbar_cal = 0.0006
+
+    insert sk
+    gkbar_sk = 0.01
+     
+    insert cat
+    eca = 126.1
+    gmax_cat=0.0008*/
 
 
     if (child1 >= 0) {
@@ -148,6 +148,10 @@ f.close() //closes the file data holder called f
 connect treeA[0](0), soma(1) 
 
 print soma.v
+
+{load_file("./session/11.ses")}
+
+{load_file("./recording.hoc")}
 
 forall psection()
 

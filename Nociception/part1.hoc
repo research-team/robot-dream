@@ -12,30 +12,24 @@ proc init(){
   list= new List()
   for i=0, nsyn-1 {
   diff1[i]=new AtP_4(0.5)
-  p2x30[i] = new p2x3(0.5)
-  diff1[i].c0cleft = 2
-  diff1[i].Deff = 0.8
-  p2x30[i].Ev = -40
-  p2x30[i].gmax = 65
+  if(i==0){
+      p2x30[i] = new p2x2(0.5)
+  }else{
+      p2x30[i] = new p2x3(0.5)
+  }
   diff1[i].h =$2
-  diff1[i].tx1 =15
+  diff1[i].tx1 = 25
+  diff1[i].c0cleft = 3
+  diff1[i].Deff = 0.08
+  p2x30[i].Ev = -40
+  //p2x30[i].gmax = 40
   setpointer p2x30[i].patp, diff1[i].atp
-}
-    diff1[0].tx1 = 38
-    diff1[1].tx1 =20
-
-  //diff1[0].k = 0
-  //diff1[1].k = 50
-  diff1[0].h =0.3
-  diff1[1].h =0.15
-  //diff1[0].tx1 = $4
-  //diff1[1].tx1 = $5
-for i=0, nsyn-1 {
- list.append(diff1[i])
-}
+  }
+  for i=0, nsyn-1 {
+   list.append(diff1[i])
+  }
 }
 endtemplate Sin
-
 ndend = 2
 
 soma {
@@ -60,38 +54,30 @@ objref GrCell[ndend]
 
 dend[0] {
     nseg = 1
-    diam = 5
+    diam = 1
     L = 250
     Ra = 123
 
-   /* insert hh
-    gnabar_hh= 2
-    gkbar_hh= 0.7
-    gl_hh= 0.0005
-    insert pas
-    g_pas = .0001667
-    e_pas = -60.0
-*/
-
-    h = 3
+    h = 0.1
     h1=150
 
     GrCell[0] = new Sin(n, h) //, 180, 260, 345, 430, 515)
-    insert na_ion
-    ena = 50
     insert na17a
-    gbar_na17a=15.2
-    insert extracellular
-    xg = 1000
-    xc = 300
+    gbar_na17a=15.5
+    //insert extracellular
+    //xg = 100
+    //xc = 300
     //xraxial = 100
 
     //insert nap
-    //gbar_nap = 0.00015
+    //gbar_nap = 0.0002
+    //insert nav18
+    //gbar_nav18=0.0004
+
     insert nafast
-    gbar_nafast=0.08
+    gbar_nafast=0.02
     insert naslow
-    gbar_naslow=0.08
+    gbar_naslow=0.02
 
     insert kv       
     gbar_kv = 60
@@ -99,24 +85,10 @@ dend[0] {
     insert kdr0
     gbar_kdr0 = 0.2
       
-    insert kad 
+    insert kad
     gbar_kad = 0.15
     insert kap    
     gbar_kap = 0.15
-
-
-    /*insert bk
-    gbar_bk = 0.01
-
-    insert cal
-    gbar_cal = 0.0006
-
-    insert sk
-    gkbar_sk = 0.01
-     
-    insert cat
-    eca = 126.1
-    gmax_cat=0.0008*/
    
 }
 
@@ -128,9 +100,9 @@ connect dend[0](0), soma(0)
 print soma.v
 objref datas
 datas= new Vector()
-datas.record(&dend[0].v(0.5))
-tstop = 100 
-v_init = -69
+datas.record(&GrCell[0].p2x30[1].i)
+tstop = 300 
+v_init = -72
 objref fok
 // Start run
 run()
@@ -142,11 +114,11 @@ extension = "txt"
 
 fok=new File()
 
-sprint(filename00, "%s%d.%s", basename, 21, extension)
+sprint(filename00, "%s%d.%s", basename, 3, extension)
 fok.wopen(filename00)
 datas.printf(fok)
 fok.close()
-{load_file("np.ses")}
+//{load_file("np.ses")}
 
 forall psection()
 

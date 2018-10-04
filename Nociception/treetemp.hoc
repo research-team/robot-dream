@@ -1,4 +1,4 @@
-begintemplate oneCell
+begintemplate treeCell
 public soma, dend, f, GrCell, connect2target
 create soma, dend[1]
 objectvar f
@@ -44,32 +44,45 @@ proc init(){
 
     }
 
-    objref GrCell
-    ndendA = 50
-    create dend[ndendA]
+f = new File()
+
+f.ropen("./topologies/modeltree2.dat")
+ndendA = f.scanvar() 
+create dend[ndendA]
+objref GrCell
 
 
 for i = 0,ndendA-1 {
+      
+  me = f.scanvar() - 1 // sets the current branch/section 
+  child1 = f.scanvar() - 1 
+  child2 = f.scanvar() - 1 
+  child3 = f.scanvar() - 1 
 
-    dend[i]{ 
+  dend[me]{ 
         nseg = dend_nseg
+        diam = f.scanvar()
+        L = f.scanvar()
+        
         diam = $2
         L = dend_len
         Ra = dend_Ra
         cm = dend_cm
 
-        x = 1+L*i
-        y = 1
-        z = $1
-
         pt3dclear()
-        pt3dadd(10,10,$1,diam) 
-        pt3dadd(10+soma_len+dend_len,10,$1,diam) 
+
+        pt3dadd(f.scanvar(),f.scanvar(),f.scanvar(),diam)
+
+        x = f.scanvar()
+        y = f.scanvar()
+        z = f.scanvar()
+
+        pt3dadd(x, y, z,diam)
 
 
         h = sqrt((2500-x)*(2500-x)+(0-y)*(0-y)+(0-z)*(0-z))
             
-        GrCell = new ATPdiff(n, 0.0001*h, $1, $4, 0)
+        GrCell = new ATPdiff(n, 0.0001*h, $1, $4, 1)
 
         if(p == 1){
             insert nav18
@@ -103,10 +116,23 @@ for i = 0,ndendA-1 {
         insert kap    
         gbar_kap = 0.15 //+ $2*0.01
 
-      }
+        if (child1 >= 0) {
+          connect dend[child1](0), 1
+        }
+
+        if (child2 >= 0) {
+          connect dend[child2](0), 1
+        }
+
+        if (child3 >= 0) {
+          connect dend[child3](0), 1
+        }
+
+    }
 }
-    connect dend[0](0), soma(1)
-    for i = 1, ndendA-1 connect dend[i](0), dend[i-1](1)
+
+f.close() //closes the file data holder called f
+connect dend[0](0), soma(1) 
 }
 obfunc connect2target() { localobj nc //$o1 target point process, optional $o2 returned NetCon
   soma nc = new NetCon(&v(1), $o1)
@@ -115,4 +141,4 @@ obfunc connect2target() { localobj nc //$o1 target point process, optional $o2 r
   return nc
 }
 
-endtemplate oneCell
+endtemplate treeCell

@@ -1,4 +1,4 @@
-ncell = 20
+ncell = 10
 
 objref cells, nil, nc
 cells = new List()
@@ -7,50 +7,74 @@ objref pc
 pc = new ParallelContext()
 
 {load_file("linetemp.hoc")}
+{load_file("treetemp.hoc")}
+
+
+objref r
+r = new Random()
+objref cells, nil, nc, ncs
+cells = new List()
+ncs = new List()
+
+
+objref pc, r
+pc = new ParallelContext()
+r = new Random(startsw())
 
 //for (i = pc.id; ncell-1; i+=pc.nhost) {
 for i=0, ncell-1{
-	n=0
-	if (i%2 == 0){
-		n = 1
-	}
-	d=1
-    if (i == 2){
-        d = 2
+    r.uniform(0, 2)
+    n = 1
+    //int(r.repick())
+    print(n)
+	d=r.repick()
+    if (i > 3){
+        r.uniform(3, 6)
+        d = r.repick()
     }
-	if (i > 2){
-		d = i-1
-
-	}
-    k=i/2+1
-    if (i>5){k = i/2+5}
-    cells.append(new oneCell(i*2, d, n, k))
-    if (i%2 == 0 && i > 1){
+    if (i > 6){
+        r.uniform(8, 10)
+        d = r.repick()
+    }
+    if (i%2 == 0){
+        r.uniform(0, 1500)
+        cells.append(new oneCell((i+1)*2, d, n, r.repick()))
+        pc.set_gid2node(i, pc.id)
+        nc = cells.object(cells.count()-1).connect2target(nil)
+        pc.cell(i, nc)
+        ncs.append(nc)
+    }else{
+        r.uniform(0, 1500)
+        cells.append(new treeCell((i+1)*2, d, n, r.repick()))
+        pc.set_gid2node(i, pc.id)
+        nc = cells.object(cells.count()-1).connect2target(nil)
+        pc.cell(i, nc)
+        ncs.append(nc)
+    }
+    if (i > 3){
     	cells.object(cells.count()-1).GrCell.p2x30[0].gmax = 35+i*10
     	cells.object(cells.count()-1).GrCell.p2x30[1].gmax = 35+i*10
-    	cells.object(cells.count()-1).GrCell.diff1[0].tx1 = 50+i*5
     }
     //pc.set_gid2node(i, pc.id)
     //nc = cells.object(cells.count()-1).connect2target(nil) 
     //pc.cell(i, nc) 
 }
 //pc.barrier() 
-{load_file("cells.ses")}
+{load_file("./session/cells.ses")}
 
 //pc.runworker()
 //pc.done()
+
 forall psection()
 
 objref exsynrec[ncell]
 for i=0, ncell-1{
-    if(i%2 == 0){
-        exsynrec[i]= new Vector()
-        exsynrec[i].record(&oneCell[i].dend.vext[0](0.5)) 
-    }
+    exsynrec[i]= new Vector()
+    ncs.object(i).record(exsynrec[i])//.record(&oneCell[i].soma.vext[0](0.5)) 
 }
 
-tstop = 100
-v_init = -70
+tstop = 6000
+v_init = -72
 run()
 
 objref fok
@@ -58,14 +82,12 @@ fok=new File()
 
 
 for i=0, ncell-1{
-    if(i%2 == 0){
-        strdef basename0, basename1, extension, filename0, filename1
-        basename0 = "./res/extra"
-        extension = "txt"
+    strdef basename0, basename1, extension, filename0, filename1
+    basename0 = "./res/extra"
+    extension = "txt"
 
-        sprint(filename0, "%sn%d.%s", basename0, i, extension)
-        fok.wopen(filename0)
-        exsynrec[i].printf(fok)
-        fok.close()
-    }
+    sprint(filename0, "%sn%d.%s", basename0, i, extension)
+    fok.wopen(filename0)
+    exsynrec[i].printf(fok)
+    fok.close()
 }

@@ -1,6 +1,6 @@
 objref datas, data10, data40, data75, data115, data90
 
-v_init = -72
+v_init = -70
 tstop = 250
 
 
@@ -14,12 +14,29 @@ data115= new Vector()
 data115.record(&treeA[60].v(0.5))
 data90= new Vector()
 data90.record(&treeA[90].v(0.5))
-datas= new Vector()
-datas.record(&soma.v(0.5))
+//datas= new Vector()
+//datas.record(&soma.v(0.5))
+
+{load_file("balance.hoc")}
+
+proc init() {
+    finitialize(v_init)
+    balance()
+    if (cvode.active()) {
+    	cvode.re_init()
+    } else {
+    	fcurrent()
+    }
+    frecord_init()
+}
+
+{load_file("./session/11.ses")}
+
+init()
 
 objref fok
 // Start run
-run()
+//run()
 
 objref datafile
 strdef basename, extension, filename10, filename40, filename75, filename90, filename115, filenames
@@ -31,7 +48,7 @@ sprint(filename40, "%s%d.%s", basename, 40, extension)
 sprint(filename75, "%s%d.%s", basename, 75, extension)
 sprint(filename115, "%s%d.%s", basename, 115, extension)
 sprint(filename90, "%s%d.%s", basename, 90, extension)
-sprint(filenames, "%s%d.%s", basename, 0, extension)
+//sprint(filenames, "%s%d.%s", basename, 0, extension)
 
 
 fok=new File()
@@ -52,9 +69,6 @@ fok.close()
 fok.wopen(filename90)
 data90.printf(fok)
 fok.close()
-fok.wopen(filenames)
-datas.printf(fok)
-fok.close()
-
-{load_file("./session/11.ses")}
-
+//fok.wopen(filenames)
+//datas.printf(fok)
+//fok.close()

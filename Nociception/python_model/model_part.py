@@ -1,5 +1,7 @@
 from neuron import h, gui
-from matplotlib import pyplot
+import matplotlib
+matplotlib.use('TkAgg')
+import matplotlib.pyplot as pyplot
 neuron.load_mechanisms("/Users/sulgod/Desktop/Nociception/newproj/mod")
 
 class BallAndStick(object):

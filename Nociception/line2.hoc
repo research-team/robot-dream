@@ -90,9 +90,9 @@ for i = 0,ndendA-1 {
 
     }
 
-    insert nav18
-    gbar_nav18 = 0.002
-    slow_inact_nav18=1
+    insert na18a
+    gbar_na18a = 0.02
+    //slow_inact_nav18=1
     insert na_ion
     ena = 50
     insert na17a
@@ -105,9 +105,9 @@ for i = 0,ndendA-1 {
     insert nap
     gbar_nap = 0.0002
     insert nafast
-    gbar_nafast=0.02
+    gbar_nafast=0.015
     insert naslow
-    gbar_naslow=0.02
+    gbar_naslow=0.015
 
     insert kv       
     gbar_kv = 60
@@ -116,9 +116,9 @@ for i = 0,ndendA-1 {
     gbar_kdr0 = 0.25
       
     insert kad 
-    gbar_kad = 0.2
+    gbar_kad = 0.15
     insert kap    
-    gbar_kap = 0.2
+    gbar_kap = 0.15
 
     /*insert bk
     gbar_bk = 0.01

@@ -1,10 +1,10 @@
-create soma, treeA[1]
+create  treeA[1] //soma,
 
 tstop = 400 
 v_init = -72
 
 
-access soma
+//access soma
 objectvar f
 
 begintemplate Sin
@@ -49,7 +49,7 @@ for i=0, nsyn-1 {
 endtemplate Sin
 
 n=2
-soma {
+/*soma {
     nseg = 1
     diam = 18.8
     L = 18.8
@@ -60,7 +60,7 @@ soma {
     el_hh = -60.0
     gkbar_hh = 0.36
 }
-
+*/
 f = new File()
 
 f.ropen("./topologies/modeline.dat")
@@ -101,9 +101,9 @@ for i = 0,ndendA-1 {
 
     }
 //
-    insert nav18
-    gbar_nav18 = 0.0018
-    slow_inact_nav18=1
+    insert na18a
+    gbar_na18a = 0.0018
+    //slow_inact_nav18=1
     insert na_ion
     ena = 50
     insert na17a
@@ -129,15 +129,26 @@ for i = 0,ndendA-1 {
     gbar_kad = 0.15
     insert kap   
     gbar_kap = 0.15
+    
+    insert nakpump
+    smalla_nakpump = -0.0047891
+    insert naoi
+    theta_naoi = 0.049
+    insert koi
+    theta_koi = 0.049
+    
+    insert leak
+    //insert extrapump  
 
-    insert bk
-    gbar_bk = 0.01
+    celsiusT_nakpump = 37
+   // insert bk
+   // gbar_bk = 0.01
 
     //insert cal
     //gbar_cal = 0.001
 
-    insert sk
-    gkbar_sk = 0.01
+   // insert sk
+   // gkbar_sk = 0.01
      
   //  insert cat
   //  eca = 126.1
@@ -154,7 +165,7 @@ f.close() //closes the file data holder called f
 
 
 // Connect things together 
-connect treeA[0](0), soma(1) 
+//connect treeA[0](0), soma(1) 
 /*
 print soma.v
 objref datas, data10, data40, data75, data115, data90, wg, gg
@@ -230,6 +241,6 @@ fok.close()*/
 
 {load_file("./session/11.ses")}
 
-forall psection()
+//forall psection()
 
 

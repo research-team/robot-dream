@@ -5,28 +5,27 @@ access soma
 objectvar f
 
 begintemplate Sin
-objref list, diff1[1],p2x30[1] 
-public diff1,p2x30
+objref list, diff1[1],p2x30[1], r5t3[1]  
+public diff1,p2x30, r5t3
 public list
 
 proc init(){
 nsyn =$1
-objectvar diff1[nsyn],p2x30[nsyn]
+objectvar diff1[nsyn],p2x30[nsyn], r5t3[nsyn]
 list= new List()
 for i=0, nsyn-1 {
-diff1[i]=new AtP_42(0.5)
-if(i==0){
-    p2x30[i] = new p2x3(0.5)
-}else{
-    p2x30[i] = new p2x3(0.5)
-}
+diff1[i]=new AtP_4(0.5)
+//p2x30[i] = new p2x3(0.5)
+r5t3[i] = new r5ht3a(0.5)
 diff1[i].h =$2
-diff1[i].tx1 = 1
-diff1[i].c0cleft = 3
-diff1[i].k = 1
-diff1[i].Deff = 0.08
-p2x30[i].Ev = -40
-setpointer p2x30[i].patp, diff1[i].atp
+diff1[i].Deff = 0.4
+diff1[i].c0cleft = 10
+diff1[i].tx1 = 10
+r5t3[i].gmax = 8
+//p2x30[i].gmax = 0
+r5t3[i].Ev = 20
+//setpointer p2x30[i].patp, diff1[i].atp
+setpointer r5t3[i].serotonin, diff1[i].atp
 }
 //p2x30[0].gmax = 60
 //p2x30[1].gmax = 60
@@ -90,9 +89,9 @@ for i = 0,ndendA-1 {
     }
 
       
-    insert nav18
-    gbar_nav18 = 0.001
-    slow_inact_nav18=1
+    //insert nav1pp8
+    //gbar_nav1pp8= 0.01
+    //slow_inact_nav18=1
     insert na_ion
     ena = 50
     insert na17a
@@ -104,9 +103,9 @@ for i = 0,ndendA-1 {
     insert nap
     gbar_nap = 0.00022
     insert nafast
-    gbar_nafast=0.02
+    gbar_nafast=0.01
     insert naslow
-    gbar_naslow=0.02
+    gbar_naslow=0.01
 
     insert kv       
     gbar_kv = 60
@@ -117,7 +116,7 @@ for i = 0,ndendA-1 {
     insert kad 
     gbar_kad = 0.15
     insert kap   
-    gbar_kap = 0.15 
+    gbar_kap = 0.15
 
     if (child1 >= 0) {
       connect treeA[child1](0), 1
@@ -139,7 +138,8 @@ print soma.v
 
 objref datas
 datas= new Vector()
-datas.record(&GrCell[71].p2x30[1].i)
+datas.record(&soma.v(0.5))
+/*
 objref datas1
 datas1= new Vector()
 datas1.record(&GrCell[71].p2x30[0].i)
@@ -148,8 +148,8 @@ datas2= new Vector()
 datas2.record(&GrCell[71].p2x30[1].Ro)
 objref datas3
 datas3= new Vector()
-datas3.record(&GrCell[71].p2x30[0].Ro)
-tstop = 250 
+datas3.record(&GrCell[71].p2x30[0].Ro)*/
+tstop = 150 
 v_init = -72
 objref fok
 // Start run
@@ -166,7 +166,7 @@ sprint(filename00, "%s%d.%s", basename, 1, extension)
 fok.wopen(filename00)
 datas.printf(fok)
 fok.close()
-
+/*
 sprint(filename00, "%s%d.%s", basename, 0, extension)
 fok.wopen(filename00)
 datas1.printf(fok)
@@ -180,7 +180,7 @@ fok.close()
 sprint(filename00, "%s%d.%s", basename, 2, extension)
 fok.wopen(filename00)
 datas3.printf(fok)
-fok.close()
+fok.close()*/
 
 
 

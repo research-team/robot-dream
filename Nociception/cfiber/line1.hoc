@@ -1,7 +1,7 @@
 create  treeA[1] //soma,
 
 tstop = 400 
-v_init = -55
+v_init = -72
 
 
 //access soma
@@ -20,9 +20,9 @@ proc init(){
   diff1[i]=new AtP_4(0.5)
   p2x30[i] = new p2x3(0.5)
   diff1[i].c0cleft = 2
-  diff1[i].Deff = 0.08
+  diff1[i].Deff = 0.8
   p2x30[i].Ev = 7
-  p2x30[i].gmax = 10
+  p2x30[i].gmax = 6
   setpointer p2x30[i].patp, diff1[i].atp
 }
   //diff1[0].k = 0
@@ -80,7 +80,7 @@ for i = 0,ndendA-1 {
     diam1 = f.scanvar()
     diam = 0.25
     L = f.scanvar()
-    Ra = 35
+    Ra = 123
 
     pt3dclear()
 
@@ -93,66 +93,65 @@ for i = 0,ndendA-1 {
     pt3dadd(x, y, z,diam)
 
    if(me > 10){
-        h1 = (0.00001)*((15000-x)*(15000-x) + (10-y)*(10-y) + (1-z)*(1-z))
-        h2 = (0.00001)*((22200-x)*(22200-x) + (15-y)*(15-y) + (1-z)*(1-z))
-        h3 = (0.00001)*((10300-x)*(10300-x) + (10-y)*(10-y) + (1-z)*(1-z))
-        h4 = (0.00001)*((10450-x)*(10450-x) + (80-y)*(80-y) + (1-z)*(1-z))
+h1 = (0.00001)*((15000-x)*(15000-x) + (10-y)*(10-y) + (1-z)*(1-z))
+h2 = (0.00001)*((22200-x)*(22200-x) + (15-y)*(15-y) + (1-z)*(1-z))
+h3 = (0.00001)*((10300-x)*(10300-x) + (10-y)*(10-y) + (1-z)*(1-z))
+h4 = (0.00001)*((10450-x)*(10450-x) + (80-y)*(80-y) + (1-z)*(1-z))
 
-        GrCell[me] = new Sin(n, h1, h1, 20, 20) //, 180, 260, 345, 430, 515)
-        //, h3, h4, 50, 65)
+GrCell[me] = new Sin(n, h1, h1, 20, 220) //, 180, 260, 345, 430, 515)
+//, h3, h4, 50, 65)
 
     }
 //
     insert na18a
     gbar_na18a = 0.0018
     //slow_inact_nav18=1
-    insert na17a
-    gbar_na17a=13.2
-    insert extracellular
-    xg = 1000
-    xc = 300
-    //xraxial = 100
-    insert nap
-    gbar_nap = 0.00022
-    insert nafast
-    gbar_nafast=0.02
-    insert naslow
-    gbar_naslow=0.02
-
-    insert kv       
-    gbar_kv = 60
-    ek = -77
-    insert kdr0
-    gbar_kdr0 = 0.4
-      
+    insert na17a 
+    //insert nav1p8 
+    insert nap 
+    insert nafast 
+    insert naslow 
+    insert extrapump 
+    insert h 
+    insert koi 
+    insert naoi 
+    insert kna 
+    insert nakpump 
+    insert nav1p9 
+    insert nattxs 
+    insert kf 
+    insert ks 
+    insert kdr 
     insert kad 
-    gbar_kad = 0.95
-    insert kap   
-    gbar_kap = 0.95
-    
-    insert nakpump
-    smalla_nakpump = -0.047891
-    insert naoi
-    theta_naoi = 0.045
-    insert koi
-    theta_koi = 0.045
-    
-    insert leak
-    insert extrapump  
-
+    insert kap 
+    insert leak 
+    //gkleak_leak=0.000001
+    //gnaleak_leak=0.000001
+    gbar_na17a = 0.1066439
+   // gbar_nav1p8 = 0.24271
+    gbar_nap = 0.00022
+    gbar_nafast=0.03
+    gbar_naslow=0.01
+    gbar_kdr = 0.018002
+    gbar_kad = 0.01
+    gbar_kap = 0.005  
+    gbar_ks = 0.0069733
+    gbar_kf = 0.012756
+    gbar_h = 0.0025377
+    gbar_nattxs = 0.10664
+    gbar_nav1p9 = 9.4779e-5
+    smalla_nakpump = -0.0047891
+    gbar_kna = 0.00042
+    theta_naoi = 0.029
+    theta_koi = 0.029
+    celsiusT_ks = 37
+    celsiusT_kf = 37
+    celsiusT_h = 37
+    celsiusT_nattxs = 37
+    //celsiusT_nav1p8 = 37
+    celsiusT_nav1p9 = 37
     celsiusT_nakpump = 37
-   // insert bk
-   // gbar_bk = 0.01
-
-    //insert cal
-    //gbar_cal = 0.001
-
-   // insert sk
-   // gkbar_sk = 0.01
-     
-  //  insert cat
-  //  eca = 126.1
-  //  gmax_cat=0.0008
+    celsiusT_kdr = 37
 
     if (child1 >= 0) {
       connect treeA[child1](0), 1

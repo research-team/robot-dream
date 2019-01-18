@@ -1,6 +1,6 @@
 objref datas, data10, data40, data75, data115, data90
 
-v_init = -70
+v_init = -55
 tstop = 250
 
 

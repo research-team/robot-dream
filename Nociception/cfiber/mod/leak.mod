@@ -15,10 +15,10 @@ UNITS {
 }
 
 PARAMETER {
-	gkleak	= 1e-5 (mho/cm2)
-	gnaleak	= 1e-5 (mho/cm2)
-:	gkleak	= 0 (mho/cm2)
-:	gnaleak	= 0 (mho/cm2)
+	:gkleak	= 1e-5 (mho/cm2)
+	:gnaleak	= 1e-5 (mho/cm2)
+	gkleak	= 0 (mho/cm2)
+	gnaleak	= 0 (mho/cm2)
 	:gcl	= 1e-4 (mho/cm2)
 	:ga	= 0 (mho/cm2)
 }

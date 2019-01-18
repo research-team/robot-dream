@@ -7,7 +7,7 @@ This scipt contains a function that balances the currents for the membrane to co
 This function is called after the first initialization.
 #-*-#
 */
-Vrest = v_init
+Vrest = -55
 proc balance(){
     forall {
 	if ((-(ina_na18a + \

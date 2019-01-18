@@ -144,8 +144,8 @@ static void nrn_alloc(Prop* _prop) {
 	double *_p; Datum *_ppvar;
  	_p = nrn_prop_data_alloc(_mechtype, 8, _prop);
  	/*initialize range parameters*/
- 	gkleak = 1e-05;
- 	gnaleak = 1e-05;
+ 	gkleak = 0;
+ 	gnaleak = 0;
  	_prop->param = _p;
  	_prop->param_size = 8;
  	_ppvar = nrn_prop_datum_alloc(_mechtype, 6, _prop);

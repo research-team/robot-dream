@@ -20,7 +20,7 @@ save_window_.addexpr("treeA[61].v( 0.5 )", 1, 2, 0.8, 0.9, 2)
 }
 {
 xpanel("RunControl", 0)
-v_init = -72
+v_init = -55
 xvalue("Init","v_init", 1,"stdinit()", 1, 1 )
 xbutton("Init & Run","run()")
 xbutton("Stop","stoprun=1")

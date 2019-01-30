@@ -9,17 +9,19 @@ This function is called after the first initialization.
 */
 Vrest = -70
 proc balance(){
-    forall {
-	if ((-(ina_nattxs + ina_nav1p9 + ina_na18a + ina_na17a + ina_nap + ina_nafast + ina_naslow + ina_h + ina_nakpump) / (Vrest - ena)) < 0) {
-	    pumpina_extrapump = -(ina_nattxs + ina_nav1p9 + ina_na18a + ina_na17a + ina_nap + ina_nafast + ina_naslow + ina_h + ina_nakpump)
-	} else {
-	    gnaleak_leak = -(ina_nattxs + ina_nav1p9 + ina_na18a + ina_na17a + ina_nap + ina_nafast + ina_naslow + ina_h + ina_nakpump) / (Vrest - ena)
-	}
-	
-	if ((-(ik_ks + ik_kf + ik_h + ik_kdr + ik_nakpump + ik_kna + ik_kap + ik_kad) / (Vrest - ek)) < 0) {
-	    pumpik_extrapump = -(ik_ks + ik_kf + ik_h + ik_kdr + ik_nakpump + ik_kna + ik_kap + ik_kad)
-	} else {
-	    gkleak_leak = -(ik_ks + ik_kf + ik_h + ik_kdr + ik_nakpump + ik_kna + ik_kap + ik_kad) / (Vrest - ek)
-	}
-    }
+	for i = 0,ndendA-1 {
+		treeA[i]{	
+			if ((-(ina_nattxs + ina_nav1p9 + ina_na18a + ina_na17a + ina_nap + ina_nafast + ina_naslow + ina_h + ina_nakpump) / (Vrest - ena)) < 0) {
+			    pumpina_extrapump = -(ina_nattxs + ina_nav1p9 + ina_na18a + ina_na17a + ina_nap + ina_nafast + ina_naslow + ina_h + ina_nakpump)
+			} else {
+			    gnaleak_leak = -(ina_nattxs + ina_nav1p9 + ina_na18a + ina_na17a + ina_nap + ina_nafast + ina_naslow + ina_h + ina_nakpump) / (Vrest - ena)
+			}
+			
+			if ((-(ik_ks + ik_kf + ik_h + ik_kdr + ik_nakpump + ik_kna + ik_kap + ik_kad) / (Vrest - ek)) < 0) {
+			    pumpik_extrapump = -(ik_ks + ik_kf + ik_h + ik_kdr + ik_nakpump + ik_kna + ik_kap + ik_kad)
+			} else {
+			    gkleak_leak = -(ik_ks + ik_kf + ik_h + ik_kdr + ik_nakpump + ik_kna + ik_kap + ik_kad) / (Vrest - ek)
+			}
+		    }
+		}
 }

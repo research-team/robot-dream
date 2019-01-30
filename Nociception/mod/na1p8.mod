@@ -2,7 +2,7 @@
 : Baker 2005, parameter assignments and formula's from page 854
 
 NEURON {
-	SUFFIX nav1p8
+	SUFFIX na1p8
 	NONSPECIFIC_CURRENT i
 	RANGE gbar, ena
 }

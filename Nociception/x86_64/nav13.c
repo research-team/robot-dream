@@ -22,15 +22,15 @@ extern int _method3;
 extern double hoc_Exp(double);
 #endif
  
-#define nrn_init _nrn_init__na17a
-#define _nrn_initial _nrn_initial__na17a
-#define nrn_cur _nrn_cur__na17a
-#define _nrn_current _nrn_current__na17a
-#define nrn_jacob _nrn_jacob__na17a
-#define nrn_state _nrn_state__na17a
-#define _net_receive _net_receive__na17a 
-#define kin kin__na17a 
-#define rates rates__na17a 
+#define nrn_init _nrn_init__na13a
+#define _nrn_initial _nrn_initial__na13a
+#define nrn_cur _nrn_cur__na13a
+#define _nrn_current _nrn_current__na13a
+#define nrn_jacob _nrn_jacob__na13a
+#define nrn_state _nrn_state__na13a
+#define _net_receive _net_receive__na13a 
+#define kin kin__na13a 
+#define rates rates__na13a 
  
 #define _threadargscomma_ _p, _ppvar, _thread, _nt,
 #define _threadargsprotocomma_ double* _p, Datum* _ppvar, Datum* _thread, _NrnThread* _nt,
@@ -119,118 +119,118 @@ extern Memb_func* memb_func;
 }
  /* connect user functions to hoc names */
  static VoidFunc hoc_intfunc[] = {
- "setdata_na17a", _hoc_setdata,
- "rates2_na17a", _hoc_rates2,
- "rates_na17a", _hoc_rates,
+ "setdata_na13a", _hoc_setdata,
+ "rates2_na13a", _hoc_rates2,
+ "rates_na13a", _hoc_rates,
  0, 0
 };
-#define rates2 rates2_na17a
+#define rates2 rates2_na13a
  extern double rates2( _threadargsprotocomma_ double , double , double , double );
  /* declare global and static user variables */
-#define C1I1k2 C1I1k2_na17a
- double C1I1k2 = -20;
-#define C1I1v2 C1I1v2_na17a
- double C1I1v2 = -55;
-#define C1I1b2 C1I1b2_na17a
- double C1I1b2 = 0.025;
-#define C2O2k2 C2O2k2_na17a
+#define C1I1k2 C1I1k2_na13a
+ double C1I1k2 = -8;
+#define C1I1v2 C1I1v2_na13a
+ double C1I1v2 = -68;
+#define C1I1b2 C1I1b2_na13a
+ double C1I1b2 = 0.09;
+#define C2O2k2 C2O2k2_na13a
  double C2O2k2 = -5;
-#define C2O2v2 C2O2v2_na17a
- double C2O2v2 = -35;
-#define C2O2b2 C2O2b2_na17a
- double C2O2b2 = 0.01;
-#define C2O1k2 C2O1k2_na17a
+#define C2O2v2 C2O2v2_na13a
+ double C2O2v2 = -15;
+#define C2O2b2 C2O2b2_na13a
+ double C2O2b2 = 0.13;
+#define C2O1k2 C2O1k2_na13a
  double C2O1k2 = -9;
-#define C2O1v2 C2O1v2_na17a
+#define C2O1v2 C2O1v2_na13a
  double C2O1v2 = -26;
-#define C2O1b2 C2O1b2_na17a
- double C2O1b2 = 36;
-#define C2C1k2 C2C1k2_na17a
+#define C2O1b2 C2O1b2_na13a
+ double C2O1b2 = 8;
+#define C2C1k2 C2C1k2_na13a
  double C2C1k2 = -9;
-#define C2C1v2 C2C1v2_na17a
- double C2C1v2 = -18;
-#define C2C1b2 C2C1b2_na17a
- double C2C1b2 = 26;
-#define C2C1k1 C2C1k1_na17a
+#define C2C1v2 C2C1v2_na13a
+ double C2C1v2 = -7;
+#define C2C1b2 C2C1b2_na13a
+ double C2C1b2 = 8;
+#define C2C1k1 C2C1k1_na13a
  double C2C1k1 = 9;
-#define C2C1v1 C2C1v1_na17a
- double C2C1v1 = -48;
-#define C2C1b1 C2C1b1_na17a
- double C2C1b1 = 36;
-#define C1C2k2 C1C2k2_na17a
+#define C2C1v1 C2C1v1_na13a
+ double C2C1v1 = -37;
+#define C2C1b1 C2C1b1_na13a
+ double C2C1b1 = 2;
+#define C1C2k2 C1C2k2_na13a
  double C1C2k2 = -9;
-#define C1C2v2 C1C2v2_na17a
- double C1C2v2 = -18;
-#define C1C2b2 C1C2b2_na17a
- double C1C2b2 = 36;
-#define I2I1k1 I2I1k1_na17a
- double I2I1k1 = 20;
-#define I2I1v1 I2I1v1_na17a
- double I2I1v1 = -80;
-#define I2I1b1 I2I1b1_na17a
- double I2I1b1 = 1e-05;
-#define I1I2k2 I1I2k2_na17a
- double I1I2k2 = -20;
-#define I1I2v2 I1I2v2_na17a
- double I1I2v2 = -80;
-#define I1I2b2 I1I2b2_na17a
- double I1I2b2 = 1e-05;
-#define I1C1k1 I1C1k1_na17a
- double I1C1k1 = 5;
-#define I1C1v1 I1C1v1_na17a
- double I1C1v1 = -110;
-#define I1C1b1 I1C1b1_na17a
- double I1C1b1 = 0.085;
-#define I1O1k1 I1O1k1_na17a
+#define C1C2v2 C1C2v2_na13a
+ double C1C2v2 = -7;
+#define C1C2b2 C1C2b2_na13a
+ double C1C2b2 = 8;
+#define I2I1k1 I2I1k1_na13a
+ double I2I1k1 = 15;
+#define I2I1v1 I2I1v1_na13a
+ double I2I1v1 = -90;
+#define I2I1b1 I2I1b1_na13a
+ double I2I1b1 = 0.0001;
+#define I1I2k2 I1I2k2_na13a
+ double I1I2k2 = -5;
+#define I1I2v2 I1I2v2_na13a
+ double I1I2v2 = -90;
+#define I1I2b2 I1I2b2_na13a
+ double I1I2b2 = 0.0001;
+#define I1C1k1 I1C1k1_na13a
+ double I1C1k1 = 10;
+#define I1C1v1 I1C1v1_na13a
+ double I1C1v1 = -70;
+#define I1C1b1 I1C1b1_na13a
+ double I1C1b1 = 0.062;
+#define I1O1k1 I1O1k1_na13a
  double I1O1k1 = 10;
-#define I1O1v1 I1O1v1_na17a
+#define I1O1v1 I1O1v1_na13a
  double I1O1v1 = -52;
-#define I1O1b1 I1O1b1_na17a
+#define I1O1b1 I1O1b1_na13a
  double I1O1b1 = 1e-05;
-#define O1I1k2 O1I1k2_na17a
- double O1I1k2 = -12;
-#define O1I1v2 O1I1v2_na17a
- double O1I1v2 = -27;
-#define O1I1b2 O1I1b2_na17a
+#define O1I1k2 O1I1k2_na13a
+ double O1I1k2 = -13;
+#define O1I1v2 O1I1v2_na13a
+ double O1I1v2 = -22;
+#define O1I1b2 O1I1b2_na13a
  double O1I1b2 = 8;
-#define O1I1k1 O1I1k1_na17a
- double O1I1k1 = 12;
-#define O1I1v1 O1I1v1_na17a
+#define O1I1k1 O1I1k1_na13a
+ double O1I1k1 = 13;
+#define O1I1v1 O1I1v1_na13a
  double O1I1v1 = -52;
-#define O1I1b1 O1I1b1_na17a
- double O1I1b1 = 4;
-#define O2C2k2 O2C2k2_na17a
- double O2C2k2 = -5;
-#define O2C2v2 O2C2v2_na17a
- double O2C2v2 = -35;
-#define O2C2b2 O2C2b2_na17a
- double O2C2b2 = 0.01;
-#define O2C2k1 O2C2k1_na17a
- double O2C2k1 = 5;
-#define O2C2v1 O2C2v1_na17a
- double O2C2v1 = -75;
-#define O2C2b1 O2C2b1_na17a
- double O2C2b1 = 50;
-#define O1C2k2 O1C2k2_na17a
+#define O1I1b1 O1I1b1_na13a
+ double O1I1b1 = 2;
+#define O2C2k2 O2C2k2_na13a
+ double O2C2k2 = -3;
+#define O2C2v2 O2C2v2_na13a
+ double O2C2v2 = -20;
+#define O2C2b2 O2C2b2_na13a
+ double O2C2b2 = 0.2;
+#define O2C2k1 O2C2k1_na13a
+ double O2C2k1 = 3;
+#define O2C2v1 O2C2v1_na13a
+ double O2C2v1 = -40;
+#define O2C2b1 O2C2b1_na13a
+ double O2C2b1 = 1;
+#define O1C2k2 O1C2k2_na13a
  double O1C2k2 = -9;
-#define O1C2v2 O1C2v2_na17a
- double O1C2v2 = -23;
-#define O1C2b2 O1C2b2_na17a
- double O1C2b2 = 26;
-#define O1C2k1 O1C2k1_na17a
- double O1C2k1 = 19;
-#define O1C2v1 O1C2v1_na17a
- double O1C2v1 = -53;
-#define O1C2b1 O1C2b1_na17a
- double O1C2b1 = 40;
+#define O1C2v2 O1C2v2_na13a
+ double O1C2v2 = -17;
+#define O1C2b2 O1C2b2_na13a
+ double O1C2b2 = 8;
+#define O1C2k1 O1C2k1_na13a
+ double O1C2k1 = 9;
+#define O1C2v1 O1C2v1_na13a
+ double O1C2v1 = -47;
+#define O1C2b1 O1C2b1_na13a
+ double O1C2b1 = 2;
  /* some parameters have upper and lower limits */
  static HocParmLimits _hoc_parm_limits[] = {
  0,0,0
 };
  static HocParmUnits _hoc_parm_units[] = {
- "gbar_na17a", "mho/cm2",
- "ina_na17a", "mA/cm2",
- "g_na17a", "mho/cm2",
+ "gbar_na13a", "mho/cm2",
+ "ina_na13a", "mA/cm2",
+ "g_na13a", "mho/cm2",
  0,0
 };
  static double C20 = 0;
@@ -242,54 +242,54 @@ extern Memb_func* memb_func;
  static double delta_t = 0.01;
  /* connect global user variables to hoc */
  static DoubScal hoc_scdoub[] = {
- "C1C2b2_na17a", &C1C2b2_na17a,
- "C1C2v2_na17a", &C1C2v2_na17a,
- "C1C2k2_na17a", &C1C2k2_na17a,
- "C2C1b1_na17a", &C2C1b1_na17a,
- "C2C1v1_na17a", &C2C1v1_na17a,
- "C2C1k1_na17a", &C2C1k1_na17a,
- "C2C1b2_na17a", &C2C1b2_na17a,
- "C2C1v2_na17a", &C2C1v2_na17a,
- "C2C1k2_na17a", &C2C1k2_na17a,
- "C2O1b2_na17a", &C2O1b2_na17a,
- "C2O1v2_na17a", &C2O1v2_na17a,
- "C2O1k2_na17a", &C2O1k2_na17a,
- "O1C2b1_na17a", &O1C2b1_na17a,
- "O1C2v1_na17a", &O1C2v1_na17a,
- "O1C2k1_na17a", &O1C2k1_na17a,
- "O1C2b2_na17a", &O1C2b2_na17a,
- "O1C2v2_na17a", &O1C2v2_na17a,
- "O1C2k2_na17a", &O1C2k2_na17a,
- "C2O2b2_na17a", &C2O2b2_na17a,
- "C2O2v2_na17a", &C2O2v2_na17a,
- "C2O2k2_na17a", &C2O2k2_na17a,
- "O2C2b1_na17a", &O2C2b1_na17a,
- "O2C2v1_na17a", &O2C2v1_na17a,
- "O2C2k1_na17a", &O2C2k1_na17a,
- "O2C2b2_na17a", &O2C2b2_na17a,
- "O2C2v2_na17a", &O2C2v2_na17a,
- "O2C2k2_na17a", &O2C2k2_na17a,
- "O1I1b1_na17a", &O1I1b1_na17a,
- "O1I1v1_na17a", &O1I1v1_na17a,
- "O1I1k1_na17a", &O1I1k1_na17a,
- "O1I1b2_na17a", &O1I1b2_na17a,
- "O1I1v2_na17a", &O1I1v2_na17a,
- "O1I1k2_na17a", &O1I1k2_na17a,
- "I1O1b1_na17a", &I1O1b1_na17a,
- "I1O1v1_na17a", &I1O1v1_na17a,
- "I1O1k1_na17a", &I1O1k1_na17a,
- "I1C1b1_na17a", &I1C1b1_na17a,
- "I1C1v1_na17a", &I1C1v1_na17a,
- "I1C1k1_na17a", &I1C1k1_na17a,
- "C1I1b2_na17a", &C1I1b2_na17a,
- "C1I1v2_na17a", &C1I1v2_na17a,
- "C1I1k2_na17a", &C1I1k2_na17a,
- "I1I2b2_na17a", &I1I2b2_na17a,
- "I1I2v2_na17a", &I1I2v2_na17a,
- "I1I2k2_na17a", &I1I2k2_na17a,
- "I2I1b1_na17a", &I2I1b1_na17a,
- "I2I1v1_na17a", &I2I1v1_na17a,
- "I2I1k1_na17a", &I2I1k1_na17a,
+ "C1C2b2_na13a", &C1C2b2_na13a,
+ "C1C2v2_na13a", &C1C2v2_na13a,
+ "C1C2k2_na13a", &C1C2k2_na13a,
+ "C2C1b1_na13a", &C2C1b1_na13a,
+ "C2C1v1_na13a", &C2C1v1_na13a,
+ "C2C1k1_na13a", &C2C1k1_na13a,
+ "C2C1b2_na13a", &C2C1b2_na13a,
+ "C2C1v2_na13a", &C2C1v2_na13a,
+ "C2C1k2_na13a", &C2C1k2_na13a,
+ "C2O1b2_na13a", &C2O1b2_na13a,
+ "C2O1v2_na13a", &C2O1v2_na13a,
+ "C2O1k2_na13a", &C2O1k2_na13a,
+ "O1C2b1_na13a", &O1C2b1_na13a,
+ "O1C2v1_na13a", &O1C2v1_na13a,
+ "O1C2k1_na13a", &O1C2k1_na13a,
+ "O1C2b2_na13a", &O1C2b2_na13a,
+ "O1C2v2_na13a", &O1C2v2_na13a,
+ "O1C2k2_na13a", &O1C2k2_na13a,
+ "C2O2b2_na13a", &C2O2b2_na13a,
+ "C2O2v2_na13a", &C2O2v2_na13a,
+ "C2O2k2_na13a", &C2O2k2_na13a,
+ "O2C2b1_na13a", &O2C2b1_na13a,
+ "O2C2v1_na13a", &O2C2v1_na13a,
+ "O2C2k1_na13a", &O2C2k1_na13a,
+ "O2C2b2_na13a", &O2C2b2_na13a,
+ "O2C2v2_na13a", &O2C2v2_na13a,
+ "O2C2k2_na13a", &O2C2k2_na13a,
+ "O1I1b1_na13a", &O1I1b1_na13a,
+ "O1I1v1_na13a", &O1I1v1_na13a,
+ "O1I1k1_na13a", &O1I1k1_na13a,
+ "O1I1b2_na13a", &O1I1b2_na13a,
+ "O1I1v2_na13a", &O1I1v2_na13a,
+ "O1I1k2_na13a", &O1I1k2_na13a,
+ "I1O1b1_na13a", &I1O1b1_na13a,
+ "I1O1v1_na13a", &I1O1v1_na13a,
+ "I1O1k1_na13a", &I1O1k1_na13a,
+ "I1C1b1_na13a", &I1C1b1_na13a,
+ "I1C1v1_na13a", &I1C1v1_na13a,
+ "I1C1k1_na13a", &I1C1k1_na13a,
+ "C1I1b2_na13a", &C1I1b2_na13a,
+ "C1I1v2_na13a", &C1I1v2_na13a,
+ "C1I1k2_na13a", &C1I1k2_na13a,
+ "I1I2b2_na13a", &I1I2b2_na13a,
+ "I1I2v2_na13a", &I1I2v2_na13a,
+ "I1I2k2_na13a", &I1I2k2_na13a,
+ "I2I1b1_na13a", &I2I1b1_na13a,
+ "I2I1v1_na13a", &I2I1v1_na13a,
+ "I2I1k1_na13a", &I2I1k1_na13a,
  0,0
 };
  static DoubVec hoc_vdoub[] = {
@@ -312,18 +312,18 @@ static void _ode_matsol(_NrnThread*, _Memb_list*, int);
  /* connect range variables in _p that hoc is supposed to know about */
  static const char *_mechanism[] = {
  "7.5.0",
-"na17a",
- "gbar_na17a",
+"na13a",
+ "gbar_na13a",
  0,
- "ina_na17a",
- "g_na17a",
+ "ina_na13a",
+ "g_na13a",
  0,
- "C1_na17a",
- "C2_na17a",
- "O1_na17a",
- "O2_na17a",
- "I1_na17a",
- "I2_na17a",
+ "C1_na13a",
+ "C2_na13a",
+ "O1_na13a",
+ "O2_na13a",
+ "I1_na13a",
+ "I2_na13a",
  0,
  0};
  static Symbol* _na_sym;
@@ -362,7 +362,7 @@ extern void _nrn_thread_table_reg(int, void(*)(double*, Datum*, Datum*, _NrnThre
 extern void hoc_register_tolerance(int, HocStateTolerance*, Symbol***);
 extern void _cvode_abstol( Symbol**, double*, int);
 
- void _Nav17_a_reg() {
+ void _nav13_reg() {
 	int _vectorized = 1;
   _initlists();
  	ion_reg("na", -10000.);
@@ -381,12 +381,12 @@ extern void _cvode_abstol( Symbol**, double*, int);
  	hoc_register_cvode(_mechtype, _ode_count, _ode_map, _ode_spec, _ode_matsol);
  	hoc_register_tolerance(_mechtype, _hoc_state_tol, &_atollist);
  	hoc_register_var(hoc_scdoub, hoc_vdoub, hoc_intfunc);
- 	ivoc_help("help ?1 na17a /Users/sulgod/rd/Nociception/x86_64/Nav17_a.mod\n");
+ 	ivoc_help("help ?1 na13a /Users/sulgod/rd/Nociception/x86_64/nav13.mod\n");
  hoc_register_limits(_mechtype, _hoc_parm_limits);
  hoc_register_units(_mechtype, _hoc_parm_units);
  }
 static int _reset;
-static char *modelname = "Nav1.7 ionic voltage-gated channel with kinetic scheme";
+static char *modelname = "Nav1.3 ionic voltage-gated channel with kinetic scheme";
 
 static int error;
 static int _ninits = 0;

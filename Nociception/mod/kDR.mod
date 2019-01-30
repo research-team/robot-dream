@@ -1,66 +1,67 @@
-TITLE  Non-inactivating potassium delayed rectifier current (kDR-current)
+:sheets 2007
 
-COMMENT
-written for NEURON by Antonios Dougalis, 23 Feb 2015, London
-based on voltage clamp data from Dougalis et al., 2017 J Compu Neurosci 
-ENDCOMMENT
+
+NEURON {
+	SUFFIX kdr
+	USEION k READ ek WRITE ik
+	RANGE gbar, ena, ik,ek, celsiusT
+}
 
 UNITS {
-        (S) = (siemens)
-        (mA) = (milliamp)
-        (mV) = (millivolt)
+	(S) = (siemens)
+	(mV) = (millivolts)
+	(mA) = (milliamp)
 }
- 
-NEURON {
-        SUFFIX kdr
-        USEION k READ ek WRITE ik
-		RANGE gkDRbar,ikDR,ik,ek
-        RANGE ninf
-		RANGE tau_n
-		RANGE vhalfkDRAct,slopekDRAct, vhalfkDRTAct, slopekDRTAct
-}
- 
+
 PARAMETER {
-        v   (mV)
-        dt  (ms)
-		gkDRbar = 0.003 (S/cm2)
-        ek  = -73.0  (mV)
-		vhalfkDRAct = -25 (mV)
-        slopekDRAct = 12
-        vhalfkDRTAct = -38.4 (mV)
-        slopekDRTAct = -6.9	
+	gbar 	(S/cm2)
+        celsiusT
+        kvot_qt
+        k=15.4	(mV)
+        Vh=35	(mV)
+
 }
- 
-STATE {
-        n
-}
- 
+
 ASSIGNED {
-        ik (mA/cm2)
-		ikDR (mA/cm2)
-        ninf 
-	    tau_n
+	v	(mV) : NEURON provides this
+	ik	(mA/cm2)
+	g	(S/cm2)
+	tau	(ms)
+        ninf
+        ek	(mV)
+   
 }
- 
+
+STATE { n }
+
 BREAKPOINT {
-        SOLVE states METHOD cnexp
-        ikDR = gkDRbar*n*n*(v - ek)      
-        ik=ikDR		
+	SOLVE states METHOD cnexp
+	g = gbar*n^4 
+	ik = g*(v-ek)
 }
- 
-UNITSOFF
 
 INITIAL {
-        n = ninf
-        
- }
+	: assume that equilibrium has been reached
+	n=1/(1+exp((v+Vh-10)/-k))
 
-DERIVATIVE states { 
-        LOCAL ninf,tau_n
-        ninf = 1/(1 + exp(-(v - vhalfkDRAct)/slopekDRAct))
-		tau_n = 95.2* (1/(1 + exp(-(v - vhalfkDRTAct)/slopekDRTAct))) 
-		n' = (ninf-n)/tau_n
-		
 }
- 
-UNITSON
+
+DERIVATIVE states {
+	rates(v)
+	n' = (ninf - n)/tau
+
+}
+
+
+FUNCTION rates(Vm (mV)) (/ms) {        
+        ninf=1/(1+exp((v+Vh-10)/-k))
+        tau=0.16+0.8*exp(-0.0267*(v+11)) 
+        
+        if (v<-31){
+        tau=1000*(0.000688 +1/(exp((v+75.2)/6.5) + exp((v-131.5)/-34.8))) 
+        } 
+      
+        kvot_qt=1/((3.3^((celsiusT-22)/10)))
+        tau=tau*kvot_qt
+
+}

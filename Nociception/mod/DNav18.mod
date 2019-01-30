@@ -3,7 +3,7 @@
 : run NaV18_delmas.m to plot the model
 
 NEURON {
-	SUFFIX nav1pp8
+	SUFFIX navv1p8
 	USEION na READ ena WRITE ina
  	RANGE gbar, ena, ina, celsiusT
 }

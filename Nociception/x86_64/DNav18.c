@@ -22,14 +22,14 @@ extern int _method3;
 extern double hoc_Exp(double);
 #endif
  
-#define nrn_init _nrn_init__nav1pp8
-#define _nrn_initial _nrn_initial__nav1pp8
-#define nrn_cur _nrn_cur__nav1pp8
-#define _nrn_current _nrn_current__nav1pp8
-#define nrn_jacob _nrn_jacob__nav1pp8
-#define nrn_state _nrn_state__nav1pp8
-#define _net_receive _net_receive__nav1pp8 
-#define states states__nav1pp8 
+#define nrn_init _nrn_init__navv1p8
+#define _nrn_initial _nrn_initial__navv1p8
+#define nrn_cur _nrn_cur__navv1p8
+#define _nrn_current _nrn_current__navv1p8
+#define nrn_jacob _nrn_jacob__navv1p8
+#define nrn_state _nrn_state__navv1p8
+#define _net_receive _net_receive__navv1p8 
+#define states states__navv1p8 
  
 #define _threadargscomma_ _p, _ppvar, _thread, _nt,
 #define _threadargsprotocomma_ double* _p, Datum* _ppvar, Datum* _thread, _NrnThread* _nt,
@@ -114,19 +114,19 @@ extern Memb_func* memb_func;
 }
  /* connect user functions to hoc names */
  static VoidFunc hoc_intfunc[] = {
- "setdata_nav1pp8", _hoc_setdata,
- "alphau_nav1pp8", _hoc_alphau,
- "alphas_nav1pp8", _hoc_alphas,
- "betau_nav1pp8", _hoc_betau,
- "betas_nav1pp8", _hoc_betas,
- "rates_nav1pp8", _hoc_rates,
+ "setdata_navv1p8", _hoc_setdata,
+ "alphau_navv1p8", _hoc_alphau,
+ "alphas_navv1p8", _hoc_alphas,
+ "betau_navv1p8", _hoc_betau,
+ "betas_navv1p8", _hoc_betas,
+ "rates_navv1p8", _hoc_rates,
  0, 0
 };
-#define alphau alphau_nav1pp8
-#define alphas alphas_nav1pp8
-#define betau betau_nav1pp8
-#define betas betas_nav1pp8
-#define rates rates_nav1pp8
+#define alphau alphau_navv1p8
+#define alphas alphas_navv1p8
+#define betau betau_navv1p8
+#define betas betas_navv1p8
+#define rates rates_navv1p8
  extern double alphau( _threadargsprotocomma_ double );
  extern double alphas( _threadargsprotocomma_ double );
  extern double betau( _threadargsprotocomma_ double );
@@ -136,21 +136,21 @@ extern Memb_func* memb_func;
  static int _thread1data_inuse = 0;
 static double _thread1data[1];
 #define _gth 0
-#define kvot_qt_nav1pp8 _thread1data[0]
+#define kvot_qt_navv1p8 _thread1data[0]
 #define kvot_qt _thread[_gth]._pval[0]
-#define shift_inact shift_inact_nav1pp8
+#define shift_inact shift_inact_navv1p8
  double shift_inact = 0;
-#define shift_act shift_act_nav1pp8
+#define shift_act shift_act_navv1p8
  double shift_act = 0;
  /* some parameters have upper and lower limits */
  static HocParmLimits _hoc_parm_limits[] = {
  0,0,0
 };
  static HocParmUnits _hoc_parm_units[] = {
- "shift_act_nav1pp8", "mV",
- "shift_inact_nav1pp8", "mV",
- "gbar_nav1pp8", "S/cm2",
- "ina_nav1pp8", "mA/cm2",
+ "shift_act_navv1p8", "mV",
+ "shift_inact_navv1p8", "mV",
+ "gbar_navv1p8", "S/cm2",
+ "ina_navv1p8", "mA/cm2",
  0,0
 };
  static double delta_t = 0.01;
@@ -160,9 +160,9 @@ static double _thread1data[1];
  static double u0 = 0;
  /* connect global user variables to hoc */
  static DoubScal hoc_scdoub[] = {
- "kvot_qt_nav1pp8", &kvot_qt_nav1pp8,
- "shift_act_nav1pp8", &shift_act_nav1pp8,
- "shift_inact_nav1pp8", &shift_inact_nav1pp8,
+ "kvot_qt_navv1p8", &kvot_qt_navv1p8,
+ "shift_act_navv1p8", &shift_act_navv1p8,
+ "shift_inact_navv1p8", &shift_inact_navv1p8,
  0,0
 };
  static DoubVec hoc_vdoub[] = {
@@ -185,16 +185,16 @@ static void _ode_matsol(_NrnThread*, _Memb_list*, int);
  /* connect range variables in _p that hoc is supposed to know about */
  static const char *_mechanism[] = {
  "7.5.0",
-"nav1pp8",
- "gbar_nav1pp8",
- "celsiusT_nav1pp8",
+"navv1p8",
+ "gbar_navv1p8",
+ "celsiusT_navv1p8",
  0,
- "ina_nav1pp8",
+ "ina_navv1p8",
  0,
- "m_nav1pp8",
- "h_nav1pp8",
- "s_nav1pp8",
- "u_nav1pp8",
+ "m_navv1p8",
+ "h_navv1p8",
+ "s_navv1p8",
+ "u_navv1p8",
  0,
  0};
  static Symbol* _na_sym;
@@ -257,7 +257,7 @@ extern void _cvode_abstol( Symbol**, double*, int);
  	hoc_register_cvode(_mechtype, _ode_count, _ode_map, _ode_spec, _ode_matsol);
  	hoc_register_tolerance(_mechtype, _hoc_state_tol, &_atollist);
  	hoc_register_var(hoc_scdoub, hoc_vdoub, hoc_intfunc);
- 	ivoc_help("help ?1 nav1pp8 /Users/sulgod/rd/Nociception/x86_64/DNav18.mod\n");
+ 	ivoc_help("help ?1 navv1p8 /Users/sulgod/rd/Nociception/x86_64/DNav18.mod\n");
  hoc_register_limits(_mechtype, _hoc_parm_limits);
  hoc_register_units(_mechtype, _hoc_parm_units);
  }

@@ -28,12 +28,12 @@ class cfiber(object):
         #for i in range(1, len(self.dend)):
         #    self.dend[i].connect(self.dend[i-1], 1)
     def define_geometry(self):
-        self.stimsec.L = 100
+        self.stimsec.L = 400
         self.stimsec.diam = 0.25
-        self.stimsec.nseg = 10
-        self.branch.L = 5000
-        self.branch.diam = 1
-        self.branch.nseg = 100
+        self.stimsec.nseg = 1
+        self.branch.L = 1000
+        self.branch.diam = 0.25
+        self.branch.nseg = 10
         '''
         self.cone.L = 5000
         self.cone.diam = 0.25
@@ -80,31 +80,29 @@ class cfiber(object):
             sec.insert('kad')
             sec.insert('kap')
             sec.insert('leak')
-            sec.gkleak_leak=0.000001
-            sec.gnaleak_leak=0.000001
             sec.gbar_na17a = 0.1066439
-            sec.gbar_nav1p8 = 0.48#24271
-            sec.gbar_nap = 0.0001
-            sec.gbar_nafast = 0.0005
-            sec.gbar_naslow = 0.0002
+            sec.gbar_nav1p8 = 0.14271
+            sec.gbar_nap = 0.0002
+            sec.gbar_nafast = 0.02
+            sec.gbar_naslow = 0.01
             sec.gbar_kdr = 0.018002
-            sec.gbar_kad = 0.01
-            sec.gbar_kap = 0.005	
-            sec.gbar_ks = 0.0069733
-            sec.gbar_kf = 0.012756
-            sec.gbar_h = 0.0025377
-            sec.gbar_nattxs = 0.10664
-            sec.gbar_nav1p9 = 9.4779e-5
-            sec.smalla_nakpump = -0.0047891
-            sec.gbar_kna = 0.00042
-            sec.theta_naoi = 0.029
-            sec.theta_koi = 0.029
+            sec.gbar_kad = 0.95
+            sec.gbar_kap = 0.95	
+            sec.gbar_ks = 0.0#069733
+            sec.gbar_kf = 0.0#12756
+            sec.gbar_h = 0.0#25377
+            sec.gbar_nattxs = 0.0#10664
+            sec.gbar_nav1p9 = 0#9.4779e-5
+            sec.smalla_nakpump = -0.047891
+            sec.gbar_kna = 0.0#0042
+            sec.theta_naoi = 0.045
+            sec.theta_koi = 0.045
             sec.celsiusT_ks = 37
             sec.celsiusT_kf = 37
             sec.celsiusT_h = 37
-            sec.celsiusT_nattxs = 37
+            #sec.celsiusT_nattxs = 37
             sec.celsiusT_nav1p8 = 37
-            sec.celsiusT_nav1p9 = 37
+            #sec.celsiusT_nav1p9 = 37
             sec.celsiusT_nakpump = 37
             sec.celsiusT_kdr = 37
     def build_subsets(self):
@@ -139,8 +137,14 @@ def balance(cell, vinit=-55):
         else:
             sec.gkleak_leak = -(sec.ik_ks + sec.ik_kf + sec.ik_h + sec.ik_kdr + sec.ik_nakpump + sec.ik_kna + sec.ik_kap + sec.ik_kad) / (vinit - sec.ek)
 
-def simulate(cell, tstop=1400, vinit=-55):
+def simulate(cell, tstop=104, vinit=-55):
+    h.finitialize(vinit)
     balance(cell)
+    if h.cvode.active():
+        h.cvode.active()
+    else:
+        h.fcurrent()
+    h.frecord_init()
     print(cell.stimsec.gnaleak_leak)
     h.tstop = tstop
     h.v_init = vinit
@@ -157,14 +161,14 @@ def show_output(soma_v_vec, dend_v_vec, t_vec, new_fig=True):
 
 cell = cfiber()
 diff = [h.AtP_4(cell.stimsec(0.1)) for i in range(10)]
-rec = [h.r5ht3a(cell.stimsec(0.1)) for i in range(10)]
+rec = [h.p2x3(cell.stimsec(0.1)) for i in range(10)]
 for i in range(10):
     diff[i].h = 0.01
-    diff[i].Deff = 0.004
+    diff[i].Deff = 0.08
     diff[i].tx1 = 10 + 100*i
-    rec[i].Ev = 20
-    rec[i].gmax = 10
-    h.setpointer(diff[i]._ref_atp, 'serotonin', rec[i])
+    rec[i].Ev = 7
+    rec[i].gmax = 6
+    h.setpointer(diff[i]._ref_atp, 'patp', rec[i])
 for sec in h.allsec():
     h.psection(sec=sec)
 soma_v_vec, dend_v_vec, t_vec = set_recording_vectors(cell)

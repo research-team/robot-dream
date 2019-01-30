@@ -22,14 +22,14 @@ extern int _method3;
 extern double hoc_Exp(double);
 #endif
  
-#define nrn_init _nrn_init__nav1p8
-#define _nrn_initial _nrn_initial__nav1p8
-#define nrn_cur _nrn_cur__nav1p8
-#define _nrn_current _nrn_current__nav1p8
-#define nrn_jacob _nrn_jacob__nav1p8
-#define nrn_state _nrn_state__nav1p8
-#define _net_receive _net_receive__nav1p8 
-#define states states__nav1p8 
+#define nrn_init _nrn_init__na1p8
+#define _nrn_initial _nrn_initial__na1p8
+#define nrn_cur _nrn_cur__na1p8
+#define _nrn_current _nrn_current__na1p8
+#define nrn_jacob _nrn_jacob__na1p8
+#define nrn_state _nrn_state__na1p8
+#define _net_receive _net_receive__na1p8 
+#define states states__na1p8 
  
 #define _threadargscomma_ _p, _ppvar, _thread, _nt,
 #define _threadargsprotocomma_ double* _p, Datum* _ppvar, Datum* _thread, _NrnThread* _nt,
@@ -100,68 +100,68 @@ extern Memb_func* memb_func;
 }
  /* connect user functions to hoc names */
  static VoidFunc hoc_intfunc[] = {
- "setdata_nav1p8", _hoc_setdata,
- "alphah_nav1p8", _hoc_alphah,
- "alpham_nav1p8", _hoc_alpham,
- "betah_nav1p8", _hoc_betah,
- "betam_nav1p8", _hoc_betam,
- "rates_nav1p8", _hoc_rates,
+ "setdata_na1p8", _hoc_setdata,
+ "alphah_na1p8", _hoc_alphah,
+ "alpham_na1p8", _hoc_alpham,
+ "betah_na1p8", _hoc_betah,
+ "betam_na1p8", _hoc_betam,
+ "rates_na1p8", _hoc_rates,
  0, 0
 };
-#define alphah alphah_nav1p8
-#define alpham alpham_nav1p8
-#define betah betah_nav1p8
-#define betam betam_nav1p8
-#define rates rates_nav1p8
+#define alphah alphah_na1p8
+#define alpham alpham_na1p8
+#define betah betah_na1p8
+#define betam betam_na1p8
+#define rates rates_na1p8
  extern double alphah( _threadargsprotocomma_ double );
  extern double alpham( _threadargsprotocomma_ double );
  extern double betah( _threadargsprotocomma_ double );
  extern double betam( _threadargsprotocomma_ double );
  extern double rates( _threadargsprotocomma_ double );
  /* declare global and static user variables */
-#define A_bh8 A_bh8_nav1p8
+#define A_bh8 A_bh8_na1p8
  double A_bh8 = 0.61714;
-#define A_bm8 A_bm8_nav1p8
+#define A_bm8 A_bm8_na1p8
  double A_bm8 = 6.894;
-#define A_ah8 A_ah8_nav1p8
+#define A_ah8 A_ah8_na1p8
  double A_ah8 = 0.013536;
-#define A_am8 A_am8_nav1p8
+#define A_am8 A_am8_na1p8
  double A_am8 = 3.83;
-#define B_bh8 B_bh8_nav1p8
+#define B_bh8 B_bh8_na1p8
  double B_bh8 = -21.8;
-#define B_bm8 B_bm8_nav1p8
+#define B_bm8 B_bm8_na1p8
  double B_bm8 = 41.2;
-#define B_ah8 B_ah8_nav1p8
+#define B_ah8 B_ah8_na1p8
  double B_ah8 = 105;
-#define B_am8 B_am8_nav1p8
+#define B_am8 B_am8_na1p8
  double B_am8 = 25.58;
-#define C_bh8 C_bh8_nav1p8
+#define C_bh8 C_bh8_na1p8
  double C_bh8 = -11.998;
-#define C_bm8 C_bm8_nav1p8
+#define C_bm8 C_bm8_na1p8
  double C_bm8 = 29.8;
-#define C_ah8 C_ah8_nav1p8
+#define C_ah8 C_ah8_na1p8
  double C_ah8 = 46.33;
-#define C_am8 C_am8_nav1p8
+#define C_am8 C_am8_na1p8
  double C_am8 = -11.47;
  /* some parameters have upper and lower limits */
  static HocParmLimits _hoc_parm_limits[] = {
  0,0,0
 };
  static HocParmUnits _hoc_parm_units[] = {
- "A_am8_nav1p8", "/ms",
- "B_am8_nav1p8", "mV",
- "C_am8_nav1p8", "mV",
- "A_ah8_nav1p8", "/ms",
- "B_ah8_nav1p8", "mV",
- "C_ah8_nav1p8", "mV",
- "A_bm8_nav1p8", "/ms",
- "B_bm8_nav1p8", "mV",
- "C_bm8_nav1p8", "mV",
- "A_bh8_nav1p8", "/ms",
- "B_bh8_nav1p8", "mV",
- "C_bh8_nav1p8", "mV",
- "ena_nav1p8", "mV",
- "i_nav1p8", "mA/cm2",
+ "A_am8_na1p8", "/ms",
+ "B_am8_na1p8", "mV",
+ "C_am8_na1p8", "mV",
+ "A_ah8_na1p8", "/ms",
+ "B_ah8_na1p8", "mV",
+ "C_ah8_na1p8", "mV",
+ "A_bm8_na1p8", "/ms",
+ "B_bm8_na1p8", "mV",
+ "C_bm8_na1p8", "mV",
+ "A_bh8_na1p8", "/ms",
+ "B_bh8_na1p8", "mV",
+ "C_bh8_na1p8", "mV",
+ "ena_na1p8", "mV",
+ "i_na1p8", "mA/cm2",
  0,0
 };
  static double delta_t = 0.01;
@@ -169,18 +169,18 @@ extern Memb_func* memb_func;
  static double m0 = 0;
  /* connect global user variables to hoc */
  static DoubScal hoc_scdoub[] = {
- "A_am8_nav1p8", &A_am8_nav1p8,
- "B_am8_nav1p8", &B_am8_nav1p8,
- "C_am8_nav1p8", &C_am8_nav1p8,
- "A_ah8_nav1p8", &A_ah8_nav1p8,
- "B_ah8_nav1p8", &B_ah8_nav1p8,
- "C_ah8_nav1p8", &C_ah8_nav1p8,
- "A_bm8_nav1p8", &A_bm8_nav1p8,
- "B_bm8_nav1p8", &B_bm8_nav1p8,
- "C_bm8_nav1p8", &C_bm8_nav1p8,
- "A_bh8_nav1p8", &A_bh8_nav1p8,
- "B_bh8_nav1p8", &B_bh8_nav1p8,
- "C_bh8_nav1p8", &C_bh8_nav1p8,
+ "A_am8_na1p8", &A_am8_na1p8,
+ "B_am8_na1p8", &B_am8_na1p8,
+ "C_am8_na1p8", &C_am8_na1p8,
+ "A_ah8_na1p8", &A_ah8_na1p8,
+ "B_ah8_na1p8", &B_ah8_na1p8,
+ "C_ah8_na1p8", &C_ah8_na1p8,
+ "A_bm8_na1p8", &A_bm8_na1p8,
+ "B_bm8_na1p8", &B_bm8_na1p8,
+ "C_bm8_na1p8", &C_bm8_na1p8,
+ "A_bh8_na1p8", &A_bh8_na1p8,
+ "B_bh8_na1p8", &B_bh8_na1p8,
+ "C_bh8_na1p8", &C_bh8_na1p8,
  0,0
 };
  static DoubVec hoc_vdoub[] = {
@@ -203,14 +203,14 @@ static void _ode_matsol(_NrnThread*, _Memb_list*, int);
  /* connect range variables in _p that hoc is supposed to know about */
  static const char *_mechanism[] = {
  "7.5.0",
-"nav1p8",
- "gbar_nav1p8",
- "ena_nav1p8",
+"na1p8",
+ "gbar_na1p8",
+ "ena_na1p8",
  0,
- "i_nav1p8",
+ "i_na1p8",
  0,
- "m_nav1p8",
- "h_nav1p8",
+ "m_na1p8",
+ "h_na1p8",
  0,
  0};
  
@@ -253,7 +253,7 @@ extern void _cvode_abstol( Symbol**, double*, int);
  	hoc_register_cvode(_mechtype, _ode_count, _ode_map, _ode_spec, _ode_matsol);
  	hoc_register_tolerance(_mechtype, _hoc_state_tol, &_atollist);
  	hoc_register_var(hoc_scdoub, hoc_vdoub, hoc_intfunc);
- 	ivoc_help("help ?1 nav1p8 /Users/sulgod/rd/Nociception/x86_64/nav1p8.mod\n");
+ 	ivoc_help("help ?1 na1p8 /Users/sulgod/rd/Nociception/x86_64/nav1p8.mod\n");
  hoc_register_limits(_mechtype, _hoc_parm_limits);
  hoc_register_units(_mechtype, _hoc_parm_units);
  }

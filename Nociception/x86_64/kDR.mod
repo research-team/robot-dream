@@ -1,1 +1,1 @@
-.././mod/kDR.mod
+.././mod/kdr.mod

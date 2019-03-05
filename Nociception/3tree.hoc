@@ -13,7 +13,7 @@ list= new List()
 for i=0, nsyn-1 {
   diff1[i]=new AtP_4(0.5)
   p2x30[i] = new p2x3(0.5)
-  diff1[i].c0cleft = 2
+  diff1[i].c0cleft = 5
   diff1[i].Deff = 0.08
   p2x30[i].Ev = 7
   p2x30[i].gmax = 6
@@ -93,49 +93,58 @@ for i = 0,ndendA-1 {
 
     }
 
-    insert navv1p8
-    gbar_navv1p8 = 0.184271
+   insert navv1p8
+    gbar_navv1p8 = 0.24271
     //slow_inact_nav18=1
     insert na17a
-    gbar_na17a=0.106
+    gbar_na17a=0//.106
     insert extracellular
     xg = 1000
     xc = 300
     //xraxial = 100
     insert nap
-    gbar_nap = 0.0002
+    gbar_nap = 0.0//002
     insert nafast
-    gbar_nafast=0.02
+    gbar_nafast=0.0//2
     insert naslow
-    gbar_naslow=0.01
+    gbar_naslow=0.0//1
 
     insert nav1p9
     gbar_nav1p9 = 0//9.4779e-5
 
     insert kdr
-    gbar_kdr = 0//.018002
+    gbar_kdr = 0.0//18002
 
     insert kna
     gbar_kna = 0//.00042
 
     insert kad 
-    gbar_kad = 0.95
+    gbar_kad = 0.15
     insert kap   
-    gbar_kap = 0.65
+    gbar_kap = 0.15
     
     insert nakpump
-    smalla_nakpump = -0.047891
+    smalla_nakpump = -0.0047891
     insert naoi
-    theta_naoi = 0.045
+    theta_naoi = 0.029
     insert koi
-    theta_koi = 0.045
+    theta_koi = 0.029
     
     insert leak
-    insert extrapump  
+    insert extrapump 
+
+    insert Nav1_3 
+    gbar_Nav1_3 = 0.2
+
+    insert nattxs
+    gbar_nattxs = 0.1
 
     celsiusT_nakpump = 37
     celsiusT_navv1p8 = 37
     celsiusT_kdr = 37
+    //celsius_na13a = 37
+    celsius_na17a = 37  
+    celsiusT_nattxs = 37  
 
     if (child1 >= 0) {
       connect treeA[child1](0), 1
@@ -192,7 +201,7 @@ objref fok
 
 {load_file("balance.hoc")}
 
-tstop = 500
+tstop = 600
 
 proc init() {
     finitialize(v_init)

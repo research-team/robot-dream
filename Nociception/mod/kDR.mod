@@ -1,67 +1,77 @@
-:sheets 2007
-
+TITLE K-DR channel
+: from Klee Ficker and Heinemann
+: modified to account for Dax et al.
+: M.Migliore 1997
 
 NEURON {
 	SUFFIX kdr
 	USEION k READ ek WRITE ik
-	RANGE gbar, ena, ik,ek, celsiusT
+        RANGE gkdr,gbar,ik, vhalfn
+	GLOBAL ninf,taun
 }
 
 UNITS {
-	(S) = (siemens)
-	(mV) = (millivolts)
 	(mA) = (milliamp)
+	(mV) = (millivolt)
+
 }
 
 PARAMETER {
-	gbar 	(S/cm2)
-        celsiusT
-        kvot_qt
-        k=15.4	(mV)
-        Vh=35	(mV)
+	v (mV)
+        ek (mV)		: must be explicitely def. in hoc
+	celsius		(degC)
+	gbar=.003 (mho/cm2)
+        vhalfn=13   (mV)
+        a0n=0.02      (/ms)
+        zetan=-3    (1)
+        gmn=0.7  (1)
+	nmax=2  (1)
+	q10=1
+}
 
+
+STATE {
+	n
 }
 
 ASSIGNED {
-	v	(mV) : NEURON provides this
-	ik	(mA/cm2)
-	g	(S/cm2)
-	tau	(ms)
+	ik (mA/cm2)
         ninf
-        ek	(mV)
-   
+        gkdr
+        taun
 }
-
-STATE { n }
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	g = gbar*n^4 
-	ik = g*(v-ek)
+	gkdr = gbar*n*n
+	ik = gkdr*(v-ek)
+
 }
 
 INITIAL {
-	: assume that equilibrium has been reached
-	n=1/(1+exp((v+Vh-10)/-k))
-
-}
-
-DERIVATIVE states {
 	rates(v)
-	n' = (ninf - n)/tau
-
+	n=ninf
 }
 
 
-FUNCTION rates(Vm (mV)) (/ms) {        
-        ninf=1/(1+exp((v+Vh-10)/-k))
-        tau=0.16+0.8*exp(-0.0267*(v+11)) 
-        
-        if (v<-31){
-        tau=1000*(0.000688 +1/(exp((v+75.2)/6.5) + exp((v-131.5)/-34.8))) 
-        } 
-      
-        kvot_qt=1/((3.3^((celsiusT-22)/10)))
-        tau=tau*kvot_qt
+FUNCTION alpn(v(mV)) {
+  alpn = exp(1.e-3*zetan*(v-vhalfn)*9.648e4/(8.315*(273.16+celsius))) 
+}
 
+FUNCTION betn(v(mV)) {
+  betn = exp(1.e-3*zetan*gmn*(v-vhalfn)*9.648e4/(8.315*(273.16+celsius))) 
+}
+
+DERIVATIVE states {     : exact when v held constant; integrates over dt step
+        rates(v)
+        n' = (ninf - n)/taun
+}
+
+PROCEDURE rates(v (mV)) { :callable from hoc
+        LOCAL a,qt
+        qt=q10^((celsius-24)/10)
+        a = alpn(v)
+        ninf = 1/(1+a)
+        taun = betn(v)/(qt*a0n*(1+a))
+	if (taun<nmax) {taun=nmax}
 }

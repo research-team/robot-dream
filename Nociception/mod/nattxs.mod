@@ -4,7 +4,7 @@
 NEURON {
        SUFFIX nattxs
        USEION na READ ena WRITE ina
-       RANGE gbar, ena, ina, celsiusT, Tshift
+       RANGE gbar, ena, ina, celsiusT, Tshift, tau_m, tau_h, tau_s
 
 }
 
@@ -77,7 +77,7 @@ INITIAL {
 	: assume that equilibrium has been reached
 	
 
-        m = minf
+  m = minf
 	h = hinf
 	s = sinf
 }

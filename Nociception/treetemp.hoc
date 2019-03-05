@@ -1,20 +1,13 @@
 begintemplate treeCell
-public soma, dend, f, GrCell, connect2target
-create soma, dend[1]
+public dend, f, GrCell, connect2target
+create dend[1]
 objectvar f
 objref GrCell
 
 {load_file("atpDiff.hoc")}
 
 proc init(){
-    create soma
     objectvar f
-
-    soma_diam = 20     
-    soma_len = 20      
-    soma_nseg = 1
-    soma_cm = 1
-    soma_Ra = 200     
 
     dend_diam = 1      
     dend_len = 150      
@@ -24,25 +17,6 @@ proc init(){
 
     n=6
     p=$3
-    soma {
-        nseg = 1
-        diam = 18.8
-        L = 18.8
-        Ra = 123.0
-        insert hh
-        gnabar_hh=0.25
-        gl_hh = .0002
-        el_hh = -60.0
-        gkbar_hh = 0.36
-        insert extracellular
-        xg = 1000
-        xc = 300
-
-        pt3dclear()
-        pt3dadd(10,10,$1,diam) 
-        pt3dadd(10+soma_len,10,$1,diam) 
-
-    }
 
 f = new File()
 

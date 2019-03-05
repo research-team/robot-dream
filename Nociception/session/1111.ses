@@ -31,7 +31,7 @@ xvalue("Continue for","runStopIn", 1,"{continuerun(t + runStopIn) stoprun=1}", 1
 xbutton("Single Step","steprun()")
 t = 0
 xvalue("t","t", 2 )
-tstop = 100
+tstop = 600
 xvalue("Tstop","tstop", 1,"tstop_changed()", 0, 1 )
 dt = 0.025
 xvalue("dt","dt", 1,"setdt()", 0, 1 )

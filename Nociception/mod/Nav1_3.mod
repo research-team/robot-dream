@@ -1,7 +1,7 @@
 NEURON	{
 	SUFFIX Nav1_3
 	USEION na READ ena WRITE ina
-	RANGE gNav1_3bar, gNav1_3, ina, BBiD 
+	RANGE gNav1_3bar, gNav1_3, ina, BBiD, hTau
 }
 
 UNITS	{

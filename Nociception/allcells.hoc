@@ -7,54 +7,54 @@ objref pc
 pc = new ParallelContext()
 
 {load_file("linetemp.hoc")}
-{load_file("treetemp.hoc")}
-
 
 objref r
-r = new Random()
 objref cells, nil, nc, ncs
 cells = new List()
 ncs = new List()
 
 
-objref pc, r
-pc = new ParallelContext()
 r = new Random(startsw())
+
+objref times
+times = new Vector()
+
+r.uniform(0, 200)
+
+for i=0, 9{
+    tt = r.repick() + i*1000
+    times.append(tt)
+    print(times.get[i])
+}
 
 //for (i = pc.id; ncell-1; i+=pc.nhost) {
 for i=0, ncell-1{
-    r.uniform(0, 2)
+    r.uniform(0, 0.5)
     n = 1
     //int(r.repick())
     print(n)
-	d=r.repick()
+	d=0.25
+    print(d)
     if (i > 3){
-        r.uniform(3, 6)
+        r.uniform(0.5, 2)
         d = r.repick()
     }
     if (i > 6){
-        r.uniform(8, 10)
+        r.uniform(3, 5)
         d = r.repick()
     }
-    if (i%2 == 0){
-        r.uniform(0, 1500)
-        cells.append(new oneCell((i+1)*2, d, n, r.repick()))
+        r.uniform(3, 100)
+        n = r.repick()
+        r.uniform(150, 300)
+        len = r.repick()
+        r.uniform(250, 800)
+        z = r.repick()
+        cells.append(new oneCell(z, d, n, times, len))
         pc.set_gid2node(i, pc.id)
         nc = cells.object(cells.count()-1).connect2target(nil)
         pc.cell(i, nc)
         ncs.append(nc)
-    }else{
-        r.uniform(0, 1500)
-        cells.append(new treeCell((i+1)*2, d, n, r.repick()))
-        pc.set_gid2node(i, pc.id)
-        nc = cells.object(cells.count()-1).connect2target(nil)
-        pc.cell(i, nc)
-        ncs.append(nc)
-    }
-    if (i > 3){
-    	cells.object(cells.count()-1).GrCell.p2x30[0].gmax = 35+i*10
-    	cells.object(cells.count()-1).GrCell.p2x30[1].gmax = 35+i*10
-    }
+    
     //pc.set_gid2node(i, pc.id)
     //nc = cells.object(cells.count()-1).connect2target(nil) 
     //pc.cell(i, nc) 
@@ -65,7 +65,7 @@ for i=0, ncell-1{
 //pc.runworker()
 //pc.done()
 
-forall psection()
+//forall psection()
 
 objref exsynrec[ncell]
 for i=0, ncell-1{
@@ -73,13 +73,27 @@ for i=0, ncell-1{
     ncs.object(i).record(exsynrec[i])//.record(&oneCell[i].soma.vext[0](0.5)) 
 }
 
-tstop = 6000
-v_init = -72
-run()
+tstop = 10000
+v_init = -55
+{load_file("balance.hoc")}
+
+proc rrun() {
+    finitialize(v_init)
+    balance()
+    if (cvode.active()) {
+        cvode.re_init()
+    } else {
+        fcurrent()
+    }
+    frecord_init()
+}
+
+rrun()
 
 objref fok
 fok=new File()
 
+run()
 
 for i=0, ncell-1{
     strdef basename0, basename1, extension, filename0, filename1

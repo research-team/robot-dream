@@ -15,11 +15,11 @@ objectvar diff1[nsyn],p2x30[nsyn]
 list= new List()
 for i=0, nsyn-1 {
 diff1[i]=new AtP_42(0.5)
-p2x30[i] = new p2x3(0.5)
+p2x30[i] = new p2x2(0.5)
 diff1[i].c0cleft = 1
 diff1[i].Deff = 0.08
 p2x30[i].Ev = -40
-//p2x30[i].gmax = 10
+p2x30[i].gmax = 10
 setpointer p2x30[i].patp, diff1[i].atp
 }
 diff1[0].h =$2
@@ -39,7 +39,7 @@ for i=0, nsyn-1 {
 endtemplate Sin
 
 n=2
-soma {
+/*soma {
     nseg = 1
     diam = 18.8
     L = 18.8
@@ -49,7 +49,7 @@ soma {
     gl_hh = .0002
     el_hh = -60.0
     gkbar_hh = 0.36
-}
+}*/
 
 f = new File()
 
@@ -90,49 +90,58 @@ for i = 0,ndendA-1 {
 
     }
 
-    insert na18a
-    gbar_na18a = 0.02
+   insert navv1p8
+    gbar_navv1p8 = 0//.124271
     //slow_inact_nav18=1
-    insert na_ion
-    ena = 50
     insert na17a
-    gbar_na17a=10.2
+    gbar_na17a=0//.106
     insert extracellular
     xg = 1000
     xc = 300
     //xraxial = 100
-
     insert nap
-    gbar_nap = 0.0002
+    gbar_nap = 0.0//002
     insert nafast
-    gbar_nafast=0.015
+    gbar_nafast=0.0//2
     insert naslow
-    gbar_naslow=0.015
+    gbar_naslow=0.0//1
 
-    insert kv       
-    gbar_kv = 60
-    ek = -77
-    insert kdr0
-    gbar_kdr0 = 0.25
-      
+    insert nav1p9
+    gbar_nav1p9 = 0//9.4779e-5
+
+    insert kdr
+    gbar_kdr = 0.0//18002
+
+    insert kna
+    gbar_kna = 0//.00042
+
     insert kad 
     gbar_kad = 0.15
-    insert kap    
+    insert kap   
     gbar_kap = 0.15
+    
+    insert nakpump
+    smalla_nakpump = -0.0047891
+    insert naoi
+    theta_naoi = 0.029
+    insert koi
+    theta_koi = 0.029
+    
+    insert leak
+    insert extrapump 
 
-    /*insert bk
-    gbar_bk = 0.01
+    insert Nav1_3 
+    gbar_Nav1_3 = 0.05
 
-    insert cal
-    gbar_cal = 0.0006
+    insert nattxs
+    gbar_nattxs = 0.2
 
-    insert sk
-    gkbar_sk = 0.01
-     
-    insert cat
-    eca = 126.1
-    gmax_cat=0.0008*/
-
+    celsiusT_nakpump = 37
+    celsiusT_navv1p8 = 37
+    celsiusT_kdr = 37
+    //celsius_na13a = 37
+    celsius_na17a = 37  
+    celsiusT_nattxs = 37  
 
     if (child1 >= 0) {
       connect treeA[child1](0), 1
@@ -145,9 +154,9 @@ f.close() //closes the file data holder called f
 
 
 // Connect things together 
-connect treeA[0](0), soma(1) 
+//connect treeA[0](0), soma(1) 
 
-print soma.v
+//print soma.v
 
 {load_file("./session/11.ses")}
 

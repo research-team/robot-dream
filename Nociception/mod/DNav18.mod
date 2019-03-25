@@ -81,7 +81,6 @@ FUNCTION rates(Vm (mV)) {
  	tau_u = 1/(alphau(Vm) + betau(Vm))	
 	uinf = 1/(1 + exp((Vm + 51)/8(mV)))
 
-
 	kvot_qt=1/((2.5^((celsiusT-22)/10)))
         tau_m=tau_m*kvot_qt
         tau_h=tau_h*kvot_qt

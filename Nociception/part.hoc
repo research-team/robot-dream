@@ -12,15 +12,15 @@ objectvar diff1[nsyn],p2x30[nsyn], r5t3[nsyn]
 list= new List()
 for i=0, nsyn-1 {
 diff1[i]=new AtP_slow(0.5)
-//p2x30[i] = new p2x3(0.5)
-r5t3[i] = new rr(0.5)
+p2x30[i] = new p2x3(0.5)
+//r5t3[i] = new rr(0.5)
 diff1[i].h =$2
 diff1[i].tx1 = 10
-r5t3[i].gmax = 6
-//p2x30[i].gmax = 0
-r5t3[i].Ev = 0
-//setpointer p2x30[i].patp, diff1[i].atp
-setpointer r5t3[i].patp, diff1[i].atp
+//r5t3[i].gmax = 6
+p2x30[i].gmax = 6
+p2x30[i].Ev = 0
+setpointer p2x30[i].patp, diff1[i].atp
+//setpointer r5t3[i].patp, diff1[i].atp
 }
 for i=0, nsyn-1 {
  list.append(diff1[i])
@@ -85,10 +85,16 @@ dend[0] {
 
 // Connect things together
 connect dend[0](0), soma(0)
+objectvar vc
+
+dend vc = new VClamp(0.5)
+vc.dur[2] = 1500000
+
+vc.amp[2] = -70
 
 objref datas, datad, datav, id, o1d, o2d, o3d
 datas= new Vector()
-datas.record(&GrCell[0].r5t3[0].i)
+datas.record(&GrCell[0].p2x30[0].i)
 /*datad = new Vector()
 datad.record(&dend[0].ik_kad(0.5))
 datav = new Vector()

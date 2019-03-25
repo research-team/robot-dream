@@ -1,9 +1,9 @@
 
 NEURON {
 	SUFFIX nav18
-	NONSPECIFIC_CURRENT i
+	USEION na READ ena WRITE ina
 	RANGE gbar, ena, slow_inact, m, h, s, gate
-	RANGE tau_m, tau_h, tau_s
+	RANGE tau_m, tau_h, tau_s, ina
 	: if slow_inact=1 then ultra-slow inactivation is included
 }
 
@@ -15,14 +15,13 @@ UNITS {
 
 PARAMETER {
 	gbar = 0.005 (S/cm2)
-	ena=55 (mV)
 
 	slow_inact = 1 (1) : to turn on ultra slow inactivation
 }
 
 ASSIGNED {
 	v	(mV) : NEURON provides this
-	i	(mA/cm2)
+	ina	(mA/cm2)
 	g	(S/cm2)
 	tau_h	(ms)
 	tau_m	(ms)
@@ -30,6 +29,7 @@ ASSIGNED {
 	minf
 	hinf
 	sinf
+	ena	(mV)
 }
 
 STATE { m h s}
@@ -37,7 +37,7 @@ STATE { m h s}
 BREAKPOINT {
 	SOLVE states METHOD cnexp
 	g = gbar * m*m*m * h * s
-	i = g * (v-ena)
+	ina = g * (v-ena)
 }
 
 INITIAL {
@@ -56,19 +56,19 @@ DERIVATIVE states {
 }
 
 FUNCTION alpham(Vm (mV)) (/ms) {
-	alpham = (0.05*(1+exp(Vm+44)/8))/(1+exp((Vm-7)/10))
+	alpham = 7.35-7.35/(1+exp(Vm+1.38)/10.9)
 }
 
 FUNCTION alphah(Vm (mV)) (/ms) {
-	alphah = 0.0008*(exp(-Vm/30))
+	alphah = 0.011+1.39/(1+exp(Vm+78.04)/11.32)
 }
 
 FUNCTION betam(Vm (mV)) (/ms) {
-	betam = 0.05*(1+exp(-(Vm+6)/16))
+	betam = 5.97/(1+exp(Vm+56.43)/18.26)
 }
 
 FUNCTION betah(Vm (mV)) (/ms) {
-	betah = 0.22/(1+0.24*exp(-Vm/7))
+	betah = 0.56-0.56/(1+exp(Vm-21.82)/20.03)
 }
 
 FUNCTION alphas(Vm (mV)) (/ms) {
@@ -81,10 +81,10 @@ FUNCTION betas(Vm (mV)) (/ms) {
 
 FUNCTION rates(Vm (mV)) (/ms) {
 	tau_m = 1.0 / (alpham(Vm) + betam(Vm))
-	minf = alpham(Vm) * tau_m
+	minf = alpham(Vm) / (alpham(Vm) + betam(Vm))
 
 	tau_h = 1.0 / (alphah(Vm) + betah(Vm))
-	hinf = alphah(Vm) * tau_h
+	hinf = alphah(Vm) / (alphah(Vm) + betah(Vm))
 
 	if (slow_inact) {
 		tau_s = 1.0 / (alphas(Vm) + betas(Vm))

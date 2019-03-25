@@ -3,16 +3,16 @@ NEURON {
 		POINTER patp
 	RANGE K1, L1, K2, L2, K3, L3, K4, L4, R4, D1, R1, D4, R3, D3, R5, D5, R2, D2, M4, M4, M3, N3, M2, N2, M1, N1
 	RANGE Re, AR, A2R, A3R, Ro, AD, A2D, A3D, A3Df, D
-	RANGE g, gmax, Ev
+	RANGE g, gmax, Ev, i
 	NONSPECIFIC_CURRENT i}
 
 UNITS{
-	(nA) = (nanoamp)
 	(molar) = (1/liter)
 	(uM) = (micromolar)
 	(mV) = (millivolt)
 	(mM) = (millimolar)
 	(pS) = (picosiemens)
+	(pA) = (picoamp)
 }
 
 PARAMETER {
@@ -52,8 +52,8 @@ PARAMETER {
 
 ASSIGNED {
 	v (mV)	: voltage	
-	i (mA/cm2)	: current
-	g  (mho/cm2)	: conductance 	
+	i (pA)	: current
+	g  (pS)	: conductance 	
     patp (uM) : concentration
     k1 (/s)   : binding
     k2 (/s)   : binding

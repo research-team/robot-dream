@@ -13,10 +13,10 @@ list= new List()
 for i=0, nsyn-1 {
   diff1[i]=new AtP_4(0.5)
   p2x30[i] = new p2x3(0.5)
-  diff1[i].c0cleft = 5
+  diff1[i].c0cleft = 3
   diff1[i].Deff = 0.08
-  p2x30[i].Ev = 7
-  p2x30[i].gmax = 6
+  p2x30[i].Ev = 5
+  p2x30[i].gmax = 3
   setpointer p2x30[i].patp, diff1[i].atp
 }
 diff1[0].h =$2
@@ -25,17 +25,17 @@ diff1[1].h =$2
 //diff1[1].k = $3
 diff1[0].tx1 = $4
 diff1[1].tx1 = $4
-diff1[2].h =$3
-diff1[3].h =$3
-diff1[2].tx1 = $5
-diff1[3].tx1 = $5
+//diff1[2].h =$3
+//diff1[3].h =$3
+//diff1[2].tx1 = $5
+//diff1[3].tx1 = $5
 for i=0, nsyn-1 {
  list.append(diff1[i])
 }
 }
 endtemplate Sin
 
-n=4
+n=2
 /*
 soma {
     nseg = 1
@@ -89,12 +89,12 @@ for i = 0,ndendA-1 {
         h3 = (0.00001)*((5000-x)*(5000-x) + (10-y)*(10-y) + (1-z)*(1-z))
         //h4 = (0.00001)*((10000-x)*(10000-x) + (10-y)*(10-y) + (1-z)*(1-z))
 
-        GrCell[me] = new Sin(n, h1, h2, 40, 90, h2, h1, 100, 220)
+        GrCell[me] = new Sin(n, h1, h2, 50, 90, h2, h1, 100, 220)
 
     }
 
-   insert navv1p8
-    gbar_navv1p8 = 0.24271
+    insert navv1p8
+    gbar_navv1p8 = 0.15 //4271
     //slow_inact_nav18=1
     insert na17a
     gbar_na17a=0//.106
@@ -134,7 +134,7 @@ for i = 0,ndendA-1 {
     insert extrapump 
 
     insert Nav1_3 
-    gbar_Nav1_3 = 0.2
+    gbar_Nav1_3 = 0.15
 
     insert nattxs
     gbar_nattxs = 0.1

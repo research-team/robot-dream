@@ -10,21 +10,21 @@ This function is called after the first initialization.
 Vrest = -55
 proc balance(){
     forall {
-	if ((-(ina_navv1p8 + \
+	if ((-(ina_nav18 + \
 	ina_na17a + \
 	ina_nap + \
 	ina_nafast + \
 	ina_naslow + \
 	ina_nakpump + ina_nav1p9 + ina_Nav1_3 + ina_nattxs) / (Vrest - ena)) < 0) {
 	    pumpina_extrapump = \
-	    -(ina_navv1p8 + \
+	    -(ina_nav18+ \
 			ina_na17a + \
 			ina_nap + \
 			ina_nafast + \
 			ina_naslow + \
 			ina_nakpump + ina_nav1p9 + ina_Nav1_3 + ina_nattxs)
 	} else {
-	    gnaleak_leak = -(ina_navv1p8 + \
+	    gnaleak_leak = -(ina_nav18 + \
 			ina_na17a + \
 			ina_nap + \
 			ina_nafast + \

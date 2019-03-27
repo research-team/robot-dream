@@ -31,7 +31,7 @@ PARAMETER {
 	D3 = 0.00001 (/s) 
 	R2 = 0.00001 (/s) 
 	D2 = 0.2 (/s)
-	R5 = 0.00001 (/s) 
+	R5 = 0.0001 (/s) 
 	R1 = 0.25 (/s)
 	D1 = 0.00001 (/s)
 	D5 = 23 (/s)
@@ -85,7 +85,7 @@ INITIAL {
 BREAKPOINT {
 	SOLVE kstates METHOD sparse
 	g = gmax*Ro
-	i = g * (v - Ev)
+	i =  (1e-3) * g * (v - Ev)
 }
 
 KINETIC kstates{

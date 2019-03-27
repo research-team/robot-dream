@@ -10,41 +10,29 @@ This function is called after the first initialization.
 Vrest = -55
 proc balance(){
     forall {
-	if ((-(ina_nav18 + \
-	ina_na17a + \
-	ina_nap + \
-	ina_nafast + \
-	ina_naslow + \
-	ina_nakpump + ina_nav1p9 + ina_Nav1_3 + ina_nattxs) / (Vrest - ena)) < 0) {
+	if ((-(ina_navv1p8 + \
+	ina_nakpump + ina_Nav1_3 + ina_nattxs) / (Vrest - ena)) < 0) {
 	    pumpina_extrapump = \
-	    -(ina_nav18+ \
-			ina_na17a + \
-			ina_nap + \
-			ina_nafast + \
-			ina_naslow + \
-			ina_nakpump + ina_nav1p9 + ina_Nav1_3 + ina_nattxs)
+	    -(ina_navv1p8 + \
+			ina_nakpump + ina_Nav1_3 + ina_nattxs)
 	} else {
-	    gnaleak_leak = -(ina_nav18 + \
-			ina_na17a + \
-			ina_nap + \
-			ina_nafast + \
-			ina_naslow + \
-			ina_nakpump + ina_nav1p9 + ina_Nav1_3 + ina_nattxs) / (Vrest - ena)
+	    gnaleak_leak = -(ina_navv1p8 + \
+			ina_nakpump + ina_Nav1_3 + ina_nattxs) / (Vrest - ena)
 	}
 	
 	if ((-(ik_kdr + \
 	ik_kad + \
 	ik_kap + \
-	ik_nakpump + ik_kna) / (Vrest - ek)) < 0) {
+	ik_nakpump) / (Vrest - ek)) < 0) {
 	    pumpik_extrapump = -(ik_kdr + \
 		ik_kad + \
 		ik_kap + \
-		ik_nakpump + ik_kna)
+		ik_nakpump)
 	} else {
 	    gkleak_leak = -(ik_kdr + \
 			ik_kad + \
 			ik_kap + \
-			ik_nakpump + ik_kna) / (Vrest - ek)
+			ik_nakpump) / (Vrest - ek)
 	}
     }
 }

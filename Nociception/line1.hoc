@@ -22,7 +22,7 @@ proc init(){
   diff1[i].c0cleft = 12
   diff1[i].Deff = 0.8
   p2x30[i].Ev = 0
-  p2x30[i].gmax = 6
+  p2x30[i].gmax = 12
   setpointer p2x30[i].patp, diff1[i].atp
 }
   //diff1[0].k = 0
@@ -104,8 +104,8 @@ for i = 0,ndendA-1 {
         //, h3, h4, 50, 65)
     }
 //
-    insert nav18
-    gbar_nav18 = 0.00024271
+    insert navv1p8
+    gbar_navv1p8 = 0.24271
     //slow_inact_nav18=1
     insert na17a
     gbar_na17a=0//.106
@@ -130,16 +130,16 @@ for i = 0,ndendA-1 {
     gbar_kna = 0//.00042
 
     insert kad 
-    gbar_kad = 0.1
+    gbar_kad = 0.9
     insert kap   
-    gbar_kap = 0.1
+    gbar_kap = 0.9
     
     insert nakpump
     smalla_nakpump = -0.0047891
     insert naoi
-    theta_naoi = 0.02
+    theta_naoi = 0.028
     insert koi
-    theta_koi = 0.02
+    theta_koi = 0.028
     
     insert leak
     insert extrapump 
@@ -151,7 +151,7 @@ for i = 0,ndendA-1 {
     gbar_nattxs = 0.1
 
     celsiusT_nakpump = 37
-    //celsiusT_navv1p8 = 37
+    celsiusT_navv1p8 = 37
     celsiusT_kdr = 37
     //celsius_na13a = 37
     celsius_na17a = 37  
@@ -187,7 +187,7 @@ f.close() //closes the file data holder called f
 objref datas, data10, data40, data75, data115, data90, wg, gg
 
 wg= new Vector()
-wg.record(&treeA[59].ina_nav18( 0.5 ))
+wg.record(&treeA[59].ina_navv1p8( 0.5 ))
 gg= new Vector()
 gg.record(&treeA[59].hTau_Nav1_3( 0.5 ))
 

@@ -1,6 +1,6 @@
 begintemplate oneCell
-public dend, dd, connect2target
-create dend[1]
+public dend, dd, connect2target, soma
+create dend[1], soma
 objref dd[1]
 
 {load_file("atpDiff.hoc")}
@@ -16,6 +16,48 @@ proc init(){
     ndendA = $3
     create dend[ndendA]
     objectvar dd[ndendA]
+
+soma{
+    nseg = 1
+    diam = 18.8
+    L = 18.8
+    Ra = 123.0
+    insert navv1p8
+    gbar_navv1p8 = 0.2//4271
+       
+    insert extracellular
+    
+    insert kad 
+    gbar_kad = 0.1
+    insert kap   
+    gbar_kap = 0.1
+        
+    insert nakpump
+    smalla_nakpump = -0.0047891
+    insert naoi
+    theta_naoi = 0.029
+    insert koi
+    theta_koi = 0.029
+        
+    insert leak
+    insert extrapump 
+    insert kdr
+    gbar_kdr = 0.018002
+
+    insert Nav1_3 
+    gbar_Nav1_3 = 0.15
+
+    insert nattxs
+    gbar_nattxs = 0.1
+
+    celsiusT_nakpump = 37
+    celsiusT_navv1p8 = 37
+    celsiusT_kdr = 37
+    celsius_na17a = 37  
+    celsiusT_nattxs = 37  
+    celsius_kad = 37
+    celsius_kap = 37
+}
 
 
 for i = 0,ndendA-1 {
@@ -60,7 +102,7 @@ for i = 0,ndendA-1 {
         gbar_nav1p9 = 0//9.4779e-5
 
         insert kdr
-        gbar_kdr = 0.0//18002
+        gbar_kdr = 0.018002
 
         insert kna
         gbar_kna = 0//.00042
@@ -97,9 +139,10 @@ for i = 0,ndendA-1 {
     }
 }
     for i = 1, ndendA-1 connect dend[i](0), dend[i-1](1)
+    connect dend[0](0), soma(1) 
 }
 obfunc connect2target() { localobj nc //$o1 target point process, optional $o2 returned NetCon
-  dend[0] nc = new NetCon(&v(1), $o1)
+  soma nc = new NetCon(&v(1), $o1)
   nc.threshold = 10
   if (numarg() == 2) { $o2 = nc } // for backward compatibility
   return nc

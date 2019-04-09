@@ -1,0 +1,128 @@
+ncell = 24
+
+objref cells, nil, nc
+cells = new List()
+
+objref pc
+pc = new ParallelContext()
+
+{load_file("linetemp.hoc")}
+
+objref r
+objref cells, nil, nc, ncs
+cells = new List()
+ncs = new List()
+
+
+r = new Random(startsw())
+
+objref times
+times = new Vector()
+
+r.uniform(0, 200)
+
+for i=0, 9{
+    tt = r.repick() + i*1000
+    times.append(tt)
+}
+
+for (i=pc.id; i < ncell; i += pc.nhost) {
+    //r.uniform(0, 0.5)
+    //n = 1
+    //int(r.repick())
+    //d=0.25
+    //if (i > 8){
+        r.uniform(0.15, 3)
+        d = r.repick()
+    //}
+    //if (i > 15){
+    //    r.uniform(3, 5)
+    //    d = r.repick()
+    //}
+        r.uniform(5, 40)
+        n = r.repick()
+        r.uniform(250, 1500)
+        len = r.repick()
+        r.uniform(200, 1500)
+        z = r.repick()
+        cells.append(new oneCell(z, d, n, times, len, r.repick()))
+    if (i == 1){cells.append(new oneCell(50, 0.25, 10, times, len, r.repick()))}
+        pc.set_gid2node(i, pc.id)
+        nc = cells.object(cells.count()-1).connect2target(nil)
+        pc.cell(i, nc)
+        ncs.append(nc)
+    
+    //pc.set_gid2node(i, pc.id)
+    //nc = cells.object(cells.count()-1).connect2target(nil) 
+    //pc.cell(i, nc) 
+}
+//pc.barrier() 
+{load_file("./session/cells.ses")}
+
+//pc.runworker()
+//pc.done()
+
+//forall psection()
+
+objref exsynrec[ncell]
+objref pot[ncell]
+objref mem[ncell]
+for (i=0; i < ncell/pc.nhost; i += 1) {
+    exsynrec[i]= new Vector()
+    ncs.object(i).record(exsynrec[i]) //
+    pot[i] = new Vector()
+    pot[i].record(&oneCell[i].soma.vext[0](0.5)) 
+    mem[i] = new Vector()
+    mem[i].record(&oneCell[i].soma.v(0.5)) 
+}
+
+tstop = 60000
+v_init = -55
+{load_file("balance.hoc")}
+
+proc rrun() {
+    finitialize(v_init)
+    balance()
+    if (cvode.active()) {
+        cvode.re_init()
+    } else {
+        fcurrent()
+    }
+    frecord_init()
+}
+pc.set_maxstep(0.5)
+print(1)
+rrun()
+pc.psolve(tstop)
+print(2)
+
+objref fok
+fok=new File()
+
+pc.barrier()
+for (i=0; i < ncell/pc.nhost; i += 1) {
+    strdef basename0, basename1, basename2, extension, filename0, filename1, filename2
+    basename0 = "./res/extra"
+    extension = "txt"
+
+    basename1 = "./res/pot"
+    sprint(filename0, "%sn%dr%d.%s", basename0, i, pc.id, extension)
+    fok.wopen(filename0)
+    exsynrec[i].printf(fok)
+    fok.close()
+    sprint(filename1, "%sn%dr%d.%s", basename1, i, pc.id, extension)
+    fok.wopen(filename1)
+    pot[i].printf(fok)
+    fok.close()
+    basename2 = "./res/mem"
+    sprint(filename2, "%sn%dr%d.%s", basename2, i, pc.id, extension)
+    fok.wopen(filename2)
+    mem[i].printf(fok)
+    fok.close()
+}
+pc.barrier()
+
+pc.runworker()
+pc.done()
+
+quit()

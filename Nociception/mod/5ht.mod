@@ -6,7 +6,7 @@ NEURON {
 	NONSPECIFIC_CURRENT i}
 
 UNITS{
-	(nA) = (nanoamp)
+	(pA) = (picoamp)
 	(molar) = (1/liter)
 	(uM) = (micromolar)
 	(mV) = (millivolt)
@@ -54,7 +54,7 @@ PARAMETER {
 
 ASSIGNED {
 	v (mV)	: voltage	
-	i (nA)	: current
+	i (pA)	: current
 	g  (pS)	: conductance 	
     serotonin (uM) : concentration
     k1 (/s)   : binding

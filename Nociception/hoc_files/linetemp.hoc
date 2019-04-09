@@ -1,0 +1,151 @@
+begintemplate oneCell
+public dend, dd, connect2target, soma
+create dend[1], soma
+objref dd[1]
+
+{load_file("atpDiff.hoc")}
+
+proc init(){
+
+    dend_diam = $2    
+    dend_len = $5     
+    dend_nseg = 1
+    dend_Ra = 35*$2*4
+
+    n=2
+    ndendA = $3
+    create dend[ndendA]
+    objectvar dd[ndendA]
+
+soma{
+    nseg = 1
+    diam = dend_diam
+    L = dend_len
+    Ra = dend_Ra
+    insert navv1p8
+    gbar_navv1p8 = 0.002//4271
+       
+    insert extracellular
+    
+    insert kad 
+    gbar_kad = 0.1
+    insert kap   
+    gbar_kap = 0.1
+        
+    insert nakpump
+    smalla_nakpump = -0.0047891
+    insert naoi
+    theta_naoi = 0.029
+    insert koi
+    theta_koi = 0.029
+        
+    insert leak
+    insert extrapump 
+    insert kdr
+    gbar_kdr = 0.018002
+
+    insert Nav1_3 
+    gbar_Nav1_3 = 0.15
+
+    insert nattxs
+    gbar_nattxs = 0.1
+
+    celsiusT_nakpump = 37
+    celsiusT_navv1p8 = 37
+    celsiusT_kdr = 37
+    celsius_na17a = 37  
+    celsiusT_nattxs = 37  
+    celsius_kad = 37
+    celsius_kap = 37
+}
+
+
+for i = 0,ndendA-1 {
+
+    dend[i]{ 
+        nseg = dend_nseg
+        diam = dend_diam
+        L = dend_len
+        Ra = dend_Ra
+
+        x = 10+dend_len*i
+        y = 10
+        z = $1*10
+
+        pt3dclear()
+        pt3dadd(10+dend_len*i,10,$1*10,diam) 
+        pt3dadd(10+dend_len*i+1,10,$1*10,diam) 
+
+
+        h = sqrt((500-x)*(500-x)+(0-y)*(0-y)+(0-z)*(0-z))
+            
+        dd[i] = new ATPdiff(n, h, $1, $o4, diam, $6)
+        //print($o4.x[0])
+
+        insert navv1p8
+        gbar_navv1p8 = 0.1//4271
+        //slow_inact_nav18=1
+        insert na17a
+        gbar_na17a=0//.106
+        insert extracellular
+        xg = 1000
+        xc = 300
+        //xraxial = 100
+        insert nap
+        gbar_nap = 0.0//002
+        insert nafast
+        gbar_nafast=0.0//2
+        insert naslow
+        gbar_naslow=0.0//1
+
+        insert nav1p9
+        gbar_nav1p9 = 0//9.4779e-5
+
+        insert kdr
+        gbar_kdr = 0.018002
+
+        insert kna
+        gbar_kna = 0//.00042
+
+        insert kad 
+        gbar_kad = 0.1
+        insert kap   
+        gbar_kap = 0.1
+        
+        insert nakpump
+        smalla_nakpump = -0.0047891
+        insert naoi
+        theta_naoi = 0.029
+        insert koi
+        theta_koi = 0.029
+        
+        insert leak
+        insert extrapump 
+
+        insert Nav1_3 
+        gbar_Nav1_3 = 0.2
+
+        insert nattxs
+        gbar_nattxs = 0.1
+
+        celsiusT_nakpump = 37
+        celsiusT_navv1p8 = 37
+        celsiusT_kdr = 37
+        //celsius_na13a = 37
+        celsius_na17a = 37  
+        celsiusT_nattxs = 37  
+        celsius_kad = 37
+        celsius_kap = 37
+    }
+}
+    for i = 1, ndendA-1 connect dend[i](0), dend[i-1](1)
+    connect dend[0](0), soma(1) 
+}
+obfunc connect2target() { localobj nc //$o1 target point process, optional $o2 returned NetCon
+  soma nc = new NetCon(&v(1), $o1)
+  nc.threshold = 10
+  if (numarg() == 2) { $o2 = nc } // for backward compatibility
+  return nc
+}
+
+endtemplate oneCell

@@ -12,7 +12,7 @@ ENDCOMMENT
 NEURON {
     SUFFIX naoi
     USEION na READ ina WRITE nai, nao
-    RANGE naiinf, naoinf
+    RANGE naiinf, naoinf, theta
 }
 
 UNITS {

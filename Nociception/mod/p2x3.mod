@@ -85,7 +85,7 @@ INITIAL {
 BREAKPOINT {
 	SOLVE kstates METHOD sparse
 	g = gmax*Ro
-	i =  (1e-3) * g * (v - Ev)
+	i = g * (v - Ev)
 }
 
 KINETIC kstates{

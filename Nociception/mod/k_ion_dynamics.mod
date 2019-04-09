@@ -11,7 +11,7 @@ ENDCOMMENT
 NEURON {
     SUFFIX koi
     USEION k READ ik WRITE ki, ko
-    RANGE kiinf, koinf
+    RANGE kiinf, koinf, theta
 }
 
 UNITS {

@@ -1,0 +1,292 @@
+create  treeA[1]//soma,
+//access soma
+objectvar f
+
+begintemplate Sin
+objref list, diff1[1],p2x30[1] 
+public diff1,p2x30
+public list
+proc init(){
+nsyn = 4//$1
+objectvar diff1[nsyn],p2x30[nsyn]
+list= new List()
+for i=0, 1 {
+  diff1[i]=new AtP_4(0.5)
+  p2x30[i] = new r5ht3a(0.5)
+  diff1[i].c0cleft = 3
+  diff1[i].Deff = 0.08
+  //p2x30[i].Ev = 5
+  p2x30[i].gmax = 4
+  setpointer p2x30[i].serotonin, diff1[i].atp
+}
+for i=2, 3 {
+  diff1[i]=new AtP_4(0.5)
+  p2x30[i] = new p2x3(0.5)
+  diff1[i].c0cleft = 3
+  diff1[i].Deff = 0.08
+  //p2x30[i].Ev = 5
+  p2x30[i].gmax = 0//10
+  setpointer p2x30[i].patp, diff1[i].atp
+}
+diff1[0].h =$2
+diff1[1].h =$3
+diff1[2].h =$2
+diff1[3].h =$3
+//diff1[0].k = $3
+//diff1[1].k = $3
+diff1[0].tx1 = $4
+diff1[1].tx1 = $5
+diff1[2].tx1 =$4
+diff1[3].tx1 =$5
+//diff1[2].h =$3
+//diff1[3].h =$3
+//diff1[2].tx1 = $5
+//diff1[3].tx1 = $5
+for i=0, nsyn-1 {
+ list.append(diff1[i])
+}
+}
+endtemplate Sin
+
+n=2
+/*
+soma {
+    nseg = 1
+    diam = 18.8
+    L = 18.8
+    Ra = 123.0
+    insert hh
+    gnabar_hh=0.25
+    gl_hh = .0002
+    el_hh = -60.0
+    gkbar_hh = 0.36
+}*/
+
+f = new File()
+
+f.ropen("./topologies/modeltree3.dat")
+ndendA = f.scanvar() 
+//ndendA = 68//f.scanvar() 
+
+create treeA[ndendA]
+objref GrCell[ndendA]
+
+
+for i = 0,ndendA-1 {
+      
+  me = f.scanvar() - 1 // sets the current branch/section 
+  child1 = f.scanvar() - 1 
+  child2 = f.scanvar() - 1 
+  child3 = f.scanvar() - 1 
+
+  treeA[me]{ 
+    nseg = 1
+    diam1 = f.scanvar()
+    diam = 0.25//f.scanvar()
+    L = f.scanvar()
+    Ra = 35
+
+    pt3dclear()
+
+    pt3dadd(f.scanvar(),f.scanvar(),f.scanvar(),diam)
+
+    x = f.scanvar()
+    y = f.scanvar()
+    z = f.scanvar()
+
+    pt3dadd(x, y, z,diam)
+
+    if(me > 10){
+        h1 = (0.00001)*((30000-x)*(30000-x) + (350-y)*(350-y) + (4-z)*(4-z))
+        h2 = (0.00001)*((30000-x)*(30000-x) + (-400-y)*(-400-y) + (4-z)*(4-z))
+        h3 = (0.00001)*((5000-x)*(5000-x) + (10-y)*(10-y) + (1-z)*(1-z))
+        //h4 = (0.00001)*((10000-x)*(10000-x) + (10-y)*(10-y) + (1-z)*(1-z))
+
+        GrCell[me] = new Sin(n, h1, h2, 50, 90, h2, h1, 100, 220)
+
+    }
+
+    insert navv1p8
+    gbar_navv1p8 = 0.13 //4271
+    //slow_inact_nav18=1
+    insert na17a
+    gbar_na17a=0//.106
+    insert extracellular
+    xg = 1000
+    xc = 300
+    //xraxial = 100
+    insert nap
+    gbar_nap = 0.0//002
+    insert nafast
+    gbar_nafast=0.0//2
+    insert naslow
+    gbar_naslow=0.0//1
+
+    insert nav1p9
+    gbar_nav1p9 = 0//9.4779e-5
+
+    insert kdr
+    gbar_kdr = 0.0//18002
+
+    insert kna
+    gbar_kna = 0//.00042
+
+    insert kad 
+    gbar_kad = 0.15
+    insert kap   
+    gbar_kap = 0.15
+    
+    insert nakpump
+    smalla_nakpump = -0.0047891
+    insert naoi
+    theta_naoi = 0.029
+    insert koi
+    theta_koi = 0.029
+    
+    insert leak
+    insert extrapump 
+
+    insert Nav1_3 
+    gbar_Nav1_3 = 0.15
+
+    insert nattxs
+    gbar_nattxs = 0.1
+
+    celsiusT_nakpump = 37
+    celsiusT_navv1p8 = 37
+    celsiusT_kdr = 37
+    //celsius_na13a = 37
+    celsius_na17a = 37  
+    celsiusT_nattxs = 37  
+
+    if (child1 >= 0) {
+      connect treeA[child1](0), 1
+    }
+
+    if (child2 >= 0) {
+      connect treeA[child2](0), 1
+    }
+
+    if (child3 >= 0) {
+      connect treeA[child3](0), 1
+    }
+
+  }
+}
+
+f.close() //closes the file data holder called f
+//connect treeA[0](0), soma(1) 
+
+//print soma.v
+
+//{load_file("./session/1111.ses")}
+
+//{load_file("recording.hoc")}
+
+// Connect things together 
+
+objref datas, data10, data40, data75, data115, data90, wg, gg, data100
+
+wg= new Vector()
+wg.record(&treeA[10].v(0.5))
+gg= new Vector()
+gg.record(&v(0.5))
+
+data10= new Vector()
+data10.record(&treeA[59].ina_nap(0.5))
+data40= new Vector()
+data40.record(&treeA[59].ik_kap(0.5))
+data75= new Vector()
+data75.record(&treeA[59].ina_navv1p8(0.5))
+datas= new Vector()
+datas.record(&treeA[59].v(0.5))
+
+
+data115= new Vector()
+data115.record(&treeA[59].ina_nafast( 0.5 ))
+data90= new Vector()
+data90.record(&treeA[59].ina_nav1p9(0.5))
+data100= new Vector()
+data100.record(&treeA[59].ik_kna(0.5))
+
+objref fok
+// Start run
+
+{load_file("balance.hoc")}
+
+tstop = 600
+
+proc init() {
+    finitialize(v_init)
+    balance()
+    if (cvode.active()) {
+      cvode.re_init()
+    } else {
+      fcurrent()
+    }
+    frecord_init()
+}
+init()
+//{load_file("./session/11.ses")}
+
+
+run()
+
+
+objref datafile
+strdef basename, extension, filename00, filename01, filename75, filename10, filename40, filenames, filename115, filename90, filename100
+extension = "txt"
+basename = "./res/what"
+
+sprint(filenames, "%s%d.%s", basename, 0, extension)
+
+sprint(filename00, "%s%d.%s", basename, 1, extension)
+sprint(filename01, "%s%d.%s", basename, 2, extension)
+
+
+sprint(filename10, "%s%d.%s", basename, 3, extension)
+sprint(filename40, "%s%d.%s", basename, 4, extension)
+sprint(filename75, "%s%d.%s", basename, 5, extension)
+
+sprint(filename115, "%s%d.%s", basename, 6, extension)
+sprint(filename90, "%s%d.%s", basename, 7, extension)
+sprint(filename100, "%s%d.%s", basename, 8, extension)
+//sprint(filename100, "%s%d.%s", basename, 9, extension)
+
+
+
+fok=new File()
+
+
+fok.wopen(filename00)
+wg.printf(fok)
+fok.close()
+fok.wopen(filename01)
+gg.printf(fok)
+fok.close()
+
+fok.wopen(filename75)
+data75.printf(fok)
+fok.close()
+fok.wopen(filename10)
+data90.printf(fok)
+fok.close()
+fok.wopen(filename40)
+data40.printf(fok)
+fok.close()
+fok.wopen(filenames)
+datas.printf(fok)
+fok.close()
+fok.wopen(filename115)
+data115.printf(fok)
+fok.close()
+fok.wopen(filename90)
+data10.printf(fok)
+fok.close()
+fok.wopen(filename100)
+data100.printf(fok)
+fok.close()
+
+forall psection()
+
+

@@ -19,7 +19,7 @@ UNITS {
 PARAMETER {
 	v (mV)
         ek (mV)		: must be explicitely def. in hoc
-	celsius		(degC)
+	celsius	= 37	(degC)
 	gbar=.003 (mho/cm2)
         vhalfn=13   (mV)
         a0n=0.02      (/ms)

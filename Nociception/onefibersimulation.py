@@ -81,7 +81,7 @@ def show_output(v_vec, t_vec):
     pyplot.ylabel('mV')
 
 if __name__ == '__main__':
-    cell = cfiber(250, 0.25, 100)
+    cell = cfiber(250, 0.25, 100, 0, True)
     for sec in h.allsec():
         h.psection(sec=sec) #show parameters of each section
     branch_vec, t_vec = set_recording_vectors(cell.branch)

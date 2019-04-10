@@ -13,18 +13,26 @@ class cfiber(object):
         number of compartments
     coordinates: dict (updates by position())
         coordinates of each section
+    zpozition: int 
+        z - coordinate for few cells simulation
+    fast_diff: bool
+        Is there fast diffusion?
+          -Yes: True 
+          -No: False
     diffs: list
         list of diffusion mechanisms (NEURON staff)
     recs: list
         list of receptors mechanisms (NEURON staff)
     '''      
-    def __init__(self, L, d, num):
+    def __init__(self, L, d, num, zpozition, fast_diff):
         self.coordinates = dict()
+        self.fast_diff = fast_diff
         self.diffs = []
         self.recs = []
         self.L = L
         self.diam = d
         self.num = num
+        self.zpozition = zpozition
         self.create_sections()
         self.build_topology()
         self.build_subsets()
@@ -62,8 +70,8 @@ class cfiber(object):
         i = 0
         for sec in self.all:
           h.pt3dclear()
-          h.pt3dadd(self.L*i, 0, 0, self.diam)
-          h.pt3dadd(self.L*(i+1), 0, 0, self.diam)
+          h.pt3dadd(self.L*i, 0, self.zpozition, self.diam)
+          h.pt3dadd(self.L*(i+1), 0, self.zpozition, self.diam)
           xyz = dict(x=self.L*(i+1), y=0, z=0)
           self.coordinates.update({sec: xyz})
           i+=1
@@ -116,14 +124,20 @@ class cfiber(object):
         g: float
             receptor conductance 
         '''
-        diff = h.AtP_4(compartment(0.5))
+        if self.fast_diff:
+            diff = h.AtP_4(compartment(0.5))
+            diff.h = math.sqrt((x-self.coordinates.get(compartment).get('x'))**2 + (0-self.coordinates.get(compartment).get('y'))**2 + (0.001-self.coordinates.get(compartment).get('z'))**2)
+            diff.tx1 = time
+            diff.Deff = 0.8 
+            diff.c0cleft = 10
+        else:
+            diff = h.AtP_slow(compartment(0.5))
+            diff.h = math.sqrt((x-self.coordinates.get(compartment).get('x'))**2 + (0-self.coordinates.get(compartment).get('y'))**2 + (0.001-self.coordinates.get(compartment).get('z'))**2)
+            diff.tx1 = time + 0 + (diff.h/1250)*1000
+            diff.c0cleft = 100
         rec = h.p2x3(compartment(0.5))
         rec.gmax = g
         rec.Ev = 5
-        diff.h = math.sqrt((x-self.coordinates.get(compartment).get('x'))**2 + (0-self.coordinates.get(compartment).get('y'))**2 + (0.001-self.coordinates.get(compartment).get('z'))**2)
-        diff.tx1 = time
-        diff.Deff = 0.8 
-        diff.c0cleft = 10
         h.setpointer(diff._ref_atp, 'patp', rec)
         self.diffs.append(diff)
         self.recs.append(rec)  
@@ -141,13 +155,19 @@ class cfiber(object):
         g: float
             receptor conductance 
         '''
-        diff = h.AtP_4(compartment(0.5))
+        if self.fast_diff:
+            diff = h.AtP_4(compartment(0.5))
+            diff.h = math.sqrt((x-self.coordinates.get(compartment).get('x'))**2 + (0-self.coordinates.get(compartment).get('y'))**2 + (0.001-self.coordinates.get(compartment).get('z'))**2)
+            diff.tx1 = time
+            diff.Deff = 0.8 
+            diff.c0cleft = 2
+        else:
+            diff = h.AtP_slow(compartment(0.5))
+            diff.h = math.sqrt((x-self.coordinates.get(compartment).get('x'))**2 + (0-self.coordinates.get(compartment).get('y'))**2 + (0.001-self.coordinates.get(compartment).get('z'))**2)
+            diff.tx1 = time + 0 + (diff.h/1250)*1000
+            diff.c0cleft = 100
         rec = h.r5ht3a(compartment(0.5))
         rec.gmax = g
-        diff.h = math.sqrt((x-self.coordinates.get(compartment).get('x'))**2 + (0-self.coordinates.get(compartment).get('y'))**2 + (0.001-self.coordinates.get(compartment).get('z'))**2)
-        diff.tx1 = time
-        diff.Deff = 0.8 
-        diff.c0cleft = 2
         h.setpointer(diff._ref_atp, 'serotonin', rec)
         self.diffs.append(diff)
         self.recs.append(rec)      

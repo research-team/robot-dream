@@ -3,7 +3,9 @@ import matplotlib
 matplotlib.use('TkAgg')
 import matplotlib.pyplot as pyplot
 import math
+import random
 #neuron.load_mechanisms("./mod")
+
 from cfiber import cfiber
 from onefibersimulation import balance
 
@@ -31,7 +33,7 @@ def addfibers(num = cell_number):
     gids = []
     gid = 0
     for i in range(rank, num, nhost):
-        cell = cfiber(250, 0.25, 100)
+        cell = cfiber(250, 0.25, 100, random.randint(10, 100), False)
         fibers.append(cell)
         while(pc.gid_exists(gid)!=0):
             gid+=1
@@ -61,7 +63,7 @@ def spike_record(pool):
         v_vec.append(vec)
     return v_vec
 
-def simulate(pool, tstop=100, vinit=-55):
+def simulate(pool, tstop=1000, vinit=-55):
     ''' simulation control 
     Parameters
     ----------

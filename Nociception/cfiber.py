@@ -96,11 +96,11 @@ class cfiber(object):
             sec.insert('Nav1_3')
             sec.insert('extracellular')
             sec.gbar_navv1p8 = 0.2
-            sec.gbar_kdr = 0#0.01
+            sec.gbar_kdr = 0.01
             sec.gbar_kad = 0.1
             sec.gbar_kap = 0.1
             sec.gbar_nattxs = 0.1
-            sec.gbar_Nav1_3 = 0.2
+            sec.gbar_Nav1_3 = 0.25
             sec.smalla_nakpump = -0.0047891
             sec.theta_naoi = 0.029
             sec.theta_koi = 0.029
@@ -108,8 +108,9 @@ class cfiber(object):
             sec.celsiusT_navv1p8 = 37
             sec.celsiusT_nakpump = 37
         for sec in self.stimsec:
-            self.add_P2X3receptors(sec, 15000, 10, 12)
+            #self.add_P2X3receptors(sec, 15000, 10, 15)
             self.add_5HTreceptors(sec, 15000, 10, 3)
+            #self.add_5HTreceptors(sec, 5000, 80, 3)            
     def add_P2X3receptors(self, compartment, x, time, g):
         '''
         Adds P2X3 receptors
@@ -130,6 +131,7 @@ class cfiber(object):
             diff.tx1 = time
             diff.Deff = 0.8 
             diff.c0cleft = 10
+            #diff.k = 1 
         else:
             diff = h.AtP_slow(compartment(0.5))
             diff.h = math.sqrt((x-self.coordinates.get(compartment).get('x'))**2 + (0-self.coordinates.get(compartment).get('y'))**2 + (0.001-self.coordinates.get(compartment).get('z'))**2)
@@ -159,7 +161,7 @@ class cfiber(object):
             diff = h.AtP_4(compartment(0.5))
             diff.h = math.sqrt((x-self.coordinates.get(compartment).get('x'))**2 + (0-self.coordinates.get(compartment).get('y'))**2 + (0.001-self.coordinates.get(compartment).get('z'))**2)
             diff.tx1 = time
-            diff.Deff = 0.8 
+            diff.Deff = 0.0004
             diff.c0cleft = 2
         else:
             diff = h.AtP_slow(compartment(0.5))

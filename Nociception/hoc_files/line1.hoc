@@ -26,10 +26,11 @@ proc init(){
     setpointer p2x30[i].serotonin, diff1[i].atp
   }
   for i=2, 3 {
-    diff1[i]=new AtP_4(0.5)
+    diff1[i]=new AtP_42(0.5)
     p2x30[i] = new p2x3(0.5)
-    diff1[i].c0cleft = 10
+    diff1[i].c0cleft = 1
     diff1[i].Deff = 0.8
+    diff1[i].k = 1
     p2x30[i].Ev = 5
     p2x30[i].gmax = 20
     setpointer p2x30[i].patp, diff1[i].atp
@@ -112,16 +113,6 @@ for i = 0,ndendA-1 {
     xg = 1000
     xc = 300
     //xraxial = 100
-    insert nap
-    gbar_nap = 0.0//002
-    insert nafast
-    gbar_nafast=0.0//2
-    insert naslow
-    gbar_naslow=0.0//1
-
-    insert nav1p9
-    gbar_nav1p9 = 0//9.4779e-5
-
     insert kdr
     gbar_kdr = 0.0//18002
 
@@ -179,11 +170,11 @@ gg.record(&treeA[10].v( 0.5 ))
 data10= new Vector()
 data10.record(&v( 0.5 ))
 data40= new Vector()
-data40.record(&treeA[58].v( 0.5 ))
+data40.record(&GrCell[58]. diff1[2].atp)
 data75= new Vector()
-data75.record(&treeA[57].v( 0.5 ))
+data75.record(&GrCell[57]. diff1[2].atp)
 datas= new Vector()
-datas.record(&treeA[59].v( 0.5 ))
+datas.record(&GrCell[59]. diff1[2].atp)
 
 
 /*data115= new Vector()

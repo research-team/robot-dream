@@ -45,7 +45,7 @@ def balance(cell, vinit=-55):
         else:
             sec.gkleak_leak = -(sec.ik_kdr + sec.ik_nakpump + sec.ik_kap + sec.ik_kad) / (vinit - sec.ek)
 
-def simulate(cell, tstop=200, vinit=-55):
+def simulate(cell, tstop=600, vinit=-55):
     ''' simulation control 
     Parameters
     ----------

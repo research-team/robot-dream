@@ -95,12 +95,12 @@ class cfiber(object):
             sec.insert('leak')
             sec.insert('Nav1_3')
             sec.insert('extracellular')
-            sec.gbar_navv1p8 = 0.2
-            sec.gbar_kdr = 0.01
+            sec.gbar_navv1p8 = 0.1
+            sec.gbar_kdr = 0.0#1
             sec.gbar_kad = 0.1
             sec.gbar_kap = 0.1
             sec.gbar_nattxs = 0.1
-            sec.gbar_Nav1_3 = 0.25
+            sec.gbar_Nav1_3 = 0.2
             sec.smalla_nakpump = -0.0047891
             sec.theta_naoi = 0.029
             sec.theta_koi = 0.029
@@ -158,11 +158,11 @@ class cfiber(object):
             receptor conductance 
         '''
         if self.fast_diff:
-            diff = h.AtP_4(compartment(0.5))
+            diff = h.diff_5HT(compartment(0.5))
             diff.h = math.sqrt((x-self.coordinates.get(compartment).get('x'))**2 + (0-self.coordinates.get(compartment).get('y'))**2 + (0.001-self.coordinates.get(compartment).get('z'))**2)
             diff.tx1 = time
-            diff.Deff = 0.0004
-            diff.c0cleft = 2
+            #diff.Deff = 0.0004
+            #diff.c0cleft = 2
         else:
             diff = h.AtP_slow(compartment(0.5))
             diff.h = math.sqrt((x-self.coordinates.get(compartment).get('x'))**2 + (0-self.coordinates.get(compartment).get('y'))**2 + (0.001-self.coordinates.get(compartment).get('z'))**2)
@@ -170,7 +170,7 @@ class cfiber(object):
             diff.c0cleft = 100
         rec = h.r5ht3a(compartment(0.5))
         rec.gmax = g
-        h.setpointer(diff._ref_atp, 'serotonin', rec)
+        h.setpointer(diff._ref_serotonin, 'serotonin', rec)
         self.diffs.append(diff)
         self.recs.append(rec)      
     def build_subsets(self):

@@ -45,7 +45,7 @@ def balance(cell, vinit=-55):
         else:
             sec.gkleak_leak = -(sec.ik_kdr + sec.ik_nakpump + sec.ik_kap + sec.ik_kad) / (vinit - sec.ek)
 
-def simulate(cell, tstop=600, vinit=-55):
+def simulate(cell, tstop=1500, vinit=-55):
     ''' simulation control 
     Parameters
     ----------
@@ -81,7 +81,7 @@ def show_output(v_vec, t_vec):
     pyplot.ylabel('mV')
 
 if __name__ == '__main__':
-    cell = cfiber(250, 0.25, 100, 0, True)
+    cell = cfiber(250, 0.25, 100, 0, False)
     for sec in h.allsec():
         h.psection(sec=sec) #show parameters of each section
     branch_vec, t_vec = set_recording_vectors(cell.branch)

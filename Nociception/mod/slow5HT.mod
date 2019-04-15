@@ -1,8 +1,8 @@
-TITLE 3D diffusion
+TITLE slow ATP diffusion
 NEURON{
-	POINT_PROCESS diff_5HT
-	RANGE   serotonin,h,c0cleft
-	RANGE 	Deff,tx1, diff, a}
+	POINT_PROCESS slow_5HT
+	RANGE serotonin,h,c0cleft, diff
+	RANGE tx1}
 
 UNITS{
 		(molar)=(1/liter)
@@ -14,15 +14,13 @@ CONSTANT {
 	PI=3.1415927
 }
 PARAMETER { 
-	Deff= 0.000465 (um2/ms):effective diffusion coefficient
-	c0cleft = 2 (uM):initial quantity atp
+	c0cleft = 20 (uM):initial quantity atp
 	h(um)
 	tx1(ms)
 	k = 0.00055
 	vmax = 0.0175 
 	km = 0.005
 	a = 20 :coefficient of reuptake
-
  }
 ASSIGNED{
    serotonin (uM)
@@ -30,21 +28,21 @@ ASSIGNED{
 }
 INITIAL {
 	:tx1=10
-	serotonin = 0
+	serotonin=0
 	diff = 0
 }
-
 BREAKPOINT
 {
 	at_time(tx1)
 	if (t<=tx1){
-		serotonin = 0
-		diff = 0 
-}
+		serotonin=0
+		diff = 0
+	}
 if(t>tx1) {
 UNITSOFF
-	diff = (2*c0cleft*PI*exp(k*(tx1-t)+h/(4*Deff*(tx1-t))))/sqrt(4*4*4*PI*PI*PI*Deff*Deff*Deff*(t-tx1)*(t-tx1)*(t-tx1))
-	serotonin = diff - a*((vmax*diff)/(km + diff))
+	diff = (t-tx1)*0.000125
+    if(diff>c0cleft){diff=c0cleft}
+    serotonin = diff - a*((vmax*diff)/(km + diff))
     if(serotonin > c0cleft){serotonin=c0cleft}
     if(serotonin < 0){serotonin=0}
 }

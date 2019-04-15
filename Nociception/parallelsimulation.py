@@ -15,8 +15,9 @@ rank = int(pc.id())
 nhost = int(pc.nhost())
 
 #param
-cell_number = 3 # number of neurons 
+cell_number = 16 # number of neurons 
 fibers = []
+v_vec = []
 
 def addfibers(num = cell_number):
     '''
@@ -30,17 +31,15 @@ def addfibers(num = cell_number):
     gids: list
         the list of neurons gids
     '''
+    global fibers, rank, nhost
     gids = []
-    gid = 0
     for i in range(rank, num, nhost):
-        cell = cfiber(250, 0.25, 100, random.randint(10, 100), False)
+        cell = cfiber(250, 0.25, random.randint(20, 80), random.randint(10, 100), True)
         fibers.append(cell)
-        while(pc.gid_exists(gid)!=0):
-            gid+=1
-        gids.append(gid)
-        pc.set_gid2node(gid, rank)
+        pc.set_gid2node(i, rank)
         nc = cell.connect2target(None)
-        pc.cell(gid, nc)
+        pc.cell(i, nc)
+        gids.append(i)
     return gids
 
 def spike_record(pool):
@@ -54,11 +53,10 @@ def spike_record(pool):
     v_vec: list of h.Vector()
         recorded voltage
     '''
-    v_vec = []
-
     for i in pool:
         cell = pc.gid2cell(i)
         vec = h.Vector()
+        print(vec)
         vec.record(cell.branch(0.5)._ref_vext[0])
         v_vec.append(vec)
     return v_vec
@@ -123,6 +121,7 @@ if __name__ == '__main__':
     print("- "*10, "\nstart")
     simulate(pool)
     print("- "*10, "\nend")
+    print(vext)
     spikeout(pool, "vext", vext)
     #if (nhost > 1):
     finish()

@@ -34,7 +34,7 @@ def addfibers(num = cell_number):
     global fibers, rank, nhost
     gids = []
     for i in range(rank, num, nhost):
-        cell = cfiber(250, 0.25, random.randint(20, 80), random.randint(10, 100), True)
+        cell = cfiber(250, random.uniform(0.25, 3), random.randint(10, 30), random.randint(10, 100), True)
         fibers.append(cell)
         pc.set_gid2node(i, rank)
         nc = cell.connect2target(None)
@@ -56,12 +56,11 @@ def spike_record(pool):
     for i in pool:
         cell = pc.gid2cell(i)
         vec = h.Vector()
-        print(vec)
         vec.record(cell.branch(0.5)._ref_vext[0])
         v_vec.append(vec)
     return v_vec
 
-def simulate(pool, tstop=1000, vinit=-55):
+def simulate(pool, tstop=10000, vinit=-55):
     ''' simulation control 
     Parameters
     ----------

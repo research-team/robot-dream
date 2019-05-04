@@ -48,8 +48,7 @@ PARAMETER {
 
 
 	gmax = 0.31 (pS)	: conductivity     
-	Ev = 28 (mV) 
-	
+	Ev = 28 (mV) 	
 }
 
 ASSIGNED {

@@ -20,7 +20,7 @@ PARAMETER {
 	k = 0.00055
 	vmax = 0.0175 
 	km = 0.005
-	a = 20 :coefficient of reuptake
+	a = 30 :coefficient of reuptake
  }
 ASSIGNED{
    serotonin (uM)
@@ -40,7 +40,7 @@ BREAKPOINT
 	}
 if(t>tx1) {
 UNITSOFF
-	diff = (t-tx1)*0.000125
+	diff = (t-tx1)*0.00005
     if(diff>c0cleft){diff=c0cleft}
     serotonin = diff - a*((vmax*diff)/(km + diff))
     if(serotonin > c0cleft){serotonin=c0cleft}

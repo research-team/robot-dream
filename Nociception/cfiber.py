@@ -1,5 +1,6 @@
 from neuron import h, gui
 import math
+import random
 #neuron.load_mechanisms("./mod")
 
 class cfiber(object):
@@ -80,7 +81,7 @@ class cfiber(object):
         Adds channels and their parameters 
         '''
         for sec in self.all: # 'all' defined in build_subsets
-            sec.Ra = 35*self.diam*4   # Axial resistance in Ohm * cm
+            sec.Ra = 35   # Axial resistance in Ohm * cm
             sec.cm = 1      # Membrane capacitance in micro Farads / cm^2
             sec.insert('navv1p8')
             sec.insert('extrapump')
@@ -95,7 +96,9 @@ class cfiber(object):
             sec.insert('leak')
             sec.insert('Nav1_3')
             sec.insert('extracellular')
-            sec.gbar_navv1p8 = 0.2
+            sec.insert('pas')
+            sec.e_pas = -55
+            sec.gbar_navv1p8 = 0.01*self.diam + random.uniform(0, 0.15)
             sec.gbar_kdr = 0.01
             sec.gbar_kad = 0.1
             sec.gbar_kap = 0.1
@@ -108,8 +111,8 @@ class cfiber(object):
             sec.celsiusT_navv1p8 = 37
             sec.celsiusT_nakpump = 37
         for sec in self.stimsec:
-            #self.add_P2X3receptors(sec, 15000, 10, 15)
-            self.add_5HTreceptors(sec, 15000, 10, 3)
+            #self.add_P2X3receptors(sec, 150, 10, 15)
+            self.add_5HTreceptors(sec, 150, 10, random.uniform(3, 6))
             #self.add_5HTreceptors(sec, 5000, 80, 3)            
     def add_P2X3receptors(self, compartment, x, time, g):
         '''
@@ -135,7 +138,7 @@ class cfiber(object):
         else:
             diff = h.AtP_slow(compartment(0.5))
             diff.h = math.sqrt((x-self.coordinates.get(compartment).get('x'))**2 + (0-self.coordinates.get(compartment).get('y'))**2 + (0.001-self.coordinates.get(compartment).get('z'))**2)
-            diff.tx1 = time + 0 + (diff.h/1250)*1000
+            diff.tx1 = time + 0 + (diff.h/500)*1000
             diff.c0cleft = 100
         rec = h.p2x3(compartment(0.5))
         rec.gmax = g
@@ -167,8 +170,8 @@ class cfiber(object):
         else:
             diff = h.slow_5HT(compartment(0.5))
             diff.h = math.sqrt((x-self.coordinates.get(compartment).get('x'))**2 + (0-self.coordinates.get(compartment).get('y'))**2 + (0.001-self.coordinates.get(compartment).get('z'))**2)
-            diff.tx1 = time + 0 + (diff.h/1250)*1000
-            diff.c0cleft = 100
+            diff.tx1 = time + 0 + (diff.h/70)*1000
+            diff.c0cleft = 2
         rec = h.r5ht3a(compartment(0.5))
         rec.gmax = g
         h.setpointer(diff._ref_serotonin, 'serotonin', rec)

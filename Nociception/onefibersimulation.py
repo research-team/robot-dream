@@ -21,7 +21,7 @@ def set_recording_vectors(compartment):
     '''
     v_vec = h.Vector()   # Membrane potential vector at compartment
     t_vec = h.Vector()        # Time stamp vector
-    v_vec.record(compartment(0.5)._ref_v)
+    v_vec.record(compartment(0.5)._ref_vext[0])
     t_vec.record(h._ref_t)
     return v_vec, t_vec
 
@@ -45,7 +45,7 @@ def balance(cell, vinit=-55):
         else:
             sec.gkleak_leak = -(sec.ik_kdr + sec.ik_nakpump + sec.ik_kap + sec.ik_kad) / (vinit - sec.ek)
 
-def simulate(cell, tstop=1500, vinit=-55):
+def simulate(cell, tstop=100000, vinit=-55):
     ''' simulation control 
     Parameters
     ----------
@@ -81,14 +81,14 @@ def show_output(v_vec, t_vec):
     pyplot.ylabel('mV')
 
 if __name__ == '__main__':
-    cell = cfiber(250, 0.25, 100, 0, False)
+    cell = cfiber(250, 0.25, 20, 0, False)
     for sec in h.allsec():
         h.psection(sec=sec) #show parameters of each section
     branch_vec, t_vec = set_recording_vectors(cell.branch)
-    dend_vec, t_vec = set_recording_vectors(cell.stimsec[59])
-    dend80_vec, t_vec = set_recording_vectors(cell.stimsec[20])
+    #dend_vec, t_vec = set_recording_vectors(cell.stimsec[5])
+    #dend80_vec, t_vec = set_recording_vectors(cell.stimsec[10])
     simulate(cell)
     show_output(branch_vec, t_vec)
-    show_output(dend_vec, t_vec)
-    show_output(dend80_vec, t_vec)
+    #show_output(dend_vec, t_vec)
+    #show_output(dend80_vec, t_vec)
     pyplot.show()

@@ -5,6 +5,7 @@ import matplotlib.pyplot as pyplot
 import math
 #neuron.load_mechanisms("./mod")
 from cfiber import cfiber
+import random
 
 def set_recording_vectors(compartment):
     ''' recording voltage
@@ -45,7 +46,7 @@ def balance(cell, vinit=-55):
         else:
             sec.gkleak_leak = -(sec.ik_kdr + sec.ik_nakpump + sec.ik_kap + sec.ik_kad) / (vinit - sec.ek)
 
-def simulate(cell, tstop=100000, vinit=-55):
+def simulate(cell, tstop=1000, vinit=-55):
     ''' simulation control 
     Parameters
     ----------
@@ -81,7 +82,7 @@ def show_output(v_vec, t_vec):
     pyplot.ylabel('mV')
 
 if __name__ == '__main__':
-    cell = cfiber(250, 0.25, 20, 0, False)
+    cell = cfiber(random.uniform(200, 350), random.uniform(0.2, 1), random.randint(50, 120), random.randint(10, 15), True)
     for sec in h.allsec():
         h.psection(sec=sec) #show parameters of each section
     branch_vec, t_vec = set_recording_vectors(cell.branch)

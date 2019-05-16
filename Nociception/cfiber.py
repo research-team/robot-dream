@@ -96,8 +96,8 @@ class cfiber(object):
             sec.insert('leak')
             sec.insert('Nav1_3')
             sec.insert('extracellular')
-            sec.insert('pas')
-            sec.e_pas = -55
+            #sec.insert('pas')
+            #sec.e_pas = -55
             sec.gbar_navv1p8 = 0.01*self.diam + random.uniform(0, 0.15)
             sec.gbar_kdr = 0.01
             sec.gbar_kad = 0.1
@@ -111,7 +111,7 @@ class cfiber(object):
             sec.celsiusT_navv1p8 = 37
             sec.celsiusT_nakpump = 37
         for sec in self.stimsec:
-            #self.add_P2X3receptors(sec, 150, 10, 15)
+            #self.add_P2X3receptors(sec, 150, 10, random.uniform(10, 15))
             self.add_5HTreceptors(sec, 150, 10, random.uniform(3, 6))
             #self.add_5HTreceptors(sec, 5000, 80, 3)            
     def add_P2X3receptors(self, compartment, x, time, g):
@@ -138,8 +138,9 @@ class cfiber(object):
         else:
             diff = h.AtP_slow(compartment(0.5))
             diff.h = math.sqrt((x-self.coordinates.get(compartment).get('x'))**2 + (0-self.coordinates.get(compartment).get('y'))**2 + (0.001-self.coordinates.get(compartment).get('z'))**2)
-            diff.tx1 = time + 0 + (diff.h/500)*1000
-            diff.c0cleft = 100
+            diff.tx1 = time + 0 + (diff.h/50)*1000
+            diff.c0cleft = 10
+            diff.k = 0.01
         rec = h.p2x3(compartment(0.5))
         rec.gmax = g
         rec.Ev = 5
@@ -164,9 +165,9 @@ class cfiber(object):
             diff = h.diff_5HT(compartment(0.5))
             diff.h = math.sqrt((x-self.coordinates.get(compartment).get('x'))**2 + (0-self.coordinates.get(compartment).get('y'))**2 + (0.001-self.coordinates.get(compartment).get('z'))**2)
             diff.tx1 = time
-            #diff.a = 1000
-            #diff.Deff = 0.0004
-            #diff.c0cleft = 2
+            diff.a = 1000
+            diff.Deff = 0.0004
+            diff.c0cleft = 2
         else:
             diff = h.slow_5HT(compartment(0.5))
             diff.h = math.sqrt((x-self.coordinates.get(compartment).get('x'))**2 + (0-self.coordinates.get(compartment).get('y'))**2 + (0.001-self.coordinates.get(compartment).get('z'))**2)

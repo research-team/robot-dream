@@ -2,7 +2,7 @@ TITLE slow ATP diffusion
 NEURON{
 	POINT_PROCESS AtP_slow
 	RANGE atp,h,c0cleft
-	RANGE tx1}
+	RANGE tx1, k, hydrolysis}
 
 UNITS{
 		(molar)=(1/liter)
@@ -17,10 +17,12 @@ PARAMETER {
 	c0cleft = 1 (uM):initial quantity atp
 	h(um)
 	tx1(ms)
+	k = 10
 
  }
 ASSIGNED{
    atp (uM)
+   hydrolysis (uM)
 }
 INITIAL {
 	:tx1=10
@@ -34,8 +36,10 @@ BREAKPOINT
 }
 if(t>tx1) {
 UNITSOFF
-	atp = (t-tx1)*0.00025
+	hydrolysis  = 0.1*c0cleft*(1-exp(k*(tx1-t)))
+	atp = c0cleft*(1-exp(0.00025*(tx1-t))) - hydrolysis
     if(atp>c0cleft){atp=c0cleft}
+    if(atp<0){atp=0}
 }
 }
 NET_RECEIVE (weight)

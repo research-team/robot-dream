@@ -7,12 +7,12 @@ public diff1,p2x30, r5t3
 public list
 
 proc init(){
-nsyn = 1//$1
+nsyn = 2//$1
 objectvar diff1[nsyn],p2x30[nsyn], r5t3[nsyn]
 list= new List()
 for i=0, nsyn-1 {
-diff1[i]=new slow_5HT(0.5)
-p2x30[i] = new r5ht3a(0.5)
+diff1[i]=new AtP_slow(0.5)
+p2x30[i] = new p2x3(0.5)
 //r5t3[i] = new rr(0.5)
 //diff1[i].h =$2
 //diff1[i].tx1 = 10
@@ -21,9 +21,11 @@ diff1[i].c0cleft = 2
 //r5t3[i].gmax = 6
 //p2x30[i].gmax = 0.3
 //p2x30[i].Ev = 0
-setpointer p2x30[i].serotonin, diff1[i].serotonin
+setpointer p2x30[i].patp, diff1[i].atp
 //setpointer r5t3[i].patp, diff1[i].atp
 }
+diff1[0].k = 0
+diff1[1].k = 0.01
 for i=0, nsyn-1 {
  list.append(diff1[i])
 }

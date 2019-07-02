@@ -5,7 +5,6 @@ import matplotlib.pyplot as pyplot
 import math
 #neuron.load_mechanisms("./mod")
 from cfiber import cfiber
-import random
 
 def set_recording_vectors(compartment):
     ''' recording voltage
@@ -22,7 +21,7 @@ def set_recording_vectors(compartment):
     '''
     v_vec = h.Vector()   # Membrane potential vector at compartment
     t_vec = h.Vector()        # Time stamp vector
-    v_vec.record(compartment(0.5)._ref_vext[0])
+    v_vec.record(compartment(0.5)._ref_v)
     t_vec.record(h._ref_t)
     return v_vec, t_vec
 
@@ -46,7 +45,7 @@ def balance(cell, vinit=-55):
         else:
             sec.gkleak_leak = -(sec.ik_kdr + sec.ik_nakpump + sec.ik_kap + sec.ik_kad) / (vinit - sec.ek)
 
-def simulate(cell, tstop=1000, vinit=-55):
+def simulate(cell, tstop=500, vinit=-55):
     ''' simulation control 
     Parameters
     ----------
@@ -67,6 +66,17 @@ def simulate(cell, tstop=1000, vinit=-55):
     h.tstop = tstop
     h.v_init = vinit
     h.run()
+    '''
+    running_ = 1
+    dt = 200
+    h.stdinit()
+    for n in range(2):
+        for item in cell.diffs:
+            item.tx1 = h.t + 1 
+            item.initial = item.atp
+            item.c0cleft = item.c0cleft
+        h.continuerun(h.t+dt)
+    '''
 
 def show_output(v_vec, t_vec):
     ''' show graphs 
@@ -82,14 +92,12 @@ def show_output(v_vec, t_vec):
     pyplot.ylabel('mV')
 
 if __name__ == '__main__':
-    cell = cfiber(random.uniform(200, 350), random.uniform(0.2, 1), random.randint(50, 120), random.randint(10, 15), True)
+    numofmodel = 8
+    cell = cfiber(250, 1, 120, 0, True, numofmodel)
     for sec in h.allsec():
         h.psection(sec=sec) #show parameters of each section
     branch_vec, t_vec = set_recording_vectors(cell.branch)
-    #dend_vec, t_vec = set_recording_vectors(cell.stimsec[5])
-    #dend80_vec, t_vec = set_recording_vectors(cell.stimsec[10])
+    print(cell.numofmodel)
     simulate(cell)
     show_output(branch_vec, t_vec)
-    #show_output(dend_vec, t_vec)
-    #show_output(dend80_vec, t_vec)
     pyplot.show()

@@ -9,12 +9,12 @@ import random
 from cfiber import cfiber
 from onefibersimulation import balance
 
-#paralleling NEURON staff
+#paralleling NEURON interface
 pc = h.ParallelContext()
 rank = int(pc.id()) 
 nhost = int(pc.nhost())
 
-#param
+#parameters
 cell_number = 2 # number of neurons 
 fibers = []
 nclist = []
@@ -36,7 +36,7 @@ def addfibers(num = cell_number):
     global fibers, rank, nhost, spike_times_vec, id_vec
     gids = []
     for i in range(rank, num, nhost):
-        cell = cfiber(random.uniform(200, 350), random.uniform(0.2, 1), random.randint(50, 120), random.randint(10, 15), True)
+        cell = cfiber(random.uniform(200, 350), random.uniform(0.2, 1), random.randint(10, 30), random.randint(0, 10), False)
         fibers.append(cell)
         pc.set_gid2node(i, rank)
         nc = cell.connect2target(None)
@@ -65,7 +65,7 @@ def spike_record(pool):
         v_vec.append(vec)
     return v_vec
 
-def simulate(pool, tstop=1000, vinit=-55):
+def simulate(pool, tstop=30000, vinit=-55):
     ''' simulation control 
     Parameters
     ----------

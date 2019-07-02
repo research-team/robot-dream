@@ -1,4 +1,4 @@
-TITLE slow ATP diffusion
+TITLE slow 5HT diffusion
 NEURON{
 	POINT_PROCESS slow_5HT
 	RANGE serotonin,h,c0cleft, diff

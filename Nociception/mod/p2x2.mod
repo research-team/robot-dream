@@ -1,8 +1,7 @@
 NEURON {
 	POINT_PROCESS p2x2
 		POINTER patp
-	RANGE K1, L1, K2, L2, K3, L3, K4, L4, R4, D4, R3, D3, R5, D5, R2, D2, M4, M4, M3, N3, M2, N2, M1, N1
-	RANGE Re, AR, A2R, A3R, Ro, AD, A2D, A3D, A3Df, D
+	RANGE C1, C2, C3, C4, F5, O6, O7, F8
 	RANGE g, gmax, Ev
 	NONSPECIFIC_CURRENT i}
 
@@ -16,32 +15,22 @@ UNITS{
 
 PARAMETER {
 
-	K1 = 120000 (/mM /s)  
-	L1 = 20 (/s)
-	K2 = 80000 (/mM /s)
-	L2 = 40 (/s)
-	K3 = 40000 (/mM /s)
-	L3 = 40 (/s)
-	K4 = 70 (/s)
-	L4 = 1 (/s)
-	R4 = 0.00001 (/s)
-	D4 = 0.00001 (/s)
-	R3 = 0.00001 (/s)
-	D3 = 0.00001 (/s) 
-	R2 = 0.00001 (/s) 
-	D2 = 0.00001 (/s)
-	R5 = 0.0001 (/s) 
-	D5 = 0.0001 (/s)
-	N4 = 1 (/s)
-	M4 = 0.0001 (/mM /s)
-	N3 = 0.0255 (/s)
-	M3 = 8000 (/mM /s)
-	N2 = 0.017 (/s)
-	M2 = 16000 (/mM /s)
-	N1 = 0.0085 (/s)
-	M1 = 24000 (/mM /s)
-
-
+	kon1 = 15.98 (/uM /s) 
+	kon2 = 16.3 (/uM /s) 
+	kon3 = 11.6 (/uM /s) 
+	koff1 = 0.019 (/s) 
+	koff2 = 380 (/s) 
+	koff3 =	6822 (/s) 
+	delta = 3718 (/s) 
+	gamma = 43.54 (/s) 
+	alfa1 = 1088 (/s) 
+	beta1 = 540 (/s) 
+	alfa2 = 0.246 (/s) 
+	beta2 = 0.033 (/s) 
+	sigma1 = 31.16 (/s) 
+	eps1 = 79 (/s) 
+	sigma2 = 4.53 (/s) 
+	eps2 = 3.20 (/s) 	
 	gmax = 32.4 (pS)	: conductance     
 	Ev = -40 (mV) 
 	
@@ -55,59 +44,44 @@ ASSIGNED {
     k1 (/s)   : binding
     k2 (/s)   : binding
     k3 (/s)   : binding
-    m1 (/s)   
-    m2 (/s)   
-    m3 (/s)  
-
 }
 
 STATE {	
-	Re
-	AR
-	A2R
-	A3R
-	Ro
-	AD
-	A2D
-	A3D
-	A3Df
-	D
+	C1
+	C2
+	C3
+	C4
+	F5
+	O6
+	O7
+	F8
 }
 
 INITIAL {
-	Re=1
+	C1=1
 }
 
 BREAKPOINT {
 	SOLVE kstates METHOD sparse
-	g = gmax*Ro
-	i = (1e-3) * g * (v - Ev)
+	g = gmax*(O6 + O7)*(1e+9)	
+	i = g * (v - Ev)
 }
 
 KINETIC kstates{
 
-	k1 = K1*patp
-    k2 = K2*patp
-    k3 = K3*patp
+	k1 = kon1*patp
+    k2 = kon2*patp
+    k3 = kon3*patp
 
-    m1 = M1*patp
-    m2 = M2*patp
-    m3 = M3*patp
-
-
-	~ Re <-> AR (k1, L1)
-	~ AR <-> A2R (k2, L2)
-	~ AR <-> AD (D2, R2)
-	~ A2R <-> A3R (k3, L3)
-	~ A2R <-> A2D (D3, R3)
-	~ A3R <-> Ro (K4, L4)
-	~ A3R <-> A3D (D4, R4)
-	~ Ro <-> A3Df (D5, R5)
-	~ A3Df <-> A3D (N4, M4)
-	~ A3D <-> A2D (N3, m3)
-	~ A2D <-> AD (N2, m2)
-	~ AD <-> D (N1, m1)
+	~ C1 <-> C2 (k1, koff1)
+	~ C2 <-> C3 (k2, koff2)
+	~ C3 <-> C4 (k3, koff3)
+	~ C4 <-> F5 (delta, gamma)
+	~ F5 <-> O6 (beta1, alfa1)
+	~ F5 <-> O7 (beta2, alfa2)
+	~ F8 <-> O6 (eps1, sigma1)
+	~ F8 <-> O7 (eps2, sigma2)
 	
 
-	CONSERVE Re+AR+A2R+A3R+Ro+AD+A2D+A3D+A3Df+D=1
+	CONSERVE C1+C2+C3+C4+F5+O6+O7+F8=1
 }

@@ -43,7 +43,7 @@ BREAKPOINT
 }
 if(t>tx1) {
 UNITSOFF
-	diff = (2*c0cleft*PI*exp(k*(tx1-t)+h/(4*Deff*(tx1-t))))/sqrt(4*4*4*PI*PI*PI*Deff*Deff*Deff*(t-tx1)*(t-tx1)*(t-tx1))
+	diff = (2*c0cleft*exp(h/(4*Deff*(tx1-t))))/sqrt(4*4*4*PI*PI*PI*Deff*Deff*Deff*(t-tx1)*(t-tx1)*(t-tx1))
 	serotonin = diff - a*((vmax*diff)/(km + diff))
     if(serotonin > c0cleft){serotonin=c0cleft}
     if(serotonin < 0){serotonin=0}

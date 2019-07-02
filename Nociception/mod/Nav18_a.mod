@@ -9,7 +9,7 @@ ENDCOMMENT
 NEURON {
 	SUFFIX na18a
 	USEION na READ ena WRITE ina
-	RANGE gbar, ina, g
+	RANGE gbar, ina, g, celsius
 }
 
 UNITS {

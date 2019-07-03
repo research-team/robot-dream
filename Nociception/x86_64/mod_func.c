@@ -27,6 +27,7 @@ extern void _nav18_reg(void);
 extern void _nav1p9_reg(void);
 extern void _p2x2_reg(void);
 extern void _p2x3_reg(void);
+extern void _p2x32_reg(void);
 extern void _serotonin_reg(void);
 extern void _slow5HT_reg(void);
 extern void _slowATP_reg(void);
@@ -59,6 +60,7 @@ void modl_reg(){
     fprintf(stderr," ./mod//nav1p9.mod");
     fprintf(stderr," ./mod//p2x2.mod");
     fprintf(stderr," ./mod//p2x3.mod");
+    fprintf(stderr," ./mod//p2x32.mod");
     fprintf(stderr," ./mod//serotonin.mod");
     fprintf(stderr," ./mod//slow5HT.mod");
     fprintf(stderr," ./mod//slowATP.mod");
@@ -88,6 +90,7 @@ void modl_reg(){
   _nav1p9_reg();
   _p2x2_reg();
   _p2x3_reg();
+  _p2x32_reg();
   _serotonin_reg();
   _slow5HT_reg();
   _slowATP_reg();

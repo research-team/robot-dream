@@ -11,11 +11,11 @@ nsyn = 1//$1
 objectvar diff1[nsyn],p2x30[nsyn], r5t3[nsyn]
 list= new List()
 for i=0, nsyn-1 {
-diff1[i]=new AtP_4(0.5)
+diff1[i]=new AtP_42(0.5)
 p2x30[i] = new p2x3(0.5)
 //r5t3[i] = new rr(0.5)
 diff1[i].h = 0.1
-diff1[i].tx1 = 10000
+diff1[i].tx1 = 100
 diff1[i].Deff = 0.08
 diff1[i].c0cleft = 1
 //r5t3[i].gmax = 6
@@ -39,7 +39,7 @@ soma {
   diam = 18.8
   L = 18.8
   Ra = 123.0
-  //insert hh
+  insert hh
 }
 
 n = 3
@@ -55,7 +55,7 @@ dend[0] {
     h = 250
 
     GrCell[0] = new Sin(2,h)
-    insert pas
+    insert hh
 
 
     //insert na18a
@@ -137,7 +137,7 @@ proc epochrun() { local i, n, j
     continuerun(t+100)
 }
 {load_file("atp.ses")}
-epochrun(5, 20000, 60000)
+epochrun(5, 30000, 30000)
 
 objref datafile
 strdef basename, extension, filename00, filename01, filename02

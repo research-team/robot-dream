@@ -25,21 +25,28 @@ class cfiber(object):
     recs: list
         list of receptors mechanisms (NEURON staff)
     '''      
-    def __init__(self, L, d, num, zpozition, fast_diff, numofmodel):
+    def __init__(self, L, d, zpozition, x_application, fast_diff, numofmodel):
         self.coordinates = dict()
+        self.distances = dict()
+        self.diffusions = dict()
         self.fast_diff = fast_diff
         self.diffs = []
         self.recs = []
         self.L = L
         self.diam = d
-        self.num = num
         self.zpozition = zpozition
+        self.x_application = x_application
         self.numofmodel = numofmodel
+        if self.numofmodel == 11 or self.numofmodel == 12:
+            self.num = 170
+        else:
+            self.num = 120
         self.create_sections()
         self.build_topology()
         self.build_subsets()
         self.define_geometry()
         self.position()
+        self.distance()
         self.define_biophysics()
     def create_sections(self):
         '''
@@ -52,8 +59,18 @@ class cfiber(object):
         Connects sections 
         '''
         self.stimsec[0].connect(self.branch(0), 1)
-        for i in range(1, len(self.stimsec)):
-            self.stimsec[i].connect(self.stimsec[i-1])
+        if self.numofmodel == 11 or self.numofmodel == 12:
+            for i in range(1, 70):
+                self.stimsec[i].connect(self.stimsec[i-1])
+            for i in range(70, 120):
+                self.stimsec[i].connect(self.stimsec[i-1])
+            for i in range(120, 170):
+                self.stimsec[i].connect(self.stimsec[i-1])
+            self.stimsec[70].connect(self.stimsec[69])
+            self.stimsec[120].connect(self.stimsec[69])
+        else:
+            for i in range(1, len(self.stimsec)):
+                self.stimsec[i].connect(self.stimsec[i-1])
     def define_geometry(self):
         '''
         Adds length and diameter to sections
@@ -69,14 +86,49 @@ class cfiber(object):
         '''
         Adds 3D position 
         '''
-        i = 0
-        for sec in self.all:
-          h.pt3dclear()
-          h.pt3dadd(self.L*i, 0, self.zpozition, self.diam)
-          h.pt3dadd(self.L*(i+1), 0, self.zpozition, self.diam)
-          xyz = dict(x=self.L*(i+1), y=0, z=0)
-          self.coordinates.update({sec: xyz})
-          i+=1
+        if self.numofmodel == 11 or self.numofmodel == 12:
+            h.pt3dclear()
+            h.pt3dadd(0, 0, self.zpozition, self.diam)
+            h.pt3dadd(self.L, 0, self.zpozition, self.diam)
+            xyz = dict(x=self.L, y=0, z=0)
+            self.coordinates.update({self.branch: xyz})
+            for i in range(70):
+                h.pt3dclear()
+                h.pt3dadd(self.L*(i+1), 0, self.zpozition, self.diam)
+                h.pt3dadd(self.L*(i+2), 0, self.zpozition, self.diam)
+                xyz = dict(x=self.L*(i+2), y=0, z=0)
+                self.coordinates.update({self.stimsec[i]: xyz})
+            for i in range(70, 120):
+                h.pt3dclear()
+                h.pt3dadd(self.L*(i+1), i*8, self.zpozition, self.diam)
+                h.pt3dadd(self.L*(i+2), (i+1)*8, self.zpozition, self.diam)
+                xyz = dict(x=self.L*(i+2), y=(i+1)*8, z=0)
+                self.coordinates.update({self.stimsec[i]: xyz})
+            for i in range(120, 170):
+                h.pt3dclear()
+                h.pt3dadd(self.L*(i+1), i*(-8), self.zpozition, self.diam)
+                h.pt3dadd(self.L*(i+2), (i+1)*(-8), self.zpozition, self.diam)
+                xyz = dict(x=self.L*(i+2), y=(i+1)*(-8), z=0)
+                self.coordinates.update({self.stimsec[i]: xyz})
+        else:
+            i = 0
+            for sec in self.all:
+              h.pt3dclear()
+              h.pt3dadd(self.L*i, 0, self.zpozition, self.diam)
+              h.pt3dadd(self.L*(i+1), 0, self.zpozition, self.diam)
+              xyz = dict(x=self.L*(i+1), y=0, z=0)
+              print(sec)
+              self.coordinates.update({sec: xyz})
+              i+=1
+    def distance(self):
+        '''
+        Adds distances from application for every compartment 
+        '''
+        #self.distances.clear()
+        for compartment in self.all:
+            print(compartment)
+            distance = math.sqrt((self.x_application-self.coordinates.get(compartment).get('x'))**2 + (50-self.coordinates.get(compartment).get('y'))**2 + (0.01-self.coordinates.get(compartment).get('z'))**2)
+            self.distances.update({compartment: distance})
     def define_biophysics(self):
         '''
         Adds channels and their parameters 
@@ -96,7 +148,7 @@ class cfiber(object):
             sec.insert('leak')
             sec.insert('Nav1_3')
             sec.insert('extracellular')
-            if self.numofmodel == 8 or self.numofmodel > 11:
+            if self.numofmodel == 8 or self.numofmodel >= 11:
                 sec.gbar_navv1p8 = 0.2
             elif self.numofmodel == 7:
                 sec.gbar_navv1p8 = 0.1
@@ -117,10 +169,10 @@ class cfiber(object):
             sec.celsiusT_navv1p8 = 37
             sec.celsiusT_nakpump = 37
         for sec in self.stimsec:
-            self.add_P2Xreceptors(sec, 15000, 10, 12)
+            self.add_P2Xreceptors(sec, 10, 12)
             #self.add_5HTreceptors(sec, 15000, 10, 9)
             #self.add_5HTreceptors(sec, 5000, 80, 3)            
-    def add_P2Xreceptors(self, compartment, x, time, g):
+    def add_P2Xreceptors(self, compartment, time, g):
         '''
         Adds P2X3 receptors
         Parameters
@@ -136,7 +188,7 @@ class cfiber(object):
         '''
         if self.fast_diff:
             diff = h.AtP_42(compartment(0.5))
-            diff.h = math.sqrt((x-self.coordinates.get(compartment).get('x'))**2 + (50-self.coordinates.get(compartment).get('y'))**2 + (0.01-self.coordinates.get(compartment).get('z'))**2)
+            diff.h = self.distances.get(compartment)
             diff.tx1 = time
             diff.Deff = 0.8
             diff.c0cleft = 1
@@ -149,6 +201,7 @@ class cfiber(object):
             diff.h = math.sqrt((x-self.coordinates.get(compartment).get('x'))**2 + (1-self.coordinates.get(compartment).get('y'))**2 + (0.01-self.coordinates.get(compartment).get('z'))**2)
             diff.tx1 = time + 0 + (diff.h/1250)*1000
             diff.c0cleft = 100
+        self.diffusions.update({diff: compartment})
         rec = h.p2x3(compartment(0.5))
         rec.gmax = g
         rec.Ev = 5

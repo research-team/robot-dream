@@ -66,17 +66,19 @@ def simulate(cell, tstop=500, vinit=-55):
     h.tstop = tstop
     h.v_init = vinit
     h.run()
-    '''
-    running_ = 1
-    dt = 200
-    h.stdinit()
-    for n in range(2):
-        for item in cell.diffs:
-            item.tx1 = h.t + 1 
-            item.initial = item.atp
-            item.c0cleft = item.c0cleft
-        h.continuerun(h.t+dt)
-    '''
+    # running_ = 1
+    # dt = 40
+    # dl = 1000
+    # h.stdinit()
+    # for n in range(5):
+    #     cell.x_application = cell.x_application + dl
+    #     cell.distance()
+    #     for item in cell.diffs:
+    #         item.tx1 = h.t + 1 
+    #         item.initial = item.atp
+    #         item.c0cleft = item.c0cleft
+    #         item.h = cell.distances.get(cell.diffusions.get(item))
+    #     h.continuerun(h.t+dt)
 
 def show_output(v_vec, t_vec):
     ''' show graphs 
@@ -92,10 +94,10 @@ def show_output(v_vec, t_vec):
     pyplot.ylabel('mV')
 
 if __name__ == '__main__':
-    numofmodel = 8
-    cell = cfiber(250, 1, 120, 0, True, numofmodel)
-    for sec in h.allsec():
-        h.psection(sec=sec) #show parameters of each section
+    numofmodel = 11
+    cell = cfiber(250, 1, 0, 15000, True, numofmodel)
+    # for sec in h.allsec():
+    #     h.psection(sec=sec) #show parameters of each section
     branch_vec, t_vec = set_recording_vectors(cell.branch)
     print(cell.numofmodel)
     simulate(cell)

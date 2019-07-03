@@ -22,14 +22,14 @@ extern int _method3;
 extern double hoc_Exp(double);
 #endif
  
-#define nrn_init _nrn_init__p2x3
-#define _nrn_initial _nrn_initial__p2x3
-#define nrn_cur _nrn_cur__p2x3
-#define _nrn_current _nrn_current__p2x3
-#define nrn_jacob _nrn_jacob__p2x3
-#define nrn_state _nrn_state__p2x3
-#define _net_receive _net_receive__p2x3 
-#define kstates kstates__p2x3 
+#define nrn_init _nrn_init__p2x32
+#define _nrn_initial _nrn_initial__p2x32
+#define nrn_cur _nrn_cur__p2x32
+#define _nrn_current _nrn_current__p2x32
+#define nrn_jacob _nrn_jacob__p2x32
+#define nrn_state _nrn_state__p2x32
+#define _net_receive _net_receive__p2x32 
+#define kstates kstates__p2x32 
  
 #define _threadargscomma_ /**/
 #define _threadargsprotocomma_ /**/
@@ -59,48 +59,46 @@ extern double hoc_Exp(double);
 #define R2 _p[12]
 #define D2 _p[13]
 #define R5 _p[14]
-#define R1 _p[15]
-#define D1 _p[16]
-#define D5 _p[17]
-#define M4 _p[18]
-#define N3 _p[19]
-#define M3 _p[20]
-#define N2 _p[21]
-#define M2 _p[22]
-#define N1 _p[23]
-#define M1 _p[24]
-#define gmax _p[25]
-#define Ev _p[26]
-#define i _p[27]
-#define g _p[28]
-#define Re _p[29]
-#define AR _p[30]
-#define A2R _p[31]
-#define A3R _p[32]
-#define Ro _p[33]
-#define AD _p[34]
-#define A2D _p[35]
-#define A3D _p[36]
-#define A3Df _p[37]
-#define D _p[38]
-#define k1 _p[39]
-#define k2 _p[40]
-#define k3 _p[41]
-#define m1 _p[42]
-#define m2 _p[43]
-#define m3 _p[44]
-#define m4 _p[45]
-#define DRe _p[46]
-#define DAR _p[47]
-#define DA2R _p[48]
-#define DA3R _p[49]
-#define DRo _p[50]
-#define DAD _p[51]
-#define DA2D _p[52]
-#define DA3D _p[53]
-#define DA3Df _p[54]
-#define DD _p[55]
-#define _g _p[56]
+#define D5 _p[15]
+#define M4 _p[16]
+#define N3 _p[17]
+#define M3 _p[18]
+#define N2 _p[19]
+#define M2 _p[20]
+#define N1 _p[21]
+#define M1 _p[22]
+#define gmax _p[23]
+#define Ev _p[24]
+#define i _p[25]
+#define g _p[26]
+#define Re _p[27]
+#define AR _p[28]
+#define A2R _p[29]
+#define A3R _p[30]
+#define Ro _p[31]
+#define AD _p[32]
+#define A2D _p[33]
+#define A3D _p[34]
+#define A3Df _p[35]
+#define D _p[36]
+#define k1 _p[37]
+#define k2 _p[38]
+#define k3 _p[39]
+#define m1 _p[40]
+#define m2 _p[41]
+#define m3 _p[42]
+#define m4 _p[43]
+#define DRe _p[44]
+#define DAR _p[45]
+#define DA2R _p[46]
+#define DA3R _p[47]
+#define DRo _p[48]
+#define DAD _p[49]
+#define DA2D _p[50]
+#define DA3D _p[51]
+#define DA3Df _p[52]
+#define DD _p[53]
+#define _g _p[54]
 #define _nd_area  *_ppvar[0]._pval
 #define patp	*_ppvar[2]._pval
 #define _p_patp	_ppvar[2]._pval
@@ -161,14 +159,14 @@ extern Memb_func* memb_func;
  0, 0
 };
  /* declare global and static user variables */
-#define N4 N4_p2x3
+#define N4 N4_p2x32
  double N4 = 1;
  /* some parameters have upper and lower limits */
  static HocParmLimits _hoc_parm_limits[] = {
  0,0,0
 };
  static HocParmUnits _hoc_parm_units[] = {
- "N4_p2x3", "/s",
+ "N4_p2x32", "/s",
  "K1", "/mM",
  "L1", "/s",
  "K2", "/mM",
@@ -184,8 +182,6 @@ extern Memb_func* memb_func;
  "R2", "/s",
  "D2", "/s",
  "R5", "/s",
- "R1", "/s",
- "D1", "/s",
  "D5", "/s",
  "M4", "/mM",
  "N3", "/s",
@@ -194,11 +190,11 @@ extern Memb_func* memb_func;
  "M2", "/mM",
  "N1", "/s",
  "M1", "/mM",
- "gmax", "mho/cm2",
+ "gmax", "pS",
  "Ev", "mV",
- "i", "pA",
+ "i", "nA",
  "g", "pS",
- "patp", "uM",
+ "patp", "mM",
  0,0
 };
  static double A3Df0 = 0;
@@ -215,7 +211,7 @@ extern Memb_func* memb_func;
  static double v = 0;
  /* connect global user variables to hoc */
  static DoubScal hoc_scdoub[] = {
- "N4_p2x3", &N4_p2x3,
+ "N4_p2x32", &N4_p2x32,
  0,0
 };
  static DoubVec hoc_vdoub[] = {
@@ -241,7 +237,7 @@ static void _ode_matsol(_NrnThread*, _Memb_list*, int);
  /* connect range variables in _p that hoc is supposed to know about */
  static const char *_mechanism[] = {
  "7.5.0",
-"p2x3",
+"p2x32",
  "K1",
  "L1",
  "K2",
@@ -257,8 +253,6 @@ static void _ode_matsol(_NrnThread*, _Memb_list*, int);
  "R2",
  "D2",
  "R5",
- "R1",
- "D1",
  "D5",
  "M4",
  "N3",
@@ -297,14 +291,14 @@ static void nrn_alloc(Prop* _prop) {
 	_p = nrn_point_prop_->param;
 	_ppvar = nrn_point_prop_->dparam;
  }else{
- 	_p = nrn_prop_data_alloc(_mechtype, 57, _prop);
+ 	_p = nrn_prop_data_alloc(_mechtype, 55, _prop);
  	/*initialize range parameters*/
  	K1 = 120000;
  	L1 = 20;
  	K2 = 80000;
  	L2 = 40;
  	K3 = 40000;
- 	L3 = 60;
+ 	L3 = 40;
  	K4 = 70;
  	L4 = 1;
  	R4 = 1e-05;
@@ -312,10 +306,8 @@ static void nrn_alloc(Prop* _prop) {
  	R3 = 1e-05;
  	D3 = 1e-05;
  	R2 = 1e-05;
- 	D2 = 0.2;
- 	R5 = 0.0001;
- 	R1 = 0.0002;
- 	D1 = 0.001;
+ 	D2 = 1e-05;
+ 	R5 = 0.001;
  	D5 = 23;
  	M4 = 0.0001;
  	N3 = 0.0255;
@@ -325,10 +317,10 @@ static void nrn_alloc(Prop* _prop) {
  	N1 = 0.0085;
  	M1 = 24000;
  	gmax = 32.4;
- 	Ev = 0;
+ 	Ev = -40;
   }
  	_prop->param = _p;
- 	_prop->param_size = 57;
+ 	_prop->param_size = 55;
   if (!nrn_point_prop_) {
  	_ppvar = nrn_prop_datum_alloc(_mechtype, 4, _prop);
   }
@@ -348,7 +340,7 @@ extern void _nrn_thread_table_reg(int, void(*)(double*, Datum*, Datum*, _NrnThre
 extern void hoc_register_tolerance(int, HocStateTolerance*, Symbol***);
 extern void _cvode_abstol( Symbol**, double*, int);
 
- void _p2x3_reg() {
+ void _p2x32_reg() {
 	int _vectorized = 0;
   _initlists();
  	_pointtype = point_register_mech(_mechanism,
@@ -357,7 +349,7 @@ extern void _cvode_abstol( Symbol**, double*, int);
 	 _hoc_create_pnt, _hoc_destroy_pnt, _member_func);
  _mechtype = nrn_get_mechtype(_mechanism[1]);
      _nrn_setdata_reg(_mechtype, _setdata);
-  hoc_register_prop_size(_mechtype, 57, 4);
+  hoc_register_prop_size(_mechtype, 55, 4);
   hoc_register_dparam_semantics(_mechtype, 0, "area");
   hoc_register_dparam_semantics(_mechtype, 1, "pntproc");
   hoc_register_dparam_semantics(_mechtype, 2, "pointer");
@@ -365,7 +357,7 @@ extern void _cvode_abstol( Symbol**, double*, int);
  	hoc_register_cvode(_mechtype, _ode_count, _ode_map, _ode_spec, _ode_matsol);
  	hoc_register_tolerance(_mechtype, _hoc_state_tol, &_atollist);
  	hoc_register_var(hoc_scdoub, hoc_vdoub, hoc_intfunc);
- 	ivoc_help("help ?1 p2x3 /Users/sulgod/rd/Nociception/x86_64/p2x3.mod\n");
+ 	ivoc_help("help ?1 p2x32 /Users/sulgod/rd/Nociception/x86_64/p2x32.mod\n");
  hoc_register_limits(_mechtype, _hoc_parm_limits);
  hoc_register_units(_mechtype, _hoc_parm_units);
  }
@@ -421,16 +413,6 @@ for(_i=1;_i<10;_i++){
  _term =  L1 ;
  _MATELM1( 9 ,7)  -= _term;
  _MATELM1( 7 ,7)  += _term;
- /*REACTION*/
-  /* ~ Re <-> D ( D1 , R1 )*/
- f_flux =  D1 * Re ;
- b_flux =  R1 * D ;
- _RHS1( 9) -= (f_flux - b_flux);
- 
- _term =  D1 ;
- _MATELM1( 9 ,9)  += _term;
- _term =  R1 ;
- _MATELM1( 9 ,0)  -= _term;
  /*REACTION*/
   /* ~ AR <-> A2R ( k2 , L2 )*/
  f_flux =  k2 * AR ;
@@ -523,44 +505,44 @@ for(_i=1;_i<10;_i++){
  _MATELM1( 8 ,1)  -= _term;
  _MATELM1( 1 ,1)  += _term;
  /*REACTION*/
-  /* ~ A3Df <-> A3D ( N4 , M4 )*/
+  /* ~ A3Df <-> A3D ( N4 , m4 )*/
  f_flux =  N4 * A3Df ;
- b_flux =  M4 * A3D ;
+ b_flux =  m4 * A3D ;
  _RHS1( 1) -= (f_flux - b_flux);
  _RHS1( 2) += (f_flux - b_flux);
  
  _term =  N4 ;
  _MATELM1( 1 ,1)  += _term;
  _MATELM1( 2 ,1)  -= _term;
- _term =  M4 ;
+ _term =  m4 ;
  _MATELM1( 1 ,2)  -= _term;
  _MATELM1( 2 ,2)  += _term;
  /*REACTION*/
-  /* ~ A3D <-> A2D ( N2 , m3 )*/
+  /* ~ A3D <-> A3D ( N2 , m3 )*/
  f_flux =  N2 * A3D ;
- b_flux =  m3 * A2D ;
+ b_flux =  m3 * A3D ;
  _RHS1( 2) -= (f_flux - b_flux);
- _RHS1( 3) += (f_flux - b_flux);
+ _RHS1( 2) += (f_flux - b_flux);
  
  _term =  N2 ;
  _MATELM1( 2 ,2)  += _term;
- _MATELM1( 3 ,2)  -= _term;
+ _MATELM1( 2 ,2)  -= _term;
  _term =  m3 ;
- _MATELM1( 2 ,3)  -= _term;
- _MATELM1( 3 ,3)  += _term;
+ _MATELM1( 2 ,2)  -= _term;
+ _MATELM1( 2 ,2)  += _term;
  /*REACTION*/
-  /* ~ A2D <-> AD ( N2 , m2 )*/
+  /* ~ A2D <-> A3D ( N2 , m2 )*/
  f_flux =  N2 * A2D ;
- b_flux =  m2 * AD ;
+ b_flux =  m2 * A3D ;
  _RHS1( 3) -= (f_flux - b_flux);
- _RHS1( 4) += (f_flux - b_flux);
+ _RHS1( 2) += (f_flux - b_flux);
  
  _term =  N2 ;
  _MATELM1( 3 ,3)  += _term;
- _MATELM1( 4 ,3)  -= _term;
+ _MATELM1( 2 ,3)  -= _term;
  _term =  m2 ;
- _MATELM1( 3 ,4)  -= _term;
- _MATELM1( 4 ,4)  += _term;
+ _MATELM1( 3 ,2)  -= _term;
+ _MATELM1( 2 ,2)  += _term;
  /*REACTION*/
   /* ~ AD <-> D ( N1 , m1 )*/
  f_flux =  N1 * AD ;
@@ -616,13 +598,6 @@ for(_i=1;_i<10;_i++){
  DAR += (f_flux - b_flux);
  
  /*REACTION*/
-  /* ~ Re <-> D ( D1 , R1 )*/
- f_flux =  D1 * Re ;
- b_flux =  R1 * D ;
- DRe -= (f_flux - b_flux);
- DD += (f_flux - b_flux);
- 
- /*REACTION*/
   /* ~ AR <-> A2R ( k2 , L2 )*/
  f_flux =  k2 * AR ;
  b_flux =  L2 * A2R ;
@@ -672,25 +647,25 @@ for(_i=1;_i<10;_i++){
  DA3Df += (f_flux - b_flux);
  
  /*REACTION*/
-  /* ~ A3Df <-> A3D ( N4 , M4 )*/
+  /* ~ A3Df <-> A3D ( N4 , m4 )*/
  f_flux =  N4 * A3Df ;
- b_flux =  M4 * A3D ;
+ b_flux =  m4 * A3D ;
  DA3Df -= (f_flux - b_flux);
  DA3D += (f_flux - b_flux);
  
  /*REACTION*/
-  /* ~ A3D <-> A2D ( N2 , m3 )*/
+  /* ~ A3D <-> A3D ( N2 , m3 )*/
  f_flux =  N2 * A3D ;
- b_flux =  m3 * A2D ;
+ b_flux =  m3 * A3D ;
  DA3D -= (f_flux - b_flux);
- DA2D += (f_flux - b_flux);
+ DA3D += (f_flux - b_flux);
  
  /*REACTION*/
-  /* ~ A2D <-> AD ( N2 , m2 )*/
+  /* ~ A2D <-> A3D ( N2 , m2 )*/
  f_flux =  N2 * A2D ;
- b_flux =  m2 * AD ;
+ b_flux =  m2 * A3D ;
  DA2D -= (f_flux - b_flux);
- DAD += (f_flux - b_flux);
+ DA3D += (f_flux - b_flux);
  
  /*REACTION*/
   /* ~ AD <-> D ( N1 , m1 )*/
@@ -729,14 +704,6 @@ for(_i=0;_i<10;_i++){
  _term =  L1 ;
  _MATELM1( 9 ,7)  -= _term;
  _MATELM1( 7 ,7)  += _term;
- /*REACTION*/
-  /* ~ Re <-> D ( D1 , R1 )*/
- _term =  D1 ;
- _MATELM1( 9 ,9)  += _term;
- _MATELM1( 0 ,9)  -= _term;
- _term =  R1 ;
- _MATELM1( 9 ,0)  -= _term;
- _MATELM1( 0 ,0)  += _term;
  /*REACTION*/
   /* ~ AR <-> A2R ( k2 , L2 )*/
  _term =  k2 ;
@@ -794,29 +761,29 @@ for(_i=0;_i<10;_i++){
  _MATELM1( 8 ,1)  -= _term;
  _MATELM1( 1 ,1)  += _term;
  /*REACTION*/
-  /* ~ A3Df <-> A3D ( N4 , M4 )*/
+  /* ~ A3Df <-> A3D ( N4 , m4 )*/
  _term =  N4 ;
  _MATELM1( 1 ,1)  += _term;
  _MATELM1( 2 ,1)  -= _term;
- _term =  M4 ;
+ _term =  m4 ;
  _MATELM1( 1 ,2)  -= _term;
  _MATELM1( 2 ,2)  += _term;
  /*REACTION*/
-  /* ~ A3D <-> A2D ( N2 , m3 )*/
+  /* ~ A3D <-> A3D ( N2 , m3 )*/
  _term =  N2 ;
  _MATELM1( 2 ,2)  += _term;
- _MATELM1( 3 ,2)  -= _term;
+ _MATELM1( 2 ,2)  -= _term;
  _term =  m3 ;
- _MATELM1( 2 ,3)  -= _term;
- _MATELM1( 3 ,3)  += _term;
+ _MATELM1( 2 ,2)  -= _term;
+ _MATELM1( 2 ,2)  += _term;
  /*REACTION*/
-  /* ~ A2D <-> AD ( N2 , m2 )*/
+  /* ~ A2D <-> A3D ( N2 , m2 )*/
  _term =  N2 ;
  _MATELM1( 3 ,3)  += _term;
- _MATELM1( 4 ,3)  -= _term;
+ _MATELM1( 2 ,3)  -= _term;
  _term =  m2 ;
- _MATELM1( 3 ,4)  -= _term;
- _MATELM1( 4 ,4)  += _term;
+ _MATELM1( 3 ,2)  -= _term;
+ _MATELM1( 2 ,2)  += _term;
  /*REACTION*/
   /* ~ AD <-> D ( N1 , m1 )*/
  _term =  N1 ;
@@ -1002,7 +969,7 @@ for (_iml = 0; _iml < _cntml; ++_iml) {
  v=_v;
 {
  { error = sparse(&_sparseobj1, 10, _slist1, _dlist1, _p, &t, dt, kstates,&_coef1, _linmat1);
- if(error){fprintf(stderr,"at line 86 in file p2x3.mod:\n	SOLVE kstates METHOD sparse\n"); nrn_complain(_p); abort_run(error);}
+ if(error){fprintf(stderr,"at line 83 in file p2x32.mod:\n	SOLVE kstates METHOD sparse\n"); nrn_complain(_p); abort_run(error);}
     if (secondorder) {
     int _i;
     for (_i = 0; _i < 10; ++_i) {

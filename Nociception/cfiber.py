@@ -117,7 +117,6 @@ class cfiber(object):
               h.pt3dadd(self.L*i, 0, self.zpozition, self.diam)
               h.pt3dadd(self.L*(i+1), 0, self.zpozition, self.diam)
               xyz = dict(x=self.L*(i+1), y=0, z=0)
-              print(sec)
               self.coordinates.update({sec: xyz})
               i+=1
     def distance(self):
@@ -126,7 +125,6 @@ class cfiber(object):
         '''
         #self.distances.clear()
         for compartment in self.all:
-            print(compartment)
             distance = math.sqrt((self.x_application-self.coordinates.get(compartment).get('x'))**2 + (50-self.coordinates.get(compartment).get('y'))**2 + (0.01-self.coordinates.get(compartment).get('z'))**2)
             self.distances.update({compartment: distance})
     def define_biophysics(self):
@@ -169,9 +167,9 @@ class cfiber(object):
             sec.celsiusT_navv1p8 = 37
             sec.celsiusT_nakpump = 37
         for sec in self.stimsec:
-            self.add_P2Xreceptors(sec, 10, 12)
-            #self.add_5HTreceptors(sec, 15000, 10, 9)
-            #self.add_5HTreceptors(sec, 5000, 80, 3)            
+            # self.add_P2Xreceptors(sec, 10, 12)
+            self.add_5HTreceptors(sec, 10, 9)
+            # self.add_5HTreceptors(sec, 80, 3)            
     def add_P2Xreceptors(self, compartment, time, g):
         '''
         Adds P2X3 receptors
@@ -198,7 +196,7 @@ class cfiber(object):
                 diff.k = 0.01
         else:
             diff = h.AtP_slow(compartment(0.5))
-            diff.h = math.sqrt((x-self.coordinates.get(compartment).get('x'))**2 + (1-self.coordinates.get(compartment).get('y'))**2 + (0.01-self.coordinates.get(compartment).get('z'))**2)
+            diff.h = self.distances.get(compartment)
             diff.tx1 = time + 0 + (diff.h/1250)*1000
             diff.c0cleft = 100
         self.diffusions.update({diff: compartment})
@@ -213,7 +211,7 @@ class cfiber(object):
         self.recs.append(rec)
         self.diffs.append(diff)
         # self.recs.append(rec2)
-    def add_5HTreceptors(self, compartment, x, time, g):
+    def add_5HTreceptors(self, compartment, time, g):
         '''
         Adds 5HT receptors
         Parameters
@@ -229,7 +227,7 @@ class cfiber(object):
         '''
         if self.fast_diff:
             diff = h.diff_5HT(compartment(0.5))
-            diff.h = math.sqrt((x-self.coordinates.get(compartment).get('x'))**2 + (0-self.coordinates.get(compartment).get('y'))**2 + (0.001-self.coordinates.get(compartment).get('z'))**2)
+            diff.h = self.distances.get(compartment)
             diff.tx1 = time
             if self.numofmodel == 14:
                 diff.a = 100
@@ -239,7 +237,7 @@ class cfiber(object):
             diff.c0cleft = 3
         else:
             diff = h.slow_5HT(compartment(0.5))
-            diff.h = math.sqrt((x-self.coordinates.get(compartment).get('x'))**2 + (0-self.coordinates.get(compartment).get('y'))**2 + (0.001-self.coordinates.get(compartment).get('z'))**2)
+            diff.h = self.distances.get(compartment)
             diff.tx1 = time + 0 + (diff.h/50)*1000
             diff.c0cleft = 3
         rec = h.r5ht3a(compartment(0.5))

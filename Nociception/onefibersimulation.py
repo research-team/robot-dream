@@ -94,10 +94,10 @@ def show_output(v_vec, t_vec):
     pyplot.ylabel('mV')
 
 if __name__ == '__main__':
-    numofmodel = 11
+    numofmodel = 8
     cell = cfiber(250, 1, 0, 15000, True, numofmodel)
-    # for sec in h.allsec():
-    #     h.psection(sec=sec) #show parameters of each section
+    for sec in h.allsec():
+        h.psection(sec=sec) #show parameters of each section
     branch_vec, t_vec = set_recording_vectors(cell.branch)
     print(cell.numofmodel)
     simulate(cell)
